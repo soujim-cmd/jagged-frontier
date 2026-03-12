@@ -95,6 +95,14 @@
   .about-links { display: flex; gap: 12px; margin-top: 1.5rem; flex-wrap: wrap; }
   .about-link { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); border: 0.5px solid var(--border); padding: 8px 16px; text-decoration: none; transition: border-color .15s, background .15s; }
   .about-link:hover { border-color: var(--ink); background: white; }
+  .inspiration-strip { padding: 3rem clamp(1.5rem,5vw,4rem); border-bottom: 1px solid var(--border); }
+  .inspiration-header { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); border-top: 2px solid var(--ink); padding-top: .75rem; margin-bottom: 2rem; }
+  .inspiration-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .insp-card { padding: 1.25rem; border: 1px solid var(--border); background: white; }
+  .insp-card:hover { border-color: var(--ink); }
+  .insp-type { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+  .insp-title { font-family: var(--serif); font-size: .95rem; font-weight: 700; line-height: 1.3; margin-bottom: .35rem; }
+  .insp-by { font-size: 12px; color: var(--muted); font-weight: 300; }
   footer { padding: 2rem clamp(1.5rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--ink); }
   .footer-brand { font-family: var(--serif); font-size: 13px; font-weight: 700; }
   .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--muted); }
@@ -148,7 +156,7 @@
   <div>
     <div class="hero-kicker">Field Notes · Soujanya Madhurapantula</div>
     <h1 class="hero-headline">Notes from<br>the <em>Jagged</em><br>Frontier</h1>
-    <p class="hero-dek">AI progress is uneven. Models show stunning capability in some domains and fail completely in others. The real challenge isn't building models — it's building the systems that allow AI to work inside real organizations.</p>
+    <p class="hero-dek">AI progress is uneven. Models show stunning capability in some domains and fail completely in others. The real challenge beyond building new models is building the systems that allow AI to work inside real organizations.</p>
   </div>
   <div class="hero-right">
     <div class="hero-featured-label">Featured Essay</div>
@@ -181,7 +189,7 @@
   <a class="essay-card" href="hard-ceiling.html">
     <div class="ec-tag">AI Infrastructure · Scaling Strategy</div>
     <div class="ec-title">The Hard Ceiling</div>
-    <div class="ec-dek">Four interlocking constraints shaping which AI products are viable — and why infrastructure is now the strategic variable, not imagination.</div>
+    <div class="ec-dek">Four interlocking constraints shaping which AI products are viable. Infrastructure is now the strategic variable, not imagination.</div>
     <div class="ec-read">Read essay →</div>
   </a>
   <a class="essay-card" href="optimize-for-constraint.html">
@@ -193,12 +201,12 @@
   <a class="essay-card" href="trust-operating-system.html">
     <div class="ec-tag">Agentic AI · Governance</div>
     <div class="ec-title">Trust Is the Operating System for Agentic AI</div>
-    <div class="ec-dek">If an enterprise doesn't trust the agent, the agent doesn't get to work. Building that trust requires three operational pillars — and most enterprises are failing one.</div>
+    <div class="ec-dek">If an enterprise doesn't trust the agent, the agent doesn't get to work. Building that trust requires three operational pillars. Most enterprises are failing on at least one.</div>
     <div class="ec-read">Read essay →</div>
   </a>
   <a class="essay-card" href="#">
     <div class="ec-tag">AI Infrastructure · Research</div>
-    <div class="ec-title">Beyond the Ceiling — Companion Essay</div>
+    <div class="ec-title">Beyond the Ceiling: Companion Essay</div>
     <div class="ec-dek">Four paths frontier teams are taking: specialized accelerators, neuromorphic computing, sparse models, and edge AI. With a strategic matrix across six industries.</div>
     <div class="ec-read">Coming soon</div>
   </a>
@@ -208,7 +216,7 @@
   <div class="pq-rule"></div>
   <div>
     <div class="pq-text">"The teams winning with enterprise AI are not the ones with the best models. They are the ones who thought in systems and built every layer before they shipped any layer."</div>
-    <div class="pq-attr">— From The Production Readiness Stack</div>
+    <div class="pq-attr">From The Production Readiness Stack</div>
   </div>
 </div>
 
@@ -256,7 +264,7 @@
   <a class="cs-card" href="case-studies.html#field-engineering-scale">
     <div class="cs-eyebrow">Enterprise Platform · Field Engineering</div>
     <div class="cs-title">Scaling Field Engineering for a Data Platform Company</div>
-    <div class="cs-dek">How to close the booking-to-burn gap in a consumption-based revenue model — and what a next-generation field engineering operating model looks like in practice.</div>
+    <div class="cs-dek">How to close the booking-to-burn gap in a consumption-based revenue model. What a next-generation field engineering operating model looks like in practice.</div>
     <div class="cs-tag-row">
       <span class="cs-tag">Operating Model</span><span class="cs-tag">Consumption Growth</span><span class="cs-tag">Enterprise GTM</span>
     </div>
@@ -265,7 +273,7 @@
   <a class="cs-card" href="case-studies.html#frontier-ai-infra">
     <div class="cs-eyebrow">Frontier AI Infrastructure · Product Strategy</div>
     <div class="cs-title">Product &amp; GTM Strategy for a Frontier AI Infra Startup</div>
-    <div class="cs-dek">How to translate genuine scientific differentiation into a repeatable commercial motion — from first design partner to Series A readiness in 18 months.</div>
+    <div class="cs-dek">How to translate genuine scientific differentiation into a repeatable commercial motion. From first design partner to Series A readiness in 18 months.</div>
     <div class="cs-tag-row">
       <span class="cs-tag">Product Roadmap</span><span class="cs-tag">GTM Strategy</span><span class="cs-tag">Series A</span>
     </div>
@@ -277,7 +285,7 @@
   <div>
     <div class="wp-eyebrow">Research · Whitepaper</div>
     <div class="wp-title">Beyond the Ceiling: Navigating the New AI Scaling Tradeoff</div>
-    <div class="wp-dek">A research-backed analysis of the hard ceiling in AI infrastructure and four augmentation paths — specialized accelerators, neuromorphic computing, sparse models, and edge AI — mapped across six industries.</div>
+    <div class="wp-dek">A research-backed analysis of the hard ceiling in AI infrastructure and four augmentation paths: specialized accelerators, neuromorphic computing, sparse models, and edge AI, mapped across six industries.</div>
   </div>
   <a class="wp-btn" href="#">Download PDF →</a>
 </div>
@@ -292,6 +300,42 @@
     </div>
   </div>
   <p class="about-bio">I've spent 20 years building cloud and AI platforms at Google and Oracle. At Oracle, I led the field engineering growth engine that took OCI from $0 to $1B in annual workloads. At Google, I ran product strategy for Cloud AI and Applications, driving 10x consumption growth across the portfolio.<br><br>I write about what it actually takes to get AI working inside large enterprises: the infrastructure decisions, the operating model choices, and the gap between what a model can do and what a production system will allow.</p>
+</div>
+
+<div class="inspiration-strip">
+  <div class="inspiration-header">Inspiration</div>
+  <div class="inspiration-grid">
+    <div class="insp-card">
+      <div class="insp-type">Book</div>
+      <div class="insp-title">The Innovator's Dilemma</div>
+      <div class="insp-by">Clayton Christensen</div>
+    </div>
+    <div class="insp-card">
+      <div class="insp-type">Book</div>
+      <div class="insp-title">Thinking in Systems</div>
+      <div class="insp-by">Donella Meadows</div>
+    </div>
+    <div class="insp-card">
+      <div class="insp-type">Book</div>
+      <div class="insp-title">The Hard Thing About Hard Things</div>
+      <div class="insp-by">Ben Horowitz</div>
+    </div>
+    <div class="insp-card">
+      <div class="insp-type">Essay</div>
+      <div class="insp-title">Software Is Eating the World</div>
+      <div class="insp-by">Marc Andreessen</div>
+    </div>
+    <div class="insp-card">
+      <div class="insp-type">Research</div>
+      <div class="insp-title">Attention Is All You Need</div>
+      <div class="insp-by">Vaswani et al., Google Brain</div>
+    </div>
+    <div class="insp-card">
+      <div class="insp-type">Book</div>
+      <div class="insp-title">Crossing the Chasm</div>
+      <div class="insp-by">Geoffrey Moore</div>
+    </div>
+  </div>
 </div>
 
 <footer>
