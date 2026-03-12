@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies · Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ink:#0e0e0d; --paper:#f5f2eb; --accent:#c8440a; --muted:#7a7670; --border:#d4cfc6; --serif:'Playfair Display',Georgia,serif; --mono:'DM Mono',monospace; --sans:'DM Sans',system-ui,sans-serif; }
+body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-weight:300; line-height:1.6; }
+.masthead { border-bottom:2px solid var(--ink); padding:0 clamp(1.5rem,5vw,4rem); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; min-height:64px; }
+.back-link { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; color:var(--muted); }
+.back-link:hover { color:var(--ink); }
+.masthead-title { font-family:var(--serif); font-size:14px; font-weight:700; text-align:center; }
+.masthead-nav { display:flex; gap:1.5rem; justify-content:flex-end; }
+.masthead-nav a { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); text-decoration:none; opacity:.6; }
+.masthead-nav a:hover { opacity:1; }
+.page-header { padding:3rem clamp(1.5rem,5vw,4rem) 2rem; border-bottom:2px solid var(--ink); }
+.page-kicker { font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:.75rem; }
+.page-title { font-family:var(--serif); font-size:clamp(2rem,5vw,3rem); font-weight:900; letter-spacing:-.02em; margin-bottom:1rem; }
+.page-dek { font-size:15px; line-height:1.75; color:#3a3834; max-width:55ch; font-weight:300; }
+/* CASE STUDY BLOCKS */
+.cs-block { border-bottom:2px solid var(--ink); padding:clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,4rem); scroll-margin-top:80px; }
+.cs-block:last-child { border-bottom:none; }
+.cs-header { margin-bottom:2.5rem; }
+.cs-eyebrow { font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); margin-bottom:.75rem; }
+.cs-title { font-family:var(--serif); font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:900; letter-spacing:-.02em; line-height:1.1; margin-bottom:1rem; }
+.cs-deck { font-size:16px; line-height:1.75; color:#3a3834; max-width:65ch; font-weight:300; }
+.cs-meta-row { display:flex; gap:1.5rem; flex-wrap:wrap; margin-top:1rem; }
+.cs-meta-item { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); padding:4px 10px; border:1px solid var(--border); }
+/* Body layout */
+.cs-body { display:grid; grid-template-columns:minmax(0,680px) 280px; gap:3rem; }
+.cs-content p { font-size:15px; line-height:1.8; color:#2a2824; margin-bottom:1.25rem; font-weight:300; }
+.cs-content h3 { font-family:var(--serif); font-size:1.2rem; font-weight:700; margin:2rem 0 .75rem; }
+.cs-content strong { font-weight:500; }
+.cs-pullquote { margin:2rem 0; padding:1.25rem 0 1.25rem 1.25rem; border-left:3px solid var(--accent); font-family:var(--serif); font-size:1.1rem; line-height:1.5; font-style:italic; color:#2a2824; }
+/* Phase grid */
+.phase-grid { display:flex; flex-direction:column; gap:1px; background:var(--border); margin:1.5rem 0; }
+.phase-item { background:white; padding:1.1rem 1.25rem; display:grid; grid-template-columns:120px 1fr; gap:1rem; }
+.phase-item:hover { background:var(--paper); }
+.phase-label { font-family:var(--mono); font-size:9px; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); padding-top:.2rem; }
+.phase-content { font-size:13px; line-height:1.65; color:#2a2824; font-weight:300; }
+.phase-content strong { font-weight:500; display:block; margin-bottom:.2rem; }
+/* Sidebar */
+.cs-sidebar {}
+.sidebar-card { background:white; border:1px solid var(--border); padding:1.25rem; margin-bottom:1rem; }
+.sidebar-card:hover { border-color:var(--ink); }
+.sc-label { font-family:var(--mono); font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-bottom:.75rem; }
+.sc-item { font-size:13px; line-height:1.65; color:#2a2824; padding:.4rem 0; border-bottom:1px solid var(--border); font-weight:300; }
+.sc-item:last-child { border-bottom:none; }
+.sc-item strong { font-weight:500; display:block; font-size:11px; font-family:var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.1rem; }
+/* Outcome bar */
+.outcome-bar { background:var(--ink); color:var(--paper); padding:1.5rem; margin:2rem 0; }
+.ob-label { font-family:var(--mono); font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:#e8b89a; margin-bottom:1rem; }
+.ob-items { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+.ob-item {}
+.ob-num { font-family:var(--serif); font-size:1.5rem; font-weight:700; color:#e8b89a; margin-bottom:.2rem; }
+.ob-desc { font-size:11px; line-height:1.5; opacity:.7; }
+footer { border-top:2px solid var(--ink); padding:2rem clamp(1.5rem,5vw,4rem); display:flex; justify-content:space-between; align-items:center; }
+.footer-brand { font-family:var(--serif); font-size:13px; font-weight:700; }
+.footer-copy { font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:var(--muted); }
+@media (max-width:900px) { .cs-body { grid-template-columns:1fr; } .cs-sidebar { display:grid; grid-template-columns:1fr 1fr; gap:1rem; } .ob-items { grid-template-columns:1fr; gap:.75rem; } }
+@media (max-width:600px) { .cs-sidebar { grid-template-columns:1fr; } .phase-item { grid-template-columns:1fr; gap:.25rem; } footer { flex-direction:column; gap:.5rem; text-align:center; } }
+</style>
+</head>
+<body>
+<header class="masthead">
+  <a class="back-link" href="index.html">← Home</a>
+  <span class="masthead-title">Notes from the Jagged Frontier</span>
+  <nav class="masthead-nav"><a href="index.html#essays">Essays</a><a href="frameworks.html">Frameworks</a></nav>
+</header>
+
+<div class="page-header">
+  <div class="page-kicker">Case Studies</div>
+  <h1 class="page-title">Work from the Field</h1>
+  <p class="page-dek">Two case studies from applied strategy work: one on scaling a field organization for a consumption-based data platform, one on building the product and GTM strategy for a frontier AI infrastructure startup.</p>
+</div>
+
+<!-- CASE STUDY 01 -->
+<div class="cs-block" id="field-engineering-scale">
+  <div class="cs-header">
+    <div class="cs-eyebrow">Enterprise Platform · Field Engineering · Operating Model</div>
+    <h2 class="cs-title">Scaling Field Engineering<br>for a Data Platform Company</h2>
+    <p class="cs-deck">How to close the booking-to-burn gap in a consumption-based revenue model — and what a next-generation field engineering operating model looks like when the field motion has to drive actual production utilization, not just deal support.</p>
+    <div class="cs-meta-row">
+      <span class="cs-meta-item">Enterprise Data Platform</span>
+      <span class="cs-meta-item">Field Engineering</span>
+      <span class="cs-meta-item">Consumption Growth</span>
+      <span class="cs-meta-item">Operating Model Design</span>
+    </div>
+  </div>
+
+  <div class="cs-body">
+    <div class="cs-content">
+      <h3>The Pattern I've Seen Across Large Cloud Platforms</h3>
+      <p>The field organizations that grew the fastest were the ones where engineers spoke the customer's business language. Financial services wanted people who understood trading infrastructure and risk workflows. Healthcare wanted practitioners who had worked inside clinical systems. Manufacturing wanted engineers who had seen a production floor.</p>
+      <p>The tech mattered — but credibility came from domain fluency. And credibility was what shortened the time from "interesting demo" to "production workload." The customers who expanded consistently were the ones where field teams could translate workloads, not just explain features.</p>
+
+      <h3>The Gap: Booking-to-Burn</h3>
+      <p>Most field engineering organizations are structured like pre-sales support functions. They exist to win deals. But in a consumption-based revenue model, a signed contract with no usage is a liability, not an asset.</p>
+
+      <div class="cs-pullquote">The turning point in both cases was the same: align the field organization's incentives and structure with how enterprise customers actually adopt new technology — not how deals are closed.</div>
+
+      <p>That creates the booking-to-burn gap: the dangerous lag between contract signature and actual production utilization. At one platform I worked on, customers had large contracts and were running a fraction of the workloads we had scoped together. The compensation model rewarded the signature, not the workload. The structure followed.</p>
+
+      <h3>What a Next-Generation Field Engineering Model Looks Like</h3>
+      <p>Three changes consistently move the needle on closing the gap between what the platform can do and what customers actually run in production.</p>
+
+      <div class="phase-grid">
+        <div class="phase-item">
+          <div class="phase-label">Change 01</div>
+          <div class="phase-content"><strong>Vertical field pods</strong>Build teams around industries, not product features. Industry-native teams shorten time to value and build the credibility that makes the difference in regulated, high-stakes domains. Enterprise customers do not adopt new capabilities horizontally — they adopt through a specific workflow, in a specific industry, against a specific set of constraints.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-label">Change 02</div>
+          <div class="phase-content"><strong>Specialist groups for high-value patterns</strong>Deep experts in governance, migrations, and AI workflows who support every region with reusable architectures — rather than solving the same problem from scratch in every account. The equivalent of SWAT teams for technical blockers.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-label">Change 03</div>
+          <div class="phase-content"><strong>Compensation tied to realized consumption</strong>Half bookings, half burn. Reward production workloads, migration decommissioning, and agentic workflow adoption. This was the inflection point in every field organization where I made similar changes — the metric shift produced a behavioral shift almost immediately.</div>
+        </div>
+      </div>
+
+      <h3>Why the Agentic Transition Changes the Stakes</h3>
+      <p>Every enterprise is now moving toward autonomous workflows — systems that reason, recommend, and act continuously. When agents operate around the clock and consumption is no longer bounded by human activity, the economics transform. The field organization's ability to help customers safely operationalize agentic systems becomes the primary growth lever — not technical features or deal support.</p>
+      <p>That requires field teams who understand the execution boundary in each industry, can design for governance and identity constraints that determine whether an agent gets approved for production, and can translate capability into durable business outcomes rather than impressive demos.</p>
+
+      <h3>First Moves</h3>
+      <p>In the first 60 days of any engagement focused on field-at-scale, three things create the most clarity, fastest:</p>
+      <p>Define two or three vertical patterns per industry based on real customer deployments — not theoretical use cases. These become the reusable architectures the field runs everywhere. Stand up a small specialist group focused on migrations and AI workflow patterns. Pilot a modified compensation model in one region to prove the booking-to-burn uplift before rolling it across the organization.</p>
+    </div>
+
+    <div class="cs-sidebar">
+      <div class="sidebar-card">
+        <div class="sc-label">Frameworks applied</div>
+        <div class="sc-item"><strong>Framework</strong>Enterprise AI Operating Model</div>
+        <div class="sc-item"><strong>Framework</strong>Execution Boundary by Industry</div>
+        <div class="sc-item"><strong>Framework</strong>Capacity → Consumption Yield</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sc-label">Key decisions</div>
+        <div class="sc-item"><strong>Org design</strong>Vertical pods over product-aligned generalists</div>
+        <div class="sc-item"><strong>Incentives</strong>50% bookings / 50% realized consumption</div>
+        <div class="sc-item"><strong>Sequencing</strong>One-region pilot before full rollout</div>
+        <div class="sc-item"><strong>Enablement</strong>Specialist SWAT teams over embedded expertise in every pod</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASE STUDY 02 -->
+<div class="cs-block" id="frontier-ai-infra">
+  <div class="cs-header">
+    <div class="cs-eyebrow">Frontier AI Infrastructure · Product Strategy · GTM · Series A</div>
+    <h2 class="cs-title">Product &amp; GTM Strategy for<br>a Frontier AI Infra Startup</h2>
+    <p class="cs-deck">How to translate genuine scientific differentiation into a repeatable commercial motion — from first design partner to Series A readiness in 18 months, for a stealth startup at the intersection of biological computing and adaptive AI.</p>
+    <div class="cs-meta-row">
+      <span class="cs-meta-item">Frontier AI Infrastructure</span>
+      <span class="cs-meta-item">Product Roadmap</span>
+      <span class="cs-meta-item">GTM Strategy</span>
+      <span class="cs-meta-item">Series A Positioning</span>
+    </div>
+  </div>
+
+  <div class="cs-body">
+    <div class="cs-content">
+      <h3>The Context</h3>
+      <p>A stealth frontier AI infrastructure startup had completed early technical validation and secured its first design partner. The challenge: translating genuine scientific differentiation — a biological computing architecture with transformative energy efficiency and adaptive learning characteristics — into a repeatable commercial motion ahead of Series A.</p>
+      <p>The specific differentiators were real and measurable: continuous learning without retraining cycles, temporal intelligence that understood causality, and energy efficiency orders of magnitude lower than equivalent GPU workloads. The gap was a commercial framework that could communicate those advantages to investors, partners, and customers simultaneously.</p>
+
+      <h3>The Roadmap Framework</h3>
+      <p>The strategy was organized around a Now–Then–Later product roadmap, with each phase tied to investor-relevant milestones rather than feature delivery. The key design principle: each phase had to produce a proof point credible to the next audience — design partner, then strategic investor, then ecosystem partner.</p>
+
+      <div class="phase-grid">
+        <div class="phase-item">
+          <div class="phase-label">Now · 0–6 mo</div>
+          <div class="phase-content"><strong>Platform Reliability and Early Adoption</strong>Prove the platform in a production-grade deployment with the existing design partner. Stabilize core platform, release integration tooling (SDKs, APIs, dashboards), and document the first reference deployment with quantifiable benchmarks. One undeniable proof point: it works at scale.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-label">Then · 6–12 mo</div>
+          <div class="phase-content"><strong>Domain Expansion and Scalability</strong>Extend the same core platform into two adjacent pilots with minimal product change. Target use cases selected for high fit and high willingness to publish results — both of which accelerate Series A credibility faster than direct sales alone. Mock demos, vertical one-pagers, and ROI tools to convert interest into paid pilots.</div>
+        </div>
+        <div class="phase-item">
+          <div class="phase-label">Later · 12–18 mo</div>
+          <div class="phase-content"><strong>Developer and Ecosystem Enablement</strong>Developer platform, monetization stack, and third-party contribution pathways. Designed explicitly for Series A positioning: demonstrating platform extensibility, not just single-customer deployments. This phase is what moves the narrative from "interesting technology" to "platform business."</div>
+        </div>
+      </div>
+
+      <h3>The GTM Strategy</h3>
+      <p>Positioning was anchored on three differentiators that held up against GPU incumbents and alternative compute architectures: continuous learning with minimal retraining, temporal intelligence that understood causality, and energy efficiency at a fundamentally different order of magnitude.</p>
+      <p>The partnership strategy was tiered deliberately. First, co-validation with AI infrastructure research teams at major cloud providers — to establish benchmark credibility and open co-selling pathways without requiring direct sales capacity the company didn't have yet. Second, academic partnerships for co-authored research and industry standard-setting. Third, design partnerships with early leaders in target verticals to co-develop pilots and publish results.</p>
+
+      <div class="cs-pullquote">The key contribution was translating scientific differentiation into commercial language: specific customer outcomes, measurable benchmarks, and a partnership structure that could scale credibility faster than direct sales alone.</div>
+
+      <h3>Commercialization Approach</h3>
+      <p>Rather than locking in a pricing model before the platform had been stress-tested in real deployments, the strategy proposed a flexible commercialization framework that evolved with maturity. Early engagements focused on paid pilots and research collaborations to validate performance and quantify business value — energy savings, inference cost reduction, adaptation cycles. Those insights would inform a long-term model blending platform access, hardware subscriptions, and enterprise co-development agreements.</p>
+
+      <div class="outcome-bar">
+        <div class="ob-label">18-month targets</div>
+        <div class="ob-items">
+          <div class="ob-item"><div class="ob-num">3</div><div class="ob-desc">Production-grade reference deployments across target verticals</div></div>
+          <div class="ob-item"><div class="ob-num">5</div><div class="ob-desc">Active pilots with quantifiable benchmarks published</div></div>
+          <div class="ob-item"><div class="ob-num">2+</div><div class="ob-desc">Strategic partnerships with hyperscalers or academic collaborators</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cs-sidebar">
+      <div class="sidebar-card">
+        <div class="sc-label">Frameworks applied</div>
+        <div class="sc-item"><strong>Framework</strong>Now–Then–Later product roadmap</div>
+        <div class="sc-item"><strong>Framework</strong>Three-tier partnership strategy</div>
+        <div class="sc-item"><strong>Framework</strong>Flexible commercialization model</div>
+      </div>
+      <div class="sidebar-card">
+        <div class="sc-label">Key decisions</div>
+        <div class="sc-item"><strong>Positioning</strong>Three differentiators vs. both GPU incumbents and alternative compute</div>
+        <div class="sc-item"><strong>Sequencing</strong>Deepen one customer before expanding to adjacent markets</div>
+        <div class="sc-item"><strong>Credibility path</strong>Co-publish with design partner before pursuing new logos</div>
+        <div class="sc-item"><strong>Pricing</strong>Flexible pilots before committing to a pricing architecture</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">Notes from the Jagged Frontier</span>
+  <span class="footer-copy">© 2026 Soujanya Madhurapantula</span>
+</footer>
+</body>
+</html>

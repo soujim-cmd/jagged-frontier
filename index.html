@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0e0e0d; --paper: #f5f2eb; --accent: #c8440a;
+    --muted: #7a7670; --border: #d4cfc6;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'DM Mono', monospace; --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+  .masthead { border-bottom: 2px solid var(--ink); padding: 0 clamp(1.5rem,5vw,4rem); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; min-height: 64px; }
+  .masthead-tag { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .masthead-title { font-family: var(--serif); font-size: clamp(13px,1.5vw,16px); font-weight: 700; text-align: center; white-space: nowrap; }
+  .masthead-nav { display: flex; gap: 1.5rem; justify-content: flex-end; }
+  .masthead-nav a { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: .6; transition: opacity .2s; }
+  .masthead-nav a:hover { opacity: 1; }
+  .dateline { background: var(--ink); color: var(--paper); padding: 8px clamp(1.5rem,5vw,4rem); display: flex; gap: 2rem; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; overflow: hidden; }
+  .dateline span { opacity: .5; white-space: nowrap; }
+  .dateline span.active { opacity: 1; color: #e8b89a; }
+  .hero { padding: clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,4rem) clamp(2rem,5vw,3rem); display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: end; border-bottom: 1px solid var(--border); position: relative; }
+  .hero::after { content: ''; position: absolute; right: clamp(1.5rem,5vw,4rem); top: 2rem; width: 1px; height: 60%; background: var(--border); }
+  .hero-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+  .hero-kicker::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .hero-headline { font-family: var(--serif); font-size: clamp(2.8rem,6vw,5rem); line-height: 1.0; font-weight: 900; letter-spacing: -.02em; margin-bottom: 1.5rem; }
+  .hero-headline em { font-style: italic; color: var(--accent); }
+  .hero-dek { font-size: 15px; line-height: 1.75; color: #3a3834; max-width: 38ch; font-weight: 300; }
+  .hero-right { display: flex; flex-direction: column; gap: 1.5rem; padding-left: 3rem; }
+  .hero-featured-label { font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); border-top: 2px solid var(--ink); padding-top: .75rem; }
+  .hero-featured-card { display: block; text-decoration: none; color: inherit; padding: 1.5rem; background: var(--ink); color: var(--paper); border-radius: 2px; transition: transform .2s, box-shadow .2s; position: relative; overflow: hidden; }
+  .hero-featured-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); }
+  .hero-featured-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,.2); }
+  .hfc-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: #e8b89a; margin-bottom: .75rem; }
+  .hfc-title { font-family: var(--serif); font-size: 1.35rem; line-height: 1.25; font-weight: 700; margin-bottom: .75rem; }
+  .hfc-dek { font-size: 13px; line-height: 1.65; opacity: .75; margin-bottom: 1.25rem; font-weight: 300; }
+  .hfc-cta { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+  .hfc-cta::after { content: ' →'; }
+  .section-header { padding: 2rem clamp(1.5rem,5vw,4rem) 1rem; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); }
+  .section-header h2 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; }
+  .section-header .count { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .1em; }
+  .section-header .see-all { margin-left: auto; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--accent); }
+  .essays-grid { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 2px solid var(--ink); }
+  .essay-card { padding: 2rem clamp(1.5rem,3vw,2.5rem); border-right: 1px solid var(--border); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: .75rem; transition: background .15s; position: relative; }
+  .essay-card:last-child { border-right: none; }
+  .essay-card:hover { background: white; }
+  .essay-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background .15s; }
+  .essay-card:hover::before { background: var(--accent); }
+  .ec-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .ec-title { font-family: var(--serif); font-size: 1.05rem; line-height: 1.3; font-weight: 700; }
+  .ec-dek { font-size: 13px; line-height: 1.65; color: #4a4844; flex: 1; font-weight: 300; }
+  .ec-read { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-top: .5rem; }
+  .pull-quote { padding: 3rem clamp(1.5rem,5vw,4rem); border-bottom: 2px solid var(--ink); display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; background: white; }
+  .pq-rule { border-top: 3px solid var(--accent); margin-top: .6rem; }
+  .pq-text { font-family: var(--serif); font-size: clamp(1.2rem,2.5vw,1.75rem); line-height: 1.4; font-style: italic; font-weight: 700; max-width: 70ch; }
+  .pq-attr { margin-top: 1rem; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .frameworks-strip { padding: 0 clamp(1.5rem,5vw,4rem); border-bottom: 2px solid var(--ink); }
+  .frameworks-grid { display: grid; grid-template-columns: repeat(5,1fr); }
+  .fw-card { padding: 1.75rem 1.5rem 1.75rem 0; border-right: 1px solid var(--border); text-decoration: none; color: inherit; display: block; }
+  .fw-card:not(:first-child) { padding-left: 1.5rem; }
+  .fw-card:last-child { border-right: none; }
+  .fw-card:hover .fw-title { color: var(--accent); }
+  .fw-num { font-family: var(--mono); font-size: 28px; font-weight: 500; color: var(--border); line-height: 1; margin-bottom: .5rem; }
+  .fw-title { font-family: var(--serif); font-size: .95rem; font-weight: 700; margin-bottom: .4rem; line-height: 1.3; transition: color .15s; }
+  .fw-desc { font-size: 11px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+  .casestudies-grid { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid var(--ink); }
+  .cs-card { padding: 2.5rem clamp(1.5rem,3vw,2.5rem); border-right: 1px solid var(--border); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: .75rem; transition: background .15s; position: relative; }
+  .cs-card:last-child { border-right: none; }
+  .cs-card:hover { background: white; }
+  .cs-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background .15s; }
+  .cs-card:hover::before { background: var(--accent); }
+  .cs-eyebrow { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .cs-title { font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; font-weight: 700; }
+  .cs-dek { font-size: 13px; line-height: 1.7; color: #4a4844; flex: 1; font-weight: 300; }
+  .cs-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: .5rem; }
+  .cs-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--muted); }
+  .cs-read { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-top: .5rem; }
+  .whitepaper-band { padding: 2.5rem clamp(1.5rem,5vw,4rem); background: var(--ink); color: var(--paper); display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; border-bottom: 2px solid var(--ink); }
+  .wp-eyebrow { font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: #e8b89a; margin-bottom: .5rem; }
+  .wp-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; line-height: 1.2; margin-bottom: .5rem; }
+  .wp-dek { font-size: 13px; line-height: 1.65; opacity: .7; font-weight: 300; max-width: 60ch; }
+  .wp-btn { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--paper); border: 1px solid rgba(255,255,255,.3); padding: 12px 24px; text-decoration: none; white-space: nowrap; transition: border-color .2s, background .2s; }
+  .wp-btn:hover { border-color: white; background: rgba(255,255,255,.05); }
+  .about-strip { padding: 3rem clamp(1.5rem,5vw,4rem); display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: start; border-bottom: 1px solid var(--border); }
+  .about-left h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin-bottom: .25rem; line-height: 1.2; }
+  .about-byline { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .about-bio { font-size: 14px; line-height: 1.8; color: #3a3834; font-weight: 300; }
+  .about-links { display: flex; gap: 12px; margin-top: 1.5rem; flex-wrap: wrap; }
+  .about-link { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); border: 0.5px solid var(--border); padding: 8px 16px; text-decoration: none; transition: border-color .15s, background .15s; }
+  .about-link:hover { border-color: var(--ink); background: white; }
+  footer { padding: 2rem clamp(1.5rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--ink); }
+  .footer-brand { font-family: var(--serif); font-size: 13px; font-weight: 700; }
+  .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--muted); }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+  .hero-kicker { animation: fadeUp .5s ease both; }
+  .hero-headline { animation: fadeUp .6s .1s ease both; }
+  .hero-dek { animation: fadeUp .6s .2s ease both; }
+  .hero-right { animation: fadeUp .6s .3s ease both; }
+  @media (max-width: 900px) { .frameworks-grid { grid-template-columns: repeat(3,1fr); } }
+  @media (max-width: 768px) {
+    .hero, .about-strip { grid-template-columns: 1fr; }
+    .hero::after { display: none; }
+    .hero-right { padding-left: 0; }
+    .essays-grid, .casestudies-grid { grid-template-columns: 1fr; }
+    .essay-card, .cs-card { border-right: none; border-bottom: 1px solid var(--border); }
+    .frameworks-grid { grid-template-columns: 1fr 1fr; }
+    .fw-card { border-right: 1px solid var(--border) !important; padding: 1.25rem .75rem !important; }
+    .fw-card:nth-child(even) { border-right: none !important; }
+    .pull-quote { grid-template-columns: 1fr; }
+    .pq-rule { display: none; }
+    .whitepaper-band { grid-template-columns: 1fr; }
+    .masthead { grid-template-columns: 1fr 1fr; }
+    .masthead-tag { display: none; }
+    footer { flex-direction: column; gap: .5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="masthead-tag">Field notes · Enterprise AI</span>
+  <span class="masthead-title">Notes from the Jagged Frontier</span>
+  <nav class="masthead-nav">
+    <a href="#essays">Essays</a>
+    <a href="frameworks.html">Frameworks</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="#about">About</a>
+    <a href="https://linkedin.com/in/soujanyamadhurapantula" target="_blank">LinkedIn</a>
+  </nav>
+</header>
+
+<div class="dateline">
+  <span class="active">Enterprise AI · Infrastructure</span>
+  <span>Operating Models</span>
+  <span>GTM Strategy</span>
+  <span>Production Readiness</span>
+  <span>Agentic Systems</span>
+</div>
+
+<section class="hero">
+  <div>
+    <div class="hero-kicker">Field Notes · Soujanya Madhurapantula</div>
+    <h1 class="hero-headline">Notes from<br>the <em>Jagged</em><br>Frontier</h1>
+    <p class="hero-dek">AI progress is uneven. Models show stunning capability in some domains and fail completely in others. The real challenge isn't building models — it's building the systems that allow AI to work inside real organizations.</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-featured-label">Featured Essay</div>
+    <a class="hero-featured-card" href="production-readiness.html">
+      <div class="hfc-tag">Production Systems · Infrastructure</div>
+      <div class="hfc-title">The Production Readiness Gap in Enterprise AI</div>
+      <div class="hfc-dek">Why AI pilots succeed while production systems stall. The root cause is architectural: probabilistic models colliding with deterministic systems of record.</div>
+      <div class="hfc-cta">Read the essay</div>
+    </a>
+  </div>
+</section>
+
+<div class="section-header" id="essays">
+  <h2>Essays from the Frontier</h2>
+  <span class="count">/ 06</span>
+</div>
+<div class="essays-grid">
+  <a class="essay-card" href="production-readiness.html">
+    <div class="ec-tag">Infrastructure · Production Systems</div>
+    <div class="ec-title">The Production Readiness Gap</div>
+    <div class="ec-dek">Teams build top-down starting with the use case. Systems fail bottom-up starting with infrastructure assumptions nobody stress-tested in the pilot.</div>
+    <div class="ec-read">Read essay →</div>
+  </a>
+  <a class="essay-card" href="consumption-to-outcomes.html">
+    <div class="ec-tag">Platform Economics · GTM</div>
+    <div class="ec-title">From Consumption to Outcomes</div>
+    <div class="ec-dek">Cloud platforms scaled when companies turned product usage into repeatable consumption. AI platforms will scale when companies turn tasks into measurable outcomes.</div>
+    <div class="ec-read">Read essay →</div>
+  </a>
+  <a class="essay-card" href="hard-ceiling.html">
+    <div class="ec-tag">AI Infrastructure · Scaling Strategy</div>
+    <div class="ec-title">The Hard Ceiling</div>
+    <div class="ec-dek">Four interlocking constraints shaping which AI products are viable — and why infrastructure is now the strategic variable, not imagination.</div>
+    <div class="ec-read">Read essay →</div>
+  </a>
+  <a class="essay-card" href="optimize-for-constraint.html">
+    <div class="ec-tag">Architecture · Hybrid AI</div>
+    <div class="ec-title">Stop Optimizing for the Model</div>
+    <div class="ec-dek">Every AI pilot starts by arguing about model choice. That argument almost never determines whether the project succeeds. The constraint does.</div>
+    <div class="ec-read">Read essay →</div>
+  </a>
+  <a class="essay-card" href="trust-operating-system.html">
+    <div class="ec-tag">Agentic AI · Governance</div>
+    <div class="ec-title">Trust Is the Operating System for Agentic AI</div>
+    <div class="ec-dek">If an enterprise doesn't trust the agent, the agent doesn't get to work. Building that trust requires three operational pillars — and most enterprises are failing one.</div>
+    <div class="ec-read">Read essay →</div>
+  </a>
+  <a class="essay-card" href="#">
+    <div class="ec-tag">AI Infrastructure · Research</div>
+    <div class="ec-title">Beyond the Ceiling — Companion Essay</div>
+    <div class="ec-dek">Four paths frontier teams are taking: specialized accelerators, neuromorphic computing, sparse models, and edge AI. With a strategic matrix across six industries.</div>
+    <div class="ec-read">Coming soon</div>
+  </a>
+</div>
+
+<div class="pull-quote">
+  <div class="pq-rule"></div>
+  <div>
+    <div class="pq-text">"The teams winning with enterprise AI are not the ones with the best models. They are the ones who thought in systems and built every layer before they shipped any layer."</div>
+    <div class="pq-attr">— From The Production Readiness Stack</div>
+  </div>
+</div>
+
+<div class="section-header" id="frameworks">
+  <h2>Core Frameworks</h2>
+  <span class="count">/ 05</span>
+  <a href="frameworks.html" class="see-all">View all →</a>
+</div>
+<div class="frameworks-strip">
+  <div class="frameworks-grid">
+    <a class="fw-card" href="frameworks.html#production-readiness-stack">
+      <div class="fw-num">01</div>
+      <div class="fw-title">The Production Readiness Stack</div>
+      <div class="fw-desc">Four layers, all necessary, none optional.</div>
+    </a>
+    <a class="fw-card" href="frameworks.html#execution-boundary">
+      <div class="fw-num">02</div>
+      <div class="fw-title">The Execution Boundary</div>
+      <div class="fw-desc">Where a model's output meets humans, rules, and systems.</div>
+    </a>
+    <a class="fw-card" href="frameworks.html#operating-model">
+      <div class="fw-num">03</div>
+      <div class="fw-title">Enterprise AI Operating Model</div>
+      <div class="fw-desc">Four components to move AI from experiment to production.</div>
+    </a>
+    <a class="fw-card" href="frameworks.html#capacity-yield">
+      <div class="fw-num">04</div>
+      <div class="fw-title">Capacity → Consumption Yield</div>
+      <div class="fw-desc">Capital allocation against revenue conversion velocity.</div>
+    </a>
+    <a class="fw-card" href="frameworks.html#constraint-matrix">
+      <div class="fw-num">05</div>
+      <div class="fw-title">Constraint Augmentation Matrix</div>
+      <div class="fw-desc">Match architecture to constraint. Industry-by-industry.</div>
+    </a>
+  </div>
+</div>
+
+<div class="section-header" id="case-studies">
+  <h2>Case Studies</h2>
+  <span class="count">/ 02</span>
+  <a href="case-studies.html" class="see-all">View all →</a>
+</div>
+<div class="casestudies-grid">
+  <a class="cs-card" href="case-studies.html#field-engineering-scale">
+    <div class="cs-eyebrow">Enterprise Platform · Field Engineering</div>
+    <div class="cs-title">Scaling Field Engineering for a Data Platform Company</div>
+    <div class="cs-dek">How to close the booking-to-burn gap in a consumption-based revenue model — and what a next-generation field engineering operating model looks like in practice.</div>
+    <div class="cs-tag-row">
+      <span class="cs-tag">Operating Model</span><span class="cs-tag">Consumption Growth</span><span class="cs-tag">Enterprise GTM</span>
+    </div>
+    <div class="cs-read">Read case study →</div>
+  </a>
+  <a class="cs-card" href="case-studies.html#frontier-ai-infra">
+    <div class="cs-eyebrow">Frontier AI Infrastructure · Product Strategy</div>
+    <div class="cs-title">Product &amp; GTM Strategy for a Frontier AI Infra Startup</div>
+    <div class="cs-dek">How to translate genuine scientific differentiation into a repeatable commercial motion — from first design partner to Series A readiness in 18 months.</div>
+    <div class="cs-tag-row">
+      <span class="cs-tag">Product Roadmap</span><span class="cs-tag">GTM Strategy</span><span class="cs-tag">Series A</span>
+    </div>
+    <div class="cs-read">Read case study →</div>
+  </a>
+</div>
+
+<div class="whitepaper-band">
+  <div>
+    <div class="wp-eyebrow">Research · Whitepaper</div>
+    <div class="wp-title">Beyond the Ceiling: Navigating the New AI Scaling Tradeoff</div>
+    <div class="wp-dek">A research-backed analysis of the hard ceiling in AI infrastructure and four augmentation paths — specialized accelerators, neuromorphic computing, sparse models, and edge AI — mapped across six industries.</div>
+  </div>
+  <a class="wp-btn" href="#">Download PDF →</a>
+</div>
+
+<div class="about-strip" id="about">
+  <div>
+    <div class="about-byline">Author</div>
+    <h3>Soujanya<br>Madhurapantula</h3>
+    <div class="about-links">
+      <a class="about-link" href="https://linkedin.com/in/soujanyamadhurapantula" target="_blank">LinkedIn</a>
+      <a class="about-link" href="mailto:souji.m@gmail.com">Contact</a>
+    </div>
+  </div>
+  <p class="about-bio">Product and strategy leader with two decades of experience building enterprise platforms at Google Cloud and Oracle. Her work explores the systems required to translate AI capability into durable enterprise outcomes — including infrastructure economics, platform adoption, and enterprise AI operating models.<br><br>She led cloud infrastructure from $0 to $1B in annual workloads and drove 10× consumption growth across Cloud AI and Applications. She writes from the field — where real production constraints collide with ambitious AI roadmaps.</p>
+</div>
+
+<footer>
+  <span class="footer-brand">Notes from the Jagged Frontier</span>
+  <span class="footer-copy">© 2026 Soujanya Madhurapantula &nbsp;·&nbsp; San Francisco Bay Area</span>
+</footer>
+</body>
+</html>
