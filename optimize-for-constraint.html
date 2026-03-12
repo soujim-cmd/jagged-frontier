@@ -30,12 +30,15 @@ body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-
 .essay-content h2 { font-family:var(--serif); font-size:1.5rem; font-weight:700; margin:2.5rem 0 1rem; line-height:1.25; }
 .essay-content strong { font-weight:500; }
 .essay-pullquote { margin:2.5rem 0; padding:1.5rem 0 1.5rem 1.5rem; border-left:3px solid var(--accent); font-family:var(--serif); font-size:1.25rem; line-height:1.45; font-style:italic; }
-.constraint-rows { margin:2rem 0; display:flex; flex-direction:column; }
-.cr-item { display:grid; grid-template-columns:160px 1fr; border-bottom:1px solid var(--border); min-height:72px; background:white; }
-.cr-item:first-child { border-top:2px solid var(--ink); }
+.constraint-rows { margin:2rem 0; border-top:2px solid var(--ink); }
+.cr-item { display:grid; grid-template-columns:170px 1fr; border-bottom:1px solid var(--border); background:white; }
 .cr-item:hover { background:var(--paper); }
-.cr-label { padding:1.1rem 1rem 1.1rem 0; font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); display:flex; align-items:center; border-right:1px solid var(--border); font-weight:500; }
-.cr-content { padding:1.1rem 0 1.1rem 1.25rem; font-size:13px; line-height:1.65; color:#3a3834; font-weight:300; display:flex; align-items:center; }
+.cr-label { padding:1.5rem 1rem 1.5rem 0; font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); border-right:1px solid var(--border); font-weight:500; display:flex; flex-direction:column; gap:0.5rem; justify-content:flex-start; padding-top:1.5rem; }
+.cr-not-blocked { font-size:10px; color:var(--muted); font-weight:300; letter-spacing:0.05em; text-transform:none; font-family:var(--sans); }
+.cr-blocked-by { display:flex; align-items:center; gap:6px; margin-top:0.25rem; }
+.cr-blocked-label { font-family:var(--mono); font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+.cr-constraint-tag { display:inline-block; background:var(--accent); color:white; font-family:var(--mono); font-size:10px; letter-spacing:0.08em; text-transform:uppercase; padding:2px 8px; }
+.cr-content { padding:1.5rem 0 1.5rem 1.5rem; font-size:13px; line-height:1.75; color:#3a3834; font-weight:300; }
 .path-rows { margin:2rem 0; display:flex; flex-direction:column; gap:2px; }
 .pr-item { display:grid; grid-template-columns:1fr auto; align-items:center; padding:1rem 1.25rem; background:white; border:1px solid var(--border); gap:2rem; }
 .pr-item:hover { background:var(--paper); }
@@ -70,20 +73,44 @@ body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-
 
 <div class="constraint-rows">
   <div class="cr-item">
-    <div class="cr-label">Healthcare</div>
-    <div class="cr-content">Not blocked by model intelligence. Blocked by <strong>privacy</strong>. Patient data cannot be sent to a generic API. The architecture has to be built around that constraint from day one — federated training, on-prem or edge inference, data that never leaves the hospital boundary.</div>
+    <div class="cr-label">
+      Healthcare
+      <div class="cr-blocked-by">
+        <span class="cr-blocked-label">Blocked by</span>
+        <span class="cr-constraint-tag">Privacy</span>
+      </div>
+    </div>
+    <div class="cr-content">Patient data cannot be sent to a generic API. The architecture has to be built around that constraint from day one — federated training, on-prem or edge inference, data that never leaves the hospital boundary.</div>
   </div>
   <div class="cr-item">
-    <div class="cr-label">Manufacturing &amp; Robotics</div>
-    <div class="cr-content">Not blocked by reasoning capability. Blocked by <strong>latency</strong>. A robot cannot wait 500 milliseconds for a cloud round-trip. A quality control system on an assembly line cannot either. The compute has to be at the edge, and inference has to be measured in single-digit milliseconds.</div>
+    <div class="cr-label">
+      Manufacturing &amp; Robotics
+      <div class="cr-blocked-by">
+        <span class="cr-blocked-label">Blocked by</span>
+        <span class="cr-constraint-tag">Latency</span>
+      </div>
+    </div>
+    <div class="cr-content">A robot cannot wait 500 milliseconds for a cloud round-trip. A quality control system on an assembly line cannot either. The compute has to be at the edge, and inference has to be measured in single-digit milliseconds.</div>
   </div>
   <div class="cr-item">
-    <div class="cr-label">Finance</div>
-    <div class="cr-content">Not blocked by context window or model size. Blocked by <strong>auditability</strong>. If you cannot trace why a decision was made — reproduce it, explain it, log it — you cannot ship it. The architecture has to be deterministic by design, not probabilistic.</div>
+    <div class="cr-label">
+      Finance
+      <div class="cr-blocked-by">
+        <span class="cr-blocked-label">Blocked by</span>
+        <span class="cr-constraint-tag">Auditability</span>
+      </div>
+    </div>
+    <div class="cr-content">If you cannot trace why a decision was made — reproduce it, explain it, log it — you cannot ship it. The architecture has to be deterministic by design, not probabilistic.</div>
   </div>
   <div class="cr-item">
-    <div class="cr-label">Mobile &amp; IoT</div>
-    <div class="cr-content">Not blocked by processing speed. Blocked by <strong>energy</strong>. If the battery dies in an hour, the product is dead regardless of how good the model is.</div>
+    <div class="cr-label">
+      Mobile &amp; IoT
+      <div class="cr-blocked-by">
+        <span class="cr-blocked-label">Blocked by</span>
+        <span class="cr-constraint-tag">Energy</span>
+      </div>
+    </div>
+    <div class="cr-content">If the battery dies in an hour, the product is dead regardless of how good the model is.</div>
   </div>
 </div>
 
