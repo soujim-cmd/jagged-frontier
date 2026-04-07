@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNWC1D521"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TTNWC1D521');
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0e0e0d; --paper: #f5f2eb; --accent: #c8440a;
+    --muted: #7a7670; --border: #d4cfc6;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; }
+
+  .masthead { border-bottom: 2px solid var(--ink); padding: 0 clamp(1.5rem, 5vw, 4rem); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 64px; }
+  .back-link { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  .back-link:hover { color: var(--ink); }
+  .masthead-title { font-family: var(--serif); font-size: 14px; font-weight: 700; text-align: center; }
+  .masthead-nav { display: flex; gap: 1.5rem; justify-content: flex-end; }
+  .masthead-nav a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.6; }
+  .masthead-nav a:hover { opacity: 1; }
+
+  .contact-wrap { flex: 1; display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 64px); }
+
+  .contact-left { padding: clamp(3rem, 7vw, 6rem) clamp(2rem, 5vw, 4rem); border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
+  .contact-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+  .contact-kicker::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .contact-headline { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 1.5rem; }
+  .contact-body { font-size: 15px; line-height: 1.8; color: #3a3834; max-width: 40ch; font-weight: 300; margin-bottom: 2rem; }
+  .contact-meta { display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-meta-item { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+  .contact-meta-item::before { content: ''; display: inline-block; width: 6px; height: 6px; background: var(--accent); }
+  .contact-meta-item a { color: var(--ink); text-decoration: none; }
+  .contact-meta-item a:hover { color: var(--accent); }
+
+  .contact-right { padding: clamp(3rem, 7vw, 6rem) clamp(2rem, 5vw, 4rem); display: flex; flex-direction: column; justify-content: center; }
+
+  .form-group { margin-bottom: 1.5rem; }
+  .form-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.5rem; }
+  .form-input, .form-textarea {
+    width: 100%; background: white; border: 1px solid var(--border);
+    padding: 12px 16px; font-family: var(--sans); font-size: 14px;
+    font-weight: 300; color: var(--ink); outline: none;
+    transition: border-color 0.15s; appearance: none; border-radius: 0;
+  }
+  .form-input:focus, .form-textarea:focus { border-color: var(--ink); }
+  .form-textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+  .form-submit {
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; background: var(--ink); color: var(--paper);
+    border: none; padding: 14px 32px; cursor: pointer;
+    transition: background 0.15s; width: 100%;
+  }
+  .form-submit:hover { background: var(--accent); }
+  .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .form-success { display: none; text-align: center; padding: 3rem 2rem; }
+  .form-success.visible { display: block; }
+  .success-icon { font-family: var(--serif); font-size: 3rem; color: var(--accent); margin-bottom: 1rem; }
+  .success-msg { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .success-sub { font-size: 14px; color: var(--muted); font-weight: 300; }
+
+  .contact-footer { border-top: 2px solid var(--ink); padding: 1.5rem clamp(1.5rem, 5vw, 4rem); display: flex; justify-content: space-between; align-items: center; }
+  .cf-brand { font-family: var(--serif); font-size: 13px; font-weight: 700; }
+  .cf-back { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--accent); }
+
+  @media (max-width: 768px) {
+    .contact-wrap { grid-template-columns: 1fr; }
+    .contact-left { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <a class="back-link" href="index.html">← Back</a>
+  <span class="masthead-title">Notes from the Jagged Frontier</span>
+  <nav class="masthead-nav">
+    <a href="index.html#essays">Essays</a>
+    <a href="index.html#frameworks">Frameworks</a>
+  </nav>
+</header>
+
+<div class="contact-wrap">
+  <div class="contact-left">
+    <div class="contact-kicker">Get in touch</div>
+    <h1 class="contact-headline">Let's talk about what you're building.</h1>
+    <p class="contact-body">Whether you're navigating enterprise AI adoption, thinking through a GTM motion, or just want to exchange ideas — I'm interested in conversations with people doing serious work.</p>
+    <div class="contact-meta">
+      <div class="contact-meta-item"><a href="mailto:souji.m@gmail.com">souji.m@gmail.com</a></div>
+      <div class="contact-meta-item"><a href="https://linkedin.com/in/soujanyamadhurapantula" target="_blank">LinkedIn</a></div>
+      <div class="contact-meta-item">San Ramon, CA · Bay Area</div>
+    </div>
+  </div>
+
+  <div class="contact-right">
+    <form id="contact-form" action="https://formspree.io/f/xaqlkwwd" method="POST">
+      <div class="form-group">
+        <label class="form-label" for="name">Name</label>
+        <input class="form-input" type="text" id="name" name="name" required placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email</label>
+        <input class="form-input" type="email" id="email" name="email" required placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="subject">What's this about?</label>
+        <input class="form-input" type="text" id="subject" name="subject" placeholder="e.g. Enterprise AI, GTM strategy, advisory...">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="message">Message</label>
+        <textarea class="form-textarea" id="message" name="message" required placeholder="Tell me what you're working on..."></textarea>
+      </div>
+      <button class="form-submit" type="submit">Send message →</button>
+    </form>
+
+    <div class="form-success" id="form-success">
+      <div class="success-icon">✦</div>
+      <div class="success-msg">Message sent.</div>
+      <div class="success-sub">I'll get back to you within a couple of days.</div>
+    </div>
+  </div>
+</div>
+
+<footer class="contact-footer">
+  <span class="cf-brand">Notes from the Jagged Frontier</span>
+  <a class="cf-back" href="index.html">← Back to essays</a>
+</footer>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const success = document.getElementById('form-success');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const data = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      form.style.display = 'none';
+      success.classList.add('visible');
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Send message →';
+      alert('Something went wrong. Please email souji.m@gmail.com directly.');
+    }
+  });
+</script>
+
+</body>
+</html>
