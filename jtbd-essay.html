@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Metric That Will Define Enterprise AI Winners · Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0e0e0d; --paper: #f5f2eb; --accent: #c8440a;
+    --muted: #7a7670; --border: #d4cfc6;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'DM Mono', monospace;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; }
+
+  .masthead { border-bottom: 2px solid var(--ink); padding: 0 clamp(1.5rem, 5vw, 4rem); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 64px; }
+  .back-link { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--muted); }
+  .back-link:hover { color: var(--ink); }
+  .masthead-title { font-family: var(--serif); font-size: 14px; font-weight: 700; text-align: center; }
+  .masthead-nav { display: flex; gap: 1.5rem; justify-content: flex-end; }
+  .masthead-nav a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: 0.6; }
+  .masthead-nav a:hover { opacity: 1; }
+
+  .essay-header { padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem) 3rem; border-bottom: 1px solid var(--border); max-width: 900px; }
+  .essay-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+  .essay-kicker::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .essay-headline { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  .essay-deck { font-size: 17px; line-height: 1.7; color: #3a3834; max-width: 60ch; font-weight: 300; margin-bottom: 1.5rem; }
+  .essay-byline { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: flex; gap: 1rem; align-items: center; }
+  .essay-byline span { color: var(--ink); }
+
+  .essay-body { display: grid; grid-template-columns: 1fr minmax(0, 680px) 1fr; padding: 0 clamp(1.5rem, 5vw, 4rem); }
+  .essay-content { grid-column: 2; padding: 3rem 0; }
+  .essay-content p { font-size: 16px; line-height: 1.8; color: #2a2824; margin-bottom: 1.5rem; font-weight: 300; }
+  .essay-content h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.25; }
+  .essay-content strong { font-weight: 500; }
+  .essay-pullquote { margin: 2.5rem 0; padding: 1.5rem 0 1.5rem 1.5rem; border-left: 3px solid var(--accent); font-family: var(--serif); font-size: 1.25rem; line-height: 1.45; font-style: italic; color: var(--ink); }
+
+  /* JTBD TABLE */
+  .jtbd-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 13px; }
+  .jtbd-table th { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 10px 14px; text-align: left; font-weight: 500; }
+  .jtbd-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; color: #2a2824; font-weight: 300; }
+  .jtbd-table tr:last-child td { border-bottom: none; }
+  .jtbd-table tr:nth-child(even) td { background: white; }
+  .jtbd-table td:first-child { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--accent); font-weight: 500; white-space: nowrap; }
+
+  /* EXECUTION BOUNDARY FLOW */
+  .boundary-flow { margin: 2.5rem 0; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; border: 1px solid var(--border); overflow: hidden; background: white; }
+  .bf-zone { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+  .bf-zone.human { background: var(--ink); color: var(--paper); }
+  .bf-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+  .bf-zone.human .bf-label { color: #e8b89a; }
+  .bf-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; }
+  .bf-items { list-style: none; margin-top: 0.25rem; }
+  .bf-items li { font-size: 12px; color: #4a4844; padding: 2px 0; font-weight: 300; }
+  .bf-items li::before { content: '· '; color: var(--accent); }
+  .bf-zone.human .bf-items li { color: rgba(245,242,235,0.75); }
+  .bf-zone.human .bf-items li::before { color: #e8b89a; }
+  .bf-arrow { display: flex; align-items: center; justify-content: center; padding: 0 0.75rem; font-family: var(--mono); font-size: 18px; color: var(--border); background: white; }
+  .bf-arrow.key { color: var(--accent); }
+
+  /* THREE MOVES LIST */
+  .moves-list { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 8px; }
+  .move-item { display: grid; grid-template-columns: 160px 1fr; border: 1px solid var(--border); background: white; }
+  .move-label { padding: 1rem; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; line-height: 1.4; }
+  .move-desc { padding: 1rem 1.25rem; font-size: 13px; line-height: 1.6; color: #3a3834; font-weight: 300; }
+
+  .essay-footer { border-top: 2px solid var(--ink); padding: 2rem clamp(1.5rem, 5vw, 4rem); display: flex; justify-content: space-between; align-items: center; }
+  .ef-brand { font-family: var(--serif); font-size: 13px; font-weight: 700; }
+  .ef-back { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: var(--accent); }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <a class="back-link" href="index.html">← Back</a>
+  <span class="masthead-title">Notes from the Jagged Frontier</span>
+  <nav class="masthead-nav">
+    <a href="index.html#essays">Essays</a>
+    <a href="index.html#frameworks">Frameworks</a>
+  </nav>
+</header>
+
+<div class="essay-header">
+  <div class="essay-kicker">Enterprise AI · GTM Strategy · Operating Models</div>
+  <h1 class="essay-headline">The Metric That Will<br>Define Enterprise AI Winners</h1>
+  <p class="essay-deck">Token usage tells you how much the model is running. It tells you nothing about whether any work got done. As enterprise AI moves from pilot to production, that distinction is going to separate the companies that scale from the ones that stall.</p>
+  <div class="essay-byline">
+    <span>Soujanya Madhurapantula</span>
+    <span style="color:var(--border)">·</span>
+    April 7, 2026
+  </div>
+</div>
+
+<div class="essay-body">
+  <div class="essay-content">
+
+    <p>Enterprise software has a recurring problem. Every time a new technology paradigm emerges, the industry reaches for the wrong metric first.</p>
+
+    <p>When cloud arrived, we measured bookings. Bookings were clean, reportable, and completely disconnected from whether customers were getting value. The result was a generation of contracts that looked great at signature and churned in year two.</p>
+
+    <p>AI is repeating the pattern. The metric this time is token usage.</p>
+
+    <p>Token usage tells you how much the model is running. It tells you nothing about whether any work got done. And as enterprise AI moves from pilot to production, that distinction is going to separate the companies that scale from the ones that stall.</p>
+
+    <h2>The framework that changes this</h2>
+
+    <p>The teams that get this right are starting with a different question. Not "how much is the AI being used?" but "what job was the customer hired to do, and did AI help them do it faster, cheaper, or better?"</p>
+
+    <p>This is Jobs to Be Done applied to AI value measurement. The framework itself is not new. The application to enterprise AI is.</p>
+
+    <p>The shift reframes everything: how products are designed, how outcomes are measured, and how GTM teams build renewal conversations. Consider what this looks like across three enterprise workflows already being transformed.</p>
+
+    <p>A finance team running monthly close. The AI processes transactions, reconciles receipts, maps accounting codes. But the job is closing the books faster with fewer errors. If cycle time doesn't move, the AI is overhead, not value.</p>
+
+    <p>An HR team managing contractor onboarding. The AI drafts documents and routes approvals. But the job is getting the employee productive faster. If time-to-productivity doesn't change, the renewal conversation will be difficult.</p>
+
+    <p>A nurse practitioner handling patient triage. The AI parses records, suggests diagnostic codes, prepares clinical notes. But the job is completing pre-diagnosis faster so the practitioner can see more patients. If throughput doesn't increase, the clinical team finds something else.</p>
+
+    <div class="essay-pullquote">In each case, token usage is the wrong proxy. Job completion is the signal that matters.</div>
+
+    <h2>Jobs to be done — across enterprise workflows</h2>
+
+    <table class="jtbd-table">
+      <thead>
+        <tr>
+          <th>Industry</th>
+          <th>Job to be done</th>
+          <th>What the agent does</th>
+          <th>Execution boundary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Healthcare</td>
+          <td>Patient triage</td>
+          <td>Parses records, suggests diagnostic codes, drafts clinical notes.</td>
+          <td>NP validates physical exam and signs the chart.</td>
+        </tr>
+        <tr>
+          <td>Finance</td>
+          <td>Monthly close</td>
+          <td>Matches receipts to accounting codes, flags anomalies.</td>
+          <td>Controller reviews anomaly report and locks the month.</td>
+        </tr>
+        <tr>
+          <td>HR</td>
+          <td>Employee offboarding</td>
+          <td>Scans non-competes, flags hardware, drafts exit scripts.</td>
+          <td>HRBP conducts exit interview and clicks final approve.</td>
+        </tr>
+        <tr>
+          <td>Procurement</td>
+          <td>Contract compliance</td>
+          <td>Analyzes contract changes, checks vendor history.</td>
+          <td>Procurement manager accepts risk and signs.</td>
+        </tr>
+        <tr>
+          <td>Sales</td>
+          <td>Deal qualification</td>
+          <td>Researches account, scores fit, drafts outreach brief.</td>
+          <td>AE reviews summary and decides whether to pursue.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>The Execution Boundary</h2>
+
+    <p>Getting to job completion requires a design decision most enterprise AI deployments skip: defining exactly where autonomous agentic work ends and human judgment begins.</p>
+
+    <p>This is the Execution Boundary.</p>
+
+    <div class="boundary-flow">
+      <div class="bf-zone">
+        <div class="bf-label">Autonomous Layer</div>
+        <div class="bf-title">Agent operates</div>
+        <ul class="bf-items">
+          <li>Gathers records</li>
+          <li>Synthesizes data</li>
+          <li>Stages outputs</li>
+          <li>Flags exceptions</li>
+        </ul>
+      </div>
+      <div class="bf-arrow key">→</div>
+      <div class="bf-zone human">
+        <div class="bf-label">Execution Boundary</div>
+        <div class="bf-title">Human validates</div>
+        <ul class="bf-items">
+          <li>Reviews</li>
+          <li>Approves</li>
+          <li>Signs</li>
+        </ul>
+      </div>
+      <div class="bf-arrow">→</div>
+      <div class="bf-zone">
+        <div class="bf-label">System of Record</div>
+        <div class="bf-title">Work commits</div>
+        <ul class="bf-items">
+          <li>Auditable</li>
+          <li>Consistent</li>
+          <li>Measurable</li>
+        </ul>
+      </div>
+    </div>
+
+    <p>Every enterprise workflow has one. It is the point where the cost of an automated error exceeds the efficiency gain of automation. Before the boundary, the agent operates autonomously — gathering records, synthesizing data, staging outputs, flagging exceptions. At the boundary, a human validates, approves, or signs. After the boundary, the work is committed to the system of record.</p>
+
+    <p>The Execution Boundary is not a limitation of current AI. It is a design principle for deploying it responsibly at enterprise scale. The workflows that scale fastest are the ones where this boundary is defined explicitly from the start — not discovered after a production incident.</p>
+
+    <p>The practical implication: enterprise AI products should be designed around the boundary, not just the model. The autonomous layer takes the job as far as it can go without human accountability. The handoff is deliberate, auditable, and consistent. The human is elevated from data-entry clerk to agentic supervisor.</p>
+
+    <p>This is also where differentiation compounds. The teams that instrument and optimize around the Execution Boundary accumulate something their competitors cannot replicate: outcome data.</p>
+
+    <h2>The defensive moat most AI companies are missing</h2>
+
+    <p>When you measure by job completion — when you track whether the finance team closed faster, whether the nurse practitioner saw more patients, whether the contractor was productive sooner — you build an evidence base that is proprietary by nature.</p>
+
+    <p>You know which workflows your AI actually changes. You know which customers are getting value and which are at risk. You know where the Execution Boundary is calibrated correctly and where it needs to move. You know which jobs are ready for higher automation coverage and which require more human oversight.</p>
+
+    <div class="essay-pullquote">That knowledge base becomes the foundation for everything: product roadmap, pricing decisions, expansion plays, renewal conversations. It is the difference between a renewal grounded in proof and one grounded in promise.</div>
+
+    <p>This is the moat that enterprise AI companies should be building right now. Not proprietary models — those are increasingly commoditized. The proprietary asset is the operational knowledge of how specific jobs get done in specific enterprise environments, and the evidence that your system reliably completes them.</p>
+
+    <h2>What the next generation of enterprise AI looks like</h2>
+
+    <p>The companies that will define this market are already making three moves.</p>
+
+    <div class="moves-list">
+      <div class="move-item">
+        <div class="move-label">Price by job completion</div>
+        <div class="move-desc">Not by seat or token. The commercial model mirrors what cloud did to infrastructure — shifting from capacity-based to outcome-based consumption. Customers pay for verified work completed, not potential capability deployed.</div>
+      </div>
+      <div class="move-item">
+        <div class="move-label">Design to the boundary from day one</div>
+        <div class="move-desc">Not retrofitting it after pilots fail. The Execution Boundary is part of the product architecture, not an afterthought in the implementation guide.</div>
+      </div>
+      <div class="move-item">
+        <div class="move-label">Build outcome measurement into ops</div>
+        <div class="move-desc">Not the marketing deck. Every deployment generates data. That data informs the next deployment. The learning compounds.</div>
+      </div>
+    </div>
+
+    <p>The companies still optimizing for token usage and seat counts will find themselves in the same position as early cloud vendors who optimized for bookings — great metrics until renewal, and then a very hard conversation.</p>
+
+    <p>The metric that will define enterprise AI winners is not how much the system ran. It is whether the job got done, how fast it got done, and whether the evidence is auditable enough to justify the next contract.</p>
+
+    <p>That is the framework the market is moving toward. The question is which teams get there first.</p>
+
+    <p style="margin-top:3rem; font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 0.05em;">— Souji Madhurapantula writes about enterprise AI, operating models, and go-to-market strategy at jaggedfrontier.org</p>
+
+  </div>
+</div>
+
+<footer class="essay-footer">
+  <span class="ef-brand">Notes from the Jagged Frontier</span>
+  <a class="ef-back" href="index.html">← Back to all essays</a>
+</footer>
+
+</body>
+</html>
