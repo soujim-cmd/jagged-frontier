@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Operating Toolkit · Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --ink:#0e0e0d; --paper:#f5f2eb; --accent:#c8440a; --muted:#7a7670;
+  --border:#d4cfc6; --white:#ffffff;
+  --serif:'Playfair Display',Georgia,serif;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --green-bg:#eaf3e8; --green-text:#2d6a2d;
+  --red-bg:#fdf0eb; --red-text:#c8440a;
+  --blue-bg:#e8f0f8; --blue-text:#1a5280;
+}
+body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-weight:300; line-height:1.6; }
+.masthead { border-bottom:2px solid var(--ink); padding:0 clamp(1.5rem,5vw,4rem); display:grid; grid-template-columns:1fr auto 1fr; align-items:center; min-height:64px; }
+.back-link { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; color:var(--muted); }
+.back-link:hover { color:var(--ink); }
+.masthead-title { font-family:var(--serif); font-size:14px; font-weight:700; text-align:center; }
+.masthead-nav { display:flex; gap:1.5rem; justify-content:flex-end; }
+.masthead-nav a { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); text-decoration:none; opacity:.6; }
+.masthead-nav a:hover { opacity:1; }
+.essay-header { padding:clamp(3rem,7vw,5rem) clamp(1.5rem,5vw,4rem) 3rem; border-bottom:1px solid var(--border); max-width:900px; }
+.essay-kicker { font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; display:flex; align-items:center; gap:8px; }
+.essay-kicker::before { content:''; display:inline-block; width:24px; height:1px; background:var(--accent); }
+.essay-headline { font-family:var(--serif); font-size:clamp(2rem,5vw,3.5rem); line-height:1.1; font-weight:900; letter-spacing:-.02em; margin-bottom:1.25rem; }
+.essay-deck { font-size:17px; line-height:1.7; color:#3a3834; max-width:60ch; font-weight:300; margin-bottom:1.5rem; }
+.essay-byline { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.essay-byline span { color:var(--ink); }
+.essay-body { display:grid; grid-template-columns:1fr minmax(0,720px) 1fr; padding:0 clamp(1.5rem,5vw,4rem); }
+.essay-content { grid-column:2; padding:3rem 0; }
+.essay-content p { font-size:16px; line-height:1.8; color:#2a2824; margin-bottom:1.5rem; font-weight:300; }
+.essay-content strong { font-weight:500; }
+.essay-footer { border-top:2px solid var(--ink); padding:2rem clamp(1.5rem,5vw,4rem); display:flex; justify-content:space-between; align-items:center; }
+.ef-brand { font-family:var(--serif); font-size:13px; font-weight:700; }
+.ef-back { font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; color:var(--accent); }
+
+/* ── Toolkit matrix ── */
+.toolkit-wrap { margin:2.5rem 0; font-family:var(--sans); }
+.toolkit-legend { display:flex; gap:1.25rem; margin-bottom:1rem; flex-wrap:wrap; }
+.tl-item { display:flex; align-items:center; gap:5px; font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+.tl-dot { width:8px; height:8px; border-radius:50%; }
+.toolkit-hint { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-left:auto; }
+.matrix-header { display:grid; grid-template-columns:150px 1fr 1fr 1fr; gap:6px; margin-bottom:6px; }
+.matrix-header span { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); padding:0 8px; }
+.matrix-row { display:grid; grid-template-columns:150px 1fr 1fr 1fr; gap:6px; margin-bottom:6px; }
+.fn-label { display:flex; flex-direction:column; justify-content:center; padding:10px 10px; border:1px solid var(--border); background:var(--paper); }
+.fn-name { font-family:var(--sans); font-weight:500; font-size:12px; color:var(--ink); margin-bottom:4px; }
+.fn-tag { font-family:var(--mono); font-size:9px; letter-spacing:.06em; text-transform:uppercase; padding:2px 6px; display:inline-block; width:fit-content; }
+.tag-top  { background:var(--green-bg); color:var(--green-text); }
+.tag-bot  { background:var(--red-bg);   color:var(--red-text);   }
+.tag-both { background:var(--blue-bg);  color:var(--blue-text);  }
+.cell { border:1px solid var(--border); background:var(--white); padding:10px 12px; cursor:pointer; transition:border-color .15s, background .15s; }
+.cell:hover { border-color:var(--ink); background:var(--paper); }
+.cell.active { border-color:var(--accent); border-width:1.5px; background:var(--paper); }
+.cell-title { font-weight:500; font-size:12px; color:var(--ink); margin-bottom:3px; }
+.cell-sub { font-size:11px; color:var(--muted); line-height:1.5; font-weight:300; }
+.detail-panel { margin-top:8px; border:1px solid var(--border); background:var(--white); padding:1.5rem; display:none; }
+.detail-panel.show { display:block; }
+.detail-title { font-family:var(--serif); font-size:1.1rem; font-weight:700; color:var(--ink); margin-bottom:2px; }
+.detail-meta { font-family:var(--mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:1.25rem; }
+.detail-body { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1.25rem; margin-bottom:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border); }
+.detail-col h4 { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.detail-col ul { margin:0; padding:0 0 0 14px; }
+.detail-col li { font-size:13px; color:var(--ink); line-height:1.65; font-weight:300; }
+.kpi-row { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+.kpi-block h4 { font-family:var(--mono); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:8px; }
+.kpi-chips { display:flex; flex-wrap:wrap; gap:5px; }
+.kpi-chip { font-family:var(--mono); font-size:10px; letter-spacing:.04em; padding:3px 8px; border:1px solid var(--border); color:var(--ink); background:var(--paper); }
+.impact-chip { font-family:var(--mono); font-size:10px; letter-spacing:.04em; padding:3px 10px; font-weight:500; }
+.impact-top  { background:var(--green-bg); color:var(--green-text); }
+.impact-bot  { background:var(--red-bg);   color:var(--red-text);   }
+
+@media (max-width:640px) {
+  .matrix-header { grid-template-columns:1fr; display:none; }
+  .matrix-row { grid-template-columns:1fr; }
+  .detail-body { grid-template-columns:1fr; }
+  .kpi-row { grid-template-columns:1fr; }
+  .essay-body { grid-template-columns:1fr; }
+  .essay-content { grid-column:1; }
+  .toolkit-hint { display:none; }
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNWC1D521"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TTNWC1D521');
+</script>
+</head>
+<body>
+<header class="masthead">
+  <a class="back-link" href="index.html">← Back</a>
+  <span class="masthead-title">Notes from the Jagged Frontier</span>
+  <nav class="masthead-nav"><a href="index.html#essays">Essays</a><a href="frameworks.html">Frameworks</a></nav>
+</header>
+
+<div class="essay-header">
+  <div class="essay-kicker">Operating Model · GTM · Enterprise AI</div>
+  <h1 class="essay-headline">The Operating Toolkit:<br>Five Functions, Three Tools,<br>One Playbook</h1>
+  <p class="essay-deck">The underlying questions do not change much across enterprises. What varies is the starting point, the urgency, and the mix of functions that need attention first.</p>
+  <div class="essay-byline"><span>Soujanya Madhurapantula</span> &nbsp;·&nbsp; Product &amp; GTM Strategy · AI &amp; Enterprise Platforms</div>
+</div>
+
+<div class="essay-body">
+<div class="essay-content">
+
+<p>In every role I have had, I operated like a GM of the business. I build a diagnostic framework, stand up the data to make it actionable, design the repeatable operating model and enable the teams to run it at scale. Twenty years of doing this across functions and company stages is how I perfected my playbook.</p>
+
+<p>The underlying questions do not change much across enterprises. The functions are the same — HR, finance, support, product development. The intervention playbooks are largely the same and the KPIs that validate outcomes are comparable. What varies is the starting point, the urgency, and the mix of functions that need attention first.</p>
+
+<p>This is my playbook. Across five functions I have closely worked with across industries — GTM and revenue, product and engineering, HR and org design, finance and ops, and customer success — each broken into three tool types: a diagnostic framework, an AI-powered application, and a data moat that compounds across engagements. I have tagged each by EBITDA impact: top line, bottom line, or both.</p>
+
+<p>In the agentic AI era, the underlying logic of these workflows is well established. What we gain through AI is speed and scale — not replacing the judgment, but removing the friction between diagnosis and action.</p>
+
+<p>I am building the AI-native versions of several of these tools. The table below maps the full framework. If you are working through similar questions — whether inside a company trying to move faster, or advising across several — I would be glad to think through it together.</p>
+
+<!-- ── Toolkit matrix ── -->
+<div class="toolkit-wrap">
+  <div class="toolkit-legend">
+    <div class="tl-item"><div class="tl-dot" style="background:var(--green-bg);border:1px solid var(--green-text)"></div>Top line</div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--red-bg);border:1px solid var(--red-text)"></div>Bottom line</div>
+    <div class="tl-item"><div class="tl-dot" style="background:var(--blue-bg);border:1px solid var(--blue-text)"></div>Both</div>
+    <span class="toolkit-hint">Click any cell to expand</span>
+  </div>
+
+  <div class="matrix-header">
+    <span>Function</span>
+    <span>Framework</span>
+    <span>AI App / Tool</span>
+    <span>Data Moat</span>
+  </div>
+
+  <div id="matrix"></div>
+  <div id="detail" class="detail-panel"></div>
+</div>
+
+</div>
+</div>
+
+<footer class="essay-footer">
+  <span class="ef-brand">Notes from the Jagged Frontier</span>
+  <a class="ef-back" href="index.html">← Back to all essays</a>
+</footer>
+
+<script>
+const rows = [
+  {
+    fn: "GTM & Revenue", impact: "both",
+    cells: [
+      { title: "ICP & pipeline diagnostic", sub: "Conversion, CAC, NRR, sales cycle benchmarks" },
+      { title: "GTM health scanner", sub: "Input metrics → gap map + prioritized interventions" },
+      { title: "CAC/NRR benchmarks", sub: "By vertical, ARR band, motion type" }
+    ],
+    detail: {
+      framework: ["ICP fit scoring rubric", "Pipeline conversion waterfall", "NRR expansion playbook", "Pricing & packaging audit"],
+      app: ["GTM diagnostic: input ARR, segment, motion → 90-day gap plan", "Competitive positioning checker", "Quota model stress tester"],
+      moat: ["CAC benchmarks by vertical & stage", "NRR cohort patterns across portfolio", "Winning ICP profiles by deal size"],
+      kpis: ["Pipeline conversion rate", "CAC payback period", "Net Revenue Retention", "ARR growth %", "Sales cycle length"],
+      ebitda: [
+        { label: "5–15% ARR lift from ICP sharpening", type: "top" },
+        { label: "10–20pt NRR improvement = compounding ARR", type: "top" }
+      ]
+    }
+  },
+  {
+    fn: "Product & Eng", impact: "both",
+    cells: [
+      { title: "Roadmap-to-revenue audit", sub: "Are they building what customers pay for?" },
+      { title: "Velocity vs. value tracer", sub: "Input roadmap → revenue traceability score" },
+      { title: "Eng headcount benchmarks", sub: "PM:Eng ratio, output per eng by ARR stage" }
+    ],
+    detail: {
+      framework: ["Feature adoption → revenue correlation map", "PM:Eng ratio analysis", "Build vs. buy vs. partner decision tree", "Tech debt impact on velocity"],
+      app: ["Roadmap audit: paste roadmap → flag low-revenue items", "Sprint velocity vs. ARR growth tracker", "AI-readiness stack assessment (4-layer)"],
+      moat: ["PM:Eng ratio benchmarks by ARR stage", "Feature adoption → expansion patterns", "Time-to-value benchmarks by product type"],
+      kpis: ["Revenue per engineer", "% roadmap tied to revenue events", "Deployment frequency", "Time-to-value", "Tech debt ratio"],
+      ebitda: [
+        { label: "10–20% eng cost reduction via prioritization", type: "bot" },
+        { label: "Faster time to market → earlier ARR recognition", type: "top" }
+      ]
+    }
+  },
+  {
+    fn: "HR & Org Design", impact: "bot",
+    cells: [
+      { title: "Spans & layers analysis", sub: "Headcount efficiency, role clarity, manager ratios" },
+      { title: "Org structure diagnostic", sub: "Input org chart → redundancy + gap flags" },
+      { title: "Headcount efficiency index", sub: "Revenue per FTE vs. comp benchmarks" }
+    ],
+    detail: {
+      framework: ["Spans and layers scorecard", "Role clarity matrix (RACI)", "Central vs. regional design model", "Operating cadence design"],
+      app: ["Org analyzer: upload chart → flag over-managed layers", "Role overlap detector", "Comp benchmarking tool by function/level"],
+      moat: ["Revenue-per-FTE by function & stage", "Management ratio benchmarks", "Org design patterns at $50M / $100M / $250M ARR"],
+      kpis: ["Revenue per FTE", "Manager:IC ratio", "Voluntary attrition rate", "Time-to-hire", "G&A headcount as % of total"],
+      ebitda: [
+        { label: "15–25% headcount efficiency gain from layer removal", type: "bot" },
+        { label: "Attrition reduction → lower recruiting cost", type: "bot" }
+      ]
+    }
+  },
+  {
+    fn: "Finance & Ops", impact: "bot",
+    cells: [
+      { title: "Burn & G&A benchmarking", sub: "G&A as % rev vs. comps, vendor rationalization" },
+      { title: "Vendor rationalization tool", sub: "Input spend → overlap + cut candidates" },
+      { title: "G&A benchmarks by stage", sub: "By ARR band, vertical, growth rate" }
+    ],
+    detail: {
+      framework: ["G&A % of revenue benchmarking", "Zero-based capital allocation review", "Vendor category rationalization rubric", "Unit economics stress test"],
+      app: ["Spend overlap scanner: input vendor list → flag duplicates", "EBITDA bridge builder", "Cost vs. growth tradeoff scenario modeler"],
+      moat: ["G&A benchmarks by vertical & ARR band", "Common vendor overlap patterns", "Margin expansion playbooks from prior engagements"],
+      kpis: ["G&A as % of revenue", "Burn multiple", "Rule of 40 score", "Vendor spend per ARR dollar", "EBITDA margin"],
+      ebitda: [
+        { label: "3–8% of revenue recoverable via G&A rationalization", type: "bot" },
+        { label: "Vendor overlap typically 15–25% of tooling spend", type: "bot" }
+      ]
+    }
+  },
+  {
+    fn: "Customer Success", impact: "top",
+    cells: [
+      { title: "NRR leak diagnosis", sub: "Time-to-value gaps, adoption stalls, churn signals" },
+      { title: "Churn signal detector", sub: "Input usage + support data → at-risk flags" },
+      { title: "Expansion pattern library", sub: "What drives land-and-expand by vertical" }
+    ],
+    detail: {
+      framework: ["Customer journey audit (discover → adopt → expand)", "Health score design", "QBR cadence & escalation playbook", "Renewal risk matrix"],
+      app: ["NRR diagnostic: cohort data → churn drivers + intervention map", "Time-to-value tracker by segment", "Expansion signal monitor"],
+      moat: ["NRR patterns by vertical & motion", "Churn reason taxonomy across engagements", "Time-to-value benchmarks by product type"],
+      kpis: ["Net Revenue Retention", "Gross Revenue Retention", "Time-to-first-value", "Expansion ARR %", "CSAT / NPS"],
+      ebitda: [
+        { label: "5–10pt NRR gain = 20–40% ARR uplift at scale", type: "top" },
+        { label: "Churn reduction lowers CAC payback drag", type: "top" }
+      ]
+    }
+  }
+];
+
+const impactLabel = { both: "Both", top: "Top line", bot: "Bottom line" };
+const impactClass = { both: "tag-both", top: "tag-top", bot: "tag-bot" };
+const colNames  = ["Framework", "AI App / Tool", "Data Moat"];
+const colKeys   = ["framework", "app", "moat"];
+let activeCell  = null;
+
+function render() {
+  const mat = document.getElementById("matrix");
+  mat.innerHTML = "";
+  rows.forEach((row, ri) => {
+    const div = document.createElement("div");
+    div.className = "matrix-row";
+    div.innerHTML = `<div class="fn-label"><div class="fn-name">${row.fn}</div><span class="fn-tag ${impactClass[row.impact]}">${impactLabel[row.impact]}</span></div>`;
+    row.cells.forEach((cell, ci) => {
+      const c = document.createElement("div");
+      c.className = "cell";
+      c.id = `cell-${ri}-${ci}`;
+      c.innerHTML = `<div class="cell-title">${cell.title}</div><div class="cell-sub">${cell.sub}</div>`;
+      c.onclick = () => toggleDetail(ri, ci, row);
+      div.appendChild(c);
+    });
+    mat.appendChild(div);
+  });
+}
+
+function toggleDetail(ri, ci, row) {
+  const key = `${ri}-${ci}`;
+  const panel = document.getElementById("detail");
+  if (activeCell === key) {
+    activeCell = null;
+    panel.classList.remove("show");
+    document.querySelectorAll(".cell").forEach(c => c.classList.remove("active"));
+    return;
+  }
+  document.querySelectorAll(".cell").forEach(c => c.classList.remove("active"));
+  document.getElementById(`cell-${ri}-${ci}`).classList.add("active");
+  activeCell = key;
+  const d = row.detail;
+  panel.classList.add("show");
+  panel.innerHTML = `
+    <div class="detail-title">${row.fn} — ${colNames[ci]}</div>
+    <div class="detail-meta">${row.cells[ci].title} · ${impactLabel[row.impact]} EBITDA impact</div>
+    <div class="detail-body">
+      <div class="detail-col"><h4>What it covers</h4><ul>${d[colKeys[ci]].slice(0,2).map(i=>`<li>${i}</li>`).join("")}</ul></div>
+      <div class="detail-col"><h4>How it works</h4><ul>${d[colKeys[ci]].slice(2).map(i=>`<li>${i}</li>`).join("")}</ul></div>
+      <div class="detail-col"><h4>Build / deploy</h4><ul><li>Scorecard template</li><li>Claude-powered diagnostic</li><li>Benchmark db (grows per engagement)</li></ul></div>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi-block"><h4>KPIs tracked</h4><div class="kpi-chips">${d.kpis.map(k=>`<span class="kpi-chip">${k}</span>`).join("")}</div></div>
+      <div class="kpi-block"><h4>EBITDA impact</h4><div class="kpi-chips">${d.ebitda.map(e=>`<span class="impact-chip impact-${e.type}">${e.label}</span>`).join("")}</div></div>
+    </div>
+  `;
+  panel.scrollIntoView({ behavior:"smooth", block:"nearest" });
+}
+
+render();
+</script>
+</body>
+</html>
