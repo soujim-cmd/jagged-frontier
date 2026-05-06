@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before You Build Your Agent Portfolio — Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1908;
+    --ink-mid: #4a4940;
+    --ink-light: #8a8a7a;
+    --paper: #faf9f6;
+    --rule: #d8d7ce;
+    --green: #2d6e3a;
+    --red: #9e3223;
+    --amber: #a06010;
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --max: 740px;
+  }
+
+  html { background: var(--paper); color: var(--ink); font-family: var(--serif); font-size: 17px; line-height: 1.7; }
+
+  body { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* ── NAV ── */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0 20px;
+    border-bottom: 0.5px solid var(--rule);
+    margin-bottom: 0;
+  }
+  .nav-brand {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 24px; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--ink-mid);
+    text-decoration: none;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── HEADER ── */
+  .post-header { padding: 56px 0 40px; border-bottom: 0.5px solid var(--rule); }
+  .post-tags { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--ink-light);
+    border: 0.5px solid var(--rule);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  h1 {
+    font-size: 2.1rem;
+    font-weight: 300;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; font-weight: 300; }
+  .post-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.04em;
+  }
+
+  /* ── BODY ── */
+  .post-body { padding: 44px 0; }
+  .post-body p { margin-bottom: 1.4em; color: var(--ink); }
+  .post-body p:last-child { margin-bottom: 0; }
+
+  /* ── SECTIONS ── */
+  .section { margin: 48px 0; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .criteria-list { list-style: none; margin-bottom: 1.4em; }
+  .criteria-list li {
+    padding: 16px 0;
+    border-bottom: 0.5px solid var(--rule);
+    padding-left: 20px;
+    position: relative;
+  }
+  .criteria-list li::before {
+    content: attr(data-n);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-light);
+    position: absolute;
+    left: 0;
+    top: 19px;
+  }
+  .criteria-list li strong { font-weight: 600; }
+
+  .gate {
+    display: flex;
+    gap: 32px;
+    margin-top: 20px;
+    padding: 12px 16px;
+    border: 0.5px solid var(--rule);
+    background: transparent;
+    border-radius: 3px;
+  }
+  .gate-pass { font-family: var(--mono); font-size: 11px; color: var(--green); }
+  .gate-fail { font-family: var(--mono); font-size: 11px; color: var(--red); }
+  .gate-pass span, .gate-fail span { color: var(--ink-mid); font-family: var(--serif); font-style: italic; font-size: 12px; }
+
+  /* ── VISUAL ── */
+  .framework-visual {
+    margin: 56px 0;
+    border: 0.5px solid var(--rule);
+    padding: 32px;
+    border-radius: 4px;
+    background: #fff;
+  }
+  .visual-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+  }
+
+  .framework-grid { display: flex; flex-direction: column; gap: 0; }
+  .step-block {
+    border: 0.5px solid var(--ink);
+    border-radius: 3px;
+    margin-bottom: 0;
+  }
+  .step-block + .step-block { margin-top: -0.5px; }
+
+  .step-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 12px 16px;
+    border-bottom: 0.5px solid var(--rule);
+  }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    min-width: 52px;
+  }
+  .step-title { font-size: 12px; font-weight: 600; color: var(--ink); }
+
+  .step-criteria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    padding: 0 16px 16px;
+    margin-top: 12px;
+  }
+  .criterion {
+    padding: 10px 12px 10px 0;
+    border-right: 0.5px solid var(--rule);
+  }
+  .criterion:last-child { border-right: none; padding-right: 0; }
+  .criterion h4 { font-size: 11px; font-weight: 600; margin-bottom: 4px; }
+  .criterion p { font-size: 10px; color: var(--ink-mid); line-height: 1.5; margin: 0; }
+
+  .step-gate {
+    padding: 8px 16px;
+    border-top: 0.5px dashed var(--rule);
+    display: flex;
+    gap: 24px;
+  }
+
+  .connector {
+    display: flex;
+    justify-content: center;
+    padding: 6px 0;
+    color: var(--ink-light);
+    font-size: 14px;
+  }
+
+  /* ── EXAMPLES TABLES ── */
+  .examples-section { margin: 48px 0; }
+  .examples-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 36px;
+    font-size: 13px;
+  }
+  thead tr {
+    border-bottom: 0.5px solid var(--ink);
+  }
+  th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: var(--ink-light);
+    font-weight: 500;
+    text-align: left;
+    padding: 8px 12px 8px 0;
+  }
+  td {
+    padding: 14px 12px 14px 0;
+    border-bottom: 0.5px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  td:last-child { padding-right: 0; }
+
+  .wf-name { font-weight: 600; font-size: 13px; display: block; margin-bottom: 2px; }
+  .wf-domain { font-family: var(--mono); font-size: 10px; color: var(--ink-light); }
+
+  .pass { color: var(--green); font-size: 12px; line-height: 1.6; }
+  .fail-mark { color: var(--red); font-size: 12px; font-weight: 600; display: block; }
+  .fail-detail { color: var(--red); font-size: 11px; }
+  .warn { color: var(--amber); font-size: 12px; }
+  .not-reached { color: var(--ink-light); font-style: italic; font-size: 12px; }
+
+  .s3-focus strong { font-size: 12px; font-weight: 600; display: block; margin-bottom: 1px; }
+  .s3-focus span { font-size: 11px; color: var(--ink-mid); display: block; margin-bottom: 6px; }
+
+  .fail-row td { background: transparent; }
+  .fail-row .fail-stop { font-family: var(--mono); font-size: 10px; color: var(--red); letter-spacing: 0.04em; display: block; margin-top: 6px; }
+
+  /* ── SEQUENCING NOTE ── */
+  .sequencing {
+    margin: 48px 0;
+    padding: 24px;
+    border-left: 2px solid var(--ink);
+    background: transparent;
+  }
+  .sequencing h3 { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+  .sequencing p { font-size: 14px; color: var(--ink-mid); margin-bottom: 10px; }
+  .sequencing p:last-child { margin-bottom: 0; }
+  .sequencing em { font-style: italic; color: var(--ink); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 32px 0;
+    border-top: 0.5px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 48px;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-light);
+    letter-spacing: 0.04em;
+  }
+  footer a { color: var(--ink-light); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+
+  @media (max-width: 600px) {
+    .step-criteria { grid-template-columns: 1fr; }
+    .criterion { border-right: none; border-bottom: 0.5px solid var(--rule); }
+    .criterion:last-child { border-bottom: none; }
+    .nav-links { gap: 14px; }
+    h1 { font-size: 1.7rem; }
+    .gate { flex-direction: column; gap: 8px; }
+    table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://www.jaggedfrontier.org" class="nav-brand">JAGGED FRONTIER</a>
+  <div class="nav-links">
+    <a href="https://www.jaggedfrontier.org/#essays">Essays</a>
+    <a href="https://www.jaggedfrontier.org/frameworks.html">Frameworks</a>
+    <a href="https://www.jaggedfrontier.org/case-studies.html">Case Studies</a>
+    <a href="https://linkedin.com/in/soujanyamadhurapantula">LinkedIn</a>
+  </div>
+</nav>
+
+<div class="post-header">
+  <div class="post-tags">
+    <span class="tag">AGENTIC AI</span>
+    <span class="tag">ENTERPRISE AI</span>
+    <span class="tag">OPERATING MODEL</span>
+    <span class="tag">FRAMEWORKS</span>
+  </div>
+  <h1>Before You Build Your<br><em>Agent Portfolio:</em><br>A Go/No-Go Framework</h1>
+  <p class="post-meta">Soujanya Madhurapantula &nbsp;·&nbsp; May 2026</p>
+</div>
+
+<div class="post-body">
+  <p>The most common question I come across these days is: How do I capture the most value from my agentic portfolio?</p>
+
+  <p>I would flip the question around and start with first principles. Before any enterprise commits engineering resources to an agentic workflow, there are three questions that need honest answers: Should we build this at all? Can we build this well technically? And if we proceed, what does a responsible design look like?</p>
+
+  <p>This is an important distinction. If you are building a roadmap for a portfolio of agents without a clear prioritization lens, it wastes something far beyond engineering cycles — and that's organizational trust in AI. Start by mapping your business-critical workflows. The ones worth pursuing share a common profile: clear business value, repeatable steps, and data you can actually trust.</p>
+
+  <p>Here's my framework on how I would prioritize and implement an agentic roadmap.</p>
+</div>
+
+<!-- STEP 1 -->
+<div class="section">
+  <div class="section-label">STEP 01</div>
+  <h2>Business considerations — should we build this at all?</h2>
+
+  <p>This is the filter most teams skip — when they are working in a silo (shadow IT), disconnected from business priorities (sidecar AI), or have unclear requirements (failed pilots). They see a workflow, imagine an agent, and start building.</p>
+
+  <p>Three questions stop bad projects before they start:</p>
+
+  <ol class="criteria-list">
+    <li data-n="1.">
+      <strong>What is the business value of automating this workflow?</strong> Not in general terms but specific metrics mapped to your OKRs. Does automating this reduce cost, increase throughput, reduce error rate, or free up skilled human capacity for higher-value work? If the answer requires significant assumptions to be positive, pause here.
+    </li>
+    <li data-n="2.">
+      <strong>What is the cost to execute this at scale?</strong> Agentic workflows are not free. LLM inference, orchestration, data retrieval, monitoring, and human review all have costs that compound with volume. A simple and cheap prototype can become expensive at production scale. Model the unit economics before building.
+    </li>
+    <li data-n="3.">
+      <strong>Is the organization ready — and is the workflow designed for it?</strong> The most common reason agentic workflows fail is when the agent is bolted onto an existing workflow rather than built into a redesigned one. Two things have to be true: the people or systems downstream need to trust the outputs enough to act on them, and the agent needs to trigger naturally at the right moment with the right context. Adoption is an architecture and upstream design problem, not a change management issue that comes as an afterthought.
+    </li>
+  </ol>
+
+  <div class="gate">
+    <div class="gate-pass">↗ Pass <span>— all three pass, move to step 02</span></div>
+    <div class="gate-fail">↘ Rethink <span>— any one fails, fix root cause first, or stop</span></div>
+  </div>
+</div>
+
+<!-- STEP 2 -->
+<div class="section">
+  <div class="section-label">STEP 02</div>
+  <h2>Architectural filters — can we build this technically?</h2>
+
+  <p>Assuming the business case holds, three technical filters determine whether the workflow can be transformed with AI:</p>
+
+  <ol class="criteria-list">
+    <li data-n="1.">
+      <strong>Can the workflow be decomposed into clear, deterministic steps?</strong> Agents work best on tasks that can be broken into discrete, verifiable sub-tasks with clear inputs and outputs. Workflows that require continuous human judgment, contextual improvisation, or ambiguous decision criteria are not agent-ready — they are copilot candidates at best.
+    </li>
+    <li data-n="2.">
+      <strong>Is the data feeding this agent reliable and connected?</strong> This is the most underestimated filter. An agent is only as good as the data it reasons over. If the underlying data is siloed, inconsistent, poorly governed, or stale, the agent will produce outputs that are confidently wrong. Data readiness is the prerequisite, not a production-time problem.
+    </li>
+    <li data-n="3.">
+      <strong>Which specific steps can actually be replaced by an agent — and which require human judgment?</strong> Not every step in an automatable workflow should be automated. Identifying the exact boundary between agent execution and human decision is a core design question. Workflows where that execution boundary is unclear should not be automated.
+    </li>
+  </ol>
+
+  <div class="gate">
+    <div class="gate-pass">↗ Pass <span>— all three pass, move to step 03</span></div>
+    <div class="gate-fail">↘ Fail <span>— any one fails, workflow is not agent-ready yet</span></div>
+  </div>
+</div>
+
+<!-- STEP 3 -->
+<div class="section">
+  <div class="section-label">STEP 03</div>
+  <h2>Architectural design requirements — how do we build it well?</h2>
+
+  <p>Passing the first two steps means you have workflows worth building. Now I put on my PM hat. This step determines whether you build it in a way that is safe, trustworthy, and improvable over time.</p>
+
+  <ol class="criteria-list">
+    <li data-n="1.">
+      <strong>Modularity.</strong> Requirements change, models improve, and business logic evolves. A well-designed agentic system allows individual components to be upgraded, replaced, or reconfigured without rebuilding the whole. Design for change from the beginning.
+    </li>
+    <li data-n="2.">
+      <strong>Guardrails: security, governance, explainability.</strong> What can the agent access? What is it prohibited from doing? Can a human understand why it took a specific action? These are the conditions under which the organization will trust and scale the system — they should be part of the design from day one.
+    </li>
+    <li data-n="3.">
+      <strong>Observability as a first-class requirement.</strong> You cannot govern what you cannot see. Real-time visibility into what the agent is doing, what data it is accessing, and what decisions it is making is not a monitoring feature added after launch. If you cannot instrument it from the start, you cannot operate it safely at scale.
+    </li>
+    <li data-n="4.">
+      <strong>Feedback loop and drift detection.</strong> Agents degrade over time as the world changes and their training data becomes stale. The system needs a mechanism to detect when outputs are declining in quality and a process to retrain, recalibrate, or escalate when that happens.
+    </li>
+    <li data-n="5.">
+      <strong>Human handoff protocol.</strong> When the agent stops — because it has reached its execution boundary, encountered an exception, or requires authorization — what exactly does it communicate to the human who takes over? In what format? With what context? The handoff is not just a failure state; it needs to be designed explicitly.
+    </li>
+    <li data-n="6.">
+      <strong>Rollback design.</strong> When an agent makes a mistake — and it will — what is the minimum blast radius? Can the action be reversed? Can the system detect that something went wrong before downstream consequences compound? Systems that cannot be safely reversed should not be fully automated.
+    </li>
+  </ol>
+
+  <div class="gate">
+    <div class="gate-pass">↗ All six designed <span>— proceed to build</span></div>
+    <div class="gate-fail">↘ Any gap <span>— address before shipping</span></div>
+  </div>
+</div>
+
+<!-- FRAMEWORK VISUAL -->
+<div class="framework-visual">
+  <div class="visual-label">THE FRAMEWORK AT A GLANCE</div>
+  <div class="framework-grid">
+
+    <div class="step-block">
+      <div class="step-header">
+        <span class="step-num">STEP 01</span>
+        <span class="step-title">Business considerations — should we build this at all?</span>
+      </div>
+      <div class="step-criteria">
+        <div class="criterion">
+          <h4>Business value</h4>
+          <p>Does automating this deliver measurable ROI mapped to OKRs?</p>
+        </div>
+        <div class="criterion">
+          <h4>Unit economics</h4>
+          <p>Does cost at scale justify the build?</p>
+        </div>
+        <div class="criterion">
+          <h4>Org readiness</h4>
+          <p>Is the workflow redesigned for the agent to fit in naturally?</p>
+        </div>
+      </div>
+      <div class="step-gate">
+        <span class="gate-pass">↗ Pass all three → step 02</span>
+        <span class="gate-fail">↘ Rethink → fix root cause first, or stop</span>
+      </div>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <div class="step-block">
+      <div class="step-header">
+        <span class="step-num">STEP 02</span>
+        <span class="step-title">Architectural filters — can we build this technically?</span>
+      </div>
+      <div class="step-criteria">
+        <div class="criterion">
+          <h4>Decomposability</h4>
+          <p>Can steps be broken into deterministic sub-tasks?</p>
+        </div>
+        <div class="criterion">
+          <h4>Data quality gate</h4>
+          <p>Is the data feeding this agent reliable and connected?</p>
+        </div>
+        <div class="criterion">
+          <h4>Replaceability</h4>
+          <p>Which specific steps can agents actually replace?</p>
+        </div>
+      </div>
+      <div class="step-gate">
+        <span class="gate-pass">↗ Pass all three → step 03</span>
+        <span class="gate-fail">↘ Fail → workflow is not agent-ready yet</span>
+      </div>
+    </div>
+
+    <div class="connector">↓</div>
+
+    <div class="step-block">
+      <div class="step-header">
+        <span class="step-num">STEP 03</span>
+        <span class="step-title">Design requirements — how do we build it well?</span>
+      </div>
+      <div class="step-criteria" style="grid-template-columns: repeat(3,1fr);">
+        <div class="criterion">
+          <h4>Human handoff</h4>
+          <p>What does the agent communicate when it stops?</p>
+        </div>
+        <div class="criterion">
+          <h4>Guardrails</h4>
+          <p>Security, governance, explainability — built in from day one</p>
+        </div>
+        <div class="criterion">
+          <h4>Rollback design</h4>
+          <p>Minimum blast radius when things go wrong</p>
+        </div>
+      </div>
+      <div class="step-criteria" style="grid-template-columns: repeat(3,1fr); padding-top:0;">
+        <div class="criterion">
+          <h4>Observability</h4>
+          <p>Real-time visibility — not a post-launch feature</p>
+        </div>
+        <div class="criterion">
+          <h4>Feedback + drift</h4>
+          <p>When to retrain or recalibrate as the world changes</p>
+        </div>
+        <div class="criterion">
+          <h4>Modularity</h4>
+          <p>Upgrade components without rebuilding the whole</p>
+        </div>
+      </div>
+      <div class="step-gate">
+        <span class="gate-pass">↗ All six designed → proceed to build</span>
+        <span class="gate-fail">↘ Any gap → address before shipping</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- EXAMPLES: PASS -->
+<div class="examples-section">
+  <div class="examples-label">EXAMPLE WORKFLOWS — PASSING THE FRAMEWORK</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Workflow</th>
+        <th style="width:25%">Step 01</th>
+        <th style="width:25%">Step 02</th>
+        <th>Step 03 focus</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="wf-name">Invoice processing</span><span class="wf-domain">Finance · ERP</span></td>
+        <td class="pass">✓ AP cost reduction clear<br>✓ Cost per run justified<br>✓ Linear workflow, easy to redesign</td>
+        <td class="pass">✓ Steps are deterministic<br>✓ Structured ERP data<br>✓ Matching is replaceable</td>
+        <td class="s3-focus">
+          <strong>Guardrails</strong><span>No auto-pay above threshold</span>
+          <strong>Rollback</strong><span>Payment reversal protocol required</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="wf-name">Sales forecasting</span><span class="wf-domain">Revenue · GTM</span></td>
+        <td class="pass">✓ Strategic value clear<br>✓ Economics justified<br>✓ Sales team ready</td>
+        <td class="pass">✓ Pattern steps clear<br>✓ CRM data reliable<br>✓ Scoring is replaceable</td>
+        <td class="s3-focus">
+          <strong>Handoff</strong><span>Human owns final number — agent surfaces, not decides</span>
+          <strong>Drift</strong><span>Retrain as pipeline patterns shift quarterly</span>
+        </td>
+      </tr>
+      <tr>
+        <td><span class="wf-name">IT ticket resolution</span><span class="wf-domain">IT ops · Service desk</span></td>
+        <td class="pass">✓ High volume, cost clear<br>✓ Volume justifies build<br>✓ IT team ready</td>
+        <td>
+          <span class="pass">✓ Most steps deterministic<br>✓ ITSM data reliable</span>
+          <span class="warn" style="display:block;margin-top:4px">⚠ Some actions irreversible</span>
+        </td>
+        <td class="s3-focus">
+          <strong>Rollback</strong><span>Classify reversibility before acting — hard stop on irreversible actions</span>
+          <strong>Observability</strong><span>Track resolution quality, not just speed</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- EXAMPLES: FAIL -->
+<div class="examples-section">
+  <div class="examples-label">EXAMPLE WORKFLOWS — WHERE THE FRAMEWORK STOPS THE BUILD</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:22%">Workflow</th>
+        <th style="width:20%">Stops at</th>
+        <th style="width:30%">Why</th>
+        <th>What to do instead</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="fail-row">
+        <td><span class="wf-name">Support ticket routing</span><span class="wf-domain">CX · Service desk</span></td>
+        <td><span class="fail-mark">Step 02</span><span style="font-family:var(--mono);font-size:10px;color:var(--red)">Data quality gate</span></td>
+        <td><span class="fail-detail">Ticket history fragmented across three systems with inconsistent update frequencies. Agent would produce confidently wrong routing decisions.</span></td>
+        <td style="font-size:12px;color:var(--ink-mid)">Consolidate ticket history into a single source of truth. Define a data governance model. Re-run step 02 in 60–90 days.</td>
+      </tr>
+      <tr class="fail-row">
+        <td><span class="wf-name">AI performance reviews</span><span class="wf-domain">HR · People ops</span></td>
+        <td><span class="fail-mark">Step 01</span><span style="font-family:var(--mono);font-size:10px;color:var(--red)">Org readiness</span></td>
+        <td><span class="fail-detail">Employees will not trust AI outputs on career decisions. Even if technically sound, adoption will fail or create organizational backlash.</span></td>
+        <td style="font-size:12px;color:var(--ink-mid)">Introduce AI as a copilot that surfaces data to managers. Build trust over 2–3 review cycles before considering further automation.</td>
+      </tr>
+      <tr class="fail-row">
+        <td><span class="wf-name">Real-time pricing agent</span><span class="wf-domain">Commerce · Revenue ops</span></td>
+        <td><span class="fail-mark">Step 02</span><span style="font-family:var(--mono);font-size:10px;color:var(--red)">Data quality gate</span></td>
+        <td><span class="fail-detail">Pricing data lives in three systems with different refresh rates. The agent would act on stale prices, creating customer trust and margin problems.</span></td>
+        <td style="font-size:12px;color:var(--ink-mid)">Unify pricing data into a single source with real-time refresh. Define data SLAs before re-running step 02.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SEQUENCING NOTE -->
+<div class="sequencing">
+  <h3>A note on sequencing</h3>
+  <p>These steps are ordered intentionally. Business considerations first — because no amount of good engineering fixes a workflow that shouldn't be automated. Architectural filters second — because building something that will fail technically is waste. Design requirements last — but equally important, and only relevant if the first two pass.</p>
+  <p>The most expensive mistakes in enterprise AI come from skipping step 01 entirely and discovering the business case problem after six months of engineering work. <em>The most dangerous mistakes come from skipping step 03 and discovering the governance problem after the system is in production.</em></p>
+  <p>Do the work in order. It is faster than fixing it later.</p>
+</div>
+
+<footer>
+  <p><a href="https://www.jaggedfrontier.org">Notes from the Jagged Frontier</a> &nbsp;·&nbsp; Soujanya Madhurapantula</p>
+  <p>© 2026</p>
+</footer>
+
+</body>
+</html>
