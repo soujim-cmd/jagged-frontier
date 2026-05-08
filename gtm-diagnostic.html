@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTM Motion Diagnostic : Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNWC1D521"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTNWC1D521');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0e0e0d;--paper:#f5f2eb;--accent:#c8440a;
+  --muted:#7a7670;--border:#d4cfc6;--white:#ffffff;
+  --serif:'Playfair Display',Georgia,serif;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+/* MASTHEAD */
+.masthead{border-bottom:2px solid var(--ink);padding:0 clamp(1.5rem,5vw,4rem);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;min-height:64px;}
+.masthead-tag{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.masthead-title{font-family:var(--serif);font-size:clamp(13px,1.5vw,16px);font-weight:700;text-align:center;white-space:nowrap;text-decoration:none;color:inherit;}
+.masthead-nav{display:flex;gap:1.5rem;justify-content:flex-end;}
+.masthead-nav a{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.6;transition:opacity .2s;}
+.masthead-nav a:hover{opacity:1;}
+
+/* LAYOUT */
+.wrap{max-width:760px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);}
+
+/* ARTICLE HEADER */
+.article-header{padding:56px 0 40px;border-bottom:1px solid var(--border);}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:4px 10px;}
+h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:20px;}
+h1 em{font-style:italic;color:var(--accent);}
+.meta{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+
+/* BODY */
+.body-text{padding:44px 0 0;}
+.body-text p{font-size:16px;line-height:1.8;margin-bottom:1.5em;}
+
+/* MENTAL MODEL */
+.mental-model{margin:32px 0 44px;padding:20px 24px;border-left:3px solid var(--accent);background:var(--white);}
+.mental-model p{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--ink);margin:0;}
+.mental-model span{color:var(--accent);}
+
+/* TRIAGE */
+.section{margin:52px 0;}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.eyebrow::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent);}
+h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.25;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
+.intro{font-size:15px;line-height:1.8;color:#3a3834;margin-bottom:24px;}
+
+/* TRIAGE GRID */
+.triage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:16px;}
+.triage-cell{background:var(--white);padding:18px 20px;}
+.triage-cell .q-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+.triage-cell .q-text{font-size:14px;line-height:1.6;color:var(--ink);}
+.triage-cell .q-arrow{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:8px;}
+
+/* DIAGNOSTIC SECTIONS */
+.diag-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:32px;}
+.diag-card{border:1px solid var(--border);background:var(--white);padding:24px;}
+.diag-card h3{font-family:var(--sans);font-size:14px;font-weight:500;margin-bottom:4px;color:var(--ink);}
+.diag-card .card-sub{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.q-list{list-style:none;margin-bottom:16px;}
+.q-list li{font-size:13px;line-height:1.6;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;}
+.q-list li::before{content:"?";font-family:var(--mono);font-size:10px;color:var(--accent);margin-top:2px;flex-shrink:0;}
+.q-list li:last-child{border-bottom:none;}
+.ebitda-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;margin-top:16px;}
+.ebitda-text{font-size:12px;line-height:1.6;color:#3a3834;padding:10px 12px;background:var(--paper);border-left:2px solid var(--accent);}
+
+/* LEVER ROUTING */
+.lever-section{margin:52px 0;}
+.lever-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:24px;}
+.lever-card{border:1px solid var(--border);padding:24px;}
+.lever-card h3{font-family:var(--sans);font-size:14px;font-weight:500;margin-bottom:12px;}
+.lever-list{list-style:none;}
+.lever-list li{font-size:13px;line-height:1.6;padding:5px 0;border-bottom:1px solid var(--border);color:var(--muted);}
+.lever-list li:last-child{border-bottom:none;}
+.lever-list li.active{color:var(--ink);font-weight:500;}
+.lever-note{font-size:13px;line-height:1.7;color:#3a3834;margin-top:16px;padding:14px 16px;border:1px solid var(--border);background:var(--white);}
+
+/* APPS */
+.apps-section{margin:52px 0;}
+.apps-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px;margin-top:24px;}
+.apps-table thead tr{border-bottom:1px solid var(--ink);}
+.apps-table th{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:8px 12px 8px 0;}
+.apps-table td{padding:16px 12px 16px 0;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.6;}
+.apps-table tr:last-child td{border-bottom:none;}
+.app-name{font-weight:500;display:block;margin-bottom:2px;}
+.app-section{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.app-goal{font-size:12px;color:#3a3834;line-height:1.6;}
+.app-data{font-size:11px;color:var(--muted);line-height:1.6;}
+.app-gate{font-family:var(--mono);font-size:10px;color:var(--accent);}
+
+/* PULL QUOTE */
+.pq{margin:52px 0;padding:28px 0;border-top:3px solid var(--accent);border-bottom:1px solid var(--border);}
+.pq-text{font-family:var(--serif);font-size:clamp(1.1rem,2.5vw,1.4rem);line-height:1.4;font-style:italic;font-weight:700;margin-bottom:14px;}
+.pq-attr{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+/* FOOTER */
+footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--ink);}
+.fb{font-family:var(--serif);font-size:13px;font-weight:700;}
+.fc{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);}
+
+@media(max-width:768px){
+  .masthead{grid-template-columns:1fr 1fr;}.masthead-tag{display:none;}
+  .triage-grid{grid-template-columns:1fr;}
+  .diag-grid{grid-template-columns:1fr;}
+  .lever-grid{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:.5rem;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="masthead-tag">Field notes · Enterprise AI</span>
+  <a href="index.html" class="masthead-title">Notes from the Jagged Frontier</a>
+  <nav class="masthead-nav">
+    <a href="index.html#essays">Essays</a>
+    <a href="frameworks.html">Frameworks</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="index.html#about">About</a>
+    <a href="https://linkedin.com/in/soujanyamadhurapantula" target="_blank">LinkedIn</a>
+  </nav>
+</header>
+
+<div class="wrap">
+
+  <div class="article-header">
+    <div class="tags">
+      <span class="tag">GTM Strategy</span>
+      <span class="tag">Revenue Operations</span>
+      <span class="tag">PE Operating</span>
+      <span class="tag">Framework 07</span>
+    </div>
+    <h1>The GTM Motion <em>Diagnostic</em></h1>
+    <div class="meta">Soujanya Madhurapantula &nbsp;·&nbsp; May 2026</div>
+  </div>
+
+  <div class="body-text">
+    <p>Most GTM problems are not what they look like on the surface. A pipeline conversion problem is often an ICP problem in disguise. A churn problem is often a pricing and packaging problem that was never addressed at the point of sale. The diagnostic exists to find the real source of the leak before you spend time and capital fixing the wrong thing.</p>
+    <p>This framework examines how a company acquires, converts, expands, and monetizes customers. It asks where the motion leaks, what workflow causes the leakage, and how fixing it improves conversion, NRR, CAC payback, and EBITDA.</p>
+
+    <div class="mental-model">
+      <p>Revenue outcome <span>→</span> workflow cause <span>→</span> operational lever <span>→</span> EBITDA impact</p>
+    </div>
+
+    <p>This is a diagnostic tool, not a sequential checklist. Start with the triage questions to find your highest-priority section. If multiple areas fail, start with pricing : it is the fastest EBITDA lever available with no new customers required.</p>
+  </div>
+
+  <!-- TRIAGE -->
+  <div class="section">
+    <div class="eyebrow">Triage</div>
+    <h2>Where to start</h2>
+    <p class="intro">Four questions. Each points to a section. Any "yes" is a starting point.</p>
+    <div class="triage-grid">
+      <div class="triage-cell">
+        <div class="q-label">ICP + Segmentation</div>
+        <div class="q-text">Are your top 20% of accounts generating 80%+ of revenue, and do your sellers know which accounts are in that 20%?</div>
+        <div class="q-arrow">No → start with ICP</div>
+      </div>
+      <div class="triage-cell">
+        <div class="q-label">Pipeline Conversion</div>
+        <div class="q-text">Are deals taking longer to close than 12 months ago, or is conversion declining?</div>
+        <div class="q-arrow">Yes → start with Pipeline</div>
+      </div>
+      <div class="triage-cell">
+        <div class="q-label">Expansion + NRR</div>
+        <div class="q-text">Is NRR below 110%? Are fewer than 30% of customers buying more than one product?</div>
+        <div class="q-arrow">Yes → start with Expansion</div>
+      </div>
+      <div class="triage-cell">
+        <div class="q-label">Pricing + Packaging</div>
+        <div class="q-text">Are average deal sizes declining or discount rates increasing?</div>
+        <div class="q-arrow">Yes → start with Pricing</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUR SECTIONS -->
+  <div class="section">
+    <div class="eyebrow">Diagnostic sections</div>
+    <h2>Four areas, same question sequence</h2>
+    <p class="intro">For each section: what is the revenue outcome at risk? Where is the workflow leaking? What data would reveal it earlier? What operational lever fixes it? What is the EBITDA effect?</p>
+
+    <div class="diag-grid">
+
+      <!-- ICP -->
+      <div class="diag-card">
+        <h3>ICP + Segmentation</h3>
+        <div class="card-sub">Acquisition efficiency</div>
+        <ul class="q-list">
+          <li>Which accounts actually convert, and what do they have in common?</li>
+          <li>Which segments expand best after the initial sale?</li>
+          <li>Where are sellers spending time on low-probability accounts?</li>
+          <li>What signals distinguish a high-value account from a low-value one?</li>
+          <li>Is ICP definition shared across marketing, sales, and CS?</li>
+        </ul>
+        <div class="ebitda-label">EBITDA impact</div>
+        <div class="ebitda-text">Better targeting raises conversion on the same pipeline. Less wasted selling time lowers CAC. Better segmentation improves sales productivity without adding headcount.</div>
+      </div>
+
+      <!-- Pipeline -->
+      <div class="diag-card">
+        <h3>Pipeline Conversion</h3>
+        <div class="card-sub">Deal velocity and close rate</div>
+        <ul class="q-list">
+          <li>Where in the pipeline do deals most commonly stall?</li>
+          <li>What are the most common stated reasons for stall or loss?</li>
+          <li>Are stage definitions consistent across reps and regions?</li>
+          <li>Which reps, segments, or deal types convert at a significantly higher rate?</li>
+          <li>Is deal qualification rigorous or optimistic?</li>
+        </ul>
+        <div class="ebitda-label">EBITDA impact</div>
+        <div class="ebitda-text">Higher conversion increases revenue without adding headcount. Shorter cycle times improve sales efficiency. Better qualification reduces wasted pursuit cost on deals that were never going to close.</div>
+      </div>
+
+      <!-- Expansion -->
+      <div class="diag-card">
+        <h3>Expansion + NRR</h3>
+        <div class="card-sub">Installed base growth</div>
+        <ul class="q-list">
+          <li>Which customers are most likely to expand, and what signals predict that?</li>
+          <li>What usage, support, or product signals appear before a renewal risk or expansion opportunity?</li>
+          <li>What offer should be made to which customers, and when?</li>
+          <li>What comparable customers bought at a similar stage?</li>
+          <li>What is preventing upsell or cross-sell : pricing friction, product gaps, CS bandwidth, or lack of signal?</li>
+        </ul>
+        <div class="ebitda-label">EBITDA impact</div>
+        <div class="ebitda-text">Higher NRR compounds ARR without new customer acquisition cost. Expansion from the installed base is more efficient than new logo growth. Better retention protects gross profit and future revenue.</div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="diag-card">
+        <h3>Pricing + Packaging</h3>
+        <div class="card-sub">Revenue realization</div>
+        <ul class="q-list">
+          <li>Where are discounts too deep, and is there a pattern by rep, segment, or deal size?</li>
+          <li>Where is packaging misaligned with the value customers actually receive?</li>
+          <li>Which products or features are under-monetized?</li>
+          <li>Are customers buying the right bundle or defaulting to the cheapest entry point?</li>
+          <li>Is there a pricing governance process, or does pricing live in individual negotiations?</li>
+        </ul>
+        <div class="ebitda-label">EBITDA impact</div>
+        <div class="ebitda-text">Better pricing lifts revenue with little or no incremental cost. Packaging improvements reduce discount leakage. Monetization discipline directly improves gross margin : often the fastest EBITDA lever available.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LEVER ROUTING -->
+  <div class="lever-section">
+    <div class="eyebrow">From diagnostic to action</div>
+    <h2>Choosing the right lever</h2>
+    <p class="intro">Each section surfaces a problem. The problem can be addressed through one of five lever types. AI apps are the right lever only when the workflow is deterministic enough to automate, the data is reliable and connected, and the organizational conditions are in place to trust and act on the output.</p>
+
+    <div class="lever-grid">
+      <div class="lever-card">
+        <h3>Process, people, or incentive fix</h3>
+        <ul class="lever-list">
+          <li class="active">Org behavior : how teams work and prioritize</li>
+          <li class="active">Incentives : what reps and leaders are measured on</li>
+          <li class="active">Enablement : skills and playbooks to execute</li>
+          <li class="active">Tools and solutions : process infrastructure</li>
+          <li>Automation and AI apps</li>
+        </ul>
+        <div class="lever-note">When the problem is a process or a people issue, fix the process first. An AI app built on a broken workflow produces broken outputs faster.</div>
+      </div>
+      <div class="lever-card">
+        <h3>AI app candidate</h3>
+        <ul class="lever-list">
+          <li>Org behavior</li>
+          <li>Incentives</li>
+          <li>Enablement</li>
+          <li>Tools and solutions</li>
+          <li class="active">Automation and AI apps</li>
+        </ul>
+        <div class="lever-note">When the right lever is automation, apply the <a href="agent-portfolio-framework.html" style="color:var(--accent);">Go/No-Go filter</a> before building. Business value, data quality gate, and org readiness all need to pass.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- APPS -->
+  <div class="apps-section">
+    <div class="eyebrow">AI applications</div>
+    <h2>Five apps across the four sections</h2>
+    <p class="intro">These are the workflows where AI automation passes the Go/No-Go filter : assuming the data is connected. Each app addresses a specific workflow bottleneck identified by the diagnostic.</p>
+
+    <table class="apps-table">
+      <thead>
+        <tr>
+          <th style="width:22%">App</th>
+          <th style="width:28%">Goal</th>
+          <th style="width:28%">Data required</th>
+          <th>Gate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="app-name">Account priority scorer</span>
+            <span class="app-section">ICP + Segmentation</span>
+          </td>
+          <td class="app-goal">Score accounts continuously from CRM, intent signals, and firmographic data. Surface who to target and who to influence inside the account.</td>
+          <td class="app-data">CRM data, intent signals, firmographic feeds, closed-won patterns, stakeholder map.</td>
+          <td class="app-gate">ICP definition must be settled before scoring. Garbage in, garbage out.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="app-name">Deal risk monitor</span>
+            <span class="app-section">Pipeline Conversion</span>
+          </td>
+          <td class="app-goal">Detect stall signals automatically before a deal dies : dropped activity, champion going dark, key stakeholder change : across the entire pipeline, not just the deals a rep is watching.</td>
+          <td class="app-data">CRM activity data, email engagement, call logs, stage history, champion activity.</td>
+          <td class="app-gate">Fails if CRM hygiene is poor. Data quality gate is the primary risk.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="app-name">Next best action</span>
+            <span class="app-section">Pipeline Conversion</span>
+          </td>
+          <td class="app-goal">Triggered by the risk signal. Tells the rep what to do specifically : re-engage the champion, loop in a manager, send specific content : not just that a deal is at risk.</td>
+          <td class="app-data">Risk signals from deal monitor, historical win/loss patterns, rep performance data, content library.</td>
+          <td class="app-gate">Requires deal risk monitor to be running first. One system, two outputs.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="app-name">Customer expansion intelligence</span>
+            <span class="app-section">Expansion + NRR</span>
+          </td>
+          <td class="app-goal">Three layers: detect expansion signals from all internal and external customer data, surface comparable accounts to show the sales team what similar customers bought at the same stage, generate an Art of Possible blueprint showing what the expanded environment would look like.</td>
+          <td class="app-data">Product usage telemetry, support history, CSM notes, contract data, comparable account patterns, external signals (funding, hiring, growth).</td>
+          <td class="app-gate">Most data-intensive of the five apps. Product telemetry and CRM must be connected. Art of Possible layer requires human refinement.</td>
+        </tr>
+        <tr>
+          <td>
+            <span class="app-name">Discount governance</span>
+            <span class="app-section">Pricing + Packaging</span>
+          </td>
+          <td class="app-goal">Flag discount depth in real time, enforce approval thresholds by deal size and segment, surface pricing patterns across the sales team. Rules engine more than ML : simplest of the five to build technically.</td>
+          <td class="app-data">CRM deal data, approved pricing tiers, historical discount patterns, approval authority matrix.</td>
+          <td class="app-gate">Process first, tool second. Approval authority and pricing governance must be defined before the app is useful.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pq">
+    <div class="pq-text">"Most GTM problems are not what they look like on the surface. The diagnostic exists to find the real source of the leak before you spend time and capital fixing the wrong thing."</div>
+    <div class="pq-attr">Revenue outcome → workflow cause → operational lever → EBITDA impact</div>
+  </div>
+
+</div>
+
+<footer>
+  <span class="fb">Notes from the Jagged Frontier</span>
+  <span class="fc">© 2026 Soujanya Madhurapantula · San Francisco Bay Area</span>
+</footer>
+
+</body>
+</html>
