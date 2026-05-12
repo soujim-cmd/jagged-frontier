@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Health Diagnostic: Framework at a Glance — Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNWC1D521"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TTNWC1D521');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#0e0e0d;--paper:#f5f2eb;--accent:#c8440a;
+  --muted:#7a7670;--border:#d4cfc6;--white:#ffffff;
+  --serif:'Playfair Display',Georgia,serif;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{font-size:16px;scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+.masthead{border-bottom:2px solid var(--ink);padding:0 clamp(1.5rem,5vw,4rem);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:1rem;min-height:64px;}
+.masthead-tag{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.masthead-title{font-family:var(--serif);font-size:clamp(13px,1.5vw,16px);font-weight:700;text-align:center;white-space:nowrap;text-decoration:none;color:inherit;}
+.masthead-nav{display:flex;gap:1.5rem;justify-content:flex-end;}
+.masthead-nav a{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.6;transition:opacity .2s;}
+.masthead-nav a:hover{opacity:1;}
+.wrap{max-width:1020px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);}
+.article-header{padding:40px 0 32px;border-bottom:1px solid var(--border);}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:4px 10px;}
+h1{font-family:var(--serif);font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px;}
+h1 em{font-style:italic;color:var(--accent);}
+.meta{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.meta a{color:var(--accent);text-decoration:none;}
+.mental-model{margin:28px 0;padding:16px 20px;border-left:3px solid var(--accent);background:var(--white);}
+.mental-model p{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--ink);margin:0;}
+.mental-model span{color:var(--accent);}
+.chart-wrap{margin:36px 0;background:var(--white);border:1px solid var(--border);padding:28px 24px;}
+.chart-label{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border-top:2px solid var(--ink);padding-top:.6rem;margin-bottom:20px;}
+.section-label{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border-top:2px solid var(--ink);padding-top:.6rem;margin:36px 0 16px;display:flex;align-items:center;gap:8px;}
+.section-label::before{content:'';display:inline-block;width:14px;height:1px;background:var(--accent);}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:36px;}
+.ic{background:var(--white);padding:16px;}
+.ic-head{font-family:var(--sans);font-size:12px;font-weight:500;margin-bottom:3px;}
+.ic-sub{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.ic-impact{font-size:12px;line-height:1.6;color:#3a3834;padding:8px 10px;background:var(--paper);border-left:2px solid var(--accent);}
+.apps-mini{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:36px;}
+.apps-mini thead tr{border-bottom:1px solid var(--ink);}
+.apps-mini th{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:7px 10px 7px 0;}
+.apps-mini td{padding:12px 10px 12px 0;border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5;}
+.apps-mini tr:last-child td{border-bottom:none;}
+.aname{font-weight:500;display:block;}
+.asect{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.agoal{font-size:11px;color:#3a3834;}
+.agate{font-family:var(--mono);font-size:10px;color:var(--accent);}
+.read-more{margin:36px 0;padding:20px 24px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:space-between;text-decoration:none;color:inherit;transition:border-color .15s;}
+.read-more:hover{border-color:var(--ink);}
+.rm-label{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.rm-title{font-family:var(--serif);font-size:1rem;font-weight:700;}
+.rm-cta{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);white-space:nowrap;margin-left:24px;}
+footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--ink);}
+.fb{font-family:var(--serif);font-size:13px;font-weight:700;}
+.fc{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);}
+@media(max-width:768px){
+  .masthead{grid-template-columns:1fr 1fr;}.masthead-tag{display:none;}
+  .impact-grid{grid-template-columns:1fr 1fr;}
+  footer{flex-direction:column;gap:.5rem;text-align:center;}
+}
+@media(max-width:480px){.impact-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="masthead-tag">Field notes · Enterprise AI</span>
+  <a href="index.html" class="masthead-title">Notes from the Jagged Frontier</a>
+  <nav class="masthead-nav">
+    <a href="index.html#essays">Essays</a>
+    <a href="frameworks.html">Frameworks</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="index.html#about">About</a>
+    <a href="https://linkedin.com/in/soujanyamadhurapantula" target="_blank">LinkedIn</a>
+  </nav>
+</header>
+
+<div class="wrap">
+  <div class="article-header">
+    <div class="tags">
+      <span class="tag">Product Strategy</span>
+      <span class="tag">PE Operating</span>
+      <span class="tag">Revenue Growth</span>
+      <span class="tag">Framework 08</span>
+    </div>
+    <h1>Product Health Diagnostic: <em>Framework at a Glance</em></h1>
+    <div class="meta">Soujanya Madhurapantula &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; <a href="product-diagnostic.html">Read the full article</a></div>
+  </div>
+
+  <div class="mental-model">
+    <p>Product outcome <span>&#8594;</span> workflow cause <span>&#8594;</span> operational lever <span>&#8594;</span> revenue impact</p>
+  </div>
+
+  <div class="chart-wrap">
+    <div class="chart-label">The diagnostic at a glance</div>
+    <svg width="100%" viewBox="0 0 880 700" role="img">
+      <title>Product Health Diagnostic Flowchart</title>
+      <desc>Triage questions at top, six diagnostic columns, lever routing, and AI app examples at bottom</desc>
+      <defs>
+        <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+
+      <!-- TRIAGE BAR -->
+      <rect x="20" y="10" width="840" height="48" rx="3" fill="#f5f2eb" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="440" y="27" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#c8440a">TRIAGE</text>
+      <text x="440" y="44" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Answer each question. Any yes points to a section. Multiple fails: start with strategy and discovery.</text>
+
+      <!-- COL HEADERS (6 cols, each w=133, gap=8) -->
+      <!-- Col 1: Strategy x=20 -->
+      <rect x="20" y="70" width="133" height="56" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
+      <text x="86" y="86" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#c8440a">STRATEGY</text>
+      <text x="86" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Features rarely used?</text>
+      <text x="86" y="116" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#7a7670">Roadmap tied to outcomes?</text>
+
+      <!-- Col 2: Build x=161 -->
+      <rect x="161" y="70" width="133" height="56" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
+      <text x="227" y="86" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#c8440a">BUILD &amp; VELOCITY</text>
+      <text x="227" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Delivery slowing down?</text>
+      <text x="227" y="116" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#7a7670">Same issues repeating?</text>
+
+      <!-- Col 3: Portfolio x=302 -->
+      <rect x="302" y="70" width="133" height="56" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
+      <text x="368" y="86" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#c8440a">PORTFOLIO</text>
+      <text x="368" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Too many bets at once?</text>
+      <text x="368" y="116" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#7a7670">Zombie products alive?</text>
+
+      <!-- Col 4: Validation x=443 -->
+      <rect x="443" y="70" width="133" height="56" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
+      <text x="509" y="86" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#c8440a">VALIDATION</text>
+      <text x="509" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Pilots not converting?</text>
+      <text x="509" y="116" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#7a7670">Adoption stalling post-launch?</text>
+
+      <!-- Col 5: Feedback x=584 -->
+      <rect x="584" y="70" width="133" height="56" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
+      <text x="650" y="86" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#c8440a">FEEDBACK</text>
+      <text x="650" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Feedback loop broken?</text>
+      <text x="650" y="116" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#7a7670">No response to customers?</text>
+
+      <!-- Col 6: Telemetry x=725 -->
+      <rect x="725" y="70" width="135" height="56" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
+      <text x="792" y="86" text-anchor="middle" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#c8440a">TELEMETRY</text>
+      <text x="792" y="100" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Data not trusted?</text>
+      <text x="792" y="116" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#7a7670">Instinct over evidence?</text>
+
+      <!-- Arrows col headers to question boxes -->
+      <line x1="86" y1="126" x2="86" y2="142" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="227" y1="126" x2="227" y2="142" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="368" y1="126" x2="368" y2="142" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="509" y1="126" x2="509" y2="142" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="650" y1="126" x2="650" y2="142" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="792" y1="126" x2="792" y2="142" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+
+      <!-- QUESTION BOXES (y=146, h=108) -->
+      <!-- Strategy -->
+      <rect x="20" y="146" width="133" height="108" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="34" y="164" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
+      <text x="34" y="180" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Why before what before how?</text>
+      <line x1="34" y1="186" x2="147" y2="186" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="34" y="200" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Customer workflow observed?</text>
+      <line x1="34" y1="206" x2="147" y2="206" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="34" y="220" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Priorities evidence-based?</text>
+      <line x1="34" y1="226" x2="147" y2="226" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="34" y="242" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Roadmap tied to outcome?</text>
+
+      <!-- Build -->
+      <rect x="161" y="146" width="133" height="108" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="175" y="164" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
+      <text x="175" y="180" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Features vs maintenance ratio?</text>
+      <line x1="175" y1="186" x2="288" y2="186" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="175" y="200" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Tech debt tracked formally?</text>
+      <line x1="175" y1="206" x2="288" y2="206" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="175" y="220" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Cycle time improving?</text>
+      <line x1="175" y1="226" x2="288" y2="226" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="175" y="242" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Definition of done shared?</text>
+
+      <!-- Portfolio -->
+      <rect x="302" y="146" width="133" height="108" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="316" y="164" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
+      <text x="316" y="180" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Which bets to stop?</text>
+      <line x1="316" y1="186" x2="429" y2="186" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="316" y="200" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Revenue per product known?</text>
+      <line x1="316" y1="206" x2="429" y2="206" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="316" y="220" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Build/buy/partner explicit?</text>
+      <line x1="316" y1="226" x2="429" y2="226" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="316" y="242" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Kill criteria defined upfront?</text>
+
+      <!-- Validation -->
+      <rect x="443" y="146" width="133" height="108" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="457" y="164" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
+      <text x="457" y="180" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Pilot mirrors production?</text>
+      <line x1="457" y1="186" x2="570" y2="186" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="457" y="200" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Success defined before start?</text>
+      <line x1="457" y1="206" x2="570" y2="206" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="457" y="220" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Foundation prod-ready?</text>
+      <line x1="457" y1="226" x2="570" y2="226" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="457" y="242" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Commercial convo done early?</text>
+
+      <!-- Feedback -->
+      <rect x="584" y="146" width="133" height="108" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="598" y="164" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
+      <text x="598" y="180" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Clear feedback-to-roadmap path?</text>
+      <line x1="598" y1="186" x2="711" y2="186" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="598" y="200" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Triage cadence regular?</text>
+      <line x1="598" y1="206" x2="711" y2="206" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="598" y="220" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">PMs talk to customers directly?</text>
+      <line x1="598" y1="226" x2="711" y2="226" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="598" y="242" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Every item gets a response?</text>
+
+      <!-- Telemetry -->
+      <rect x="725" y="146" width="135" height="108" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="739" y="164" font-family="'DM Mono',monospace" font-size="7.5" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
+      <text x="739" y="180" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Feature usage vs purchased?</text>
+      <line x1="739" y1="186" x2="854" y2="186" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="739" y="200" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">At-risk accounts trackable?</text>
+      <line x1="739" y1="206" x2="854" y2="206" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="739" y="220" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">North stars shared + acted on?</text>
+      <line x1="739" y1="226" x2="854" y2="226" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="739" y="242" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Competitive intel commercial?</text>
+
+      <!-- Arrows down to lever box -->
+      <line x1="86" y1="254" x2="86" y2="282" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="227" y1="254" x2="227" y2="282" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="368" y1="254" x2="368" y2="282" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="509" y1="254" x2="509" y2="282" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="650" y1="254" x2="650" y2="282" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="792" y1="254" x2="792" y2="282" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+
+      <!-- LEVER BOX -->
+      <rect x="20" y="286" width="840" height="52" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="440" y="306" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#0e0e0d">CHOOSE THE RIGHT LEVER</text>
+      <text x="440" y="326" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#7a7670">Process and people  |  Discovery structure  |  Portfolio discipline  |  Tooling  |  Automation and AI</text>
+
+      <!-- Branch lines -->
+      <line x1="280" y1="338" x2="200" y2="374" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="600" y1="338" x2="680" y2="374" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <text x="196" y="364" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">process / people</text>
+      <text x="684" y="364" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">automation</text>
+
+      <!-- LEFT: Process fix -->
+      <rect x="20" y="378" width="390" height="60" rx="3" fill="#ffffff" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="215" y="400" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#0e0e0d">Process, people, or tooling fix</text>
+      <text x="215" y="418" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Fix discovery. Build the feedback chain. Set kill criteria.</text>
+      <text x="215" y="430" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Align product and engineering on definition of done.</text>
+
+      <!-- RIGHT: App candidate -->
+      <rect x="470" y="378" width="390" height="60" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
+      <text x="665" y="400" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#0e0e0d">AI app candidate</text>
+      <text x="665" y="418" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Apply the Go/No-Go filter first:</text>
+      <text x="665" y="430" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">business value + data gate + org readiness</text>
+
+      <!-- Arrow to apps -->
+      <line x1="665" y1="438" x2="665" y2="466" stroke="#c8440a" stroke-width="1" marker-end="url(#arr)"/>
+
+      <!-- APPS BOX -->
+      <rect x="470" y="470" width="390" height="196" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="486" y="490" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.5" fill="#c8440a">FOUR APPS ACROSS THE SIX SECTIONS</text>
+      <line x1="486" y1="496" x2="844" y2="496" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="486" y="513" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Usage intelligence</text>
+      <text x="750" y="513" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Telemetry</text>
+      <line x1="486" y1="520" x2="844" y2="520" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="486" y="537" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Feedback triage assistant</text>
+      <text x="750" y="537" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Feedback</text>
+      <line x1="486" y1="544" x2="844" y2="544" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="486" y="561" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Portfolio prioritization model</text>
+      <text x="750" y="561" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Portfolio</text>
+      <line x1="486" y1="568" x2="844" y2="568" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="486" y="585" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Competitive signal monitor</text>
+      <text x="750" y="585" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Telemetry</text>
+      <line x1="486" y1="592" x2="844" y2="592" stroke="#d4cfc6" stroke-width="0.5"/>
+      <text x="665" y="614" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Only if data gate passes</text>
+      <text x="665" y="632" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#c8440a">See full article for goal, data required, and gate condition per app</text>
+      <text x="665" y="654" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" fill="#7a7670">Process first. An AI app built on a broken product workflow produces broken outputs faster.</text>
+    </svg>
+  </div>
+
+  <!-- REVENUE IMPACT -->
+  <div class="section-label">Revenue impact by section</div>
+  <div class="impact-grid">
+    <div class="ic">
+      <div class="ic-head">Strategy &amp; Discovery</div>
+      <div class="ic-sub">Building the right things</div>
+      <div class="ic-impact">Better discovery raises feature adoption on the same engineering spend. Fewer wasted builds. Faster time to value for new customers.</div>
+    </div>
+    <div class="ic">
+      <div class="ic-head">Build &amp; Velocity</div>
+      <div class="ic-sub">Engineering leverage</div>
+      <div class="ic-impact">More shipped value per engineer. Reduced incident cost. Tech debt addressed before it becomes the ceiling for scale.</div>
+    </div>
+    <div class="ic">
+      <div class="ic-head">Portfolio &amp; Investment</div>
+      <div class="ic-sub">Capital efficiency</div>
+      <div class="ic-impact">Engineering capacity redirected from zombie products to high-value bets. Build vs buy decisions that do not create long-term liability.</div>
+    </div>
+    <div class="ic">
+      <div class="ic-head">Validation &amp; Adoption</div>
+      <div class="ic-sub">Pilot conversion rate</div>
+      <div class="ic-impact">Higher pilot-to-production conversion. Fewer stalled deals from foundation gaps. Faster commercial close after technical validation.</div>
+    </div>
+    <div class="ic">
+      <div class="ic-head">Feedback &amp; Iteration</div>
+      <div class="ic-sub">Retention and expansion</div>
+      <div class="ic-impact">Customers who feel heard expand. Closed-loop feedback reduces churn risk. Faster iteration shortens the time between insight and improvement.</div>
+    </div>
+    <div class="ic">
+      <div class="ic-head">Telemetry &amp; Intelligence</div>
+      <div class="ic-sub">Installed base growth</div>
+      <div class="ic-impact">Usage data surfaces expansion opportunities before customers ask. At-risk detection before churn shows in billing. Commercial intelligence improves win rates.</div>
+    </div>
+  </div>
+
+  <!-- APPS TABLE -->
+  <div class="section-label">Four AI apps: goal, data, and gate</div>
+  <table class="apps-mini">
+    <thead>
+      <tr>
+        <th style="width:22%">App</th>
+        <th style="width:38%">Goal</th>
+        <th>Data gate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="aname">Usage intelligence</span><span class="asect">Telemetry</span></td>
+        <td class="agoal">Surface which features customers actually use, identify expansion signals, flag accounts at risk before churn appears in billing.</td>
+        <td class="agate">Telemetry must be instrumented and trusted. Requires unified view across product and account systems.</td>
+      </tr>
+      <tr>
+        <td><span class="aname">Feedback triage assistant</span><span class="asect">Feedback &amp; Iteration</span></td>
+        <td class="agoal">Classify incoming feedback from support, CRM, and calls. Ensure every item gets a response: workaround, backlog, or immediate fix.</td>
+        <td class="agate">Feedback must be captured consistently. Triage criteria must be defined before automation is applied.</td>
+      </tr>
+      <tr>
+        <td><span class="aname">Portfolio prioritization model</span><span class="asect">Portfolio &amp; Investment</span></td>
+        <td class="agoal">Score initiatives by urgency, complexity, and strategic value. Surface zombie products and the opportunity cost of inaction.</td>
+        <td class="agate">Revenue and cost per product must be known. Requires honest data, not advocacy from individual teams.</td>
+      </tr>
+      <tr>
+        <td><span class="aname">Competitive signal monitor</span><span class="asect">Telemetry</span></td>
+        <td class="agoal">Track competitor pricing moves, packaging changes, and switching signals. Commercial intelligence beyond feature comparisons.</td>
+        <td class="agate">Requires defined signal sources and a process to act on findings. Only after internal telemetry is working.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a class="read-more" href="product-diagnostic.html">
+    <div>
+      <div class="rm-label">Full article</div>
+      <div class="rm-title">The Product Health Diagnostic: full diagnostic questions, lever routing, and the four apps in detail</div>
+    </div>
+    <div class="rm-cta">Read the article</div>
+  </a>
+
+</div>
+
+<footer>
+  <span class="fb">Notes from the Jagged Frontier</span>
+  <span class="fc">&#169; 2026 Soujanya Madhurapantula &#183; San Francisco Bay Area</span>
+</footer>
+
+</body>
+</html>
