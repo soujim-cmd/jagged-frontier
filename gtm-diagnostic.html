@@ -69,7 +69,7 @@ h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.25;ma
 .diag-card h3{font-family:var(--sans);font-size:14px;font-weight:500;margin-bottom:4px;color:var(--ink);}
 .diag-card .card-sub{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);}
 .q-list{list-style:none;margin-bottom:16px;}
-.q-list li{font-size:13px;line-height:1.6;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;}
+.q-list li{font-size:13px;line-height:1.6;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:baseline;}.q-list li strong{white-space:nowrap;min-width:150px;flex-shrink:0;margin-right:8px;}
 .q-list li::before{content:"?";font-family:var(--mono);font-size:10px;color:var(--accent);margin-top:2px;flex-shrink:0;}
 .q-list li:last-child{border-bottom:none;}
 .ebitda-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;margin-top:16px;}
@@ -213,12 +213,13 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
       <div class="diag-card">
         <h3>Pipeline Conversion</h3>
         <div class="card-sub">Deal velocity and close rate</div>
+        <div class="card-sub" style="margin-bottom:0.75rem;font-size:12px;color:var(--muted);">Five root causes. Each points to a different fix.</div>
         <ul class="q-list">
-          <li>Where in the pipeline do deals most commonly stall?</li>
-          <li>What are the most common stated reasons for stall or loss?</li>
-          <li>Are stage definitions consistent across reps and regions?</li>
-          <li>Which reps, segments, or deal types convert at a significantly higher rate?</li>
-          <li>Is deal qualification rigorous or optimistic?</li>
+          <li><strong>Qualification</strong> Is the pipeline realistic, or are deals entering that were never going to close?</li>
+          <li><strong>Stakeholder coverage</strong> Is the economic buyer engaged before late stage, or are deals advancing without a financial champion?</li>
+          <li><strong>Value articulation</strong> Is the business case clear and tailored to the decision maker, or is the deal advancing on technical enthusiasm alone?</li>
+          <li><strong>Deal momentum</strong> When deals stall, does the team know why and have a clear next action, or does leadership find out from the customer?</li>
+          <li><strong>Competitive and external</strong> Are losses to competition or timing tracked and analyzed, or do they disappear into lost, other?</li>
         </ul>
         <div class="ebitda-label">EBITDA impact</div>
         <div class="ebitda-text">Higher conversion increases revenue without adding headcount. Shorter cycle times improve sales efficiency. Better qualification reduces wasted pursuit cost on deals that were never going to close.</div>
@@ -228,12 +229,13 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
       <div class="diag-card">
         <h3>Expansion + NRR</h3>
         <div class="card-sub">Installed base growth</div>
+        <div class="card-sub" style="margin-bottom:0.75rem;font-size:12px;color:var(--muted);">Five root causes. Each points to a different fix.</div>
         <ul class="q-list">
-          <li>Which customers are most likely to expand, and what signals predict that?</li>
-          <li>What usage, support, or product signals appear before a renewal risk or expansion opportunity?</li>
-          <li>What offer should be made to which customers, and when?</li>
-          <li>What comparable customers bought at a similar stage?</li>
-          <li>What is preventing upsell or cross-sell : pricing friction, product gaps, CS bandwidth, or lack of signal?</li>
+          <li><strong>Signal</strong> Do you know which customers are ready to expand before they tell you?</li>
+          <li><strong>Solution fit</strong> Is the right product or bundle available for the customer's next logical step?</li>
+          <li><strong>Ownership</strong> Is there a clear owner for expansion, and are they incentivized to drive it?</li>
+          <li><strong>Timing</strong> Are expansion conversations happening at the right moment in the customer lifecycle?</li>
+          <li><strong>Relationship risk</strong> Are changes in customer leadership, sentiment, or budget tracked before they become churn?</li>
         </ul>
         <div class="ebitda-label">EBITDA impact</div>
         <div class="ebitda-text">Higher NRR compounds ARR without new customer acquisition cost. Expansion from the installed base is more efficient than new logo growth. Better retention protects gross profit and future revenue.</div>
@@ -243,12 +245,13 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
       <div class="diag-card">
         <h3>Pricing + Packaging</h3>
         <div class="card-sub">Revenue realization</div>
+        <div class="card-sub" style="margin-bottom:0.75rem;font-size:12px;color:var(--muted);">Five root causes. Each points to a different fix.</div>
         <ul class="q-list">
-          <li>Where are discounts too deep, and is there a pattern by rep, segment, or deal size?</li>
-          <li>Where is packaging misaligned with the value customers actually receive?</li>
-          <li>Which products or features are under-monetized?</li>
-          <li>Are customers buying the right bundle or defaulting to the cheapest entry point?</li>
-          <li>Is there a pricing governance process, or does pricing live in individual negotiations?</li>
+          <li><strong>Governance</strong> Is pricing governed by a defined process, or does it live in individual negotiations?</li>
+          <li><strong>Value alignment</strong> Is packaging aligned with how customers actually consume and receive value?</li>
+          <li><strong>Discount patterns</strong> Are discounts driven by competitive pressure or by rep behavior and incentives?</li>
+          <li><strong>Monetization</strong> Are the right capabilities priced to reflect their value, or are high-value features underpriced?</li>
+          <li><strong>Entry point</strong> Are customers starting at the right tier, or defaulting to the cheapest option?</li>
         </ul>
         <div class="ebitda-label">EBITDA impact</div>
         <div class="ebitda-text">Better pricing lifts revenue with little or no incremental cost. Packaging improvements reduce discount leakage. Monetization discipline directly improves gross margin : often the fastest EBITDA lever available.</div>
@@ -273,7 +276,7 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
           <li class="active">Tools and solutions : process infrastructure</li>
           <li>Automation and AI apps</li>
         </ul>
-        <div class="lever-note">When the problem is a process or a people issue, fix the process first. An AI app built on a broken workflow produces broken outputs faster.</div>
+        <div class="lever-note">When the problem is a process or a people issue, fix the process first. An AI app built on a broken workflow produces broken outputs faster. If the same symptom appears across multiple sections, check incentives first. Misaligned incentives produce consistent symptoms across the entire GTM motion.</div>
       </div>
       <div class="lever-card">
         <h3>AI app candidate</h3>
