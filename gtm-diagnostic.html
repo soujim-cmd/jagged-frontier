@@ -188,7 +188,7 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
   <!-- FOUR SECTIONS -->
   <div class="section">
     <div class="eyebrow">Diagnostic sections</div>
-    <h2>Diagnostic sections</h2>
+    <h2>Four areas, same question sequence</h2>
     <p class="intro">For each section: what is the revenue outcome at risk? Where is the workflow leaking? What data would reveal it earlier? What operational lever fixes it? What is the EBITDA effect?</p>
 
     <div class="diag-grid">
@@ -212,12 +212,13 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
       <div class="diag-card">
         <h3>Pipeline Conversion</h3>
         <div class="card-sub">Deal velocity and close rate</div>
+        <div class="card-sub" style="margin-bottom:0.75rem;font-size:12px;color:var(--muted);">Five root causes. Each points to a different fix.</div>
         <ul class="q-list">
-          <li>Where in the pipeline do deals most commonly stall?</li>
-          <li>What are the most common stated reasons for stall or loss?</li>
-          <li>Are stage definitions consistent across reps and regions?</li>
-          <li>Which reps, segments, or deal types convert at a significantly higher rate?</li>
-          <li>Is deal qualification rigorous or optimistic?</li>
+          <li><strong>Qualification</strong> Is the pipeline realistic, or are deals entering that were never going to close?</li>
+          <li><strong>Stakeholder coverage</strong> Is the economic buyer engaged before late stage, or are deals advancing without a financial champion?</li>
+          <li><strong>Value articulation</strong> Is the business case clear and tailored to the decision maker, or is the deal advancing on technical enthusiasm alone?</li>
+          <li><strong>Deal momentum</strong> When deals stall, does the team know why and have a clear next action, or does leadership find out from the customer?</li>
+          <li><strong>Competitive and external</strong> Are losses to competition or timing tracked and analyzed, or do they disappear into lost, other?</li>
         </ul>
         <div class="ebitda-label">EBITDA impact</div>
         <div class="ebitda-text">Higher conversion increases revenue without adding headcount. Shorter cycle times improve sales efficiency. Better qualification reduces wasted pursuit cost on deals that were never going to close.</div>
@@ -260,44 +261,7 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
   <div class="lever-section">
     <div class="eyebrow">From diagnostic to action</div>
     <h2>Choosing the right lever</h2>
-    <p class="intro">Each section's questions reveal a workflow failure. The lever depends on whether the root cause is a process and people problem — or an information and signal gap.</p>
-
-    <table class="apps-table" style="margin-bottom:2.5rem;">
-      <thead>
-        <tr>
-          <th style="width:22%">Section</th>
-          <th style="width:28%">What the questions reveal</th>
-          <th style="width:25%">Workflow failure</th>
-          <th>Right lever</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><span class="app-name">ICP + Segmentation</span></td>
-          <td>Sellers cannot distinguish high from low-value accounts</td>
-          <td>Account targeting</td>
-          <td>Automation if ICP is defined and data is connected</td>
-        </tr>
-        <tr>
-          <td><span class="app-name">Pipeline Conversion</span></td>
-          <td>Deals stall before anyone notices</td>
-          <td>Deal monitoring and rep guidance</td>
-          <td>Automation if CRM hygiene is good</td>
-        </tr>
-        <tr>
-          <td><span class="app-name">Expansion + NRR</span></td>
-          <td>CS cannot identify which customers are ready to grow</td>
-          <td>Customer intelligence</td>
-          <td>Automation if telemetry and CRM are connected</td>
-        </tr>
-        <tr>
-          <td><span class="app-name">Pricing + Packaging</span></td>
-          <td>Discounting happens through individual negotiation</td>
-          <td>Pricing governance</td>
-          <td>Fix the process first, then automate</td>
-        </tr>
-      </tbody>
-    </table>
+    <p class="intro">Each section surfaces a problem. The problem can be addressed through one of five lever types. AI apps are the right lever only when the workflow is deterministic enough to automate, the data is reliable and connected, and the organizational conditions are in place to trust and act on the output.</p>
 
     <div class="lever-grid">
       <div class="lever-card">
@@ -322,17 +286,6 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
         </ul>
         <div class="lever-note">When the right lever is automation, apply the <a href="agent-portfolio-framework.html" style="color:var(--accent);">Go/No-Go filter</a> before building. Business value, data quality gate, and org readiness all need to pass.</div>
       </div>
-    </div>
-
-    <div class="lever-note" style="max-width:680px;margin:2rem auto 0;background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:1.5rem;">
-      <strong>How to decide which lever applies</strong><br><br>
-      Ask one question: is the root cause a signal gap or a behavior gap?<br><br>
-      A <strong>signal gap</strong> means the team lacks the information to act correctly — they would do the right thing if they could see it. That is an AI app candidate.<br><br>
-      A <strong>behavior gap</strong> means the team has the information but is not acting on it — because of incentives, habits, or broken process. That is a process fix first.<br><br>
-      <strong>Example — pipeline conversion:</strong><br><br>
-      A sales team has a 35% conversion rate and deals are stalling at technical validation. Two diagnoses are possible.<br><br>
-      If reps do not know which deals are stalling until it is too late to recover — that is a signal gap. The Deal Risk Monitor addresses it by detecting stall signals automatically across the full pipeline.<br><br>
-      If reps know which deals are stalling but are not following up because they are compensated on new pipeline, not conversion — that is an incentive problem. Building the app first produces alerts nobody acts on.
     </div>
   </div>
 
