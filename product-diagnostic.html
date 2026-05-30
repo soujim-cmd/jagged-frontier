@@ -115,12 +115,18 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
   </div>
 
   <div class="body-text">
-    <p>Most product organizations know something is wrong before they can name what it is. Features ship and flatline. Adoption stalls after launch. Engineers are busy but the roadmap isn't moving the business. Pilots don't convert to production.</p>
-    <p>This diagnostic surfaces where the product system is breaking down and what it's costing you. It is not a checklist. It is a set of questions designed to reveal the root cause — and point to the right fix.</p>
+    <p>Most product organizations know something is wrong before they can name what it is. Features ship and flatline. Adoption stalls after launch. Engineers are busy but the roadmap is not moving the business. The team is building but the outcomes aren't compounding.</p>
+    <p>The instinct is usually to fix the symptoms: run more discovery, add more process, hire a stronger PM. But most product health problems are systemic. They sit inside the operating model — how the organization decides what to build, how it allocates resources, how it learns from what ships.</p>
+    <p>This diagnostic is designed for a CPO or product leader who suspects the system is broken but can't name where. It surfaces the root cause across five failure points and tells you where to focus first. It is not a checklist. The questions are designed to reveal structure — and the structure reveals what to fix.</p>
   </div>
 
   <div class="mental-model">
-    <p>The product system has five failure points: <span>what you decide to build</span>, <span>what you fund</span>, <span>how you build it</span>, <span>whether it lands</span>, and <span>whether you learn from what happens next</span>. A weakness in any one compounds the others.</p>
+    <p>The product system has five failure points: <span>what you decide to build</span>, <span>what you fund and kill</span>, <span>how well you build it</span>, <span>whether it lands in the real world</span>, and <span>whether you learn from what happens after it ships</span>. A weakness in any one compounds the others. A broken discovery process produces a broken roadmap. A broken roadmap overloads engineering. Overloaded engineering produces fragile builds. Fragile builds stall adoption. Stalled adoption produces the wrong intelligence for the next cycle.</p>
+  </div>
+
+  <div class="body-text">
+    <p><strong>How to use this framework.</strong> Start with the triage. Five questions — one per section. Any yes tells you where the most acute failure is. If multiple sections are failing, start with Strategy and Discovery: the upstream problem almost always feeds the downstream ones. Once you have a starting section, work through its five root cause questions. Each question points to a different fix. A yes on prioritization discipline calls for a different intervention than a yes on strategic alignment, even though both live inside the same section.</p>
+    <p>The output of the diagnostic is not a scorecard. It is a hypothesis about where the system is breaking and what lever will actually move it. That hypothesis leads to either a process and operating model fix or an AI automation opportunity — and knowing which one to pursue first is what separates useful diagnostics from expensive ones.</p>
   </div>
 
   <!-- WHERE TO START -->
@@ -158,10 +164,11 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
     </div>
   </div>
 
-  <!-- SECTION 1: STRATEGY AND DISCOVERY -->
+  <!-- DIAGNOSTIC SECTIONS -->
   <div class="section">
-    <div class="eyebrow">Section 1</div>
+    <div class="eyebrow">Section 1 through 5</div>
     <h2>Diagnostic sections</h2>
+    <p class="intro">Each section has five root causes. Each root cause has one diagnostic question. The question is not the full picture — it is the entry point. When a question surfaces a yes, the job is to understand why. The why is what determines the fix.</p>
     <div class="diag-grid">
       <div class="diag-card">
         <h3>Strategy and Discovery</h3>
@@ -236,7 +243,46 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
     </div>
   </div>
 
-</div>
+  <!-- FROM DIAGNOSIS TO ACTION -->
+  <div class="section">
+    <div class="eyebrow">From diagnostic to action</div>
+    <h2>Choosing the right lever</h2>
+    <p class="intro">Each section's root cause questions point to one of two kinds of fixes: a process, people, or operating model intervention — or an AI automation opportunity. Knowing which one applies is the most important decision in the diagnostic, and it is the one most frequently skipped.</p>
+
+    <div class="body-text" style="margin-bottom:32px;">
+      <p>The most common mistake is reaching for automation before the underlying process is clean. An AI app built on a broken workflow does not fix the workflow — it executes the broken workflow faster and at scale. The classic example: a team builds a deal risk monitor to surface stalled deals, only to find that reps don't act on the alerts because their incentives are tied to new pipeline, not conversion. The tool is working. The process is broken. The problem gets worse, not better.</p>
+      <p>The diagnostic is designed to surface this distinction. Ask one question first: is the root cause a <strong>signal gap</strong> or a <strong>behavior gap</strong>? A signal gap means the team lacks the information to act correctly — they would do the right thing if they could see it. That is an AI automation candidate. A behavior gap means the team has the information but is not acting on it — because of incentives, habits, unclear ownership, or broken process. That requires a process fix first, regardless of what the AI can do.</p>
+      <p>If the same problem appears across multiple sections of this diagnostic, check incentives before anything else. Misaligned incentives produce consistent symptoms across the entire product system — weak discovery, zombie products, slow builds, stalled adoption, and blind spots in the intelligence layer all at once.</p>
+    </div>
+
+    <div class="mental-model" style="margin-bottom:32px;">
+      <p>Fix the process first. <span>An AI app built on a broken workflow produces broken outputs faster.</span> When the root cause is a signal gap and the process is clean — apply the Go/No-Go filter before building.</p>
+    </div>
+
+    <div class="eyebrow" style="margin-top:40px;">The Go/No-Go filter</div>
+    <h2>Before you build an AI app</h2>
+    <p class="intro">Not every diagnostic finding warrants an AI solution. The Go/No-Go filter is a four-gate test. An automation idea must pass all four gates before it earns engineering resources. Fail any one and the honest answer is: fix the underlying condition first.</p>
+
+    <div class="body-text" style="margin-bottom:32px;">
+      <p><strong>Gate 1 — Does the workflow already work without AI?</strong> If the current process is broken, adding AI automates dysfunction. The output of a well-designed AI app is only as good as the process it runs on. Before asking what AI can do, ask whether the manual version of this workflow produces the right outcome when done well.</p>
+      <p><strong>Gate 2 — Is the ROI defensible?</strong> Can you articulate the value clearly enough that a CFO would approve it — in terms of cost reduction, revenue acceleration, or risk mitigation? If the business case is vague, the app will be built to a vague standard and measured against nothing. A clear ROI hypothesis is the forcing function for a clear product definition.</p>
+      <p><strong>Gate 3 — Is the data clean enough?</strong> AI systems are only as reliable as the data they run on. If product telemetry is incomplete, CRM data is inconsistently logged, or customer signals are scattered across disconnected systems, the app will produce unreliable outputs. Data quality is the constraint that most teams underestimate and most post-mortems cite.</p>
+      <p><strong>Gate 4 — Can you measure success objectively?</strong> If you cannot define what "working" looks like with a clear metric and a time horizon, you cannot evaluate whether the app is delivering value — or whether it has quietly drifted from its purpose. Every AI app should ship with a defined business metric and a review cadence.</p>
+      <p>Fail any gate: stop and fix the underlying condition. Pass all four: proceed to scope the app against the specific root cause the diagnostic identified.</p>
+    </div>
+
+    <div class="eyebrow" style="margin-top:40px;">Product AI apps</div>
+    <h2>Five automation opportunities across the product system</h2>
+    <p class="intro">These five apps map directly to the diagnostic sections. Each addresses a specific signal gap — not a behavior gap. Each assumes the process is clean and the data gate has passed.</p>
+
+    <div class="body-text" style="margin-bottom:0;">
+      <p><strong>Feature adoption intelligence (Strategy and Discovery).</strong> Correlates feature usage with retention and expansion signals to surface which capabilities actually drive customer outcomes — and which are being built to a pattern of waste. The app is not a feature tracker. It is a signal that tells the PM team where discovery assumptions were wrong and where they were right, closing the loop between what was promised in the roadmap and what customers actually do after launch.</p>
+      <p><strong>Portfolio health monitor (Portfolio and Investment).</strong> Tracks revenue and cost contribution by product line against strategic investment intent, flagging where the portfolio has drifted from plan. The app surfaces zombie products before they consume another quarter of engineering capacity, and identifies where the build vs buy decision has created long-term liability rather than leverage.</p>
+      <p><strong>Engineering capacity and debt tracker (Build, Velocity and Tech Debt).</strong> Models the ratio of new value delivery to maintenance and debt service in real time, connecting technical decisions to financial outcomes. When capacity allocation drifts toward debt, the app flags it before it becomes the ceiling for the next product cycle. Built on engineering telemetry, CI/CD data, and incident history.</p>
+      <p><strong>Production adoption tracker (Validation and Adoption).</strong> Monitors the journey from feature launch to realized customer value — time to activation, functional gaps surfaced post-launch, non-functional barriers by customer segment. The app distinguishes between adoption problems caused by product gaps and adoption problems caused by change management or messaging failures, pointing to the right fix rather than the nearest fix.</p>
+      <p><strong>Customer and market intelligence engine (Product Intelligence).</strong> Aggregates signals across usage telemetry, support patterns, NPS, expansion data, and pricing behavior into a single intelligence layer. Surfaces expansion-ready accounts before CS misses the window, identifies emerging use cases before a competitor does, and connects pricing signal to packaging decisions that improve gross margin without churning existing customers.</p>
+    </div>
+  </div>
 
 <footer>
   <span class="fb">Notes from the Jagged Frontier</span>
