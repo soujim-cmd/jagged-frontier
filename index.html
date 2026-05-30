@@ -64,7 +64,7 @@
   .pq-text { font-family: var(--serif); font-size: clamp(1.2rem,2.5vw,1.75rem); line-height: 1.4; font-style: italic; font-weight: 700; max-width: 70ch; }
   .pq-attr { margin-top: 1rem; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .frameworks-strip { padding: 0 clamp(1.5rem,5vw,4rem); border-bottom: 2px solid var(--ink); }
-  .frameworks-grid { display: grid; grid-template-columns: repeat(7,1fr); }
+  .frameworks-grid { display: grid; grid-template-columns: repeat(5,1fr); }
   .fw-card { padding: 1.75rem 1.5rem 1.75rem 0; border-right: 1px solid var(--border); text-decoration: none; color: inherit; display: block; }
   .fw-card:not(:first-child) { padding-left: 1.5rem; }
   .fw-card:last-child { border-right: none; }
@@ -172,10 +172,10 @@
   </div>
   <div class="hero-right">
     <div class="hero-featured-label">New Framework</div>
-    <a class="hero-featured-card" href="gtm-diagnostic-chart.html">
-      <div class="hfc-tag">GTM Strategy · Revenue Operations · PE Operating</div>
-      <div class="hfc-title">The GTM Motion Diagnostic: Framework at a Glance</div>
-      <div class="hfc-dek">Where is your revenue motion leaking? Four sections, five AI apps, one diagnostic sequence. Revenue outcome to workflow cause to operational lever to EBITDA impact.</div>
+    <a class="hero-featured-card" href="hr-diagnostic.html">
+      <div class="hfc-tag">Talent Systems · Org Design · PE Operating</div>
+      <div class="hfc-title">The HR and Org Design Diagnostic</div>
+      <div class="hfc-dek">Where is your talent system breaking down? Five sections covering hiring, performance, retention, culture, and org design. Each with diagnostic questions and the right lever to pull first.</div>
       <div class="hfc-cta">Read the framework</div>
     </a>
   </div>
@@ -183,7 +183,7 @@
 
 <div class="section-header" id="essays">
   <h2>Essays from the Frontier</h2>
-  <span class="count">/ 08</span>
+  <span class="count">/ 10</span>
 </div>
 <div class="essays-grid">
   <a class="essay-card" href="operating-toolkit.html">
@@ -234,6 +234,12 @@
     <div class="ec-dek">Where is your revenue motion leaking? Four sections covering ICP, pipeline, expansion, and pricing. Each with diagnostic questions, EBITDA impact, and the right operational lever.</div>
     <div class="ec-read">Read essay</div>
   </a>
+  <a class="essay-card" href="hr-diagnostic.html">
+    <div class="ec-tag">Talent Systems · Org Design · PE Operating</div>
+    <div class="ec-title">The HR and Org Design Diagnostic</div>
+    <div class="ec-dek">Where is your talent system breaking down? Five sections covering hiring, performance, retention, culture, and org design. Each with diagnostic questions and the right lever to pull first.</div>
+    <div class="ec-read">Read essay</div>
+  </a>
   <a class="essay-card" href="jtbd-essay.html">
     <div class="ec-tag">Enterprise AI · GTM Strategy</div>
     <div class="ec-title">The Metric That Will Define Enterprise AI Winners</div>
@@ -252,7 +258,7 @@
 
 <div class="section-header" id="frameworks">
   <h2>Core Frameworks</h2>
-  <span class="count">/ 08</span>
+  <span class="count">/ 10</span>
   <a href="frameworks.html" class="see-all">View all →</a>
 </div>
 <div class="frameworks-strip">
@@ -295,7 +301,17 @@
     <a class="fw-card" href="product-diagnostic-chart.html">
       <div class="fw-num">08</div>
       <div class="fw-title">Product Health Diagnostic</div>
-      <div class="fw-desc">Where the product system breaks. Six sections, one page.</div>
+      <div class="fw-desc">Where the product system breaks. Five sections, one page.</div>
+    </a>
+    <a class="fw-card" href="hr-diagnostic.html">
+      <div class="fw-num">09</div>
+      <div class="fw-title">HR and Org Design Diagnostic</div>
+      <div class="fw-desc">Where the talent system breaks. Five sections, one page.</div>
+    </a>
+    <a class="fw-card" href="hr-diagnostic-chart.html">
+      <div class="fw-num">10</div>
+      <div class="fw-title">HR Diagnostic: At a Glance</div>
+      <div class="fw-desc">Where talent and org design leak. One scannable page.</div>
     </a>
   </div>
 </div>
@@ -326,13 +342,20 @@
   </a>
 </div>
 
-<div class="advisor-band">
-  <div>
-    <div class="wp-eyebrow">AI Tool · Built on Claude</div>
-    <div class="wp-title">The Advisor</div>
-    <div class="wp-dek">An AI tool for enterprise operators navigating AI transformation. Ask it about GTM motion leaks, product system breaks, operating model design, or whether to build an agent. Grounded in the frameworks on this site.</div>
-  </div>
-  <a class="wp-btn" href="https://advisor-chat-focus.lovable.app/" target="_blank">Talk to The Advisor →</a>
+<div class="section-header" id="apps">
+  <h2>AI Apps</h2>
+  <span class="count">/ 01</span>
+</div>
+<div class="casestudies-grid">
+  <a class="cs-card" href="https://advisor-chat-focus.lovable.app/" target="_blank">
+    <div class="cs-eyebrow">App 01 · Built on Claude · RAG-powered</div>
+    <div class="cs-title">The Advisor</div>
+    <div class="cs-dek">An AI tool that answers enterprise AI questions grounded in the frameworks on this site. Ask it about GTM motion leaks, product system breaks, operating model design, or whether to build an agent before building it.</div>
+    <div class="cs-tag-row">
+      <span class="cs-tag">Claude Sonnet 4.5</span><span class="cs-tag">RAG</span><span class="cs-tag">Supabase</span><span class="cs-tag">pgvector</span>
+    </div>
+    <div class="cs-read">Talk to The Advisor →</div>
+  </a>
 </div>
 
 <div class="whitepaper-band">
