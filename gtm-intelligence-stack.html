@@ -24,11 +24,11 @@
   .masthead-nav { display: flex; gap: 1.5rem; justify-content: flex-end; }
   .masthead-nav a { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: .6; transition: opacity .2s; }
   .masthead-nav a:hover { opacity: 1; }
-  .dateline { background: var(--ink); color: var(--paper); padding: 8px clamp(1.5rem,5vw,4rem); display: flex; gap: 2rem; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; overflow: hidden; }
+  .dateline { background: var(--ink); color: var(--paper); padding: 8px clamp(1.5rem,5vw,4rem); display: flex; gap: 2rem; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; overflow:[...]
   .dateline span { opacity: .5; white-space: nowrap; }
   .dateline span.active { opacity: 1; color: #e8b89a; }
   .article-header { padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem) 0; border-bottom: 1px solid var(--border); max-width: 860px; }
-  .article-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px; }
+  .article-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; g[...]
   .article-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
   .article-title { font-family: var(--serif); font-size: clamp(2rem,5vw,3.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -.02em; margin-bottom: 1.5rem; }
   .article-title em { font-style: normal; color: var(--accent); }
@@ -45,18 +45,21 @@
   .article-body h3.layer-label { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 2rem 0 .5rem; }
   .article-body strong { font-weight: 500; color: var(--ink); }
   .article-body .section-divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
-  .article-body .pull { font-family: var(--serif); font-size: 1.25rem; font-style: italic; font-weight: 700; line-height: 1.4; color: var(--ink); border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 2.5rem 0; }
+  .article-body .pull { font-family: var(--serif); font-size: 1.25rem; font-style: italic; font-weight: 700; line-height: 1.4; color: var(--ink); border-left: 3px solid var(--accent); padding-left[...]
   .article-body .missing-item { padding: 1.25rem 1.5rem; border-left: 2px solid var(--border); margin-bottom: 1.25rem; background: white; }
   .article-body .missing-item-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
   .article-body .missing-item p { margin-bottom: 0; }
+  .article-body .figure-container { margin: 2.5rem 0; text-align: center; }
+  .article-body .figure-container img { max-width: 100%; height: auto; border: 1px solid var(--border); }
+  .article-body .figure-caption { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--muted); margin-top: 0.75rem; font-style: italic; }
   .article-byline-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
   .article-byline-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--muted); line-height: 1.7; }
   .article-sidebar { position: sticky; top: 2rem; }
   .sidebar-section { margin-bottom: 2rem; }
-  .sidebar-label { font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); border-top: 2px solid var(--ink); padding-top: .75rem; margin-bottom: 1rem; }
+  .sidebar-label { font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); border-top: 2px solid var(--ink); padding-top: .75rem; margin-bot[...]
   .sidebar-toc { list-style: none; }
   .sidebar-toc li { margin-bottom: .6rem; }
-  .sidebar-toc a { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--ink); text-decoration: none; opacity: .55; transition: opacity .2s; line-height: 1.5; display: block; }
+  .sidebar-toc a { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--ink); text-decoration: none; opacity: .55; transition: opacity .2s; line-height: 1.5; display: blo[...]
   .sidebar-toc a:hover { opacity: 1; color: var(--accent); }
   .sidebar-related { display: flex; flex-direction: column; gap: .75rem; }
   .sidebar-card { display: block; text-decoration: none; color: inherit; padding: 1rem; border: 1px solid var(--border); background: white; transition: border-color .15s; }
@@ -107,7 +110,7 @@
 <div class="article-header">
   <div class="article-eyebrow">Essay · GTM Strategy · Sales Intelligence</div>
   <h1 class="article-title">The GTM Intelligence Stack in 2026:<br>What's Been Built and What's Still <em>Missing</em> (for now)</h1>
-  <p class="article-dek">Before building the first app from the GTM Motion Diagnostic, I mapped the market. Here's what exists, where innovation has concentrated, and where the loop is still open.</p>
+  <p class="article-dek">Before building the first app from the GTM Motion Diagnostic, I mapped the market. Here's what exists, where innovation has concentrated, and where the loop is still open[...]
   <div class="article-meta">
     <span class="article-author">Soujanya Madhurapantula</span>
     <span class="article-date">June 2026</span>
@@ -120,21 +123,26 @@
 <div class="article-wrap">
   <article class="article-body">
 
-    <p>When I was building the system to grow a cloud business from $100M to $1B, I wasn't thinking about GTM intelligence. I was thinking about which accounts to go after with what workloads, which programs to run, and how to know if any of it was working — identify strategies for step-function growth and how to execute efficiently and effectively.</p>
+    <p>When I was building the system to grow a cloud business from $100M to $1B, I wasn't thinking about GTM intelligence. I was thinking about which accounts to go after with what workloads, wh[...]
 
-    <p>We stitched together what we needed. I started with finance data that couldn't be shared widely and CRM records very few kept updated or trusted. I built consumption intelligence using telemetry data and then scaled an activity monitoring tool someone on the team built because nothing existed. We added pattern recognition on top of it all, using whatever low-code tools we had available. I built a manual research template for the accounts that mattered most.</p>
+    <p>We stitched together what we needed. I started with finance data that couldn't be shared widely and CRM records very few kept updated or trusted. I built consumption intelligence using tel[...]
 
-    <p>It worked. It was not elegant — a hodgepodge of connected tools assembled for specific programs. But when the pieces talked to each other, the intelligence was clear. We could see which accounts were growing, which were stalling, which plays were working and which weren't. We could tell leadership where to focus and why.</p>
+    <p>It worked. It was not elegant — a hodgepodge of connected tools assembled for specific programs. But when the pieces talked to each other, the intelligence was clear. We could see which [...]
 
     <div class="pull">I didn't know we were building a GTM intelligence platform. I was just trying to answer the question: where should we bet next?</div>
 
     <hr class="section-divider">
 
-    <p>I recently went back through the <a href="gtm-diagnostic.html" style="color:var(--accent);">GTM Motion Diagnostic</a> I published — the diagnostic layers, the go/no-go filter, the five apps that emerge from that filter — and realized I needed to do something before I started building: map what already exists.</p>
+    <p>I recently went back through the <a href="gtm-diagnostic.html" style="color:var(--accent);">GTM Motion Diagnostic</a> I published — the diagnostic layers, the go/no-go filter, the five a[...]
 
-    <p>This space has recently exploded. What was once just Salesforce and HubSpot — systems of record that stored what happened — now has an entire layer of intelligence, signal capture, and execution tools built on top of it. Companies are actively imagining through AI and agents what we built manually inside a sales org years ago. And honestly, it's fascinating to watch.</p>
+    <p>This space has recently exploded. What was once just Salesforce and HubSpot — systems of record that stored what happened — now has an entire layer of intelligence, signal capture, and[...]
 
     <p>So before I scope and build the first app, I went looking. Here's what I found.</p>
+
+    <div class="figure-container">
+      <img src="gtm_stack_propagation_gap.svg" alt="GTM Stack Propagation Gap Diagram">
+      <p class="figure-caption">The GTM Intelligence Stack: showing the propagation gap between layers</p>
+    </div>
 
     <hr class="section-divider">
 
@@ -145,29 +153,29 @@
     <h3 class="layer-label" id="outbound-layer">The outbound and signal layer</h3>
     <h3>Where the innovation has concentrated</h3>
 
-    <p>Clay ($100M ARR, $5B valuation), Apollo, ZoomInfo, 6sense, Bombora, and dozens of others have built sophisticated systems for finding the right account, enriching contact data, detecting intent signals, and executing outbound at scale. The autonomous SDR wave is automating the sequence and the send.</p>
+    <p>Clay ($100M ARR, $5B valuation), Apollo, ZoomInfo, 6sense, Bombora, and dozens of others have built sophisticated systems for finding the right account, enriching contact data, detecting i[...]
 
-    <p>This layer is genuinely impressive. Clay's thinking around GTM engineering — see the world as data, enrich before you act, segment don't spray, build systems not campaigns — reflects a real disciplinary shift in how GTM teams operate. The market has moved from "send more emails" to "build better systems." That's meaningful progress.</p>
+    <p>This layer is genuinely impressive. Clay's thinking around GTM engineering — see the world as data, enrich before you act, segment don't spray, build systems not campaigns — reflects a[...]
 
     <p>But almost everything here is pre-first-meeting. The system gets you in the right room at the right time. What happens next is a different problem.</p>
 
     <h3 class="layer-label" id="mid-funnel">The mid and bottom funnel intelligence layer</h3>
     <h3>Where the market is actively moving</h3>
 
-    <p>Gong captures conversations and coaches reps. Clari rolls up forecasts for the CRO. Monaco AI creates per-account agents that flag missed signals and suggest next steps. Actively AI puts one agent on each account, trained on company data, and attributes significant new revenue to early customers.</p>
+    <p>Gong captures conversations and coaches reps. Clari rolls up forecasts for the CRO. Monaco AI creates per-account agents that flag missed signals and suggest next steps. Actively AI puts o[...]
 
-    <p>This layer is essential and growing fast. The companies building here are solving genuine problems. Monaco and Actively are the closest to what we were building manually — per-account intelligence that surfaces what the rep should do next.</p>
+    <p>This layer is essential and growing fast. The companies building here are solving genuine problems. Monaco and Actively are the closest to what we were building manually — per-account in[...]
 
-    <p>A wave of early-stage companies is beginning to address this layer more directly — relationship mapping, deal memory, contextual coaching, context layers between data and action. Small, early, but pointed in the right direction. Apollo just acquired Pocus specifically to build the intelligence layer enterprise teams need. The gap is closing. But closing is not closed.</p>
+    <p>A wave of early-stage companies is beginning to address this layer more directly — relationship mapping, deal memory, contextual coaching, context layers between data and action. Small, [...]
 
-    <p>What I notice is that almost everything here is still an observation and recommendation system. It sees the problem, describes it, and recommends an action. What it doesn't yet do is learn which actions worked — across all deals, over time — and update what everyone does because of it. More on that below.</p>
+    <p>What I notice is that almost everything here is still an observation and recommendation system. It sees the problem, describes it, and recommends an action. What it doesn't yet do is learn[...]
 
     <h3 class="layer-label" id="system-of-record">The foundation: the system of record</h3>
     <h3>Everything above sits on a foundation built for humans</h3>
 
-    <p>Salesforce, HubSpot, Microsoft Dynamics are actively expanding into AI. Salesforce's Agentforce, HubSpot's AI layer, and Einstein features across the suite show these companies understand the opportunity and are investing aggressively in it.</p>
+    <p>Salesforce, HubSpot, Microsoft Dynamics are actively expanding into AI. Salesforce's Agentforce, HubSpot's AI layer, and Einstein features across the suite show these companies understand [...]
 
-    <p>But the core data architecture hasn't fundamentally changed. It was designed for reps to manually update fields, move stages forward, and log activities. That means the data an AI agent reads — pipeline stage, close date, stakeholder fields — carries the implicit assumptions of human behavior: optimism, inconsistency, gaps. An experienced manager automatically adjusts for this. An agent treats it as ground truth. I saw this directly when we were interpreting patterns and making mistakes deriving hypotheses from data that reflected how reps behaved, not how accounts actually were.</p>
+    <p>But the core data architecture hasn't fundamentally changed. It was designed for reps to manually update fields, move stages forward, and log activities. That means the data an AI agent re[...]
 
     <p>That structural constraint shapes everything built above it. The most sophisticated signal layer in the world is still reading from a system that was designed for humans first.</p>
 
@@ -177,30 +185,30 @@
 
     <p>When I ran the manual version of this system, the hardest part wasn't identifying the pattern. It was building trust around it and propagating it down the org chain.</p>
 
-    <p>We'd find something that worked — a specific sequence of actions that moved a stuck deal forward, a play that consistently unlocked a new workload in a specific segment — and it would take the better part of a year to reach everyone who needed to act on it. QBRs, enablement sessions, manager coaching, stakeholder influence, tribal knowledge transfer — by the time the insight became standard practice, the market had sometimes already shifted.</p>
+    <p>We'd find something that worked — a specific sequence of actions that moved a stuck deal forward, a play that consistently unlocked a new workload in a specific segment — and it would [...]
 
     <p>The org structure is a constraint to work within, not around.</p>
 
-    <p>What the current GTM stack doesn't have is the system that closes that loop automatically. Not just "here's what's happening in this deal" but "here's what worked across all deals like this one, and here's how we're updating the playbook for everyone." And critically: decoupling outcomes from decision quality — a good decision based on available data can still produce a bad outcome, and conflating the two is how orgs stop trusting their own intelligence.</p>
+    <p>What the current GTM stack doesn't have is the system that closes that loop automatically. Not just "here's what's happening in this deal" but "here's what worked across all deals like thi[...]
 
     <p>Three specific things are still missing:</p>
 
     <div class="missing-item" id="portfolio-view">
       <div class="missing-item-title">The portfolio view for sales leaders</div>
-      <p>A VP of Sales managing 40 accounts needs to know which deals are actually progressing and which ones just look that way. Which accounts should get executive attention this week. Where to reallocate scarce resources. The current tools give individual deal visibility. Nobody owns the portfolio intelligence layer that helps a leader run their business.</p>
+      <p>A VP of Sales managing 40 accounts needs to know which deals are actually progressing and which ones just look that way. Which accounts should get executive attention this week. Where to[...]
     </div>
 
     <div class="missing-item" id="management-os">
       <div class="missing-item-title">The management operating system</div>
-      <p>How does a regional sales manager decide which accounts to prioritize? How does the head of sales think about territory design, incentive structure, market coverage? These decisions are still made in spreadsheets and QBRs, informed by gut and experience. The data exists to inform them better. The system to do it doesn't.</p>
+      <p>How does a regional sales manager decide which accounts to prioritize? How does the head of sales think about territory design, incentive structure, market coverage? These decisions are [...]
     </div>
 
     <div class="missing-item" id="learning-loop">
       <div class="missing-item-title">The learning loop</div>
-      <p>Every deal that closes or loses contains information about what worked. Every stall contains a signal about what went wrong. That information currently dies in a Gong transcript or a closed Salesforce opportunity. The system that reads those outcomes, identifies the patterns, and updates what the whole org does next quarter — automatically, not through quarterly enablement — hasn't been built yet.</p>
+      <p>Every deal that closes or loses contains information about what worked. Every stall contains a signal about what went wrong. That information currently dies in a Gong transcript or a clo[...]
     </div>
 
-    <p>I want to be honest: companies are moving toward this. Clay is expanding beyond top-of-funnel. Monaco and Actively are building account intelligence that gets closer to portfolio-level reasoning. The "for now" in this essay's title is intentional — I expect this space to move fast.</p>
+    <p>I want to be honest: companies are moving toward this. Clay is expanding beyond top-of-funnel. Monaco and Actively are building account intelligence that gets closer to portfolio-level rea[...]
 
     <p>But as of today, the loop is still open.</p>
 
@@ -208,20 +216,20 @@
 
     <h2 id="why-building">Why I'm building here</h2>
 
-    <p>The <a href="gtm-diagnostic.html" style="color:var(--accent);">GTM Motion Diagnostic</a> started as a way to document how I think about these problems — the diagnostic layers, the go/no-go filter for what's worth automating, the five apps that emerge from that analysis.</p>
+    <p>The <a href="gtm-diagnostic.html" style="color:var(--accent);">GTM Motion Diagnostic</a> started as a way to document how I think about these problems — the diagnostic layers, the go/no-[...]
 
-    <p>The natural next step was to start building. But before I did, I wanted to know what already exists and what's genuinely missing. Not to avoid building something redundant — some overlap is fine if the approach is better — but to be honest with myself about what problem I'm actually solving.</p>
+    <p>The natural next step was to start building. But before I did, I wanted to know what already exists and what's genuinely missing. Not to avoid building something redundant — some overlap[...]
 
-    <p>The research confirmed what I suspected from building this manually: the top-of-funnel and the observation layer are well-served. The portfolio intelligence layer, the management operating system, and the learning loop are not.</p>
+    <p>The research confirmed what I suspected from building this manually: the top-of-funnel and the observation layer are well-served. The portfolio intelligence layer, the management operating[...]
 
-    <p>That's where the apps I'm building are focused. Not because nobody else has thought of it — clearly they have — but because I've run the manual version and I know exactly which parts are still being done in spreadsheets and QBRs.</p>
+    <p>That's where the apps I'm building are focused. Not because nobody else has thought of it — clearly they have — but because I've run the manual version and I know exactly which parts a[...]
 
     <p>The next post will cover the architecture: the context graph, the five apps, and what I'm building first.</p>
 
     <p>For now — here's the map. Here's what's been built. Here's where I think the gaps still are.</p>
 
     <div class="article-byline-footer">
-      <p>Soujanya (Souji) Madhurapantula writes at jaggedfrontier.org about enterprise AI, GTM operating models, and the gap between what technology promises and what organizations can actually execute. She is the founder of Signal &amp; Scale Advisory.</p>
+      <p>Soujanya (Souji) Madhurapantula writes at jaggedfrontier.org about enterprise AI, GTM operating models, and the gap between what technology promises and what organizations can actually e[...]
     </div>
 
   </article>
