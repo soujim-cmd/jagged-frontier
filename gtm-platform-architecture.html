@@ -41,43 +41,33 @@
   .article-body { max-width: 680px; }
   .article-body p { font-size: 15px; line-height: 1.85; color: #2a2826; font-weight: 300; margin-bottom: 1.5rem; }
   .article-body h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.2; }
-  .article-body h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; margin: 2rem 0 .75rem; line-height: 1.25; color: var(--ink); }
-  .article-body h3.layer-label { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 2rem 0 .5rem; }
+  .article-body h3 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; margin: 1.75rem 0 .6rem; line-height: 1.25; color: var(--ink); }
   .article-body strong { font-weight: 500; color: var(--ink); }
   .article-body a { color: var(--accent); text-decoration: none; }
   .article-body a:hover { text-decoration: underline; }
   .article-body .section-divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
   .article-body .pull { font-family: var(--serif); font-size: 1.25rem; font-style: italic; font-weight: 700; line-height: 1.4; color: var(--ink); border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 2.5rem 0; }
-  .article-body .missing-item { padding: 1.25rem 1.5rem; border-left: 2px solid var(--border); margin-bottom: 1.25rem; background: white; }
-  .article-body .missing-item-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
-  .article-body .missing-item p { margin-bottom: 0; font-size: 14px; }
-  .article-byline-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
-  .article-byline-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--muted); line-height: 1.7; }
-  /* Architecture diagram */
-  .arch-diagram { font-family: var(--mono); font-size: 11.5px; line-height: 1.65; background: var(--ink); color: #c8c4bc; padding: 1.75rem 2rem; overflow-x: auto; margin: 2rem 0 2.5rem; border-radius: 4px; white-space: pre; }
-  .arch-diagram .layer-3 { color: #e8b89a; }
-  .arch-diagram .layer-2 { color: #93c5fd; }
-  .arch-diagram .layer-1 { color: #86efac; }
-  .arch-diagram .layer-0 { color: #c8c4bc; opacity: .65; }
-  .arch-diagram .arrow { color: #c8440a; }
-  /* Five apps table */
-  .apps-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 13px; }
-  .apps-table th { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--ink); padding: .6rem .75rem; text-align: left; }
-  .apps-table td { padding: .9rem .75rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; color: #2a2826; font-weight: 300; }
-  .apps-table tr:last-child td { border-bottom: none; }
-  .app-name { font-family: var(--serif); font-weight: 700; font-size: 14px; color: var(--ink); display: block; margin-bottom: .2rem; }
-  .app-status { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; }
-  .app-status.building { background: var(--accent); color: white; }
-  .app-status.next { background: var(--border); color: var(--muted); }
-  /* Series nav */
-  .series-nav { background: white; border: 1px solid var(--border); padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .series-nav { background: white; border: 1px solid var(--border); padding: 1.25rem 1.5rem; margin: 0 0 2rem; }
   .series-nav-label { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: .75rem; }
   .series-nav ol { padding-left: 1.25rem; list-style-decimal; }
   .series-nav li { font-size: 13px; color: #2a2826; margin-bottom: .35rem; line-height: 1.5; }
   .series-nav li a { color: var(--accent); }
   .series-nav li.current { font-weight: 500; color: var(--ink); }
-  .series-nav li.current::marker { color: var(--accent); }
-  /* Sidebar */
+  .diagram-wrap { margin: 2rem 0 2.5rem; overflow-x: auto; }
+  .diagram-wrap svg { max-width: 100%; height: auto; }
+  .apps-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0 2rem; font-size: 13px; }
+  .apps-table th { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--ink); padding: .6rem .75rem; text-align: left; }
+  .apps-table td { padding: .9rem .75rem; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; color: #2a2826; font-weight: 300; }
+  .apps-table tr:last-child td { border-bottom: none; }
+  .app-name { font-family: var(--serif); font-weight: 700; font-size: 14px; color: var(--ink); display: block; margin-bottom: .25rem; }
+  .app-status { font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 6px; border-radius: 2px; }
+  .app-status.building { background: var(--accent); color: white; }
+  .app-status.next { background: var(--border); color: var(--muted); }
+  .limit-item { padding: 1rem 1.25rem; border-left: 2px solid var(--border); margin-bottom: 1rem; background: white; }
+  .limit-title { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .4rem; }
+  .limit-item p { margin-bottom: 0; font-size: 14px; }
+  .article-byline-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
+  .article-byline-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--muted); line-height: 1.7; }
   .article-sidebar { position: sticky; top: 2rem; }
   .sidebar-section { margin-bottom: 2rem; }
   .sidebar-label { font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); border-top: 2px solid var(--ink); padding-top: .75rem; margin-bottom: 1rem; }
@@ -99,7 +89,6 @@
     .masthead { grid-template-columns: 1fr 1fr; }
     .masthead-tag { display: none; }
     footer { flex-direction: column; gap: .5rem; text-align: center; }
-    .arch-diagram { font-size: 9px; padding: 1rem; }
   }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNWC1D521"></script>
@@ -135,7 +124,7 @@
 <div class="article-header">
   <div class="article-eyebrow">Essay · GTM Strategy · Platform Architecture</div>
   <h1 class="article-title">The GTM Intelligence Platform:<br><em>What I'm Building and Why</em></h1>
-  <p class="article-dek">From manual system to software — the architecture, the five apps, and why the Deal Risk Monitor comes first.</p>
+  <p class="article-dek">From manual system to software. The architecture, the five apps, and why the Deal Risk Monitor comes first.</p>
   <div class="article-meta">
     <span class="article-author">Soujanya Madhurapantula</span>
     <span class="article-date">June 2026</span>
@@ -154,107 +143,130 @@
         <li><a href="gtm-diagnostic.html">GTM Motion Diagnostic</a> — the framework and go/no-go filter</li>
         <li><a href="gtm-intelligence-stack.html">GTM Intelligence Stack in 2026</a> — the market research</li>
         <li class="current">The GTM Intelligence Platform — the architecture (you are here)</li>
-        <li>Deal Risk Monitor — the app (coming July 2026)</li>
+        <li>Deal Risk Monitor — the app (coming soon)</li>
       </ol>
     </div>
 
-    <p>I built the manual version of this system inside a large cloud platform. A 200-account progression model. Consumption intelligence assembled from telemetry data — which accounts were growing, which were stalling, which were quietly drifting away. Operating cadences that became the scaffolding for a field organization of fifteen hundred people.</p>
+    <p>I built the manual version of this system inside a large cloud platform. A progression model tracking over a thousand enterprise accounts. A strategic subset focused on the highest-value deals. Consumption intelligence assembled from telemetry data. Operating cadences that became the scaffolding for a field organization of fifteen hundred people.</p>
 
-    <p>It worked. It was not elegant. And it taught me something I didn't expect going in: the hard part was never the signal. The hard part was propagation.</p>
+    <p>It worked. It was not elegant. And it taught me something I did not expect: finding the right insight was rarely the problem. The harder job was enabling the organization to act on it. Getting fifteen hundred people aligned, informed, and moving in the same direction, at the same time, based on the same picture of reality.</p>
 
-    <p>We'd find something that worked — a specific sequence of actions that moved a stuck deal forward, a play that consistently unlocked a new workload in a particular segment — and it would take the better part of a year to reach everyone who needed to act on it. QBRs, enablement sessions, manager coaching, tribal knowledge transfer. By the time the insight became what everyone did, the market had sometimes already shifted.</p>
+    <div class="pull">The infrastructure was there. Enabling the org to use it was the work.</div>
 
-    <div class="pull">The org structure was the bottleneck. Not the data.</div>
-
-    <p>That's the system I'm now encoding as software. This post covers the architecture: what it is, why it's structured this way, and what I'm building first.</p>
+    <p>That is the system I am now encoding as software. This post covers the architecture: what it is, why it is structured this way, and what I am building first.</p>
 
     <hr class="section-divider">
 
-    <h2 id="missing-layer">The missing layer</h2>
+    <h2 id="missing-layer">The next layer</h2>
 
-    <p>The <a href="gtm-intelligence-stack.html">GTM Intelligence Stack essay</a> mapped what's been built and where the gaps are. The short version: the top-of-funnel signal layer is well-served. The mid-funnel observation and recommendation layer is closing fast. What's missing is the learning loop — the system that takes what worked in the field and updates what everyone does, automatically, without a quarterly enablement cycle.</p>
+    <p>The <a href="gtm-intelligence-stack.html">previous essay</a> mapped what exists and where the gaps are. The observation and recommendation layer is real and valuable. Gong, Clari, Monaco, Actively AI — these tools surface what is happening in a deal and suggest what to do next. That is a meaningful layer. It is also where most of the market is today.</p>
 
-    <p>This is not an incremental improvement to what already exists. The current stack observes and recommends. The platform I'm building observes, recommends, logs the outcome, learns from it, and propagates what worked.</p>
+    <p>The platform I am building adds the layer above that. Not to replace what already works, but to close the loop those tools leave open. The gap is not seeing the signal or making a recommendation. The gap is taking action, learning from the outcome, and updating what everyone does because of it.</p>
 
-    <p>The difference sounds abstract. It isn't. It's the difference between a tool a rep uses and a system that gets smarter as the org executes. One resets to zero every quarter. The other compounds.</p>
+    <p>Three things a VP of Sales genuinely needs, and does not have today in one system:</p>
 
-    <p>Three things are currently missing from the stack — and all three are addressable with a different kind of system:</p>
+    <p><strong>A clear picture of the business across the full portfolio.</strong> Which accounts are financially healthy and which are quietly slipping. Where the team is on quota. How customers are responding, not how reps are reporting. Which deals are actually progressing and which just look that way on a dashboard. The current tools give slices of this. None give the whole picture in one place, connected.</p>
 
-    <p><strong>The portfolio view.</strong> A sales leader managing forty accounts needs to know which deals are actually progressing and which just look that way. The current tools give per-deal visibility. Nobody owns the layer that helps a leader run their business across the whole portfolio.</p>
+    <p><strong>A system that acts, not just advises.</strong> A risk signal should trigger a next action. An escalation should happen. A rep should receive a specific recommendation, not a dashboard alert. The intelligence needs to connect to execution, not sit beside it.</p>
 
-    <p><strong>The management operating system.</strong> Territory design, account prioritization, incentive structure — these decisions are still made in spreadsheets and gut instinct. The data exists to inform them. The system doesn't.</p>
-
-    <p><strong>The learning loop.</strong> Every deal that closes or stalls contains information about what worked. That information currently dies in a transcript or a closed opportunity record. Nothing reads it systematically. Nothing updates the playbook because of it.</p>
-
-    <p>These three gaps share a root cause: the current stack stores state, not trajectory. It captures snapshots. What's needed is a system that accumulates context over time — and acts on what it learns.</p>
+    <p><strong>A learning loop that compounds.</strong> Every deal that closes or stalls contains information about what worked. That information currently dies in a transcript or a closed opportunity. Nothing reads it systematically, nothing updates the playbook because of it. The system that closes that loop, automatically, changes the economics of running a sales organization.</p>
 
     <hr class="section-divider">
 
-    <h2 id="platform-thesis">The platform thesis</h2>
+    <h2 id="platform-thesis">The platform architecture</h2>
 
-    <p>A temporal context graph of the customer journey. System of work, not system of record. Three layers, each with a distinct job.</p>
+    <p>Three layers, each with a distinct job. The diagram below shows how they connect and where data moves between them.</p>
 
-    <div class="arch-diagram" id="arch-diagram"><span class="layer-3">+------------------------------------------------------------------+
-|  LAYER 3 — LEARNING LOOP                                        |
-|  Field outcomes → playbook updates → fast propagation           |
-|  What worked, for whom, at what stage → update what             |
-|  everyone does next quarter. Not next year.                     |
-+------------------------------------------------------------------+</span>
-<span class="arrow">                    ▲  feeds up / pushes down  |
-                    |                          ▼</span>
-<span class="layer-2">+------------------------------------------------------------------+
-|  LAYER 2 — OPERATING SYSTEM  (role-specific intelligence)       |
-|  Rep view:     next best action on this account                 |
-|  Manager view: portfolio across ~40 accounts, where to focus    |
-|  Leader view:  regions, segments, territory design,             |
-|                account prioritization, incentive design         |
-+------------------------------------------------------------------+</span>
-<span class="arrow">                    ▲  reads from / writes to   |
-                    |                          ▼</span>
-<span class="layer-1">+------------------------------------------------------------------+
-|  LAYER 1 — INTELLIGENCE SPINE  (the context graph)              |
-|  Temporal, journey-aware. Derives signal across the tools.      |
-|  Stores trajectory not snapshot. Logs action → outcome.         |
-|  Sits beneath Clay / Gong / Clari / Monaco / CRM               |
-+------------------------------------------------------------------+</span>
-<span class="arrow">                    ▲  decoupled ingestion
-                    |  (CDC / event stream / data lake)</span>
-<span class="layer-0">+------------------------------------------------------------------+
-|  EXISTING STACK  (systems of record + point tools)              |
-|  Salesforce · HubSpot · Clay · Gong · Clari · Monaco · etc.    |
-+------------------------------------------------------------------+</span></div>
+    <div class="diagram-wrap" id="arch-diagram">
+      <svg viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans', system-ui, sans-serif">
+        <rect width="680" height="580" fill="#f5f2eb" rx="0"/>
+        <text x="340" y="32" text-anchor="middle" font-size="13" font-weight="600" fill="#0e0e0d" letter-spacing="-0.2">GTM Intelligence Platform — Architecture</text>
 
-    <p>The key design principle: the platform sits <em>beneath</em> the existing stack, not beside it. It doesn't replace Clay or Gong. It reads from them — decoupled, not integrated — and derives signal across all of them that no individual tool can see. A deal's risk doesn't live in Gong or Salesforce alone. It lives in the pattern across both, over time.</p>
+        <!-- LAYER 3 -->
+        <rect x="40" y="52" width="600" height="88" rx="6" fill="#0e0e0d"/>
+        <text x="60" y="76" font-size="9" font-weight="500" fill="#e8b89a" letter-spacing="1.5">LAYER 3 — LEARNING LOOP</text>
+        <text x="60" y="96" font-size="13" font-weight="500" fill="#f5f2eb">What worked across all deals updates the playbook for everyone.</text>
+        <text x="60" y="114" font-size="11" fill="#7a7670">Outcome log → pattern recognition → playbook updates → ICP refinement</text>
+        <text x="620" y="96" text-anchor="end" font-size="10" fill="#e8b89a" font-weight="500">Building toward this</text>
+
+        <!-- Arrows L3/L2 -->
+        <line x1="200" y1="140" x2="200" y2="160" stroke="#c8440a" stroke-width="1.5"/>
+        <polygon points="195,157 200,167 205,157" fill="#c8440a"/>
+        <text x="215" y="154" font-size="9" fill="#c8440a">pushes playbook updates down</text>
+        <line x1="460" y1="160" x2="460" y2="140" stroke="#7a7670" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <polygon points="455,143 460,133 465,143" fill="#7a7670"/>
+        <text x="355" y="154" font-size="9" fill="#7a7670" text-anchor="end">outcomes feed up</text>
+
+        <!-- LAYER 2 -->
+        <rect x="40" y="168" width="600" height="110" rx="6" fill="#1a1a18"/>
+        <text x="60" y="192" font-size="9" font-weight="500" fill="#93c5fd" letter-spacing="1.5">LAYER 2 — OPERATING SYSTEM</text>
+        <text x="60" y="212" font-size="13" font-weight="500" fill="#f5f2eb">Role-specific intelligence. Act on signals, not just observe them.</text>
+        <rect x="60" y="222" width="168" height="42" rx="4" fill="#2a2a28"/>
+        <text x="144" y="238" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">REP VIEW</text>
+        <text x="144" y="254" text-anchor="middle" font-size="10" fill="#c8c4bc">Next best action</text>
+        <rect x="246" y="222" width="168" height="42" rx="4" fill="#2a2a28"/>
+        <text x="330" y="238" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">VP VIEW</text>
+        <text x="330" y="254" text-anchor="middle" font-size="10" fill="#c8c4bc">Portfolio, quota, health</text>
+        <rect x="432" y="222" width="168" height="42" rx="4" fill="#2a2a28"/>
+        <text x="516" y="238" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">LEADER VIEW</text>
+        <text x="516" y="254" text-anchor="middle" font-size="10" fill="#c8c4bc">Territory, incentives, segments</text>
+
+        <!-- Arrows L2/L1 -->
+        <line x1="200" y1="278" x2="200" y2="298" stroke="#c8440a" stroke-width="1.5"/>
+        <polygon points="195,295 200,305 205,295" fill="#c8440a"/>
+        <text x="215" y="292" font-size="9" fill="#c8440a">reads signal from spine</text>
+        <line x1="460" y1="298" x2="460" y2="278" stroke="#7a7670" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <polygon points="455,281 460,271 465,281" fill="#7a7670"/>
+        <text x="475" y="292" font-size="9" fill="#7a7670">writes actions back</text>
+
+        <!-- LAYER 1 -->
+        <rect x="40" y="306" width="600" height="100" rx="6" fill="#0e0e0d"/>
+        <text x="60" y="330" font-size="9" font-weight="500" fill="#86efac" letter-spacing="1.5">LAYER 1 — INTELLIGENCE SPINE (context graph)</text>
+        <text x="60" y="350" font-size="13" font-weight="500" fill="#f5f2eb">Temporal, journey-aware. Stores trajectory, not snapshot.</text>
+        <text x="60" y="370" font-size="11" fill="#7a7670">Account · Deal · Person/Stakeholder · Flag · Action · Sales Play · Outcome log</text>
+        <text x="60" y="388" font-size="11" fill="#7a7670">Derives signal across all tools. Sits beneath the existing stack.</text>
+
+        <!-- Ingestion arrow -->
+        <line x1="340" y1="440" x2="340" y2="406" stroke="#7a7670" stroke-width="1.5" stroke-dasharray="4 3"/>
+        <polygon points="335,409 340,399 345,409" fill="#7a7670"/>
+        <text x="355" y="428" font-size="9" fill="#7a7670">CDC / event stream / data lake</text>
+        <text x="355" y="440" font-size="9" fill="#7a7670">(decoupled ingestion — not direct API)</text>
+
+        <!-- Existing stack -->
+        <rect x="40" y="450" width="600" height="72" rx="6" fill="#f5f2eb" stroke="#d4cfc6" stroke-width="1.5"/>
+        <text x="60" y="474" font-size="9" font-weight="500" fill="#7a7670" letter-spacing="1.5">EXISTING STACK — SYSTEMS OF RECORD + POINT TOOLS</text>
+        <text x="60" y="494" font-size="11" fill="#0e0e0d">Salesforce · HubSpot · Clay · Gong · Clari · Monaco AI · Actively</text>
+        <text x="60" y="510" font-size="10" fill="#7a7670">Data lives here. The platform reads from it. Does not replace it.</text>
+
+        <!-- Open loop -->
+        <rect x="40" y="536" width="600" height="34" rx="4" fill="#fff8f5" stroke="#c8440a" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="340" y="549" text-anchor="middle" font-size="10" font-weight="600" fill="#c8440a" letter-spacing="1">THE OPEN LOOP TODAY</text>
+        <text x="340" y="563" text-anchor="middle" font-size="11" fill="#0e0e0d">Layer 3 does not exist yet. What worked in the field still propagates through QBRs.</text>
+      </svg>
+    </div>
+
+    <p>The platform sits beneath the existing stack, not beside it. It reads from Salesforce, Gong, Clay, and others through decoupled ingestion and derives signal across all of them that no individual tool can see on its own. A deal's risk does not live in Gong or Salesforce alone. It lives in the pattern across both, over time.</p>
 
     <hr class="section-divider">
 
     <h2 id="context-graph">The context graph</h2>
 
-    <p>The intelligence spine is a temporal context graph of the customer relationship. Not a CRM table. Not a snapshot. A graph that accumulates context across every interaction, deal, and outcome — and stores trajectory, not just state.</p>
+    <p>The intelligence spine is a temporal context graph of the customer relationship. Not a CRM table. Not a snapshot. A structure that accumulates context across every interaction, deal, and outcome.</p>
 
-    <p>The distinction matters. "Champion is engaged" is a data point. "Champion engagement has been declining for three weeks and response time is trending up" is a signal. One tells you where you are. The other tells you where you're going.</p>
+    <p>The key distinction is trajectory versus state. "Champion is engaged" is a data point. "Champion engagement has been declining for three weeks and response time is trending up" is a signal. One tells you where you are. The other tells you where you are going.</p>
 
-    <p><strong>Seven node types:</strong> Account, Person/Stakeholder, Sales Org/Territory, Deal/Opportunity, Sales Play/ICP, Flag, Action.</p>
-
-    <p><strong>The temporal layer</strong> stores trajectory, not snapshots. Days in current stage is not a number — it's a rate of change relative to comparable deals in the same segment. Champion engagement is not engaged/not — it's a time series with a direction.</p>
-
-    <p><strong>The key primitive</strong> is the action-outcome event log. Every action taken on every deal, and its downstream outcome, logged from day one. Not because anything reads it yet in the early builds. Because that log is the training data the learning loop will eventually need. Building it in from the start — before there's any intelligence consuming it — is the difference between a product and a platform.</p>
-
-    <p><strong>The feedback loop:</strong> Flag → Action → Result → Intelligence → feeds back into ICP refinement, account planning, and sales play updates. This is the loop the current GTM stack doesn't close. This is what the learning loop layer is designed to close.</p>
+    <p>At the core of the graph is an action-outcome event log. Every action taken on every deal, and its downstream outcome, gets recorded from day one. Not because everything reads it yet. Because that log is the training data the learning loop will eventually need. Building it in from the start is what separates a product from a platform.</p>
 
     <hr class="section-divider">
 
     <h2 id="five-apps">The five apps</h2>
 
-    <p>Five apps emerge from the <a href="gtm-diagnostic.html">GTM Motion Diagnostic</a>. Each maps to a diagnostic section, each passes the go/no-go filter, and each has a data gate — a precondition that must be true before the app produces reliable output.</p>
-
-    <p>The sequence isn't arbitrary. Each app creates the foundation the next one needs. The Deal Risk Monitor creates the event log. The Next Best Action reads from it. The Account Priority Scorer and Expansion Intelligence apps require clean ICP definitions and product telemetry respectively. Discount Governance requires pricing authority to already be defined at the process level — the app enforces what exists, it doesn't invent policy.</p>
+    <p>Five apps come out of the <a href="gtm-diagnostic.html">GTM Motion Diagnostic</a>. Each maps to a diagnostic section, passes the go/no-go filter, and has a data gate that must hold before the app produces reliable output. The sequence is not arbitrary. Each app builds the foundation the next one needs.</p>
 
     <table class="apps-table">
       <thead>
         <tr>
           <th>App</th>
-          <th>Diagnostic Section</th>
           <th>Goal</th>
           <th>Data Gate</th>
         </tr>
@@ -265,35 +277,31 @@
             <span class="app-name">Account Priority Scorer</span>
             <span class="app-status next">Next</span>
           </td>
-          <td>ICP + Segmentation</td>
-          <td>Score accounts continuously from CRM, intent signals, and firmographic data</td>
-          <td>ICP definition must be settled first</td>
+          <td>Score accounts continuously from CRM, intent signals, and firmographic data. Surface who to target and why.</td>
+          <td>ICP definition must be settled first. Garbage in, garbage out.</td>
         </tr>
         <tr>
           <td>
             <span class="app-name">Deal Risk Monitor</span>
             <span class="app-status building">Building now</span>
           </td>
-          <td>Pipeline Conversion</td>
-          <td>Detect stall signals before a deal dies — champion going dark, dropped activity, too long in stage</td>
-          <td>Fails if CRM hygiene is poor. Manageable gate.</td>
+          <td>Detect stall signals before a deal dies. Champion going dark, dropped activity, too long in stage.</td>
+          <td>Fails if CRM hygiene is poor. Manageable starting point.</td>
         </tr>
         <tr>
           <td>
             <span class="app-name">Next Best Action</span>
             <span class="app-status next">After App 1</span>
           </td>
-          <td>Pipeline Conversion</td>
-          <td>Triggered by a risk signal. Tells the rep the specific move — not a category, a call to action</td>
-          <td>Requires Deal Risk Monitor running first</td>
+          <td>Triggered by a risk signal. Tells the rep the specific move, not a category.</td>
+          <td>Requires Deal Risk Monitor running first. One system, two outputs.</td>
         </tr>
         <tr>
           <td>
             <span class="app-name">Customer Expansion Intelligence</span>
             <span class="app-status next">Later</span>
           </td>
-          <td>Expansion + NRR</td>
-          <td>Detect expansion signals, surface comparable accounts, generate Art of Possible blueprints</td>
+          <td>Detect expansion signals, surface comparable accounts, generate Art of Possible blueprints.</td>
           <td>Most data-intensive. Product telemetry must be connected.</td>
         </tr>
         <tr>
@@ -301,9 +309,8 @@
             <span class="app-name">Discount Governance</span>
             <span class="app-status next">Later</span>
           </td>
-          <td>Pricing + Packaging</td>
-          <td>Flag discount depth in real time, enforce thresholds, surface pricing patterns</td>
-          <td>Pricing authority must be defined at the process level first</td>
+          <td>Flag discount depth in real time, enforce thresholds, surface pricing patterns across the team.</td>
+          <td>Process first. Pricing authority must be defined before the app is useful.</td>
         </tr>
       </tbody>
     </table>
@@ -312,80 +319,47 @@
 
     <h2 id="app-one">What I'm building first</h2>
 
-    <p>The Deal Risk Monitor. Not because it's the most ambitious app in the portfolio, but because it passes all four gates in the go/no-go filter cleanly: the data gate is manageable, the output is specific enough to act on, it proves the system-of-work pattern, and it creates the foundation everything else needs.</p>
+    <p>The Deal Risk Monitor. Not because it is the most ambitious app in the set, but because it passes all four gates in the go/no-go filter cleanly. The data gate is manageable. The output is specific enough to act on. It proves the system-of-work pattern. And it creates the foundation everything else needs.</p>
 
-    <p><strong>Input:</strong> a deal node, the active flag signals on that deal, and how long it's been in the current pipeline stage.</p>
+    <p>Input: a deal, the active flag signals on that deal, and how long it has been in the current pipeline stage. Output: a risk score, which flags are active, and a recommended action. Not a category. A specific move the rep or manager can take today.</p>
 
-    <p><strong>Output:</strong> a risk score, a list of which flags are active, and a recommended action type. Not a category — a specific move the rep or manager can take today.</p>
+    <p>The app detects seven flag types: too long in the current stage, no stakeholder response, champion going dark, competition emerging, commercial pressure, technical incompatibility, and weak POV or discovery. Each maps to a recommended action: escalation, executive sponsorship, program intervention, or adjusting the deal's probability and size.</p>
 
-    <p><strong>Seven flag types the system detects:</strong></p>
+    <p>The thin graph slice for this first build covers four of the seven node types: Deal, Person and Champion, Flag, and Action. Enough to prove the pattern. Narrow enough to ship fast.</p>
 
-    <div class="missing-item">
-      <div class="missing-item-title">TOO_LONG_IN_PHASE</div>
-      <p>Deal has exceeded the expected time in the current stage relative to comparable deals in the same segment.</p>
-    </div>
-    <div class="missing-item">
-      <div class="missing-item-title">NO_STAKEHOLDER_RESPONSE</div>
-      <p>No response from any identified stakeholder within the expected window for this stage.</p>
-    </div>
-    <div class="missing-item">
-      <div class="missing-item-title">CHAMPION_GOING_DARK</div>
-      <p>Champion engagement trending down — response time increasing, meeting frequency dropping, last contact recency increasing.</p>
-    </div>
-    <div class="missing-item">
-      <div class="missing-item-title">COMPETITION_EMERGING</div>
-      <p>Signals of a competing evaluation entering the deal — new stakeholders, shifted timelines, changed requirements.</p>
-    </div>
-    <div class="missing-item">
-      <div class="missing-item-title">COMMERCIAL_PRESSURE</div>
-      <p>Budget signals, procurement involvement, discount requests before value has been established.</p>
-    </div>
-    <div class="missing-item">
-      <div class="missing-item-title">TECHNICAL_INCOMPATIBILITY</div>
-      <p>Technical blockers surfacing late — integration gaps, security requirements, architecture mismatches.</p>
-    </div>
-    <div class="missing-item">
-      <div class="missing-item-title">BAD_DATA_POV</div>
-      <p>The point of view being sold is built on assumptions the account has not validated. Discovery was insufficient.</p>
-    </div>
-
-    <p><strong>Gate criteria by pipeline stage:</strong> Qualification requires POV built, Economic Buyer identified, and compelling event confirmed. Validation requires technical blueprint complete and champion engaged within the last 14 days. Commercials requires no active commercial pressure flags and sales teams aligned.</p>
-
-    <p><strong>Why the event log matters more than the score:</strong> every action the system recommends, and its downstream outcome, gets logged from day one. Not because anything reads it in this version. Because that log is the raw material the learning loop will need. The thin graph slice for App 1 covers four of the seven node types: Deal, Person/Champion, Flag, Action. Enough to prove the pattern. Narrow enough to ship by July 4.</p>
+    <p>The event log runs from day one. Nothing reads it yet. That is the point.</p>
 
     <hr class="section-divider">
 
-    <h2 id="limitations">Known limitations</h2>
+    <h2 id="real-world">How this works in the real world</h2>
 
-    <p>Naming these is what makes the architecture credible. None of them are reasons not to build. All of them shape how I build.</p>
+    <p>Any system like this has to navigate a set of real-world conditions before it reaches production. These are not edge cases. They are the standard environment for enterprise AI deployment, and the architecture is designed with them in mind.</p>
 
-    <div class="missing-item" id="cold-start">
-      <div class="missing-item-title">1. Cold start problem</div>
-      <p>Process-level learning — Layer 3 — needs volume before patterns are statistically real. Many deals, across many customers, over time. The workaround: seed the system with encoded practitioner expertise as the starting prior. Let it learn from there. The learning loop is a someday capability, not a day-one feature. The architecture supports it from the start. The value is available before it gets there.</p>
+    <div class="limit-item" id="cold-start">
+      <div class="limit-title">Starting without history</div>
+      <p>Process-level learning needs volume before patterns are statistically meaningful. The starting point is encoded practitioner expertise as the prior. The system learns from live outcomes from day one and improves as data accumulates. The learning loop is a later capability. The architecture supports it from the start.</p>
     </div>
 
-    <div class="missing-item" id="api-lockdown">
-      <div class="missing-item-title">2. Data access and API constraints</div>
-      <p>The 2026 API environment is increasingly locked. CRMs and enterprise platforms are rate-throttling third-party indexing and restricting direct querying. The architecture requires decoupled ingestion — CDC event streaming or data lake staging, not live API calls. This determines whether the system operates in real time or batch. Real time is better. Batch is the pragmatic starting point, and honest about it.</p>
+    <div class="limit-item" id="data-access">
+      <div class="limit-title">Getting to the data</div>
+      <p>Enterprise platforms increasingly restrict direct API access. The architecture uses decoupled ingestion, CDC event streaming or data lake staging, rather than live API calls. This is also the safer pattern: it insulates the system of record from agent-driven traffic and keeps sensitive data behind the organization's existing security boundary.</p>
     </div>
 
-    <div class="missing-item" id="entity-resolution">
-      <div class="missing-item-title">3. Entity resolution</div>
-      <p>Knowing that two records refer to the same account is non-trivial in real-world data. Duplicate contacts, inconsistent naming, incomplete historical migrations — all of it accumulates. Without clean entity resolution, the graph accumulates noise instead of signal. This is a data engineering problem, not a product problem, but it's a real constraint on what the system can actually learn.</p>
+    <div class="limit-item" id="data-quality">
+      <div class="limit-title">Data quality in practice</div>
+      <p>Real-world CRM data is messy. Duplicate contacts, inconsistent naming, incomplete records. The system is designed to surface data quality issues as flags, not to hide them. A bad POV or insufficient discovery is itself a signal the app detects. The goal is to make data quality a visible, actionable problem rather than a silent one.</p>
     </div>
 
-    <div class="missing-item" id="trust-layer">
-      <div class="missing-item-title">4. Human trust and propagation</div>
-      <p>Instant propagation collides with change management. Reps don't trust recommendations they didn't author. Sales managers don't update playbooks based on a system they don't understand. The propagation problem is itself the hardest product feature — not a technical challenge but an organizational one. The product has to be designed for it: confidence scores, "why this play" explanations, manager-level human-in-the-loop approval before anything touches the playbook. The technology is solvable. The trust layer is the real work.</p>
+    <div class="limit-item" id="trust-layer">
+      <div class="limit-title">Earning trust in the field</div>
+      <p>The hardest part of deploying any intelligence system inside a sales org is not the technology. It is getting the field to trust it. Reps act on recommendations they understand. Managers update playbooks they helped build. The product is designed for this: every recommendation includes an explanation, confidence scores make uncertainty visible, and manager approval gates sit between intelligence and playbook updates. Trust is built through transparency, not authority.</p>
     </div>
 
     <hr class="section-divider">
 
-    <p>The next post will be the app itself.</p>
+    <p>The next post will be the app itself. The Deal Risk Monitor, running on real data, doing the job described here.</p>
 
-    <p>The Deal Risk Monitor — input, output, the flags, the event log — running on sanitized demo data. Demoable by July 4, 2026.</p>
-
-    <p>The architecture described here is the frame it's built inside. Not the full platform on day one. A thin slice that proves the pattern — and starts accumulating the data the rest of the system will need.</p>
+    <p>The architecture in this post is the frame it is built inside. Not the full platform on day one. A thin slice that proves the pattern and starts accumulating the data the rest of the system will need.</p>
 
     <div class="article-byline-footer">
       <p>Soujanya (Souji) Madhurapantula writes at jaggedfrontier.org about enterprise AI, GTM operating models, and the gap between what technology promises and what organizations can actually execute. She is the founder of Signal &amp; Scale Advisory.</p>
@@ -397,16 +371,17 @@
     <div class="sidebar-section">
       <div class="sidebar-label">In this essay</div>
       <ul class="sidebar-toc">
-        <li><a href="#missing-layer">The missing layer</a></li>
-        <li><a href="#platform-thesis">The platform thesis</a></li>
+        <li><a href="#missing-layer">The next layer</a></li>
+        <li><a href="#platform-thesis">The architecture</a></li>
         <li><a href="#arch-diagram">Architecture diagram</a></li>
         <li><a href="#context-graph">The context graph</a></li>
         <li><a href="#five-apps">The five apps</a></li>
         <li><a href="#app-one">What I'm building first</a></li>
-        <li><a href="#cold-start">Cold start problem</a></li>
-        <li><a href="#api-lockdown">API constraints</a></li>
-        <li><a href="#entity-resolution">Entity resolution</a></li>
-        <li><a href="#trust-layer">Human trust layer</a></li>
+        <li><a href="#real-world">How this works in the real world</a></li>
+        <li><a href="#cold-start">Starting without history</a></li>
+        <li><a href="#data-access">Getting to the data</a></li>
+        <li><a href="#data-quality">Data quality in practice</a></li>
+        <li><a href="#trust-layer">Earning trust in the field</a></li>
       </ul>
     </div>
     <div class="sidebar-section">
