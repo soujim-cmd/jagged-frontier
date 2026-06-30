@@ -47,7 +47,7 @@
   .essay-meta { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); display: flex; gap: 2rem; }
 
   /* Essay body */
-  .essay-body { padding: 3rem clamp(1.5rem,5vw,4rem); display: grid; grid-template-columns: 1fr min(640px, 100%) 1fr; }
+  .essay-body { padding: 3rem clamp(1.5rem,5vw,4rem); display: grid; grid-template-columns: 1fr min(560px, 56%) 260px 1fr; column-gap: 2.5rem; }
   .essay-body > * { grid-column: 2; }
   .essay-body p { font-size: 17px; line-height: 1.85; color: #2a2825; margin-bottom: 1.5rem; font-weight: 300; }
   .essay-body h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin: 3rem 0 1rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
@@ -62,12 +62,22 @@
   .pull-quote { grid-column: 2; margin: 2.5rem 0; padding: 2rem 2.5rem; border-left: 3px solid var(--accent); background: white; }
   .pull-quote p { font-family: var(--serif); font-size: 1.3rem; line-height: 1.5; font-style: italic; font-weight: 700; color: var(--ink); margin: 0; }
 
-  /* Demo CTA */
-  .demo-cta { grid-column: 2; margin: 2.5rem 0; padding: 2rem; background: var(--ink); color: var(--paper); display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
-  .demo-cta-text { font-size: 15px; line-height: 1.6; font-weight: 300; opacity: .85; }
-  .demo-cta-text strong { display: block; font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--paper); margin-bottom: .35rem; opacity: 1; }
-  .demo-btn { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--paper); border: 1px solid rgba(255,255,255,.4); padding: 12px 24px; text-decoration: none; white-space: nowrap; transition: border-color .2s, background .2s; flex-shrink: 0; }
-  .demo-btn:hover { border-color: white; background: rgba(255,255,255,.08); }
+  /* Sidebar */
+  .essay-sidebar { grid-column: 3; grid-row: 1 / 100; align-self: start; position: sticky; top: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+  .sb-block { padding: 1.5rem; border: 1px solid var(--border); }
+  .sb-block.sb-dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .sb-block.sb-light { background: white; }
+  .sb-eyebrow { font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+  .sb-dark .sb-eyebrow { color: #e8b89a; }
+  .sb-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; line-height: 1.3; margin-bottom: .5rem; }
+  .sb-body { font-size: 13px; line-height: 1.65; font-weight: 300; opacity: .8; margin-bottom: 1rem; }
+  .sb-btn { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--paper); border: 1px solid rgba(255,255,255,.4); padding: 10px 16px; text-decoration: none; text-align: center; transition: border-color .2s, background .2s; }
+  .sb-btn:hover { border-color: white; background: rgba(255,255,255,.08); }
+  .sb-btn-outline { display: block; font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--border); padding: 10px 16px; text-decoration: none; text-align: center; transition: border-color .2s; }
+  .sb-btn-outline:hover { border-color: var(--ink); }
+  .sb-link { display: block; font-size: 13px; line-height: 1.5; color: var(--ink); text-decoration: none; padding: .6rem 0; border-bottom: 1px solid var(--border); font-weight: 300; }
+  .sb-link:last-child { border-bottom: none; padding-bottom: 0; }
+  .sb-link:hover { color: var(--accent); }
 
   /* Author strip */
   .author-strip { padding: 2.5rem clamp(1.5rem,5vw,4rem); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 2rem; }
@@ -84,7 +94,7 @@
   @media (max-width: 768px) {
     .essay-body { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
     .essay-body > * { grid-column: 1; }
-    .demo-cta { flex-direction: column; align-items: flex-start; }
+    .essay-sidebar { grid-column: 1; grid-row: auto; position: static; }
     .masthead { grid-template-columns: 1fr 1fr; }
     .masthead-tag { display: none; }
   }
@@ -154,14 +164,6 @@
 
   <p>One adjacent approach is worth mentioning. Some are solving the context gap at the moment of failure, routing to a human when an agent gets stuck. The learning layer is the other half: it captures what worked after the fact and propagates it forward, so the agent needs less intervention over time.</p>
 
-  <div class="demo-cta">
-    <div class="demo-cta-text">
-      <strong>Deal Risk Manager: Live Demo</strong>
-      A working prototype of the organizational learning loop in a GTM context. Surfaces deal risk, recommends actions, logs outcomes.
-    </div>
-    <a href="https://deal-risk-manager.lovable.app/" class="demo-btn" target="_blank">View Demo →</a>
-  </div>
-
   <h2>The strategic question</h2>
 
   <p>The architectural question the market will resolve over the next 12 to 18 months is whether this becomes platform-native, built into the platform that already holds the context and governance, or a neutral layer that sits across competing platforms and heterogeneous frameworks, precisely because no single platform orchestrates all an enterprise's agents. It is probably both. The race is already underway.</p>
@@ -169,6 +171,28 @@
   <p>There is no organizational learning platform yet. The capture primitives exist. The outcome linkage and governed propagation do not. That is the gap, and the opportunity.</p>
 
   <p>If you are building toward this, I would welcome the conversation.</p>
+
+  <aside class="essay-sidebar">
+    <div class="sb-block sb-dark">
+      <div class="sb-eyebrow">Concept Paper</div>
+      <div class="sb-title">Full Architecture Whitepaper</div>
+      <div class="sb-body">The complete thesis: architecture detail, market landscape, and the governed learning loop.</div>
+      <a class="sb-btn" href="/org-learning-platform.pdf" target="_blank">Download PDF →</a>
+    </div>
+    <div class="sb-block sb-light">
+      <div class="sb-eyebrow">Live Demo</div>
+      <div class="sb-title">Deal Risk Manager</div>
+      <div class="sb-body">A working prototype of the learning loop in a GTM context. Surfaces deal risk, recommends actions, logs outcomes.</div>
+      <a class="sb-btn-outline" href="https://deal-risk-manager.lovable.app/" target="_blank">View Demo →</a>
+    </div>
+    <div class="sb-block sb-light">
+      <div class="sb-eyebrow">Related Essays</div>
+      <a class="sb-link" href="/trust-operating-system.html">Trust Is the Operating System for Agentic AI</a>
+      <a class="sb-link" href="/production-readiness.html">The Production Readiness Gap</a>
+      <a class="sb-link" href="/hard-ceiling.html">The Hard Ceiling</a>
+      <a class="sb-link" href="/gtm-intelligence-stack.html">The GTM Intelligence Stack in 2026</a>
+    </div>
+  </aside>
 
 </div>
 
