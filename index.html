@@ -106,6 +106,22 @@
   .insp-type { font-family: var(--mono); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
   .insp-title { font-family: var(--serif); font-size: .95rem; font-weight: 700; line-height: 1.3; margin-bottom: .35rem; }
   .insp-by { font-size: 12px; color: var(--muted); font-weight: 300; }
+  .advising-strip { padding: 2.5rem clamp(1.5rem,5vw,4rem) 1rem; border-bottom: 1px solid var(--border); background: white; }
+  .advising-header { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); border-top: 2px solid var(--ink); padding-top: .75rem; margin-bottom: 1rem; }
+  .advising-text { font-size: 14px; line-height: 1.8; color: #3a3834; font-weight: 300; max-width: 70ch; margin-bottom: 1.5rem; }
+  .advising-text b { font-weight: 500; color: var(--ink); }
+  .advising-links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .engagements-band { border-bottom: 2px solid var(--ink); background: var(--paper); overflow: hidden; padding: 1.5rem 0; }
+  .engagements-label { padding: 0 clamp(1.5rem,5vw,4rem); font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .engagements-track { display: flex; gap: 1.25rem; width: max-content; animation: scrollEngagements 42s linear infinite; }
+  .engagements-band:hover .engagements-track { animation-play-state: paused; }
+  .eng-card { width: 320px; flex-shrink: 0; padding: 1.5rem; border: 1px solid var(--border); background: white; display: flex; flex-direction: column; gap: .5rem; }
+  .eng-eyebrow { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  .eng-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; line-height: 1.3; }
+  .eng-body { font-size: 12.5px; line-height: 1.6; color: #4a4844; font-weight: 300; }
+  .eng-stat { font-family: var(--mono); font-size: 11px; color: var(--ink); font-weight: 500; margin-top: .25rem; }
+  @keyframes scrollEngagements { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (max-width: 768px) { .advising-strip { padding: 2rem clamp(1.5rem,5vw,4rem) .75rem; } }
   footer { padding: 2rem clamp(1.5rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--ink); }
   .footer-brand { font-family: var(--serif); font-size: 13px; font-weight: 700; }
   .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--muted); }
@@ -174,7 +190,7 @@
   <div class="hero-right">
     <div class="hero-featured-label">New — Concept Paper</div>
     <a class="hero-featured-card" href="org-learning-platform.html">
-      <div class="hfc-tag">Agentic AI · Organizational Intelligence · GTM Architecture</div>
+      <div class="hfc-tag">Agentic AI · Organizational Intelligence · Concept Paper</div>
       <div class="hfc-title">The Organizational Learning Platform for Agentic AI</div>
       <div class="hfc-dek">AI is erasing tool-based advantage. The only moat left is what a company learns from its own operations. Here's the architecture that captures and compounds it.</div>
       <div class="hfc-cta">Read the essay</div>
@@ -393,6 +409,84 @@
     </div>
     <div class="cs-read">Open Deal Risk Monitor →</div>
   </a>
+</div>
+
+<div class="advising-strip" id="advising">
+  <div class="advising-header">Currently Advising</div>
+  <p class="advising-text">I advise seed-to-Series-B AI and enterprise SaaS companies as <b>Signal &amp; Scale</b> &mdash; fractional product and GTM leadership that moves teams from prototype to Customer Zero to repeatable adoption. Alongside advisory work, I build the tools and architecture that operationalize the frameworks: <b>Deal Risk Monitor</b> and <b>The Advisor</b> are both live.</p>
+  <div class="advising-links">
+    <a class="about-link" href="case-studies.html">Case Studies →</a>
+    <a class="about-link" href="https://deal-risk-manager.lovable.app/" target="_blank">Deal Risk Monitor →</a>
+    <a class="about-link" href="https://advisor-chat-focus.lovable.app/" target="_blank">The Advisor →</a>
+    <a class="about-link" href="contact.html">Start a conversation →</a>
+  </div>
+</div>
+
+<div class="engagements-band">
+  <div class="engagements-label">Recent Engagements</div>
+  <div class="engagements-track">
+    <div class="eng-card">
+      <div class="eng-eyebrow">AI Infrastructure · Stealth Advisory</div>
+      <div class="eng-title">Prototype to Customer Zero</div>
+      <div class="eng-body">Transitioned a scientifically ambitious biological co-processor from prototype to commercial Customer Zero. Verified a 10&times; energy efficiency benchmark to secure hyperscaler interest.</div>
+      <div class="eng-stat">90-day roadmap → $2M iARR run-rate</div>
+    </div>
+    <div class="eng-card">
+      <div class="eng-eyebrow">AI-Enabled ERP · Stealth Advisory</div>
+      <div class="eng-title">Concept to Pressure-Tested Prototype</div>
+      <div class="eng-body">Architected the execution boundary between probabilistic AI and deterministic ledger systems for a non-technical "Creator" persona. Built a full-stack prototype to pressure-test adoption friction.</div>
+      <div class="eng-stat">Validated in 7 days · GTM roadmap in 30</div>
+    </div>
+    <div class="eng-card">
+      <div class="eng-eyebrow">Enterprise Data Platform · Field Engineering</div>
+      <div class="eng-title">Closing the Booking-to-Burn Gap</div>
+      <div class="eng-body">Redesigned field organization structure and incentives around vertical industry pods and realized consumption, not just signed bookings.</div>
+      <div class="eng-stat">Compensation shifted 50/50 bookings/burn</div>
+    </div>
+    <div class="eng-card">
+      <div class="eng-eyebrow">Frontier AI Infrastructure · GTM Strategy</div>
+      <div class="eng-title">Scientific Differentiation to Commercial Motion</div>
+      <div class="eng-body">Built the Now–Then–Later roadmap and tiered partnership strategy translating a next-gen compute architecture into a repeatable commercial motion.</div>
+      <div class="eng-stat">First design partner → commercial scale in 18 mo</div>
+    </div>
+    <div class="eng-card">
+      <div class="eng-eyebrow">Platform Scale · Google &amp; Oracle</div>
+      <div class="eng-title">Operating Rhythms at Billion-Dollar Scale</div>
+      <div class="eng-body">Established the weekly and quarterly operating cadence behind scaling enterprise cloud platforms from first $100M ARR toward multi-billion-dollar run rate.</div>
+      <div class="eng-stat">Feature-to-market latency cut 40% in 6 months</div>
+    </div>
+    <!-- duplicate set for seamless loop -->
+    <div class="eng-card" aria-hidden="true">
+      <div class="eng-eyebrow">AI Infrastructure · Stealth Advisory</div>
+      <div class="eng-title">Prototype to Customer Zero</div>
+      <div class="eng-body">Transitioned a scientifically ambitious biological co-processor from prototype to commercial Customer Zero. Verified a 10&times; energy efficiency benchmark to secure hyperscaler interest.</div>
+      <div class="eng-stat">90-day roadmap → $2M iARR run-rate</div>
+    </div>
+    <div class="eng-card" aria-hidden="true">
+      <div class="eng-eyebrow">AI-Enabled ERP · Stealth Advisory</div>
+      <div class="eng-title">Concept to Pressure-Tested Prototype</div>
+      <div class="eng-body">Architected the execution boundary between probabilistic AI and deterministic ledger systems for a non-technical "Creator" persona. Built a full-stack prototype to pressure-test adoption friction.</div>
+      <div class="eng-stat">Validated in 7 days · GTM roadmap in 30</div>
+    </div>
+    <div class="eng-card" aria-hidden="true">
+      <div class="eng-eyebrow">Enterprise Data Platform · Field Engineering</div>
+      <div class="eng-title">Closing the Booking-to-Burn Gap</div>
+      <div class="eng-body">Redesigned field organization structure and incentives around vertical industry pods and realized consumption, not just signed bookings.</div>
+      <div class="eng-stat">Compensation shifted 50/50 bookings/burn</div>
+    </div>
+    <div class="eng-card" aria-hidden="true">
+      <div class="eng-eyebrow">Frontier AI Infrastructure · GTM Strategy</div>
+      <div class="eng-title">Scientific Differentiation to Commercial Motion</div>
+      <div class="eng-body">Built the Now–Then–Later roadmap and tiered partnership strategy translating a next-gen compute architecture into a repeatable commercial motion.</div>
+      <div class="eng-stat">First design partner → commercial scale in 18 mo</div>
+    </div>
+    <div class="eng-card" aria-hidden="true">
+      <div class="eng-eyebrow">Platform Scale · Google &amp; Oracle</div>
+      <div class="eng-title">Operating Rhythms at Billion-Dollar Scale</div>
+      <div class="eng-body">Established the weekly and quarterly operating cadence behind scaling enterprise cloud platforms from first $100M ARR toward multi-billion-dollar run rate.</div>
+      <div class="eng-stat">Feature-to-market latency cut 40% in 6 months</div>
+    </div>
+  </div>
 </div>
 
 <div class="whitepaper-band">
