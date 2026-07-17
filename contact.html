@@ -36,7 +36,7 @@
   .masthead-nav a.advisor-link { color: var(--accent); opacity: 1; font-weight: 500; }
   .masthead-nav a.advisor-link:hover { opacity: 0.8; }
 
-  /* ADVISOR BAND — TOP */
+  /* ADVISOR BAND */
   .advisor-band {
     border-bottom: 1px solid var(--border);
     padding: 2rem clamp(1.5rem, 5vw, 4rem);
@@ -59,8 +59,8 @@
   }
   .advisor-btn:hover { background: var(--accent); }
 
-  /* MAIN CONTENT — T BOTTOM */
-  .contact-wrap { flex: 1; display: grid; grid-template-columns: 1fr 1fr; }
+  /* MAIN CONTENT */
+  .contact-wrap { flex: 1; display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid var(--ink); }
 
   .contact-left { padding: clamp(3rem, 7vw, 6rem) clamp(2rem, 5vw, 4rem); border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: center; }
   .contact-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
@@ -123,25 +123,7 @@
   </nav>
 </header>
 
-<!-- T FRAME TOP — ADVISOR BAND -->
-<div class="advisor-band">
-  <div class="advisor-band-left">
-    <div class="advisor-eyebrow">AI Tool · Built on Claude</div>
-    <div class="advisor-headline">Have a question? Start here.</div>
-    <div class="advisor-body">Talk to The Advisor — an AI tool grounded in the frameworks on this site. Good for GTM diagnostics, operating model questions, and thinking through whether to build an agent.</div>
-  </div>
-  <div style="width:100%;margin-top:1.5rem;">
-    <iframe
-      src="https://advisor-chat-focus.lovable.app/embed"
-      width="100%"
-      height="540px"
-      style="border:1px solid var(--border);border-radius:4px;display:block;"
-      allow="clipboard-write">
-    </iframe>
-  </div>
-</div>
-
-<!-- T FRAME BOTTOM — LEFT + RIGHT -->
+<!-- GET IN TOUCH — NOW LEADS -->
 <div class="contact-wrap">
   <div class="contact-left">
     <div class="contact-kicker">Get in touch</div>
@@ -180,6 +162,24 @@
       <div class="success-msg">Message sent.</div>
       <div class="success-sub">I'll get back to you within a couple of days.</div>
     </div>
+  </div>
+</div>
+
+<!-- ADVISOR — NOW SECONDARY -->
+<div class="advisor-band">
+  <div class="advisor-band-left">
+    <div class="advisor-eyebrow">AI Tool · Built on Claude</div>
+    <div class="advisor-headline">Have a question? Start here.</div>
+    <div class="advisor-body">Talk to The Advisor — an AI tool grounded in the frameworks on this site. Good for GTM diagnostics, operating model questions, and thinking through whether to build an agent.</div>
+  </div>
+  <div style="width:100%;margin-top:1.5rem;">
+    <iframe
+      src="https://advisor-chat-focus.lovable.app/embed"
+      width="100%"
+      height="540px"
+      style="border:1px solid var(--border);border-radius:4px;display:block;"
+      allow="clipboard-write">
+    </iframe>
   </div>
 </div>
 
