@@ -35,9 +35,12 @@
   .masthead-nav a:hover { opacity: 1; }
 
   .hero { padding: clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,4rem) clamp(1.75rem,4vw,2.5rem); border-bottom: 1px solid var(--border); }
+  .hero-grid { display: grid; grid-template-columns: 1fr 180px; gap: 3rem; align-items: start; }
   .hero-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: .85rem; display: flex; align-items: center; gap: 8px; }
   .hero-kicker::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
-  .hero-logo { width: 100%; max-width: 360px; height: auto; display: block; margin-bottom: 1.25rem; border-radius: 2px; }
+  .hero-brand { font-family: var(--serif); font-size: clamp(1.9rem,4vw,2.6rem); font-weight: 900; line-height: 1.1; margin-bottom: .9rem; }
+  .hero-brand .amp { color: var(--accent); }
+  .hero-logo { width: 100%; max-width: 180px; height: auto; display: block; border-radius: 2px; margin-top: .3rem; }
   .hero-headline { font-family: var(--serif); font-size: clamp(1.2rem,2vw,1.5rem); line-height: 1.35; font-weight: 700; color: #3a3834; margin-bottom: 1.1rem; max-width: 44ch; }
   .hero-dek { font-size: 14px; line-height: 1.75; color: #3a3834; max-width: 62ch; font-weight: 300; }
 
@@ -79,7 +82,8 @@
   .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--muted); }
 
   @media (max-width: 768px) {
-    .strip, .cta-band { grid-template-columns: 1fr; }
+    .strip, .cta-band, .hero-grid { grid-template-columns: 1fr; }
+    .hero-logo { max-width: 120px; }
     .engagements-grid { grid-template-columns: 1fr; }
     .eng-card { border-right: none; border-bottom: 1px solid var(--border); }
     footer { flex-direction: column; gap: .5rem; text-align: center; }
@@ -98,10 +102,15 @@
 </header>
 
 <section class="hero">
-  <div class="hero-kicker">Fractional Product &amp; GTM Leadership</div>
-  <h1><img class="hero-logo" src="/signal-scale-logo.jpg" alt="Signal &amp; Scale — Operating Systems for Enterprise Growth"></h1>
-  <p class="hero-headline">Operating systems for enterprise growth &mdash; for teams past the demo and short of repeatable adoption.</p>
-  <p class="hero-dek">I advise seed-to-Series-B AI and enterprise SaaS companies as Signal &amp; Scale — moving teams from prototype to Customer Zero to repeatable adoption. 20 years scaling cloud and AI platforms at Google and Oracle, now applied fractionally to teams who need that operating experience now, not after a full-time hire closes.</p>
+  <div class="hero-grid">
+    <div>
+      <div class="hero-kicker">Fractional Product &amp; GTM Leadership</div>
+      <h1 class="hero-brand">Signal <span class="amp">&amp;</span> Scale</h1>
+      <p class="hero-headline">Operating systems for enterprise growth &mdash; for teams past the demo and short of repeatable adoption.</p>
+      <p class="hero-dek">I advise seed-to-Series-B AI and enterprise SaaS companies as Signal &amp; Scale — moving teams from prototype to Customer Zero to repeatable adoption. 20 years scaling cloud and AI platforms at Google and Oracle, now applied fractionally to teams who need that operating experience now, not after a full-time hire closes.</p>
+    </div>
+    <img class="hero-logo" src="/signal-scale-logo.jpg" alt="Signal &amp; Scale — Operating Systems for Enterprise Growth">
+  </div>
 </section>
 
 <div class="strip">
