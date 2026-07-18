@@ -50,6 +50,7 @@
   .section-header .count { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .1em; }
   .section-header .see-all { margin-left: auto; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--accent); }
   .essays-grid { display: grid; grid-template-columns: repeat(3,1fr); border-bottom: 2px solid var(--ink); }
+  .essays-grid.two-col { grid-template-columns: repeat(2,1fr); }
   .essay-card { padding: 2rem clamp(1.5rem,3vw,2.5rem); border-right: 1px solid var(--border); text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: .75rem; transition: background .15s; position: relative; }
   .essay-card:last-child { border-right: none; }
   .essay-card:hover { background: white; }
@@ -135,7 +136,7 @@
     .hero, .about-strip { grid-template-columns: 1fr; }
     .hero::after { display: none; }
     .hero-right { padding-left: 0; }
-    .essays-grid, .casestudies-grid { grid-template-columns: 1fr; }
+    .essays-grid, .casestudies-grid, .essays-grid.two-col { grid-template-columns: 1fr; }
     .essay-card, .cs-card { border-right: none; border-bottom: 1px solid var(--border); }
     .frameworks-grid { grid-template-columns: 1fr 1fr; }
     .fw-card { border-right: 1px solid var(--border) !important; padding: 1.25rem .75rem !important; }
@@ -202,7 +203,7 @@
 <!-- Essays -->
 <div class="section-header" id="essays">
   <h2>Essays from the Frontier</h2>
-  <span class="count">/ 10</span>
+  <span class="count">/ 9</span>
 </div>
 <div class="essays-grid">
   <a class="essay-card" href="org-learning-platform.html">
@@ -259,12 +260,6 @@
     <div class="ec-dek">Six sections, six breaks. Strategy, build velocity, portfolio, validation, feedback, and telemetry. Each with diagnostic questions, revenue impact, and the right lever to pull first.</div>
     <div class="ec-read">Read essay →</div>
   </a>
-  <a class="essay-card" href="hr-org-design-diagnostic.html">
-    <div class="ec-tag">Talent Systems · Org Design · PE Operating</div>
-    <div class="ec-title">The HR and Org Design Diagnostic</div>
-    <div class="ec-dek">Where is your talent system breaking down? Five sections covering hiring, performance, retention, culture, and org design. Each with diagnostic questions and the right lever to pull first.</div>
-    <div class="ec-read">Read essay →</div>
-  </a>
 </div>
 
 <!-- GTM Intelligence Series -->
@@ -305,7 +300,7 @@
   <h2>Customer Success Intelligence Series</h2>
   <span class="count">/ 02</span>
 </div>
-<div class="essays-grid">
+<div class="essays-grid two-col">
   <a class="essay-card" href="cs-intelligence-stack.html">
     <div class="ec-tag">Customer Success · Retention Intelligence · Enterprise AI</div>
     <div class="ec-title">The CS Intelligence Stack in 2026: What's Been Built and What's Still Missing</div>
@@ -431,6 +426,9 @@
   </a>
 </div>
 
+<div class="section-header">
+  <h2>Signal &amp; Scale</h2>
+</div>
 <div class="advising-strip" id="advising">
   <div class="advising-header">Currently Advising</div>
   <p class="advising-text">I advise seed-to-Series-B AI and enterprise SaaS companies as <b>Signal &amp; Scale</b> &mdash; fractional product and GTM leadership that moves teams from prototype to Customer Zero to repeatable adoption. Alongside advisory work, I build the tools and architecture that operationalize the frameworks: <b>Deal Risk Monitor</b> and <b>The Advisor</b> are both live.</p>
