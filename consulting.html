@@ -35,9 +35,10 @@
   .masthead-nav a:hover { opacity: 1; }
 
   .hero { padding: clamp(2.5rem,6vw,4rem) clamp(1.5rem,5vw,4rem) clamp(1.75rem,4vw,2.5rem); border-bottom: 1px solid var(--border); }
-  .hero-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: .85rem; display: flex; align-items: center; gap: 8px; }
+  .hero-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin-bottom: .85rem; display: flex; align-items: center; gap: 8px; }
   .hero-kicker::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
-  .hero-headline { font-family: var(--serif); font-size: clamp(1.7rem,3.2vw,2.6rem); line-height: 1.15; font-weight: 900; letter-spacing: -.02em; margin-bottom: 1rem; }
+  .hero-logo { width: 100%; max-width: 360px; height: auto; display: block; margin-bottom: 1.25rem; border-radius: 2px; }
+  .hero-headline { font-family: var(--serif); font-size: clamp(1.2rem,2vw,1.5rem); line-height: 1.35; font-weight: 700; color: #3a3834; margin-bottom: 1.1rem; max-width: 44ch; }
   .hero-dek { font-size: 14px; line-height: 1.75; color: #3a3834; max-width: 62ch; font-weight: 300; }
 
   .strip { padding: 2.5rem clamp(1.5rem,5vw,4rem); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: 1fr 280px; gap: 3rem; align-items: start; }
@@ -97,8 +98,9 @@
 </header>
 
 <section class="hero">
-  <div class="hero-kicker">Signal &amp; Scale</div>
-  <h1 class="hero-headline">Fractional product &amp; GTM leadership, for teams past the demo and short of repeatable adoption.</h1>
+  <div class="hero-kicker">Fractional Product &amp; GTM Leadership</div>
+  <h1><img class="hero-logo" src="/signal-scale-logo.jpg" alt="Signal &amp; Scale — Operating Systems for Enterprise Growth"></h1>
+  <p class="hero-headline">Operating systems for enterprise growth &mdash; for teams past the demo and short of repeatable adoption.</p>
   <p class="hero-dek">I advise seed-to-Series-B AI and enterprise SaaS companies as Signal &amp; Scale — moving teams from prototype to Customer Zero to repeatable adoption. 20 years scaling cloud and AI platforms at Google and Oracle, now applied fractionally to teams who need that operating experience now, not after a full-time hire closes.</p>
 </section>
 
