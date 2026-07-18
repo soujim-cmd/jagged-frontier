@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The CS Intelligence Stack in 2026 : Notes from the Jagged Frontier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0e0e0d; --paper: #f5f2eb; --accent: #c8440a;
+    --muted: #7a7670; --border: #d4cfc6;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'DM Mono', monospace; --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+  .masthead { border-bottom: 2px solid var(--ink); padding: 0 clamp(1.5rem,5vw,4rem); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; min-height: 64px; }
+  .masthead-tag { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .masthead-title { font-family: var(--serif); font-size: clamp(13px,1.5vw,16px); font-weight: 700; text-align: center; white-space: nowrap; }
+  .masthead-title a { text-decoration: none; color: inherit; }
+  .masthead-nav { display: flex; gap: 1.5rem; justify-content: flex-end; }
+  .masthead-nav a { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: .6; transition: opacity .2s; }
+  .masthead-nav a:hover { opacity: 1; }
+  .dateline { background: var(--ink); color: var(--paper); padding: 8px clamp(1.5rem,5vw,4rem); display: flex; gap: 2rem; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; overflow: hidden; }
+  .dateline span { opacity: .5; white-space: nowrap; }
+  .dateline span.active { opacity: 1; color: #e8b89a; }
+  .article-header { padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem) 0; border-bottom: 1px solid var(--border); max-width: 860px; }
+  .article-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px; }
+  .article-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .article-title { font-family: var(--serif); font-size: clamp(2rem,5vw,3.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -.02em; margin-bottom: 1.5rem; }
+  .article-title em { font-style: normal; color: var(--accent); }
+  .article-dek { font-size: 16px; line-height: 1.75; color: #3a3834; max-width: 60ch; font-weight: 300; margin-bottom: 2rem; }
+  .article-meta { display: flex; gap: 2rem; align-items: center; padding: 1.25rem 0; border-top: 1px solid var(--border); }
+  .article-author { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+  .article-date { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .article-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--muted); }
+  .article-wrap { display: grid; grid-template-columns: 1fr 280px; gap: 4rem; padding: clamp(2rem,5vw,4rem) clamp(1.5rem,5vw,4rem); align-items: start; max-width: 1200px; }
+  .article-body { max-width: 680px; }
+  .article-body p { font-size: 15px; line-height: 1.85; color: #2a2826; font-weight: 300; margin-bottom: 1.5rem; }
+  .article-body h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.2; }
+  .article-body h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; margin: 2rem 0 .75rem; line-height: 1.25; color: var(--ink); }
+  .article-body h3.layer-label { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 2rem 0 .5rem; }
+  .article-body strong { font-weight: 500; color: var(--ink); }
+  .article-body .section-divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+  .article-body .pull { font-family: var(--serif); font-size: 1.25rem; font-style: italic; font-weight: 700; line-height: 1.4; color: var(--ink); border-left: 3px solid var(--accent); padding-left: 1.5rem; margin: 2.5rem 0; }
+  .article-body .missing-item { padding: 1.25rem 1.5rem; border-left: 2px solid var(--border); margin-bottom: 1.25rem; background: white; }
+  .article-body .missing-item-title { font-family: var(--serif); font-size: 1rem; font-weight: 700; margin-bottom: .4rem; }
+  .article-body .missing-item p { margin-bottom: 0; }
+  .build-step { display: grid; grid-template-columns: 40px 1fr; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .build-step:last-child { border-bottom: none; }
+  .build-num { font-family: var(--mono); font-size: 20px; font-weight: 500; color: var(--border); line-height: 1; }
+  .build-step-title { font-family: var(--sans); font-size: 14px; font-weight: 500; margin-bottom: .25rem; }
+  .build-step-title span { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-left: .5rem; }
+  .build-step p { font-size: 13px; line-height: 1.7; color: #3a3834; margin: 0; }
+  .article-byline-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
+  .article-byline-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--muted); line-height: 1.7; }
+  .article-sidebar { position: sticky; top: 2rem; }
+  .sidebar-section { margin-bottom: 2rem; }
+  .sidebar-label { font-family: var(--mono); font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); border-top: 2px solid var(--ink); padding-top: .75rem; margin-bottom: 1rem; }
+  .sidebar-toc { list-style: none; }
+  .sidebar-toc li { margin-bottom: .6rem; }
+  .sidebar-toc a { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--ink); text-decoration: none; opacity: .55; transition: opacity .2s; line-height: 1.5; display: block; }
+  .sidebar-toc a:hover { opacity: 1; color: var(--accent); }
+  .sidebar-related { display: flex; flex-direction: column; gap: .75rem; }
+  .sidebar-card { display: block; text-decoration: none; color: inherit; padding: 1rem; border: 1px solid var(--border); background: white; transition: border-color .15s; }
+  .sidebar-card:hover { border-color: var(--ink); }
+  .sidebar-card-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: .35rem; }
+  .sidebar-card-title { font-family: var(--serif); font-size: .9rem; font-weight: 700; line-height: 1.3; }
+  footer { padding: 2rem clamp(1.5rem,5vw,4rem); display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--ink); }
+  .footer-brand { font-family: var(--serif); font-size: 13px; font-weight: 700; }
+  .footer-copy { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; color: var(--muted); }
+  .diagram-embed { margin: 2rem 0 2.5rem; }
+  .diagram-embed svg { width: 100%; height: auto; border-radius: 8px; display: block; }
+  .diagram-caption { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--muted); margin-top: .75rem; text-align: center; }
+  @media (max-width: 900px) {
+    .article-wrap { grid-template-columns: 1fr; }
+    .article-sidebar { display: none; }
+    .masthead { grid-template-columns: 1fr 1fr; }
+    .masthead-tag { display: none; }
+    footer { flex-direction: column; gap: .5rem; text-align: center; }
+  }
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNWC1D521"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TTNWC1D521');
+</script>
+</head>
+<body>
+
+<header class="masthead">
+  <span class="masthead-tag">Field notes · Enterprise AI</span>
+  <span class="masthead-title"><a href="index.html">Notes from the Jagged Frontier</a></span>
+  <nav class="masthead-nav">
+    <a href="index.html#essays">Essays</a>
+    <a href="frameworks.html">Frameworks</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="index.html#about">About</a>
+    <a href="https://advisor-chat-focus.lovable.app/" target="_blank" style="color:var(--accent);">The Advisor →</a>
+    <a href="https://linkedin.com/in/soujanyamadhurapantula" target="_blank">LinkedIn</a>
+  </nav>
+</header>
+
+<div class="dateline">
+  <span class="active">Customer Success · Retention Intelligence</span>
+  <span>Enterprise AI</span>
+  <span>Operating Models</span>
+  <span>Agentic Systems</span>
+</div>
+
+<div class="article-header">
+  <div class="article-eyebrow">Essay · Customer Success · Retention Intelligence</div>
+  <h1 class="article-title">The CS Intelligence Stack in 2026:<br>What's Been Built and What's Still <em>Missing</em> (for now)</h1>
+  <p class="article-dek">Before building the first app from the Customer Success Motion Diagnostic, I mapped the market. Here's what exists, where innovation has concentrated, and where the loop is still open.</p>
+  <div class="article-meta">
+    <span class="article-author">Soujanya Madhurapantula</span>
+    <span class="article-date">July 2026</span>
+    <span class="article-tag">Customer Success</span>
+    <span class="article-tag">Retention Intelligence</span>
+    <span class="article-tag">Enterprise AI</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <article class="article-body">
+
+    <p>When I was running the consumption program for a large cloud platform, I wasn't thinking about a "CS intelligence stack." I was trying to answer one question: which of our existing customers are quietly stalling, and which are ready for the next workload? We started with about fifty accounts over a million dollars in annual consumption and needed to grow both the number of them and what each one consumed.</p>
+
+    <p>So we built what we needed. I stitched together consumption telemetry to see who was actually growing and who had flatlined. We built what we called solution chains : the map of where a customer stalls and what the next workload is that moves them forward, drawn from the patterns of the customers who were already growing in the right direction. On the acquisition side, we ran a parallel program to identify the next set of very large accounts, built an art-of-possible point of view for each one, and ran a blocker-and-sponsorship framework that surfaced red flags early and pulled the right executive in at the right moment to clear them.</p>
+
+    <p>It worked. It was not elegant : a hodgepodge of telemetry, pattern templates, and manual research assembled program by program. But when the pieces talked to each other, the intelligence was clear. We could see which accounts were expanding, which were stuck and where, which plays moved them, and where to put scarce attention. Over that stretch we roughly doubled the installed base's consumption and grew from about fifty of those accounts to around two hundred.</p>
+
+    <div class="pull">I didn't know we were building a CS intelligence platform. I was just trying to answer the question: which accounts are stalling, and which are ready to grow?</div>
+
+    <hr class="section-divider">
+
+    <p>I recently went back through the <a href="cs-diagnostic.html" style="color:var(--accent);">Customer Success Motion Diagnostic</a> I published : the five lifecycle stages, the go/no-go filter, the five apps that emerge from it : and realized I needed to do the same thing I did for GTM before I started building: map what already exists.</p>
+
+    <p>This space has moved fast. What used to be a spreadsheet of renewal dates and a health score someone set by hand is now a full category of platforms, customer-facing experience tools, and agents built on top of them. Companies are imagining through AI and agents what we built manually inside a post-sale org years ago. It is genuinely interesting to watch.</p>
+
+    <p>So before I scope and build the first app, I went looking. Here's what I found.</p>
+
+    <hr class="section-divider">
+
+    <div class="diagram-embed" id="stack-diagram">
+      <svg viewBox="0 0 700 656" xmlns="http://www.w3.org/2000/svg" role="img" font-family="'DM Sans', system-ui, sans-serif">
+        <title>The CS Intelligence Stack : Where the Loop Is Still Open</title>
+        <desc>Six layers of the customer success stack, an adjacent Agent OS category, and the missing propagation loop highlighted</desc>
+
+        <rect width="700" height="656" fill="#f5f2eb" rx="12"/>
+
+        <text x="350" y="36" text-anchor="middle" font-size="15" font-weight="600" fill="#0e0e0d" letter-spacing="-0.3">The CS Intelligence Stack in 2026</text>
+        <text x="350" y="55" text-anchor="middle" font-size="12" fill="#7a7670">Where the loop is still open</text>
+
+        <!-- L1 -->
+        <rect x="40" y="72" width="620" height="54" rx="8" fill="#0e0e0d"/>
+        <text x="58" y="93" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 1 · CORE CS PLATFORMS</text>
+        <text x="58" y="110" font-size="12" font-weight="500" fill="#f5f2eb">Score health. Run playbooks. Track renewals.</text>
+        <text x="58" y="123" font-size="10" fill="#7a7670">Gainsight · Planhat · Vitally · ChurnZero · Totango/Catalyst</text>
+        <rect x="574" y="81" width="72" height="17" rx="8.5" fill="#1e3a5f"/>
+        <text x="610" y="93" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">Mature</text>
+
+        <!-- L2 -->
+        <rect x="40" y="132" width="620" height="54" rx="8" fill="#0e0e0d"/>
+        <text x="58" y="153" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 2 · AI-NATIVE ENTRANTS</text>
+        <text x="58" y="170" font-size="12" font-weight="500" fill="#f5f2eb">Predictive insight, lower administrative overhead.</text>
+        <text x="58" y="183" font-size="10" fill="#7a7670">Velaris</text>
+        <rect x="568" y="141" width="78" height="17" rx="8.5" fill="#14532d"/>
+        <text x="607" y="153" text-anchor="middle" font-size="9" fill="#86efac" font-weight="500">Emerging</text>
+
+        <!-- L3 -->
+        <rect x="40" y="192" width="620" height="54" rx="8" fill="#0e0e0d"/>
+        <text x="58" y="213" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 3 · CRM-NATIVE CS</text>
+        <text x="58" y="230" font-size="12" font-weight="500" fill="#f5f2eb">CS inside the CRM you already run.</text>
+        <text x="58" y="243" font-size="10" fill="#7a7670">Salesforce Agentforce · HubSpot Service Hub</text>
+        <rect x="574" y="201" width="72" height="17" rx="8.5" fill="#1e3a5f"/>
+        <text x="610" y="213" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">Growing</text>
+
+        <!-- L4 -->
+        <rect x="40" y="252" width="620" height="54" rx="8" fill="#0e0e0d"/>
+        <text x="58" y="273" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 4 · CUSTOMER-FACING EXPERIENCE</text>
+        <text x="58" y="290" font-size="12" font-weight="500" fill="#f5f2eb">The onboarding and adoption the customer sees.</text>
+        <text x="58" y="303" font-size="10" fill="#7a7670">Rocketlane · GUIDEcx · Dock · Arrows · Userflow</text>
+        <rect x="558" y="261" width="88" height="17" rx="8.5" fill="#3a3834"/>
+        <text x="602" y="273" text-anchor="middle" font-size="9" fill="#d4cfc6" font-weight="500">Fragmented</text>
+
+        <!-- L5 -->
+        <rect x="40" y="312" width="620" height="54" rx="8" fill="#0e0e0d"/>
+        <text x="58" y="333" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 5 · SIGNAL &amp; MEASUREMENT INPUTS</text>
+        <text x="58" y="350" font-size="12" font-weight="500" fill="#f5f2eb">Feed the health-score engines above.</text>
+        <text x="58" y="363" font-size="10" fill="#7a7670">Pendo · Tableau / Looker · NPS &amp; CSAT tools</text>
+        <rect x="552" y="321" width="94" height="17" rx="8.5" fill="#3a3834"/>
+        <text x="599" y="333" text-anchor="middle" font-size="9" fill="#d4cfc6" font-weight="500">Commoditized</text>
+
+        <!-- L6 -->
+        <rect x="40" y="372" width="620" height="54" rx="8" fill="#0e0e0d"/>
+        <text x="58" y="393" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 6 · SUPPORT AUTOMATION</text>
+        <text x="58" y="410" font-size="12" font-weight="500" fill="#f5f2eb">Resolve the ticket, not the account.</text>
+        <text x="58" y="423" font-size="10" fill="#7a7670">Fin · ASAPP · Decagon</text>
+        <rect x="562" y="381" width="84" height="17" rx="8.5" fill="#1e3a5f"/>
+        <text x="604" y="393" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">Fast-scaling</text>
+
+        <!-- Sierra adjacent -->
+        <rect x="40" y="440" width="620" height="52" rx="8" fill="#fbeee7" stroke="#0e0e0d" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="58" y="461" font-size="10" font-weight="600" fill="#0e0e0d" letter-spacing="1">ADJACENT CATEGORY · AGENT OS</text>
+        <text x="58" y="478" font-size="12" fill="#0e0e0d">Build and deploy CX agents across every channel. A platform play, priced like one.</text>
+        <text x="600" y="470" text-anchor="middle" font-size="12" fill="#0e0e0d" font-weight="600">Sierra</text>
+
+        <!-- open loop -->
+        <rect x="40" y="508" width="620" height="80" rx="8" fill="#fff8f5" stroke="#c8440a" stroke-width="2" stroke-dasharray="6 3"/>
+        <text x="350" y="533" text-anchor="middle" font-size="10" font-weight="600" fill="#c8440a" letter-spacing="1">THE OPEN LOOP</text>
+        <text x="350" y="554" text-anchor="middle" font-size="13" fill="#0e0e0d" font-weight="500">What worked → ??? → The whole base acts on it</text>
+        <text x="350" y="573" text-anchor="middle" font-size="11" fill="#7a7670">The propagation layer. Not yet automatic. Still done in QBRs.</text>
+
+        <!-- return arrow -->
+        <path d="M 660 540 Q 684 540 684 306 Q 684 99 660 99" stroke="#c8440a" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+        <polygon points="654,102 660,91 666,102" fill="#c8440a"/>
+
+        <text x="350" y="630" text-anchor="middle" font-size="10" fill="#7a7670">jaggedfrontier.org</text>
+      </svg>
+      <p class="diagram-caption">The customer success stack as it exists today : six layers, an adjacent Agent OS category, and the loop that's still open.</p>
+    </div>
+
+    <h2 id="whats-built">What's been built, and where it concentrates</h2>
+
+    <p>The CS stack in 2026 breaks into six layers. The easiest way to read it is to start with the platforms that own the category and work outward to the tools that feed and surround them.</p>
+
+    <h3 class="layer-label" id="core-csp">Layer 1 · Core CS platforms</h3>
+    <h3>Where the category consolidated</h3>
+
+    <p>Gainsight, Planhat, Vitally, ChurnZero, and the now-merged Totango/Catalyst anchor this layer. They own health scoring, playbooks, renewal tracking, and the team workflows a CS org runs on. Gainsight is the enterprise-depth incumbent; Planhat consolidates CRM-adjacent and services functions into one workspace; Vitally leans into flexibility and native customer collaboration. The category is also shifting from dashboards to embedded agents : automated summaries, churn prediction, meeting follow-ups.</p>
+
+    <p>This is the system of record for post-sale. It is mature and consolidating, and it does the job it was built for well. What it doesn't yet do is learn across its own accounts and change what everyone does because of it.</p>
+
+    <h3 class="layer-label" id="ai-native">Layer 2 · AI-native entrants</h3>
+    <h3>Where the market is starting to reimagine the platform</h3>
+
+    <p>Velaris represents the AI-first alternative : predictive insight with less setup and administrative overhead than the legacy platforms carry. This is the layer that most resembles the GTM stack's observation-and-recommendation tools : it surfaces signal and suggests action, but stops short of closing the loop. Early, pointed in the right direction, and worth watching.</p>
+
+    <h3 class="layer-label" id="crm-native">Layer 3 · CRM-native CS</h3>
+    <h3>The CRM you already run, extended into CS</h3>
+
+    <p>Salesforce Agentforce and HubSpot Service Hub push the CRM into CS territory : agents that monitor health signals, draft account summaries, and automate follow-ups. Strong for consolidation-minded orgs that want one platform, weaker than the specialist CSPs on health-scoring depth and playbook flexibility : the same pattern that plays out on the GTM side, where CRM-native tools trail the specialists.</p>
+
+    <h3 class="layer-label" id="customer-facing">Layer 4 · Customer-facing experience</h3>
+    <h3>The front office the customer actually touches</h3>
+
+    <p>Distinct from the internal CSP back office, a second layer manages the experience the customer sees : onboarding hubs, collaborative workspaces, guided adoption. Rocketlane, GUIDEcx, Dock, Arrows, and Userflow live here. It's growing and still fragmented, and the emerging consensus is that a mature CS stack needs both layers working together, not the CSP alone.</p>
+
+    <h3 class="layer-label" id="signal-inputs">Layer 5 · Signal and measurement inputs</h3>
+    <h3>The feeds the health score consumes</h3>
+
+    <p>NPS and CSAT tools, product analytics like Pendo, and BI layers like Tableau and Looker each supply a slice of signal that no single tool sees in full. Structurally this is the same ingestion pattern as GTM : the health-scoring engine in Layer 1 is only as good as the inputs it can reach. Mature and largely commoditized on its own.</p>
+
+    <h3 class="layer-label" id="support-automation">Layer 6 · Support automation</h3>
+    <h3>Adjacent, and often confused with CS</h3>
+
+    <p>Fin, ASAPP, and Decagon target support-ticket resolution : chat, email, voice, in-app : rather than the CS-managed account. Decagon does knowledge-base-driven resolution for technical SaaS companies and belongs squarely here with Fin and ASAPP: it's the same job, done well, at ticket level. This is a fast-scaling category, but it is adjacent to account-level customer success, not the same thing. Resolving the ticket is not the same as growing the account.</p>
+
+    <hr class="section-divider">
+
+    <h3 id="agent-os">One that doesn't fit the six: the Agent OS</h3>
+
+    <p>Sierra deserves its own callout because it isn't a ticket-resolution tool. It positions itself as an "Agent OS" for building and deploying customer-experience agents across every channel : managed deployment, voice-first, aimed at high-volume consumer brands. That's a platform play, and the market prices it as one : Sierra's 2026 valuation sits around $15.8B against Decagon's $4.5B. Folding it into support automation would miss what it is. I'm flagging it as an emerging category adjacent to the six layers, not a seventh row in the same stack.</p>
+
+    <hr class="section-divider">
+
+    <h2 id="whats-missing">What's still missing, for now</h2>
+
+    <p>When I ran the manual version of this system, the hardest part was never scoring health. It was propagating what worked. We'd find a solution chain that reliably moved a customer to the next workload, or a play that recovered a stalling account, and it would take the better part of a year to make it standard practice across the org : QBRs, enablement, manager coaching, tribal knowledge. By the time the insight became the default, the base had sometimes already moved.</p>
+
+    <p>The CS market today has strong observation : health scores : and growing recommendation : agents that draft summaries and flag risk. What it doesn't have is the system that closes the loop automatically. Not just "this account is at risk" but "here's what worked across every account like this one, and here's how the playbook is updating for everyone." And critically: separating outcomes from decision quality, because a good CSM decision on the signal available can still lose a renewal, and conflating the two is how an org stops trusting its own health scores.</p>
+
+    <p>Three specific things are still missing:</p>
+
+    <div class="missing-item" id="portfolio-view">
+      <div class="missing-item-title">The portfolio view for CS leaders</div>
+      <p>A CS leader managing a book of accounts needs to know which ones are actually healthy and which just look that way, where to spend scarce CSM attention this week, and where a renewal is quietly slipping. The current tools give per-account visibility. Nobody owns the portfolio intelligence layer that helps a leader run the whole base as a business.</p>
+    </div>
+
+    <div class="missing-item" id="management-os">
+      <div class="missing-item-title">The management operating system</div>
+      <p>How does a CS leader decide coverage models, segmentation, where to invest playbook and enablement effort? These calls are still made in spreadsheets and QBRs, informed by experience and gut. The signal to inform them better exists. The system that turns it into a decision doesn't.</p>
+    </div>
+
+    <div class="missing-item" id="learning-loop">
+      <div class="missing-item-title">The learning loop</div>
+      <p>Every renewal, every churn, every expansion contains information about what worked. Every stall is a signal about what went wrong. That information currently dies in a closed record or a health score nobody revisits. The system that reads those outcomes, finds the pattern, and updates what the whole org does next quarter : automatically, not through the next enablement cycle : hasn't been built yet.</p>
+    </div>
+
+    <p>Companies are moving toward this : the platforms are shipping agents, the AI-native entrants are getting closer to trajectory-based signal. The "for now" in the title is deliberate. I expect this space to move fast. But as of today, the loop is still open.</p>
+
+    <hr class="section-divider">
+
+    <h2 id="build-sequence">What I'm building, in what order</h2>
+
+    <p>Five apps come out of the <a href="cs-diagnostic.html" style="color:var(--accent);">Customer Success Motion Diagnostic</a>. Each maps to a lifecycle stage, passes the <a href="agent-portfolio-framework.html" style="color:var(--accent);">go/no-go filter</a>, and has a data gate that must hold before the app produces reliable output. The sequence is not arbitrary : it's ordered by data-gate readiness, not ambition. Each app builds the foundation the next one needs.</p>
+
+    <div class="build-step">
+      <div class="build-num">01</div>
+      <div>
+        <div class="build-step-title">Health signal unifier <span>Adoption</span></div>
+        <p>Combine usage telemetry, support sentiment, billing, and engagement into one trajectory-based health score. Everything downstream reads from this, so it goes first. The gate is the hardest one in CS: multi-source signal has to be connected and trusted before any score means anything.</p>
+      </div>
+    </div>
+    <div class="build-step">
+      <div class="build-num">02</div>
+      <div>
+        <div class="build-step-title">Renewal risk monitor <span>Renewal + Expansion</span></div>
+        <p>Detect renewal risk early : disengagement, flattening consumption, champion change, support escalation : across the whole base, not just the accounts a CSM is watching. It can't run until the health signal is live, so it comes second.</p>
+      </div>
+    </div>
+    <div class="build-step">
+      <div class="build-num">03</div>
+      <div>
+        <div class="build-step-title">Next best action <span>Adoption + Renewal</span></div>
+        <p>Triggered by the risk or expansion signal. Tells the CSM what to do specifically : re-engage a stakeholder, bring in a sponsor, land a named next workload. One system with the risk monitor, two outputs.</p>
+      </div>
+    </div>
+    <div class="build-step">
+      <div class="build-num">04</div>
+      <div>
+        <div class="build-step-title">Expansion intelligence <span>Renewal + Expansion</span></div>
+        <p>Detect expansion readiness from consumption trajectory and solution-chain position, surface comparable accounts, and generate an art-of-possible for the expanded footprint. The most signal-intensive of the five, which is why it waits until telemetry and CRM are connected and proven.</p>
+      </div>
+    </div>
+    <div class="build-step">
+      <div class="build-num">05</div>
+      <div>
+        <div class="build-step-title">QBR and advocacy generator <span>Advocacy</span></div>
+        <p>Assemble the QBR from realized outcomes, surface reference-ready accounts at the moment of value, and feed renewal and expansion outcomes back into playbooks and ICP. This is the app that starts to close the loop : it only works once the four before it are producing outcome data worth learning from.</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2 id="why-building">Why I'm building here</h2>
+
+    <p>The <a href="cs-diagnostic.html" style="color:var(--accent);">Customer Success Motion Diagnostic</a> started as a way to document how I think about post-sale : the five stages, the go/no-go filter, the five apps that fall out of it. The natural next step was to build. But first I wanted to know what already exists and what's genuinely missing : not to avoid overlap, some overlap is fine if the approach is better, but to be honest about the problem I'm actually solving.</p>
+
+    <p>The research confirmed what I suspected from building this manually: the platform layer and the observation layer are well-served. The learning loop : the thing that turns one CSM's discovered solution chain into everyone's default motion : is not. That's where I'm building. Not because nobody else has thought of it, clearly they have, but because I've run the manual version and I know exactly which parts still happen in spreadsheets and QBRs.</p>
+
+    <p>This essay is the customer-success companion to <a href="gtm-intelligence-stack.html" style="color:var(--accent);">the GTM Intelligence Stack</a>. Same lens, same open loop, a different half of the customer's life. For now : here's the map. Here's what's been built. Here's where I think the gaps still are.</p>
+
+    <div class="article-byline-footer">
+      <p>Soujanya (Souji) Madhurapantula writes at jaggedfrontier.org about enterprise AI, GTM and CS operating models, and the gap between what technology promises and what organizations can actually execute. She is the founder of Signal &amp; Scale Advisory.</p>
+    </div>
+
+  </article>
+
+  <aside class="article-sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">In this essay</div>
+      <ul class="sidebar-toc">
+        <li><a href="#stack-diagram">The stack, at a glance</a></li>
+        <li><a href="#whats-built">What's been built</a></li>
+        <li><a href="#core-csp">Core CS platforms</a></li>
+        <li><a href="#ai-native">AI-native entrants</a></li>
+        <li><a href="#crm-native">CRM-native CS</a></li>
+        <li><a href="#customer-facing">Customer-facing experience</a></li>
+        <li><a href="#signal-inputs">Signal and measurement</a></li>
+        <li><a href="#support-automation">Support automation</a></li>
+        <li><a href="#agent-os">The Agent OS</a></li>
+        <li><a href="#whats-missing">What's still missing</a></li>
+        <li><a href="#build-sequence">What I'm building</a></li>
+        <li><a href="#why-building">Why I'm building here</a></li>
+      </ul>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Related frameworks</div>
+      <div class="sidebar-related">
+        <a class="sidebar-card" href="cs-diagnostic.html">
+          <div class="sidebar-card-tag">Framework</div>
+          <div class="sidebar-card-title">The Customer Success Motion Diagnostic</div>
+        </a>
+        <a class="sidebar-card" href="gtm-intelligence-stack.html">
+          <div class="sidebar-card-tag">Essay · Parallel</div>
+          <div class="sidebar-card-title">The GTM Intelligence Stack in 2026</div>
+        </a>
+        <a class="sidebar-card" href="gtm-diagnostic.html">
+          <div class="sidebar-card-tag">Framework</div>
+          <div class="sidebar-card-title">The GTM Motion Diagnostic</div>
+        </a>
+        <a class="sidebar-card" href="agent-portfolio-framework.html">
+          <div class="sidebar-card-tag">Framework</div>
+          <div class="sidebar-card-title">Agent Portfolio Go/No-Go</div>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <span class="footer-brand">Notes from the Jagged Frontier</span>
+  <span class="footer-copy">© 2026 Soujanya Madhurapantula · San Francisco Bay Area</span>
+</footer>
+
+</body>
+</html>
