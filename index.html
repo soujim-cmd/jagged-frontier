@@ -46,6 +46,8 @@
   .hfc-cta { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
   .hfc-cta::after { content: ' →'; }
   .section-header { padding: 2rem clamp(1.5rem,5vw,4rem) 1rem; display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); }
+  .section-header.stacked { flex-direction: column; align-items: flex-start; gap: .35rem; }
+  .section-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
   .section-header h2 { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; }
   .section-header .count { font-family: var(--mono); font-size: 10px; color: var(--muted); letter-spacing: .1em; }
   .section-header .see-all { margin-left: auto; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--accent); }
@@ -171,9 +173,6 @@
   <span class="masthead-tag">Field notes · Enterprise AI</span>
   <span class="masthead-title">Notes from the Jagged Frontier</span>
   <nav class="masthead-nav">
-    <a href="#gtm">GTM</a>
-    <a href="#cs">CS</a>
-    <a href="#people">People</a>
     <a href="#essays">Essays</a>
     <a href="frameworks.html">Frameworks</a>
     <a href="case-studies.html">Case Studies</a>
@@ -344,7 +343,7 @@
 
 <div class="section-header" id="frameworks">
   <h2>Core Frameworks</h2>
-  <span class="count">/ 10</span>
+  <span class="count">/ 9</span>
   <a href="frameworks.html" class="see-all">View all →</a>
 </div>
 <div class="frameworks-strip">
@@ -389,13 +388,8 @@
       <div class="fw-title">Product Health Diagnostic</div>
       <div class="fw-desc">Where the product system breaks. Five sections, one page.</div>
     </a>
-    <a class="fw-card" href="hr-org-design-diagnostic.html">
-      <div class="fw-num">09</div>
-      <div class="fw-title">HR and Org Design Diagnostic</div>
-      <div class="fw-desc">Where the talent system breaks. Five sections, one page.</div>
-    </a>
     <a class="fw-card" href="hr-org-design-diagnostic-chart.html">
-      <div class="fw-num">10</div>
+      <div class="fw-num">09</div>
       <div class="fw-title">HR Diagnostic: At a Glance</div>
       <div class="fw-desc">Where talent and org design leak. One scannable page.</div>
     </a>
@@ -453,12 +447,12 @@
   </a>
 </div>
 
-<div class="section-header">
+<div class="section-header stacked">
+  <div class="section-kicker">Currently Advising</div>
   <h2>Signal &amp; Scale</h2>
 </div>
 <div class="advising-strip" id="advising">
   <div>
-    <div class="advising-header">Currently Advising</div>
     <p class="advising-text">I advise seed-to-Series-B AI and enterprise SaaS companies as <b>Signal &amp; Scale</b> &mdash; fractional product and GTM leadership that moves teams from prototype to Customer Zero to repeatable adoption. Alongside advisory work, I build the tools and architecture that operationalize the frameworks: <b>Deal Risk Monitor</b> and <b>The Advisor</b> are both live.</p>
     <div class="advising-links">
       <a class="about-link" href="case-studies.html">Case Studies →</a>
