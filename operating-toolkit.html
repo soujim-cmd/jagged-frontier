@@ -60,6 +60,10 @@ body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-
 .cell-sub { font-size:11px; color:var(--muted); line-height:1.5; font-weight:300; }
 .detail-panel { margin-top:8px; border:1px solid var(--border); background:var(--white); padding:1.5rem; display:none; }
 .detail-panel.on { display:block; }
+.detail-links { margin-top:1.25rem; padding-top:1rem; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:8px 18px; align-items:center; }
+.detail-links .dl-label { font-family:var(--mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.detail-links a { font-family:var(--mono); font-size:11px; letter-spacing:.04em; color:var(--accent); text-decoration:none; }
+.detail-links a:hover { text-decoration:underline; }
 .detail-head { display:flex; align-items:baseline; gap:8px; margin-bottom:10px; flex-wrap:wrap; }
 .detail-title { font-family:var(--serif); font-size:1.1rem; font-weight:700; color:var(--ink); }
 .detail-sub { font-family:var(--mono); font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
@@ -135,7 +139,7 @@ body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-
 </div>
 
 <footer class="essay-footer">
-  <div style="max-width:960px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem) 2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;border-bottom:1px solid var(--border);">
+  <div style="max-width:960px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem) 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;border-bottom:1px solid var(--border);">
     <a href="product-diagnostic.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);padding:16px 20px;display:block;transition:border-color .15s;" onmouseover="this.style.borderColor=&apos;#0e0e0d&apos;" onmouseout="this.style.borderColor=&apos;#d4cfc6&apos;">
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Related framework</div>
       <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:8px;">The Product Health Diagnostic</div>
@@ -144,6 +148,11 @@ body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-
     <a href="gtm-diagnostic.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);padding:16px 20px;display:block;transition:border-color .15s;" onmouseover="this.style.borderColor=&apos;#0e0e0d&apos;" onmouseout="this.style.borderColor=&apos;#d4cfc6&apos;">
       <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Related framework</div>
       <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:8px;">The GTM Motion Diagnostic</div>
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Read &#8594;</div>
+    </a>
+    <a href="cs-diagnostic.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);padding:16px 20px;display:block;transition:border-color .15s;" onmouseover="this.style.borderColor=&apos;#0e0e0d&apos;" onmouseout="this.style.borderColor=&apos;#d4cfc6&apos;">
+      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Related framework</div>
+      <div style="font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:8px;">The Customer Success Motion Diagnostic</div>
       <div style="font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);">Read &#8594;</div>
     </a>
     <a href="hr-org-design-diagnostic.html" style="text-decoration:none;color:inherit;border:1px solid var(--border);padding:16px 20px;display:block;transition:border-color .15s;" onmouseover="this.style.borderColor=&apos;#0e0e0d&apos;" onmouseout="this.style.borderColor=&apos;#d4cfc6&apos;">
@@ -160,7 +169,7 @@ body { background:var(--paper); color:var(--ink); font-family:var(--sans); font-
 
 <script>
 var R=[
-  {fn:"GTM & Revenue",im:"tag-both",il:"Both",
+  {fn:"GTM & Revenue",im:"tag-both",il:"Both",links:[{t:"GTM Motion Diagnostic",u:"gtm-diagnostic.html"},{t:"GTM Intelligence Stack",u:"gtm-intelligence-stack.html"}],
    cells:[
      {t:"GTM motion diagnostic",s:"ICP scoring, pipeline conversion, NRR expansion, pricing gaps"},
      {t:"GTM intelligence system",s:"Pattern tracking, predictions, improvement signals, baseline creation"},
@@ -172,7 +181,7 @@ var R=[
      {cover:["Win signal library , ICP profiles and signals that predict closed-won by vertical and deal size","NRR cohort benchmarks , retention and expansion rates across all engagements"],works:["Conversion benchmarks by ARR stage, segment, and motion type","Signal accuracy sharpens as more engagements feed the system"],kpis:["Benchmark coverage by vertical","Prediction accuracy over time","Signal library depth","Engagements contributing data"],ebitda:[{l:"Proprietary benchmarks shorten diagnosis time at each new engagement",t:"impact-bot"},{l:"Signal library becomes defensible IP others cannot replicate quickly",t:"impact-top"}]}
    ]
   },
-  {fn:"Product & Eng",im:"tag-both",il:"Both",
+  {fn:"Product & Eng",im:"tag-both",il:"Both",links:[{t:"Product Health Diagnostic",u:"product-diagnostic.html"}],
    cells:[
      {t:"Roadmap-to-revenue audit",s:"Feature adoption, tech debt, AI-augmented development model"},
      {t:"Product acceleration platform",s:"Roadmap traceability, velocity tracking, build vs. buy analysis"},
@@ -184,7 +193,7 @@ var R=[
      {cover:["Roadmap-to-revenue patterns , which features drive retention vs. expansion vs. neither","AI-augmented team benchmarks , shipping cadence and team size at each ARR stage"],works:["Tech debt ratios and recovery playbooks from prior engagements","Feature adoption curves by product type and customer segment"],kpis:["Pattern library coverage by product type","Benchmark accuracy vs. outcomes","Engagements contributing data","Playbook reuse rate"],ebitda:[{l:"Reusable playbooks reduce time to diagnosis at each new engagement",t:"impact-bot"},{l:"Adoption benchmarks help teams catch underperformance early",t:"impact-top"}]}
    ]
   },
-  {fn:"HR & Org Design",im:"tag-bot",il:"Bottom line",
+  {fn:"HR & Org Design",im:"tag-bot",il:"Bottom line",links:[{t:"HR & Org Design Diagnostic",u:"hr-org-design-diagnostic.html"},{t:"People Intelligence Stack",u:"people-intelligence-stack.html"}],
    cells:[
      {t:"People operations diagnostic",s:"Recruiting efficiency, onboarding velocity, attrition patterns, performance gaps"},
      {t:"Talent operations automator",s:"Automate recruiting, onboarding journeys, exit synthesis, retention signals"},
@@ -208,7 +217,7 @@ var R=[
      {cover:["Cost ratio benchmarks by vertical, ARR band, and growth rate","Vendor category overlap patterns across all engagements"],works:["Discount rate benchmarks by segment and deal size","Margin expansion playbooks from prior engagements"],kpis:["Benchmark coverage by vertical and stage","Overlap pattern library depth","Playbook reuse rate","Engagements contributing data"],ebitda:[{l:"Cost benchmarks make the diagnostic faster and more precise each engagement",t:"impact-bot"},{l:"Margin expansion playbooks reduce time from diagnosis to action",t:"impact-bot"}]}
    ]
   },
-  {fn:"Customer Success",im:"tag-both",il:"Both",
+  {fn:"Customer Success",im:"tag-both",il:"Both",links:[{t:"CS Motion Diagnostic",u:"cs-diagnostic.html"},{t:"CS Intelligence Stack",u:"cs-intelligence-stack.html"}],
    cells:[
      {t:"Revenue retention diagnostic",s:"NRR leaks, time-to-value gaps, adoption stalls, churn signals"},
      {t:"Retention and support automator",s:"Health scoring, churn prediction, expansion signals, support automation"},
@@ -254,10 +263,11 @@ function tog(ri,ci){
   var kpis=col.kpis.map(function(k){return'<span class="kpi-chip">'+k+'</span>';}).join("");
   var ebitda=col.ebitda.map(function(e){return'<span class="impact-chip '+e.t+'">'+e.l+'</span>';}).join("");
   panel.classList.add("on");
+  var lk=(row.links&&row.links.length)?'<div class=\'detail-links\'><span class=\'dl-label\'>On this site</span>'+row.links.map(function(l){return '<a href=\''+l.u+'\'>'+l.t+' &rarr;</a>';}).join('')+'</div>':'';
   panel.innerHTML=
     '<div class="detail-head"><div class="detail-title">'+row.fn+' , '+CN[ci]+'</div><div class="detail-sub">'+row.cells[ci].t+'</div></div>'
     +'<div class="detail-body"><div class="detail-col"><h4>What it covers</h4><ul>'+cover+'</ul></div><div class="detail-col"><h4>How it works</h4><ul>'+works+'</ul></div></div>'
-    +'<div class="kpi-row"><div class="kpi-block"><h4>KPIs tracked</h4><div class="kpi-chips">'+kpis+'</div></div><div class="kpi-block"><h4>EBITDA impact</h4><div class="kpi-chips">'+ebitda+'</div></div></div>';
+    +'<div class="kpi-row"><div class="kpi-block"><h4>KPIs tracked</h4><div class="kpi-chips">'+kpis+'</div></div><div class="kpi-block"><h4>EBITDA impact</h4><div class="kpi-chips">'+ebitda+'</div></div></div>'+lk;
   panel.scrollIntoView({behavior:"smooth",block:"nearest"});
 }
 
