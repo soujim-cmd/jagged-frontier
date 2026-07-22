@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Gate — How a hypothesis becomes a practice</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TTNWC1D521"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TTNWC1D521');
+</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0e0e0d; --paper: #f5f2eb; --accent: #c8440a;
+    --muted: #7a7670; --border: #d4cfc6;
+    --serif: 'Playfair Display', Georgia, serif;
+    --mono: 'DM Mono', monospace; --sans: 'DM Sans', system-ui, sans-serif;
+    --green: #2f6b3f; --red: #a83a1f; --blue: #2c5a7a; --amber: #7a5a12;
+  }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; }
+  .masthead { border-bottom: 2px solid var(--ink); padding: 0 clamp(1.5rem,5vw,4rem); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem; min-height: 64px; }
+  .masthead-tag { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); }
+  .masthead-title { font-family: var(--serif); font-size: clamp(13px,1.5vw,16px); font-weight: 700; text-align: center; white-space: nowrap; }
+  .masthead-title a { text-decoration: none; color: inherit; }
+  .masthead-nav { display: flex; gap: 1.5rem; justify-content: flex-end; }
+  .masthead-nav a { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); text-decoration: none; opacity: .6; }
+  .masthead-nav a:hover { opacity: 1; }
+  .dateline { background: var(--ink); color: var(--paper); padding: 8px clamp(1.5rem,5vw,4rem); display: flex; gap: 2rem; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; overflow: hidden; }
+  .dateline span { opacity: .5; white-space: nowrap; }
+  .dateline span.active { opacity: 1; color: #e8b89a; }
+
+  .wrap { max-width: 900px; margin: 0 auto; padding: clamp(2rem,5vw,4rem) clamp(1.5rem,5vw,4rem); }
+  .eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
+  .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  h1 { font-family: var(--serif); font-size: clamp(2rem,5vw,3.2rem); line-height: 1.05; font-weight: 900; letter-spacing: -.02em; margin-bottom: 1.25rem; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .dek { font-size: 17px; line-height: 1.7; color: #3a3834; max-width: 62ch; margin-bottom: .75rem; }
+  .dek a { color: var(--accent); }
+  .subnote { font-family: var(--mono); font-size: 11px; color: var(--muted); border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1.25rem; line-height: 1.7; }
+
+  .flow { border: 1px solid var(--border); background: #fff; margin-top: 2rem; padding: 1.5rem 1rem; }
+  .flow-cap { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-align: center; margin-top: .5rem; }
+
+  .beat { border: 1px solid var(--border); background: #fff; margin-top: 2.5rem; }
+  .beat-head { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); display: flex; align-items: baseline; gap: 1rem; }
+  .beat-num { font-family: var(--mono); font-size: 11px; color: var(--accent); letter-spacing: .1em; }
+  .beat-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; }
+  .beat-body { padding: 1.5rem; }
+  .beat-lead { color: #3a3834; margin-bottom: 1.25rem; max-width: 62ch; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+  td { padding: 10px; border-bottom: 1px solid #ece7dd; font-weight: 400; }
+  td.num { font-family: var(--mono); text-align: right; }
+  tr.lead td { background: #f7f3ea; }
+  .pat { font-family: var(--mono); font-size: 12.5px; }
+  .flag { color: var(--accent); }
+  .pill { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; display: inline-block; }
+  .pill.blocked { background: #f4e4de; color: var(--red); }
+  .pill.hyp { background: #efe7d6; color: var(--amber); }
+  .pill.healthy { background: #e4efe6; color: var(--green); }
+  .pill.decayed { background: #f4e4de; color: var(--red); }
+  .pill.review { background: #efe7d6; color: var(--amber); }
+  .pill.idle { background: #eee9e0; color: var(--muted); }
+  .pill.top { background: #efe7d6; color: var(--amber); }
+
+  .kv { display: grid; grid-template-columns: 190px 1fr; gap: .4rem 1rem; font-size: 14px; }
+  .kv dt { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding-top: 2px; }
+  .kv dd { font-weight: 400; }
+  .caveat { font-size: 13px; color: #5a564f; border-left: 2px solid var(--accent); padding: 4px 0 4px 12px; margin-top: .75rem; }
+
+  .practice-card { background: var(--ink); color: var(--paper); padding: 1.5rem; }
+  .practice-card .kv dt { color: #b8b3a8; }
+  .practice-card .kv dd { color: var(--paper); font-family: var(--mono); font-size: 13px; }
+  .stamp { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #8fd0a0; border: 1px solid #8fd0a0; padding: 3px 10px; display: inline-block; margin-bottom: 1rem; }
+  .reasoning { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid #333330; font-size: 13.5px; color: #d8d3c8; }
+  .reasoning span { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #8fd0a0; display: block; margin-bottom: .3rem; }
+
+  .trace { font-family: var(--mono); font-size: 12px; line-height: 1.7; background: #faf7f0; border: 1px solid var(--border); padding: 1rem 1.25rem; margin-top: 1rem; }
+  .trace .vd-ok { color: var(--green); }
+  .trace .vd-bad { color: var(--red); }
+  .reason { font-size: 13.5px; color: #3a3834; margin-top: .75rem; max-width: 62ch; }
+  .prov { border: 1px solid var(--border); background: #fff; margin-top: 2.5rem; padding: 1.25rem 1.5rem; }
+  .prov summary { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); cursor: pointer; }
+  .prov pre { font-family: var(--mono); font-size: 11px; line-height: 1.55; color: #3a3834; overflow-x: auto; margin-top: 1rem; white-space: pre-wrap; }
+  .footer { border-top: 2px solid var(--ink); margin-top: 4rem; padding: 2rem clamp(1.5rem,5vw,4rem); font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer a { color: var(--muted); }
+  @media (max-width: 640px){ .kv{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-tag">Deal Risk Monitor</div>
+  <div class="masthead-title"><a href="index.html">Jagged Frontier</a></div>
+  <nav class="masthead-nav">
+    <a href="org-learning-platform.html">Architecture</a>
+    <a href="one-loop-two-altitudes.html">The Loop</a>
+  </nav>
+</div>
+<div class="dateline">
+  <span class="active">Signal trust</span>
+  <span>The gate</span>
+  <span>Evidence pack</span>
+  <span>Promotion</span>
+  <span>Un-learn</span>
+</div>
+
+<div class="wrap">
+  <div class="eyebrow">The learning-layer core</div>
+  <h1>How a hypothesis earns its way to a <em>practice</em></h1>
+  <p class="dek">The loop captures what works. This is the part that decides which of those wins are trustworthy enough to become how the team sells by default. A detected pattern is only a hypothesis. It has to survive the trust tier, the evidence bar, and a named person at the gate before it becomes a practice.</p>
+  <p class="dek">This page is the clickable version of the last two beats of <a href="one-loop-two-altitudes.html">One Loop, Two Altitudes</a>, and the working proof of the claim in <a href="org-learning-platform.html">The Organizational Learning Platform</a>.</p>
+  <p class="subnote">The rules below are enforced in the gate engine, a tested Python engine (7 of 7 checks passing). This page is a rendering of that engine's output: every figure is read from the engine's data, embedded on the page and shown in full at the bottom, not written into the markup. The engine runs on a larger synthetic history than the live demo snapshot, on purpose, so the gate has enough samples to run holdout and segment checks, which is why the same pattern shows larger numbers here than in the live app. Scoring weights and thresholds stay private; sample bars shown here are illustrative.</p>
+
+  <!-- WORKFLOW -->
+  <div class="flow">
+    <svg width="100%" viewBox="0 0 820 712" role="img" xmlns="http://www.w3.org/2000/svg" font-family="DM Sans, sans-serif">
+      <title>The promotion path from signal to practice</title>
+      <desc>A decision leads to an action and an outcome. The outcome is graded for trust (Tier A, B, or C); only trustworthy signals accumulate into a pattern, which is a hypothesis. It must clear the sample and confidence bars to produce an evidence pack, then be approved by a named person at the gate before it becomes a practice the agents run by default. The practice propagates to other functions and is watched by an audit that un-learns it if it stops working.</desc>
+      <defs>
+        <marker id="ah" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 z" fill="#7a7670"/></marker>
+      </defs>
+      <style>
+        .nb{fill:#fff;stroke:#d4cfc6;stroke-width:1.2}
+        .nl{font-size:14px;fill:#0e0e0d}
+        .ns{font-family:'DM Mono',monospace;font-size:10px;fill:#7a7670}
+        .el{font-family:'DM Mono',monospace;font-size:10px;fill:#7a7670;letter-spacing:.03em}
+        .ln{stroke:#7a7670;stroke-width:1.4;fill:none}
+      </style>
+
+      <line class="ln" x1="270" y1="65" x2="308" y2="65" marker-end="url(#ah)"/>
+      <line class="ln" x1="510" y1="65" x2="548" y2="65" marker-end="url(#ah)"/>
+      <rect class="nb" x="70" y="40" width="200" height="50" rx="4"/><text class="nl" x="170" y="70" text-anchor="middle">decision</text>
+      <rect class="nb" x="310" y="40" width="200" height="50" rx="4"/><text class="nl" x="410" y="70" text-anchor="middle">action (the play)</text>
+      <rect class="nb" x="550" y="40" width="200" height="50" rx="4"/><text class="nl" x="650" y="70" text-anchor="middle">outcome</text>
+
+      <path class="ln" d="M650,90 C650,120 560,128 528,140" marker-end="url(#ah)"/>
+      <rect x="295" y="140" width="230" height="46" rx="4" fill="#efe7d6" stroke="#d4b98a" stroke-width="1.2"/>
+      <text class="nl" x="410" y="161" text-anchor="middle" fill="#7a5a12">grade the signal</text>
+      <text class="ns" x="410" y="177" text-anchor="middle" fill="#7a5a12">tier a / b / c</text>
+
+      <line class="ln" x1="410" y1="186" x2="410" y2="222" marker-end="url(#ah)"/>
+      <text class="el" x="420" y="208" text-anchor="start">only tier a/b becomes an outcome</text>
+
+      <rect x="285" y="224" width="250" height="54" rx="4" fill="#eef2f8" stroke="#a9c2d6" stroke-width="1.2"/>
+      <text class="nl" x="410" y="247" text-anchor="middle" fill="#2c5a7a">pattern</text>
+      <text class="ns" x="410" y="264" text-anchor="middle" fill="#2c5a7a">a hypothesis, not yet trusted</text>
+
+      <line class="ln" x1="252" y1="251" x2="283" y2="251" marker-end="url(#ah)"/>
+      <text class="el" x="60" y="235" text-anchor="start">override = evidence</text>
+      <rect class="nb" x="60" y="224" width="192" height="54" rx="4"/><text class="nl" x="156" y="256" text-anchor="middle">correction</text>
+
+      <line class="ln" x1="410" y1="278" x2="410" y2="314" marker-end="url(#ah)"/>
+      <text class="el" x="420" y="300" text-anchor="start">clears min-n + confidence</text>
+
+      <rect x="285" y="316" width="250" height="54" rx="4" fill="#eef2f8" stroke="#a9c2d6" stroke-width="1.2"/>
+      <text class="nl" x="410" y="339" text-anchor="middle" fill="#2c5a7a">evidence pack</text>
+      <text class="ns" x="410" y="356" text-anchor="middle" fill="#2c5a7a">baseline, holdout, segments, tiers</text>
+
+      <line class="ln" x1="410" y1="370" x2="410" y2="406" marker-end="url(#ah)"/>
+      <text class="el" x="420" y="392" text-anchor="start">reviewed by a person</text>
+
+      <rect x="265" y="408" width="290" height="62" rx="4" fill="#c8440a" stroke="#a3360a" stroke-width="1.2"/>
+      <text class="nl" x="410" y="435" text-anchor="middle" fill="#f5f2eb" font-size="15px">the gate</text>
+      <text class="ns" x="410" y="453" text-anchor="middle" fill="#f3ddd0">a named leader approves promotion</text>
+
+      <line class="ln" x1="410" y1="470" x2="410" y2="514" marker-end="url(#ah)"/>
+      <text class="el" x="420" y="496" text-anchor="start">approves promotion</text>
+
+      <rect x="285" y="516" width="250" height="54" rx="4" fill="#e4efe6" stroke="#9dc3a8" stroke-width="1.2"/>
+      <text class="nl" x="410" y="539" text-anchor="middle" fill="#2f6b3f">practice</text>
+      <text class="ns" x="410" y="556" text-anchor="middle" fill="#2f6b3f">the agents run it by default</text>
+
+      <path class="ln" d="M330,543 C250,575 220,585 208,600" marker-end="url(#ah)"/>
+      <text class="el" x="70" y="586" text-anchor="start">propagates</text>
+      <path class="ln" d="M490,543 C570,575 600,585 612,600" marker-end="url(#ah)"/>
+      <text class="el" x="556" y="586" text-anchor="start">monitored</text>
+
+      <rect x="60" y="602" width="290" height="56" rx="4" fill="#e4efe6" stroke="#9dc3a8" stroke-width="1.2"/>
+      <text class="nl" x="205" y="626" text-anchor="middle" fill="#2f6b3f">second altitude</text>
+      <text class="ns" x="205" y="643" text-anchor="middle" fill="#2f6b3f">gtm · cs · hr</text>
+      <rect class="nb" x="470" y="602" width="290" height="56" rx="4"/>
+      <text class="nl" x="615" y="626" text-anchor="middle">audit</text>
+      <text class="ns" x="615" y="643" text-anchor="middle">drops it if it stops working</text>
+
+      <path class="ln" d="M760,614 C800,520 800,270 537,251" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+      <text class="el" x="792" y="430" text-anchor="middle" transform="rotate(90 792 430)">un-learn: re-open the pattern</text>
+    </svg>
+    <div class="flow-cap">Nodes are what the system holds. Edges are what has to be true to move. Signal trust first, then the sample bar, then confidence, then a person.</div>
+  </div>
+
+  <!-- BEAT 0 -->
+  <div class="beat">
+    <div class="beat-head"><span class="beat-num">00</span><span class="beat-title">Trust the source before you trust the number</span></div>
+    <div class="beat-body">
+      <p class="beat-lead">Some data is machine fact. Some is a rep typing what they hope is true. If a pattern is built on the second kind, the gate approves a lie with confidence numbers attached. So every signal is graded first. Machine fact can promote. A voluntary entry can only raise a hypothesis, never confirm one, no matter how good it looks.</p>
+      <table>
+        <thead><tr><th>Signal held as a hypothesis</th><th class="num">Looks like</th><th class="num">Sample</th><th>Why held</th></tr></thead>
+        <tbody id="beat0-rows"></tbody>
+      </table>
+      <p class="caveat">A perfect-looking record is held anyway, because the source cannot be trusted to mean what it says. C generates, B tests, A promotes.</p>
+    </div>
+  </div>
+
+  <!-- BEAT 1 -->
+  <div class="beat">
+    <div class="beat-head"><span class="beat-num">01</span><span class="beat-title">A hypothesis needs enough evidence to be real</span></div>
+    <div class="beat-body">
+      <p class="beat-lead">Even a machine-fact pattern is only a hypothesis until it has been seen enough times. One win is not proof. Until a pattern has at least <span id="nmin-a"></span> outcomes, the gate refuses to recommend it. This is how the system finds which hypotheses are real, and holds back the ones that are just luck.</p>
+      <table>
+        <thead><tr><th>Hypothesis held below the gate</th><th class="num">Raw rate</th><th class="num">Sample</th><th>Status</th></tr></thead>
+        <tbody id="beat1-rows"></tbody>
+      </table>
+      <p class="caveat" id="beat1-note"></p>
+    </div>
+  </div>
+
+  <!-- BEAT 2 -->
+  <div class="beat">
+    <div class="beat-head"><span class="beat-num">02</span><span class="beat-title">Trusted patterns rank by confidence, not luck</span></div>
+    <div class="beat-body">
+      <p class="beat-lead">Only patterns that passed the trust tier and the sample bar appear here. They rank by a confidence score that accounts for sample size, so a steady seven of ten beats a lucky one of one, and one bad outcome cannot flip the order.</p>
+      <table>
+        <thead><tr><th>Recommended pattern</th><th class="num">Raw rate</th><th class="num">Confidence</th><th class="num">Sample</th><th></th></tr></thead>
+        <tbody id="beat2-rows"></tbody>
+      </table>
+      <p class="caveat" id="beat2-note"></p>
+      <p class="caveat" id="beat2-method"></p>
+    </div>
+  </div>
+
+  <!-- BEAT 3 -->
+  <div class="beat">
+    <div class="beat-head"><span class="beat-num">03</span><span class="beat-title">The evidence pack a person reviews at the gate</span></div>
+    <div class="beat-body">
+      <p class="beat-lead">Before anyone approves a pattern, they see this, computed from the log, every field. Not a headline number, but the case for and against, including which trust tiers the evidence came from.</p>
+      <dl class="kv" id="beat3-kv"></dl>
+      <p class="caveat" id="beat3-caveat"></p>
+    </div>
+  </div>
+
+  <!-- BEAT 4 -->
+  <div class="beat">
+    <div class="beat-head"><span class="beat-num">04</span><span class="beat-title">A named person promotes it, and the reasoning is written down</span></div>
+    <div class="beat-body">
+      <p class="beat-lead">Promotion is not a button that just changes the screen. It writes a permanent record: who approved it, when, the exact evidence they saw, and the judgment they made. That record is the practice the agents now run by default.</p>
+      <div class="practice-card">
+        <span class="stamp" id="prac-stamp"></span>
+        <dl class="kv" id="beat4-kv"></dl>
+        <div class="reasoning" id="prac-reasoning"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BEAT 5 -->
+  <div class="beat">
+    <div class="beat-head"><span class="beat-num">05</span><span class="beat-title">The audit: “still working?” is checked, not assumed</span></div>
+    <div class="beat-body">
+      <p class="beat-lead">A practice is not permanent. The audit watches what happens after promotion. It does not just check for the absence of overrides. It samples the uncorrected outcomes and confirms they were real wins. Silence is verified, never assumed to mean fine. Absence of correction is not confirmation.</p>
+      <div id="beat5-rows"></div>
+    </div>
+  </div>
+
+  <!-- BEAT 6 -->
+  <div class="beat">
+    <div class="beat-head"><span class="beat-num">06</span><span class="beat-title">Corrections are evidence too</span></div>
+    <div class="beat-body">
+      <p class="beat-lead">When a human keeps overriding an agent the same way, before any practice exists, that repetition is faster evidence than waiting for outcomes to pile up.</p>
+      <dl class="kv" id="beat6-kv"></dl>
+    </div>
+  </div>
+
+  <!-- PROVENANCE -->
+  <details class="prov">
+    <summary>View the engine output this page is rendered from</summary>
+    <pre id="prov-json"></pre>
+  </details>
+
+</div>
+
+<div class="footer">
+  <span>Jagged Frontier · The Gate</span>
+  <span>Synthetic data · engine logic public · weights private</span>
+  <span><a href="one-loop-two-altitudes.html">The Loop</a> · <a href="org-learning-platform.html">Architecture</a></span>
+</div>
+
+<script id="gate-data" type="application/json">
+{
+  "n_min": 5,
+  "decay_threshold_pct": 50,
+  "tier_c": [
+    {
+      "flag": "NO_STAKEHOLDER_RESPONSE",
+      "stage": "Discovery",
+      "action": "Rep-entered 'champion confirmed' note",
+      "looks_positive": 6,
+      "n": 6,
+      "tier": "C"
+    }
+  ],
+  "held": [
+    {
+      "flag": "COMPETITION_EMERGING",
+      "stage": "Commercials",
+      "action": "Discount Approval",
+      "raw_pct": 100,
+      "n": 1
+    }
+  ],
+  "recommendations": [
+    {
+      "flag": "CHAMPION_GOING_DARK",
+      "stage": "Validation",
+      "action": "Trigger Executive Escalation Protocol",
+      "raw_pct": 80,
+      "conf_pct": 49,
+      "n": 10
+    },
+    {
+      "flag": "NO_STAKEHOLDER_RESPONSE",
+      "stage": "Discovery",
+      "action": "Send Multi-Threaded Outreach",
+      "raw_pct": 80,
+      "conf_pct": 38,
+      "n": 5
+    },
+    {
+      "flag": "TOO_LONG_IN_PHASE",
+      "stage": "Qualification",
+      "action": "Schedule Stage Review",
+      "raw_pct": 67,
+      "conf_pct": 35,
+      "n": 9
+    },
+    {
+      "flag": "CHAMPION_GOING_DARK",
+      "stage": "Validation",
+      "action": "Re-Engage Champion",
+      "raw_pct": 33,
+      "conf_pct": 10,
+      "n": 6
+    }
+  ],
+  "confidence_method": "Wilson score interval, lower bound (95%)",
+  "evidence": {
+    "flag": "CHAMPION_GOING_DARK",
+    "stage": "Validation",
+    "action": "Trigger Executive Escalation Protocol",
+    "n": 10,
+    "success_pct": 80,
+    "conf_pct": 49,
+    "baseline_action": "Re-Engage Champion",
+    "baseline_pct": 33,
+    "lift_pts": 47,
+    "holdout": {
+      "train_pct": 80,
+      "holdout_pct": 80
+    },
+    "segments": [
+      {
+        "name": "Enterprise",
+        "pct": 86,
+        "n": 7
+      },
+      {
+        "name": "Mid-Market",
+        "pct": 67,
+        "n": 3
+      }
+    ],
+    "signal_tiers": {
+      "A": 10
+    },
+    "performers": 3,
+    "outcomes": {
+      "Deal Advanced": 6,
+      "Closed Won": 2,
+      "Deal Stalled": 2
+    },
+    "caveats": [
+      "Confound not ruled out: rep skill and account quality are not yet controlled for."
+    ]
+  },
+  "practice": {
+    "id": "PRAC-CHA-VAL-TEEP",
+    "flag": "CHAMPION_GOING_DARK",
+    "stage": "Validation",
+    "action": "Trigger Executive Escalation Protocol",
+    "owner": "Dana Reyes (VP Sales)",
+    "approved_at": "2026-06-01",
+    "n": 10,
+    "conf_pct": 49,
+    "all_tier_a": true,
+    "reasoning": "Approved for Validation-stage deals only. Beats the Re-Engage Champion baseline by 47 points, holds in the holdout and in both segments, and every outcome is Tier A machine fact. Scope: Validation stage; revisit at the 13-month audit."
+  },
+  "audit": [
+    {
+      "id": "PRAC-CHA-VAL-TEEP",
+      "live": 8,
+      "corr": 0,
+      "rate_pct": 0,
+      "sampled": 8,
+      "corroborated_wins": 8,
+      "verdict": "healthy",
+      "reason": "Low correction rate, and the audit sampled 8 uncorrected outcomes since approval \u2014 all 8 were real wins. Silence is corroborated by positive outcomes, not assumed from the lack of overrides.",
+      "override_to": null
+    },
+    {
+      "id": "PRAC-CMP-COM-AAD",
+      "live": 3,
+      "corr": 3,
+      "rate_pct": 100,
+      "sampled": 0,
+      "corroborated_wins": 0,
+      "verdict": "decayed -> un-learn",
+      "reason": "Humans override this practice toward 'Escalate to Economic Buyer' at 100%. Absence of correction cannot be claimed \u2014 correction is present and repeated. Retiring the practice and re-opening the pattern.",
+      "override_to": "Escalate to Economic Buyer"
+    }
+  ],
+  "accelerated": [
+    {
+      "flag": "COMPETITION_EMERGING",
+      "stage": "Commercials",
+      "from": "Discount Approval",
+      "to": "Value Reframe + Exec Sponsor",
+      "count": 2
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  var D = JSON.parse(document.getElementById('gate-data').textContent);
+  function esc(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML;}
+  function pat(o){return '<span class="flag">'+esc(o.flag)+'</span> @ '+esc(o.stage)+'<br>→ '+esc(o.action);}
+  function row(k, v){ return '<dt>'+k+'</dt><dd>'+v+'</dd>'; }
+
+  document.getElementById('nmin-a').textContent = D.n_min;
+  document.getElementById('beat1-note').textContent =
+    'The ' + D.n_min + '-sample bar here is illustrative. In the Engine Spec the real anchor is far higher, roughly 30 to 50 accounts across a full business cycle.';
+
+  // Beat 0 — Tier C held as hypothesis
+  document.getElementById('beat0-rows').innerHTML = D.tier_c.map(function(h){
+    return '<tr><td class="pat">'+pat(h)+'</td>'+
+      '<td class="num">'+h.looks_positive+' of '+h.n+'</td>'+
+      '<td class="num">n = '+h.n+'</td>'+
+      '<td><span class="pill hyp">Tier '+esc(h.tier)+' · voluntary entry</span></td></tr>';
+  }).join('');
+
+  // Beat 1 — held below min-n
+  document.getElementById('beat1-rows').innerHTML = D.held.map(function(p){
+    return '<tr><td class="pat">'+pat(p)+'</td>'+
+      '<td class="num">'+p.raw_pct+'%</td>'+
+      '<td class="num">n = '+p.n+'</td>'+
+      '<td><span class="pill blocked">Blocked · needs n ≥ '+D.n_min+'</span></td></tr>';
+  }).join('');
+
+  // Beat 2 — recommendations ranked by confidence
+  document.getElementById('beat2-rows').innerHTML = D.recommendations.map(function(p, i){
+    return '<tr'+(i===0?' class="lead"':'')+'><td class="pat">'+
+      '<span class="flag">'+esc(p.flag)+'</span> @ '+esc(p.stage)+' → '+esc(p.action)+'</td>'+
+      '<td class="num">'+p.raw_pct+'%</td>'+
+      '<td class="num">'+p.conf_pct+'%</td>'+
+      '<td class="num">'+p.n+'</td>'+
+      '<td>'+(i===0?'<span class="pill top">Leads</span>':'')+'</td></tr>';
+  }).join('');
+  var tied = D.recommendations.filter(function(p){return p.raw_pct === D.recommendations[0].raw_pct;});
+  if (tied.length >= 2) {
+    document.getElementById('beat2-note').textContent =
+      'Two patterns both show ' + tied[0].raw_pct + '% raw. Confidence separates them: the one with '
+      + tied[0].n + ' samples is trusted more than the one with ' + tied[1].n + '.';
+  }
+  document.getElementById('beat2-method').textContent = 'Confidence is the ' + D.confidence_method + '.';
+
+  // Beat 3 — evidence pack
+  var e = D.evidence;
+  var tiersLine = Object.keys(e.signal_tiers).length === 1 && e.signal_tiers.A
+    ? 'All ' + e.signal_tiers.A + ' outcomes are Tier A machine fact'
+    : Object.keys(e.signal_tiers).map(function(k){return e.signal_tiers[k] + ' Tier ' + k;}).join(' · ');
+  var segLine = e.segments.map(function(s){return esc(s.name) + ' ' + s.pct + '% (' + s.n + ')';}).join(' · ');
+  var outLine = Object.keys(e.outcomes).map(function(k){return e.outcomes[k] + ' ' + k.toLowerCase();}).join(', ');
+  document.getElementById('beat3-kv').innerHTML =
+    row('Pattern', '<span class="pat">'+esc(e.flag)+' @ '+esc(e.stage)+' → '+esc(e.action)+'</span>') +
+    row('Success rate', e.success_pct+'% on '+e.n+' outcomes &nbsp;·&nbsp; confidence floor '+e.conf_pct+'% (Wilson)') +
+    row('Vs. the alternative', 'Beats “'+esc(e.baseline_action)+'” ('+e.baseline_pct+'%) by <strong>+'+e.lift_pts+' points</strong>') +
+    row('Holdout check', 'First half '+e.holdout.train_pct+'% · second half '+e.holdout.holdout_pct+'% — holds up, not a fluke of timing') +
+    row('Segment check', segLine) +
+    row('Signal tiers', tiersLine) +
+    row('Trust mix', e.performers+' different reps · '+outLine);
+  document.getElementById('beat3-caveat').textContent = e.caveats.join(' ');
+
+  // Beat 4 — the written practice + recorded reasoning
+  var pr = D.practice;
+  document.getElementById('prac-stamp').textContent = 'Practice written · ' + pr.id;
+  document.getElementById('beat4-kv').innerHTML =
+    row('Pattern', esc(pr.flag)+' @ '+esc(pr.stage)+' → '+esc(pr.action)) +
+    row('Approved by', esc(pr.owner)) +
+    row('Approved on', esc(pr.approved_at)) +
+    row('Evidence frozen', 'n = '+pr.n+' · confidence '+pr.conf_pct+'% · '+(pr.all_tier_a?'all Tier A':'mixed tiers')+' (snapshot attached)');
+  document.getElementById('prac-reasoning').innerHTML =
+    '<span>Reasoning recorded at the gate</span>' + esc(pr.reasoning);
+
+  // Beat 5 — audit
+  document.getElementById('beat5-rows').innerHTML = D.audit.map(function(a){
+    var decayed = a.verdict.indexOf('decayed') === 0;
+    var healthy = a.verdict === 'healthy';
+    var pillClass = decayed ? 'decayed' : (healthy ? 'healthy' : (a.verdict === 'no activity yet' ? 'idle' : 'review'));
+    var pillText = decayed ? 'Decayed → un-learned · ' + a.id
+      : (healthy ? 'Healthy · ' + a.id
+      : (a.verdict === 'no activity yet' ? 'No activity yet · ' + a.id : 'Needs review · ' + a.id));
+    var lines =
+      '<div>'+a.id+' — '+a.live+' live actions since approval, '+a.corr+' overridden by a human.</div>'+
+      '<div>Correction rate '+a.rate_pct+'% (un-learn threshold '+D.decay_threshold_pct+'%).</div>';
+    if (healthy) {
+      lines += '<div>Corroboration: sampled '+a.sampled+' uncorrected outcomes, '+a.corroborated_wins+' were real wins.</div>'+
+               '<div class="vd-ok">Verdict: healthy → silence corroborated, keep active.</div>';
+    } else if (decayed) {
+      lines += '<div class="vd-bad">Verdict: decayed → retire and re-open for re-evaluation.</div>';
+    } else {
+      lines += '<div>Verdict: '+esc(a.verdict)+'.</div>';
+    }
+    var reason = decayed
+      ? '<p class="reason">Humans kept overriding this practice toward “'+esc(a.override_to)+'.” The absence of correction cannot be claimed here. Correction is present and repeated. The practice is retired automatically, with the reason logged.</p>'
+      : (healthy
+        ? '<p class="reason">This is what makes silence verified rather than assumed: the audit did not just see no overrides, it sampled the uncorrected outcomes and confirmed they were wins.</p>'
+        : '');
+    return '<div style="margin-bottom:1.5rem"><span class="pill '+pillClass+'">'+pillText+'</span>'+
+           '<div class="trace">'+lines+'</div>'+reason+'</div>';
+  }).join('');
+
+  // Beat 6 — accelerated evidence
+  var ac = D.accelerated[0];
+  document.getElementById('beat6-kv').innerHTML =
+    row('Signal', '<span class="pat">'+esc(ac.flag)+' @ '+esc(ac.stage)+'</span>') +
+    row('Pattern', '“'+esc(ac.from)+'” overridden to “'+esc(ac.to)+'”, '+ac.count+'×') +
+    row('Reading', 'Accelerated evidence toward a new pattern, but it still must clear the trust tier and the '+D.n_min+'-sample gate before it can be recommended.');
+
+  document.getElementById('prov-json').textContent = JSON.stringify(D, null, 2);
+})();
+</script>
+
+</body>
+</html>
