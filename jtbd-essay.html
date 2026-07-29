@@ -10,8 +10,8 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --ink: #0e0e0d; --paper: #f5f2eb; --accent: #c8440a;
-    --muted: #7a7670; --border: #d4cfc6;
+    --ink: #14171a; --paper: #f3f5f6; --accent: #10726b;
+    --muted: #5f6b70; --border: #d7dde0;
     --serif: 'Playfair Display', Georgia, serif;
     --mono: 'DM Mono', monospace;
     --sans: 'DM Sans', system-ui, sans-serif;
@@ -30,13 +30,13 @@
   .essay-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: 8px; }
   .essay-kicker::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
   .essay-headline { font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
-  .essay-deck { font-size: 17px; line-height: 1.7; color: #3a3834; max-width: 60ch; font-weight: 300; margin-bottom: 1.5rem; }
+  .essay-deck { font-size: 17px; line-height: 1.7; color: #3a4045; max-width: 60ch; font-weight: 300; margin-bottom: 1.5rem; }
   .essay-byline { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: flex; gap: 1rem; align-items: center; }
   .essay-byline span { color: var(--ink); }
 
   .essay-body { display: grid; grid-template-columns: 1fr minmax(0, 680px) 1fr; padding: 0 clamp(1.5rem, 5vw, 4rem); }
   .essay-content { grid-column: 2; padding: 3rem 0; }
-  .essay-content p { font-size: 16px; line-height: 1.8; color: #2a2824; margin-bottom: 1.5rem; font-weight: 300; }
+  .essay-content p { font-size: 16px; line-height: 1.8; color: #23272c; margin-bottom: 1.5rem; font-weight: 300; }
   .essay-content h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.25; }
   .essay-content strong { font-weight: 500; }
   .essay-pullquote { margin: 2.5rem 0; padding: 1.5rem 0 1.5rem 1.5rem; border-left: 3px solid var(--accent); font-family: var(--serif); font-size: 1.25rem; line-height: 1.45; font-style: italic; color: var(--ink); }
@@ -44,7 +44,7 @@
   /* JTBD TABLE */
   .jtbd-table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 13px; }
   .jtbd-table th { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--paper); background: var(--ink); padding: 10px 14px; text-align: left; font-weight: 500; }
-  .jtbd-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; color: #2a2824; font-weight: 300; }
+  .jtbd-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.55; color: #23272c; font-weight: 300; }
   .jtbd-table tr:last-child td { border-bottom: none; }
   .jtbd-table tr:nth-child(even) td { background: white; }
   .jtbd-table td:first-child { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--accent); font-weight: 500; white-space: nowrap; }
@@ -54,13 +54,13 @@
   .bf-zone { padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
   .bf-zone.human { background: var(--ink); color: var(--paper); }
   .bf-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
-  .bf-zone.human .bf-label { color: #e8b89a; }
+  .bf-zone.human .bf-label { color: #8fd0c4; }
   .bf-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; }
   .bf-items { list-style: none; margin-top: 0.25rem; }
   .bf-items li { font-size: 12px; color: #4a4844; padding: 2px 0; font-weight: 300; }
   .bf-items li::before { content: '· '; color: var(--accent); }
-  .bf-zone.human .bf-items li { color: rgba(245,242,235,0.75); }
-  .bf-zone.human .bf-items li::before { color: #e8b89a; }
+  .bf-zone.human .bf-items li { color: rgba(243,245,246,0.75); }
+  .bf-zone.human .bf-items li::before { color: #8fd0c4; }
   .bf-arrow { display: flex; align-items: center; justify-content: center; padding: 0 0.75rem; font-family: var(--mono); font-size: 18px; color: var(--border); background: white; }
   .bf-arrow.key { color: var(--accent); }
 
@@ -68,7 +68,7 @@
   .moves-list { margin: 1.5rem 0; display: flex; flex-direction: column; gap: 8px; }
   .move-item { display: grid; grid-template-columns: 160px 1fr; border: 1px solid var(--border); background: white; }
   .move-label { padding: 1rem; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; line-height: 1.4; }
-  .move-desc { padding: 1rem 1.25rem; font-size: 13px; line-height: 1.6; color: #3a3834; font-weight: 300; }
+  .move-desc { padding: 1rem 1.25rem; font-size: 13px; line-height: 1.6; color: #3a4045; font-weight: 300; }
 
   .essay-footer { border-top: 2px solid var(--ink); padding: 2rem clamp(1.5rem, 5vw, 4rem); display: flex; justify-content: space-between; align-items: center; }
   .ef-brand { font-family: var(--serif); font-size: 13px; font-weight: 700; }

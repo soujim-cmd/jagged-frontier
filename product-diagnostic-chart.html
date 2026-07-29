@@ -12,8 +12,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --ink:#0e0e0d;--paper:#f5f2eb;--accent:#c8440a;
-  --muted:#7a7670;--border:#d4cfc6;--white:#ffffff;
+  --ink:#14171a;--paper:#f3f5f6;--accent:#10726b;
+  --muted:#5f6b70;--border:#d7dde0;--white:#ffffff;
   --serif:'Playfair Display',Georgia,serif;
   --mono:'DM Mono',monospace;
   --sans:'DM Sans',system-ui,sans-serif;
@@ -49,7 +49,7 @@ h1 em{font-style:italic;color:var(--accent);}
 .ebitda-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:36px;}
 .ebitda-cell{background:var(--white);padding:16px;}
 .ebitda-cell .ec-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
-.ebitda-cell .ec-text{font-size:12px;line-height:1.6;color:#3a3834;}
+.ebitda-cell .ec-text{font-size:12px;line-height:1.6;color:#3a4045;}
 
 footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--ink);}
 .fb{font-family:var(--serif);font-size:13px;font-weight:700;}
@@ -103,157 +103,157 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
       </defs>
 
       <!-- TRIAGE -->
-      <rect x="20" y="10" width="840" height="52" rx="3" fill="#f5f2eb" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="440" y="28" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#c8440a">TRIAGE</text>
-      <text x="440" y="46" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#0e0e0d">Answer each question. Any yes points to a section. Multiple failures: start with Strategy and Discovery.</text>
+      <rect x="20" y="10" width="840" height="52" rx="3" fill="#f3f5f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="440" y="28" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#10726b">TRIAGE</text>
+      <text x="440" y="46" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#14171a">Answer each question. Any yes points to a section. Multiple failures: start with Strategy and Discovery.</text>
 
       <!-- COL HEADERS — 5 columns, each w=160, gap=10, total=840 -->
       <!-- Col 1: Strategy x=20 -->
-      <rect x="20" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="100" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#c8440a">STRATEGY</text>
-      <text x="100" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Features rarely used?</text>
-      <text x="100" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Priorities unexplained?</text>
+      <rect x="20" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="100" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#10726b">STRATEGY</text>
+      <text x="100" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">Features rarely used?</text>
+      <text x="100" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">Priorities unexplained?</text>
 
       <!-- Col 2: Portfolio x=192 -->
-      <rect x="192" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="272" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#c8440a">PORTFOLIO</text>
-      <text x="272" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Resources spread too thin?</text>
-      <text x="272" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">No clear prioritization?</text>
+      <rect x="192" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="272" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#10726b">PORTFOLIO</text>
+      <text x="272" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">Resources spread too thin?</text>
+      <text x="272" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">No clear prioritization?</text>
 
       <!-- Col 3: Build x=364 -->
-      <rect x="364" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="444" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#c8440a">BUILD</text>
-      <text x="444" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Delivery slowing down?</text>
-      <text x="444" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Same issues repeating?</text>
+      <rect x="364" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="444" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#10726b">BUILD</text>
+      <text x="444" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">Delivery slowing down?</text>
+      <text x="444" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">Same issues repeating?</text>
 
       <!-- Col 4: Validation x=536 -->
-      <rect x="536" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="616" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#c8440a">VALIDATION</text>
-      <text x="616" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Solving the right problem</text>
-      <text x="616" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">in the real world?</text>
+      <rect x="536" y="78" width="160" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="616" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#10726b">VALIDATION</text>
+      <text x="616" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">Solving the right problem</text>
+      <text x="616" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">in the real world?</text>
 
       <!-- Col 5: Intelligence x=708 -->
-      <rect x="708" y="78" width="152" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="784" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#c8440a">INTELLIGENCE</text>
-      <text x="784" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">Know who uses product</text>
-      <text x="784" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#0e0e0d">and if they get value?</text>
+      <rect x="708" y="78" width="152" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="784" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.2" fill="#10726b">INTELLIGENCE</text>
+      <text x="784" y="110" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">Know who uses product</text>
+      <text x="784" y="122" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="9.5" fill="#14171a">and if they get value?</text>
 
       <!-- Arrows col headers to questions -->
-      <line x1="100" y1="130" x2="100" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="272" y1="130" x2="272" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="444" y1="130" x2="444" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="616" y1="130" x2="616" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="784" y1="130" x2="784" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="100" y1="130" x2="100" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="272" y1="130" x2="272" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="444" y1="130" x2="444" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="616" y1="130" x2="616" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="784" y1="130" x2="784" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- QUESTION BOXES -->
       <!-- Strategy questions -->
-      <rect x="20" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="36" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Customer insight</text>
-      <line x1="36" y1="197" x2="174" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Problem definition</text>
-      <line x1="36" y1="217" x2="174" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Outcome linkage</text>
-      <line x1="36" y1="237" x2="174" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Prioritization discipline</text>
-      <line x1="36" y1="257" x2="174" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Strategic alignment</text>
+      <rect x="20" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="36" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Customer insight</text>
+      <line x1="36" y1="197" x2="174" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Problem definition</text>
+      <line x1="36" y1="217" x2="174" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Outcome linkage</text>
+      <line x1="36" y1="237" x2="174" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Prioritization discipline</text>
+      <line x1="36" y1="257" x2="174" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Strategic alignment</text>
 
       <!-- Portfolio questions -->
-      <rect x="192" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="208" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="208" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Prioritization clarity</text>
-      <line x1="208" y1="197" x2="346" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="208" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Portfolio balance</text>
-      <line x1="208" y1="217" x2="346" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="208" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Build vs buy vs partner</text>
-      <line x1="208" y1="237" x2="346" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="208" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Financial visibility</text>
-      <line x1="208" y1="257" x2="346" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="208" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Kill discipline</text>
+      <rect x="192" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="208" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="208" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Prioritization clarity</text>
+      <line x1="208" y1="197" x2="346" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="208" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Portfolio balance</text>
+      <line x1="208" y1="217" x2="346" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="208" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Build vs buy vs partner</text>
+      <line x1="208" y1="237" x2="346" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="208" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Financial visibility</text>
+      <line x1="208" y1="257" x2="346" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="208" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Kill discipline</text>
 
       <!-- Build questions -->
-      <rect x="364" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="380" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="380" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Capacity allocation</text>
-      <line x1="380" y1="197" x2="518" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="380" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Tech debt visibility</text>
-      <line x1="380" y1="217" x2="518" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="380" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Delivery predictability</text>
-      <line x1="380" y1="237" x2="518" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="380" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Definition of done</text>
-      <line x1="380" y1="257" x2="518" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="380" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Execution patterns</text>
+      <rect x="364" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="380" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="380" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Capacity allocation</text>
+      <line x1="380" y1="197" x2="518" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="380" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Tech debt visibility</text>
+      <line x1="380" y1="217" x2="518" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="380" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Delivery predictability</text>
+      <line x1="380" y1="237" x2="518" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="380" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Definition of done</text>
+      <line x1="380" y1="257" x2="518" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="380" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Execution patterns</text>
 
       <!-- Validation questions -->
-      <rect x="536" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="552" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="552" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Pain point resolution</text>
-      <line x1="552" y1="197" x2="690" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="552" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Value messaging</text>
-      <line x1="552" y1="217" x2="690" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="552" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Functional completeness</text>
-      <line x1="552" y1="237" x2="690" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="552" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Non-functional barriers</text>
-      <line x1="552" y1="257" x2="690" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="552" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Time to value</text>
+      <rect x="536" y="152" width="160" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="552" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="552" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Pain point resolution</text>
+      <line x1="552" y1="197" x2="690" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="552" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Value messaging</text>
+      <line x1="552" y1="217" x2="690" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="552" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Functional completeness</text>
+      <line x1="552" y1="237" x2="690" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="552" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Non-functional barriers</text>
+      <line x1="552" y1="257" x2="690" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="552" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Time to value</text>
 
       <!-- Intelligence questions -->
-      <rect x="708" y="152" width="152" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="724" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="724" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Customer feedback</text>
-      <line x1="724" y1="197" x2="854" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="724" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Expansion signals</text>
-      <line x1="724" y1="217" x2="854" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="724" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Decision quality</text>
-      <line x1="724" y1="237" x2="854" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="724" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">New opportunities</text>
-      <line x1="724" y1="257" x2="854" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="724" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Pricing intelligence</text>
+      <rect x="708" y="152" width="152" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="724" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="724" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Customer feedback</text>
+      <line x1="724" y1="197" x2="854" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="724" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Expansion signals</text>
+      <line x1="724" y1="217" x2="854" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="724" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Decision quality</text>
+      <line x1="724" y1="237" x2="854" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="724" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">New opportunities</text>
+      <line x1="724" y1="257" x2="854" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="724" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Pricing intelligence</text>
 
       <!-- Arrows down to lever box -->
-      <line x1="100" y1="282" x2="100" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="272" y1="282" x2="272" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="444" y1="282" x2="444" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="616" y1="282" x2="616" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="784" y1="282" x2="784" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="100" y1="282" x2="100" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="272" y1="282" x2="272" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="444" y1="282" x2="444" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="616" y1="282" x2="616" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="784" y1="282" x2="784" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- LEVER BOX -->
-      <rect x="20" y="326" width="840" height="56" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="440" y="346" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#0e0e0d">CHOOSE THE RIGHT LEVER</text>
-      <text x="440" y="366" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#7a7670">Strategy  |  People and incentives  |  Process  |  Tools  |  AI and automation</text>
+      <rect x="20" y="326" width="840" height="56" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="440" y="346" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#14171a">CHOOSE THE RIGHT LEVER</text>
+      <text x="440" y="366" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#5f6b70">Strategy  |  People and incentives  |  Process  |  Tools  |  AI and automation</text>
 
       <!-- Branch lines -->
-      <line x1="280" y1="382" x2="200" y2="418" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="600" y1="382" x2="680" y2="418" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="280" y1="382" x2="200" y2="418" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="600" y1="382" x2="680" y2="418" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- Branch labels -->
-      <text x="196" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">process / people</text>
-      <text x="684" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">automation</text>
+      <text x="196" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">process / people</text>
+      <text x="684" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">automation</text>
 
       <!-- LEFT: Process fix -->
-      <rect x="20" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="215" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#0e0e0d">Process, people, or strategy fix</text>
-      <text x="215" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Redefine discovery. Align incentives. Kill zombie products.</text>
-      <text x="215" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Fix the process before building anything.</text>
+      <rect x="20" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="215" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#14171a">Process, people, or strategy fix</text>
+      <text x="215" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">Redefine discovery. Align incentives. Kill zombie products.</text>
+      <text x="215" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">Fix the process before building anything.</text>
 
       <!-- RIGHT: App candidate -->
-      <rect x="470" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="665" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#0e0e0d">AI app candidate</text>
-      <text x="665" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Apply the Go/No-Go filter first:</text>
-      <text x="665" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">business value + data gate + org readiness</text>
+      <rect x="470" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="665" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#14171a">AI app candidate</text>
+      <text x="665" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">Apply the Go/No-Go filter first:</text>
+      <text x="665" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">business value + data gate + org readiness</text>
 
       <!-- Arrow to full diagnostic -->
-      <line x1="215" y1="486" x2="215" y2="520" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="215" y1="486" x2="215" y2="520" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- FULL DIAGNOSTIC LINK BOX -->
-      <rect x="20" y="524" width="390" height="52" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="215" y="547" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#7a7670">For root cause questions and EBITDA impact</text>
-      <text x="215" y="564" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#c8440a">See the full Product Health Diagnostic →</text>
+      <rect x="20" y="524" width="390" height="52" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="215" y="547" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#5f6b70">For root cause questions and EBITDA impact</text>
+      <text x="215" y="564" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#10726b">See the full Product Health Diagnostic →</text>
 
       <!-- Bottom note -->
-      <text x="440" y="620" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" fill="#7a7670">Process first. An AI app built on a broken workflow produces broken outputs faster.</text>
-      <text x="440" y="638" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">If the same symptom appears across multiple sections, check incentives first.</text>
+      <text x="440" y="620" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" fill="#5f6b70">Process first. An AI app built on a broken workflow produces broken outputs faster.</text>
+      <text x="440" y="638" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">If the same symptom appears across multiple sections, check incentives first.</text>
     </svg>
   </div>
 

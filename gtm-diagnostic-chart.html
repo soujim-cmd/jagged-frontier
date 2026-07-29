@@ -12,8 +12,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --ink:#0e0e0d;--paper:#f5f2eb;--accent:#c8440a;
-  --muted:#7a7670;--border:#d4cfc6;--white:#ffffff;
+  --ink:#14171a;--paper:#f3f5f6;--accent:#10726b;
+  --muted:#5f6b70;--border:#d7dde0;--white:#ffffff;
   --serif:'Playfair Display',Georgia,serif;
   --mono:'DM Mono',monospace;
   --sans:'DM Sans',system-ui,sans-serif;
@@ -51,7 +51,7 @@ h1 em{font-style:italic;color:var(--accent);}
 .ebitda-cell{background:var(--white);padding:16px;}
 .ec-head{font-family:var(--sans);font-size:12px;font-weight:500;margin-bottom:3px;}
 .ec-sub{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border);}
-.ec-impact{font-size:12px;line-height:1.6;color:#3a3834;padding:8px 10px;background:var(--paper);border-left:2px solid var(--accent);}
+.ec-impact{font-size:12px;line-height:1.6;color:#3a4045;padding:8px 10px;background:var(--paper);border-left:2px solid var(--accent);}
 
 /* APPS TABLE */
 .apps-mini{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:36px;}
@@ -61,7 +61,7 @@ h1 em{font-style:italic;color:var(--accent);}
 .apps-mini tr:last-child td{border-bottom:none;}
 .aname{font-weight:500;display:block;}
 .asect{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
-.agoal{font-size:11px;color:#3a3834;}
+.agoal{font-size:11px;color:#3a4045;}
 .agate{font-family:var(--mono);font-size:10px;color:var(--accent);}
 
 /* READ MORE */
@@ -128,146 +128,146 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
       </defs>
 
       <!-- TRIAGE -->
-      <rect x="20" y="10" width="840" height="52" rx="3" fill="#f5f2eb" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="440" y="28" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#c8440a" text-decoration="none">TRIAGE</text>
-      <text x="440" y="46" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#0e0e0d">Answer each question. Any "yes" points to a section. Multiple fails: start with pricing.</text>
+      <rect x="20" y="10" width="840" height="52" rx="3" fill="#f3f5f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="440" y="28" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#10726b" text-decoration="none">TRIAGE</text>
+      <text x="440" y="46" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#14171a">Answer each question. Any "yes" points to a section. Multiple fails: start with pricing.</text>
 
       <!-- COL HEADERS -->
       <!-- ICP col: x=20, w=202 -->
-      <rect x="20" y="78" width="202" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="121" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#c8440a">ICP + SEGMENTATION</text>
-      <text x="121" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Top 20% driving 80%+ revenue?</text>
+      <rect x="20" y="78" width="202" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="121" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#10726b">ICP + SEGMENTATION</text>
+      <text x="121" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Top 20% driving 80%+ revenue?</text>
 
       <!-- Pipeline col: x=234, w=202 -->
-      <rect x="234" y="78" width="202" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="335" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#c8440a">PIPELINE CONVERSION</text>
-      <text x="335" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Deals taking longer or conv. falling?</text>
+      <rect x="234" y="78" width="202" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="335" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#10726b">PIPELINE CONVERSION</text>
+      <text x="335" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Deals taking longer or conv. falling?</text>
 
       <!-- Expansion col: x=448, w=202 -->
-      <rect x="448" y="78" width="202" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="549" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#c8440a">EXPANSION + NRR</text>
-      <text x="549" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">NRR below 110%? Multi-product low?</text>
+      <rect x="448" y="78" width="202" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="549" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#10726b">EXPANSION + NRR</text>
+      <text x="549" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">NRR below 110%? Multi-product low?</text>
 
       <!-- Pricing col: x=662, w=198 -->
-      <rect x="662" y="78" width="198" height="52" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="761" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#c8440a">PRICING + PACKAGING</text>
-      <text x="761" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Deal sizes falling, discounts rising?</text>
+      <rect x="662" y="78" width="198" height="52" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="761" y="96" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="1.5" fill="#10726b">PRICING + PACKAGING</text>
+      <text x="761" y="114" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Deal sizes falling, discounts rising?</text>
 
       <!-- Arrows col headers to questions -->
-      <line x1="121" y1="130" x2="121" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="335" y1="130" x2="335" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="549" y1="130" x2="549" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="761" y1="130" x2="761" y2="148" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="121" y1="130" x2="121" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="335" y1="130" x2="335" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="549" y1="130" x2="549" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="761" y1="130" x2="761" y2="148" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- QUESTION BOXES -->
       <!-- ICP questions -->
-      <rect x="20" y="152" width="202" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="36" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Definition</text>
-      <line x1="36" y1="197" x2="206" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Signal quality</text>
-      <line x1="36" y1="217" x2="206" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Prioritization</text>
-      <line x1="36" y1="237" x2="206" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Alignment</text>
-      <line x1="36" y1="257" x2="206" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="36" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Feedback loop</text>
+      <rect x="20" y="152" width="202" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="36" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Definition</text>
+      <line x1="36" y1="197" x2="206" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Signal quality</text>
+      <line x1="36" y1="217" x2="206" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Prioritization</text>
+      <line x1="36" y1="237" x2="206" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Alignment</text>
+      <line x1="36" y1="257" x2="206" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="36" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Feedback loop</text>
 
       <!-- Pipeline questions -->
-      <rect x="234" y="152" width="202" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="250" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="250" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Qualification</text>
-      <line x1="250" y1="197" x2="420" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="250" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Stakeholder coverage</text>
-      <line x1="250" y1="217" x2="420" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="250" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Value articulation</text>
-      <line x1="250" y1="237" x2="420" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="250" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Deal momentum</text>
-      <line x1="250" y1="257" x2="420" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="250" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Competitive and external</text>
+      <rect x="234" y="152" width="202" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="250" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="250" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Qualification</text>
+      <line x1="250" y1="197" x2="420" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="250" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Stakeholder coverage</text>
+      <line x1="250" y1="217" x2="420" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="250" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Value articulation</text>
+      <line x1="250" y1="237" x2="420" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="250" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Deal momentum</text>
+      <line x1="250" y1="257" x2="420" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="250" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Competitive and external</text>
 
       <!-- Expansion questions -->
-      <rect x="448" y="152" width="202" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="464" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="464" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Signal</text>
-      <line x1="464" y1="197" x2="634" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="464" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Solution fit</text>
-      <line x1="464" y1="217" x2="634" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="464" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Ownership</text>
-      <line x1="464" y1="237" x2="634" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="464" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Timing</text>
-      <line x1="464" y1="257" x2="634" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="464" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Relationship risk</text>
+      <rect x="448" y="152" width="202" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="464" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="464" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Signal</text>
+      <line x1="464" y1="197" x2="634" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="464" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Solution fit</text>
+      <line x1="464" y1="217" x2="634" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="464" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Ownership</text>
+      <line x1="464" y1="237" x2="634" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="464" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Timing</text>
+      <line x1="464" y1="257" x2="634" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="464" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Relationship risk</text>
 
       <!-- Pricing questions -->
-      <rect x="662" y="152" width="198" height="130" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="678" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#7a7670">DIAGNOSE</text>
-      <text x="678" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Governance</text>
-      <line x1="678" y1="197" x2="844" y2="197" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="678" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Value alignment</text>
-      <line x1="678" y1="217" x2="844" y2="217" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="678" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Discount patterns</text>
-      <line x1="678" y1="237" x2="844" y2="237" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="678" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Monetization</text>
-      <line x1="678" y1="257" x2="844" y2="257" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="678" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#0e0e0d">Entry point</text>
+      <rect x="662" y="152" width="198" height="130" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="678" y="172" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1" fill="#5f6b70">DIAGNOSE</text>
+      <text x="678" y="191" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Governance</text>
+      <line x1="678" y1="197" x2="844" y2="197" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="678" y="211" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Value alignment</text>
+      <line x1="678" y1="217" x2="844" y2="217" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="678" y="231" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Discount patterns</text>
+      <line x1="678" y1="237" x2="844" y2="237" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="678" y="251" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Monetization</text>
+      <line x1="678" y1="257" x2="844" y2="257" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="678" y="271" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#14171a">Entry point</text>
 
       <!-- Arrows down to lever box -->
-      <line x1="121" y1="282" x2="121" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="335" y1="282" x2="335" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="549" y1="282" x2="549" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="761" y1="282" x2="761" y2="322" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="121" y1="282" x2="121" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="335" y1="282" x2="335" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="549" y1="282" x2="549" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="761" y1="282" x2="761" y2="322" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- LEVER BOX -->
-      <rect x="20" y="326" width="840" height="56" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="440" y="346" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#0e0e0d">CHOOSE THE RIGHT LEVER</text>
-      <text x="440" y="366" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#7a7670">Org behavior  |  Incentives  |  Enablement  |  Tools and solutions  |  Automation and AI</text>
+      <rect x="20" y="326" width="840" height="56" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="440" y="346" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" letter-spacing="2" fill="#14171a">CHOOSE THE RIGHT LEVER</text>
+      <text x="440" y="366" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="11" fill="#5f6b70">Org behavior  |  Incentives  |  Enablement  |  Tools and solutions  |  Automation and AI</text>
 
       <!-- Branch lines -->
-      <line x1="280" y1="382" x2="200" y2="418" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
-      <line x1="600" y1="382" x2="680" y2="418" stroke="#7a7670" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="280" y1="382" x2="200" y2="418" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="600" y1="382" x2="680" y2="418" stroke="#5f6b70" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- Branch labels -->
-      <text x="196" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">process / people</text>
-      <text x="684" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">automation</text>
+      <text x="196" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">process / people</text>
+      <text x="684" y="408" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">automation</text>
 
       <!-- LEFT: Process fix -->
-      <rect x="20" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="215" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#0e0e0d">Process, people, or incentive fix</text>
-      <text x="215" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Redefine ICP. Align incentives. Run enablement.</text>
-      <text x="215" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Fix stage definitions. Build playbooks.</text>
+      <rect x="20" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="215" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#14171a">Process, people, or incentive fix</text>
+      <text x="215" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">Redefine ICP. Align incentives. Run enablement.</text>
+      <text x="215" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">Fix stage definitions. Build playbooks.</text>
 
       <!-- RIGHT: App candidate -->
-      <rect x="470" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#c8440a" stroke-width="1"/>
-      <text x="665" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#0e0e0d">AI app candidate</text>
-      <text x="665" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">Apply the Go/No-Go filter first:</text>
-      <text x="665" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#7a7670">business value + data gate + org readiness</text>
+      <rect x="470" y="422" width="390" height="64" rx="3" fill="#ffffff" stroke="#10726b" stroke-width="1"/>
+      <text x="665" y="443" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="12" font-weight="500" fill="#14171a">AI app candidate</text>
+      <text x="665" y="461" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">Apply the Go/No-Go filter first:</text>
+      <text x="665" y="476" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#5f6b70">business value + data gate + org readiness</text>
 
       <!-- Arrow to apps -->
-      <line x1="665" y1="486" x2="665" y2="520" stroke="#c8440a" stroke-width="1" marker-end="url(#arr)"/>
+      <line x1="665" y1="486" x2="665" y2="520" stroke="#10726b" stroke-width="1" marker-end="url(#arr)"/>
 
       <!-- APPS BOX -->
-      <rect x="470" y="524" width="390" height="216" rx="3" fill="#faf9f6" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="486" y="544" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.5" fill="#c8440a">FIVE APPS ACROSS THE FOUR SECTIONS</text>
-      <line x1="486" y1="550" x2="844" y2="550" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="486" y="567" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Account priority scorer</text>
-      <text x="750" y="567" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">ICP</text>
-      <line x1="486" y1="574" x2="844" y2="574" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="486" y="591" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Deal risk monitor</text>
-      <text x="750" y="591" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Pipeline</text>
-      <line x1="486" y1="598" x2="844" y2="598" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="486" y="615" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Next best action</text>
-      <text x="750" y="615" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Pipeline</text>
-      <line x1="486" y1="622" x2="844" y2="622" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="486" y="639" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Customer expansion intelligence</text>
-      <text x="750" y="639" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Expansion</text>
-      <line x1="486" y1="646" x2="844" y2="646" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="486" y="663" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#0e0e0d">Discount governance</text>
-      <text x="750" y="663" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Pricing</text>
-      <line x1="486" y1="670" x2="844" y2="670" stroke="#d4cfc6" stroke-width="0.5"/>
-      <text x="665" y="690" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#7a7670">Only if data gate passes</text>
-      <text x="665" y="706" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#c8440a">See full article for goal, data required, and gate condition per app</text>
-      <text x="665" y="730" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" fill="#7a7670">Process first. An AI app built on a broken workflow produces broken outputs faster.</text>
+      <rect x="470" y="524" width="390" height="216" rx="3" fill="#faf9f6" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="486" y="544" font-family="'DM Mono',monospace" font-size="8" letter-spacing="1.5" fill="#10726b">FIVE APPS ACROSS THE FOUR SECTIONS</text>
+      <line x1="486" y1="550" x2="844" y2="550" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="486" y="567" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#14171a">Account priority scorer</text>
+      <text x="750" y="567" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">ICP</text>
+      <line x1="486" y1="574" x2="844" y2="574" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="486" y="591" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#14171a">Deal risk monitor</text>
+      <text x="750" y="591" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">Pipeline</text>
+      <line x1="486" y1="598" x2="844" y2="598" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="486" y="615" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#14171a">Next best action</text>
+      <text x="750" y="615" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">Pipeline</text>
+      <line x1="486" y1="622" x2="844" y2="622" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="486" y="639" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#14171a">Customer expansion intelligence</text>
+      <text x="750" y="639" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">Expansion</text>
+      <line x1="486" y1="646" x2="844" y2="646" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="486" y="663" font-family="'DM Sans',sans-serif" font-size="10.5" font-weight="500" fill="#14171a">Discount governance</text>
+      <text x="750" y="663" text-anchor="end" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">Pricing</text>
+      <line x1="486" y1="670" x2="844" y2="670" stroke="#d7dde0" stroke-width="0.5"/>
+      <text x="665" y="690" text-anchor="middle" font-family="'DM Mono',monospace" font-size="9" fill="#5f6b70">Only if data gate passes</text>
+      <text x="665" y="706" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10.5" fill="#10726b">See full article for goal, data required, and gate condition per app</text>
+      <text x="665" y="730" text-anchor="middle" font-family="'DM Sans',sans-serif" font-size="10" fill="#5f6b70">Process first. An AI app built on a broken workflow produces broken outputs faster.</text>
     </svg>
   </div>
 

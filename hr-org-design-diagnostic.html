@@ -12,8 +12,8 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --ink:#0e0e0d;--paper:#f5f2eb;--accent:#c8440a;
-  --muted:#7a7670;--border:#d4cfc6;--white:#ffffff;
+  --ink:#14171a;--paper:#f3f5f6;--accent:#10726b;
+  --muted:#5f6b70;--border:#d7dde0;--white:#ffffff;
   --serif:'Playfair Display',Georgia,serif;
   --mono:'DM Mono',monospace;
   --sans:'DM Sans',system-ui,sans-serif;
@@ -42,7 +42,7 @@ h1 em{font-style:italic;color:var(--accent);}
 .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
 .eyebrow::before{content:'';display:inline-block;width:16px;height:1px;background:var(--accent);}
 h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.25;margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--border);}
-.intro{font-size:15px;line-height:1.8;color:#3a3834;margin-bottom:24px;}
+.intro{font-size:15px;line-height:1.8;color:#3a4045;margin-bottom:24px;}
 .triage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:16px;}
 .triage-cell{background:var(--white);padding:18px 20px;}
 .triage-cell .q-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
@@ -57,7 +57,7 @@ h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.25;ma
 .q-list li::before{content:"?";font-family:var(--mono);font-size:10px;color:var(--accent);margin-top:2px;flex-shrink:0;}
 .q-list li:last-child{border-bottom:none;}
 .ebitda-label{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;margin-top:16px;}
-.ebitda-text{font-size:12px;line-height:1.6;color:#3a3834;padding:10px 12px;background:var(--paper);border-left:2px solid var(--accent);}
+.ebitda-text{font-size:12px;line-height:1.6;color:#3a4045;padding:10px 12px;background:var(--paper);border-left:2px solid var(--accent);}
 .lever-section{margin:52px 0;}
 .lever-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:24px;}
 .lever-card{border:1px solid var(--border);padding:24px;}
@@ -66,7 +66,7 @@ h2{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.25;ma
 .lever-list li{font-size:13px;line-height:1.6;padding:5px 0;border-bottom:1px solid var(--border);color:var(--muted);}
 .lever-list li:last-child{border-bottom:none;}
 .lever-list li.active{color:var(--ink);font-weight:500;}
-.lever-note{font-size:13px;line-height:1.7;color:#3a3834;margin-top:16px;padding:14px 16px;border:1px solid var(--border);background:var(--white);}
+.lever-note{font-size:13px;line-height:1.7;color:#3a4045;margin-top:16px;padding:14px 16px;border:1px solid var(--border);background:var(--white);}
 .lever-note a{color:var(--accent);}
 .apps-section{margin:52px 0;}
 .apps-table{width:100%;border-collapse:collapse;font-family:var(--sans);font-size:13px;margin-top:24px;}
@@ -317,7 +317,7 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
             <span class="app-section">Recruit</span>
           </td>
           <td></td>
-          <td style="font-size:12px;color:#3a3834;">Score inbound candidates against role requirements. Surface top fits and flag mismatches before recruiter review. Reduce time spent on manual screening.</td>
+          <td style="font-size:12px;color:#3a4045;">Score inbound candidates against role requirements. Surface top fits and flag mismatches before recruiter review. Reduce time spent on manual screening.</td>
           <td style="font-size:11px;color:var(--muted);">Requires a defined job requirements framework and historical hire quality data to calibrate against. Biased training data produces biased outputs — this gate is not optional.</td>
         </tr>
         <tr>
@@ -326,7 +326,7 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
             <span class="app-section">Onboard</span>
           </td>
           <td></td>
-          <td style="font-size:12px;color:#3a3834;">Personalize onboarding paths by role. Track milestone completion. Flag early risk signals — disengagement or stalled ramp — before the 90-day mark.</td>
+          <td style="font-size:12px;color:#3a4045;">Personalize onboarding paths by role. Track milestone completion. Flag early risk signals — disengagement or stalled ramp — before the 90-day mark.</td>
           <td style="font-size:11px;color:var(--muted);">Cannot automate a process that has not been defined. Requires a structured onboarding framework with defined milestones to exist first.</td>
         </tr>
         <tr>
@@ -335,7 +335,7 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
             <span class="app-section">Exit</span>
           </td>
           <td></td>
-          <td style="font-size:12px;color:#3a3834;">Aggregate exit themes across functions, managers, and tenure bands. Surface systemic issues — management patterns, compensation gaps, role clarity failures — before they compound.</td>
+          <td style="font-size:12px;color:#3a4045;">Aggregate exit themes across functions, managers, and tenure bands. Surface systemic issues — management patterns, compensation gaps, role clarity failures — before they compound.</td>
           <td style="font-size:11px;color:var(--muted);">Requires consistent exit interview capture. If exit data is incomplete, biased, or inconsistently collected, synthesis reflects those gaps and produces misleading signals.</td>
         </tr>
         <tr>
@@ -344,7 +344,7 @@ footer{padding:2rem clamp(1.5rem,5vw,4rem);display:flex;justify-content:space-be
             <span class="app-section">Retain</span>
           </td>
           <td></td>
-          <td style="font-size:12px;color:#3a3834;">Score employee retention risk based on engagement signals, performance trends, manager feedback patterns, and tenure. Surface at-risk employees 60 to 90 days before a resignation.</td>
+          <td style="font-size:12px;color:#3a4045;">Score employee retention risk based on engagement signals, performance trends, manager feedback patterns, and tenure. Surface at-risk employees 60 to 90 days before a resignation.</td>
           <td style="font-size:11px;color:var(--muted);">Requires connected HR, performance, and engagement data. Requires explicit organizational policy on how scores are used and who sees them. Misuse destroys trust faster than any attrition problem.</td>
         </tr>
       </tbody>

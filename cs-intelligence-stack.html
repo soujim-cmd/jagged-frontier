@@ -10,8 +10,8 @@
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --ink: #0e0e0d; --paper: #f5f2eb; --accent: #c8440a;
-    --muted: #7a7670; --border: #d4cfc6;
+    --ink: #14171a; --paper: #f3f5f6; --accent: #10726b;
+    --muted: #5f6b70; --border: #d7dde0;
     --serif: 'Playfair Display', Georgia, serif;
     --mono: 'DM Mono', monospace; --sans: 'DM Sans', system-ui, sans-serif;
   }
@@ -26,20 +26,20 @@
   .masthead-nav a:hover { opacity: 1; }
   .dateline { background: var(--ink); color: var(--paper); padding: 8px clamp(1.5rem,5vw,4rem); display: flex; gap: 2rem; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; overflow: hidden; }
   .dateline span { opacity: .5; white-space: nowrap; }
-  .dateline span.active { opacity: 1; color: #e8b89a; }
+  .dateline span.active { opacity: 1; color: #8fd0c4; }
   .article-header { padding: clamp(3rem,6vw,5rem) clamp(1.5rem,5vw,4rem) 0; border-bottom: 1px solid var(--border); max-width: 860px; }
   .article-eyebrow { font-family: var(--mono); font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px; }
   .article-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
   .article-title { font-family: var(--serif); font-size: clamp(2rem,5vw,3.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -.02em; margin-bottom: 1.5rem; }
   .article-title em { font-style: normal; color: var(--accent); }
-  .article-dek { font-size: 16px; line-height: 1.75; color: #3a3834; max-width: 60ch; font-weight: 300; margin-bottom: 2rem; }
+  .article-dek { font-size: 16px; line-height: 1.75; color: #3a4045; max-width: 60ch; font-weight: 300; margin-bottom: 2rem; }
   .article-meta { display: flex; gap: 2rem; align-items: center; padding: 1.25rem 0; border-top: 1px solid var(--border); }
   .article-author { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
   .article-date { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
   .article-tag { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--border); color: var(--muted); }
   .article-wrap { display: grid; grid-template-columns: 1fr 280px; gap: 4rem; padding: clamp(2rem,5vw,4rem) clamp(1.5rem,5vw,4rem); align-items: start; max-width: 1200px; }
   .article-body { max-width: 680px; }
-  .article-body p { font-size: 15px; line-height: 1.85; color: #2a2826; font-weight: 300; margin-bottom: 1.5rem; }
+  .article-body p { font-size: 15px; line-height: 1.85; color: #23272c; font-weight: 300; margin-bottom: 1.5rem; }
   .article-body h2 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; line-height: 1.2; }
   .article-body h3 { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; margin: 2rem 0 .75rem; line-height: 1.25; color: var(--ink); }
   .article-body h3.layer-label { font-family: var(--mono); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin: 2rem 0 .5rem; }
@@ -54,7 +54,7 @@
   .build-num { font-family: var(--mono); font-size: 20px; font-weight: 500; color: var(--border); line-height: 1; }
   .build-step-title { font-family: var(--sans); font-size: 14px; font-weight: 500; margin-bottom: .25rem; }
   .build-step-title span { font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-left: .5rem; }
-  .build-step p { font-size: 13px; line-height: 1.7; color: #3a3834; margin: 0; }
+  .build-step p { font-size: 13px; line-height: 1.7; color: #3a4045; margin: 0; }
   .article-byline-footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 2px solid var(--ink); }
   .article-byline-footer p { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--muted); line-height: 1.7; }
   .article-sidebar { position: sticky; top: 2rem; }
@@ -152,76 +152,76 @@
         <title>The CS Intelligence Stack : Where the Loop Is Still Open</title>
         <desc>Six layers of the customer success stack, an adjacent Agent OS category, and the missing propagation loop highlighted</desc>
 
-        <rect width="700" height="656" fill="#f5f2eb" rx="12"/>
+        <rect width="700" height="656" fill="#f3f5f6" rx="12"/>
 
-        <text x="350" y="36" text-anchor="middle" font-size="15" font-weight="600" fill="#0e0e0d" letter-spacing="-0.3">The CS Intelligence Stack in 2026</text>
-        <text x="350" y="55" text-anchor="middle" font-size="12" fill="#7a7670">Where the loop is still open</text>
+        <text x="350" y="36" text-anchor="middle" font-size="15" font-weight="600" fill="#14171a" letter-spacing="-0.3">The CS Intelligence Stack in 2026</text>
+        <text x="350" y="55" text-anchor="middle" font-size="12" fill="#5f6b70">Where the loop is still open</text>
 
         <!-- L1 -->
-        <rect x="40" y="72" width="620" height="54" rx="8" fill="#0e0e0d"/>
-        <text x="58" y="93" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 1 · CORE CS PLATFORMS</text>
-        <text x="58" y="110" font-size="12" font-weight="500" fill="#f5f2eb">Score health. Run playbooks. Track renewals.</text>
-        <text x="58" y="123" font-size="10" fill="#7a7670">Gainsight · Planhat · Vitally · ChurnZero · Totango/Catalyst</text>
+        <rect x="40" y="72" width="620" height="54" rx="8" fill="#14171a"/>
+        <text x="58" y="93" font-size="10" font-weight="500" fill="#5f6b70" letter-spacing="1">LAYER 1 · CORE CS PLATFORMS</text>
+        <text x="58" y="110" font-size="12" font-weight="500" fill="#f3f5f6">Score health. Run playbooks. Track renewals.</text>
+        <text x="58" y="123" font-size="10" fill="#5f6b70">Gainsight · Planhat · Vitally · ChurnZero · Totango/Catalyst</text>
         <rect x="574" y="81" width="72" height="17" rx="8.5" fill="#1e3a5f"/>
         <text x="610" y="93" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">Mature</text>
 
         <!-- L2 -->
-        <rect x="40" y="132" width="620" height="54" rx="8" fill="#0e0e0d"/>
-        <text x="58" y="153" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 2 · AI-NATIVE ENTRANTS</text>
-        <text x="58" y="170" font-size="12" font-weight="500" fill="#f5f2eb">Predictive insight, lower administrative overhead.</text>
-        <text x="58" y="183" font-size="10" fill="#7a7670">Velaris</text>
+        <rect x="40" y="132" width="620" height="54" rx="8" fill="#14171a"/>
+        <text x="58" y="153" font-size="10" font-weight="500" fill="#5f6b70" letter-spacing="1">LAYER 2 · AI-NATIVE ENTRANTS</text>
+        <text x="58" y="170" font-size="12" font-weight="500" fill="#f3f5f6">Predictive insight, lower administrative overhead.</text>
+        <text x="58" y="183" font-size="10" fill="#5f6b70">Velaris</text>
         <rect x="568" y="141" width="78" height="17" rx="8.5" fill="#14532d"/>
         <text x="607" y="153" text-anchor="middle" font-size="9" fill="#86efac" font-weight="500">Emerging</text>
 
         <!-- L3 -->
-        <rect x="40" y="192" width="620" height="54" rx="8" fill="#0e0e0d"/>
-        <text x="58" y="213" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 3 · CRM-NATIVE CS</text>
-        <text x="58" y="230" font-size="12" font-weight="500" fill="#f5f2eb">CS inside the CRM you already run.</text>
-        <text x="58" y="243" font-size="10" fill="#7a7670">Salesforce Agentforce · HubSpot Service Hub</text>
+        <rect x="40" y="192" width="620" height="54" rx="8" fill="#14171a"/>
+        <text x="58" y="213" font-size="10" font-weight="500" fill="#5f6b70" letter-spacing="1">LAYER 3 · CRM-NATIVE CS</text>
+        <text x="58" y="230" font-size="12" font-weight="500" fill="#f3f5f6">CS inside the CRM you already run.</text>
+        <text x="58" y="243" font-size="10" fill="#5f6b70">Salesforce Agentforce · HubSpot Service Hub</text>
         <rect x="574" y="201" width="72" height="17" rx="8.5" fill="#1e3a5f"/>
         <text x="610" y="213" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">Growing</text>
 
         <!-- L4 -->
-        <rect x="40" y="252" width="620" height="54" rx="8" fill="#0e0e0d"/>
-        <text x="58" y="273" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 4 · CUSTOMER-FACING EXPERIENCE</text>
-        <text x="58" y="290" font-size="12" font-weight="500" fill="#f5f2eb">The onboarding and adoption the customer sees.</text>
-        <text x="58" y="303" font-size="10" fill="#7a7670">Rocketlane · GUIDEcx · Dock · Arrows · Userflow</text>
-        <rect x="558" y="261" width="88" height="17" rx="8.5" fill="#3a3834"/>
-        <text x="602" y="273" text-anchor="middle" font-size="9" fill="#d4cfc6" font-weight="500">Fragmented</text>
+        <rect x="40" y="252" width="620" height="54" rx="8" fill="#14171a"/>
+        <text x="58" y="273" font-size="10" font-weight="500" fill="#5f6b70" letter-spacing="1">LAYER 4 · CUSTOMER-FACING EXPERIENCE</text>
+        <text x="58" y="290" font-size="12" font-weight="500" fill="#f3f5f6">The onboarding and adoption the customer sees.</text>
+        <text x="58" y="303" font-size="10" fill="#5f6b70">Rocketlane · GUIDEcx · Dock · Arrows · Userflow</text>
+        <rect x="558" y="261" width="88" height="17" rx="8.5" fill="#3a4045"/>
+        <text x="602" y="273" text-anchor="middle" font-size="9" fill="#d7dde0" font-weight="500">Fragmented</text>
 
         <!-- L5 -->
-        <rect x="40" y="312" width="620" height="54" rx="8" fill="#0e0e0d"/>
-        <text x="58" y="333" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 5 · SIGNAL &amp; MEASUREMENT INPUTS</text>
-        <text x="58" y="350" font-size="12" font-weight="500" fill="#f5f2eb">Feed the health-score engines above.</text>
-        <text x="58" y="363" font-size="10" fill="#7a7670">Pendo · Tableau / Looker · NPS &amp; CSAT tools</text>
-        <rect x="552" y="321" width="94" height="17" rx="8.5" fill="#3a3834"/>
-        <text x="599" y="333" text-anchor="middle" font-size="9" fill="#d4cfc6" font-weight="500">Commoditized</text>
+        <rect x="40" y="312" width="620" height="54" rx="8" fill="#14171a"/>
+        <text x="58" y="333" font-size="10" font-weight="500" fill="#5f6b70" letter-spacing="1">LAYER 5 · SIGNAL &amp; MEASUREMENT INPUTS</text>
+        <text x="58" y="350" font-size="12" font-weight="500" fill="#f3f5f6">Feed the health-score engines above.</text>
+        <text x="58" y="363" font-size="10" fill="#5f6b70">Pendo · Tableau / Looker · NPS &amp; CSAT tools</text>
+        <rect x="552" y="321" width="94" height="17" rx="8.5" fill="#3a4045"/>
+        <text x="599" y="333" text-anchor="middle" font-size="9" fill="#d7dde0" font-weight="500">Commoditized</text>
 
         <!-- L6 -->
-        <rect x="40" y="372" width="620" height="54" rx="8" fill="#0e0e0d"/>
-        <text x="58" y="393" font-size="10" font-weight="500" fill="#7a7670" letter-spacing="1">LAYER 6 · SUPPORT AUTOMATION</text>
-        <text x="58" y="410" font-size="12" font-weight="500" fill="#f5f2eb">Resolve the ticket, not the account.</text>
-        <text x="58" y="423" font-size="10" fill="#7a7670">Fin · ASAPP · Decagon</text>
+        <rect x="40" y="372" width="620" height="54" rx="8" fill="#14171a"/>
+        <text x="58" y="393" font-size="10" font-weight="500" fill="#5f6b70" letter-spacing="1">LAYER 6 · SUPPORT AUTOMATION</text>
+        <text x="58" y="410" font-size="12" font-weight="500" fill="#f3f5f6">Resolve the ticket, not the account.</text>
+        <text x="58" y="423" font-size="10" fill="#5f6b70">Fin · ASAPP · Decagon</text>
         <rect x="562" y="381" width="84" height="17" rx="8.5" fill="#1e3a5f"/>
         <text x="604" y="393" text-anchor="middle" font-size="9" fill="#93c5fd" font-weight="500">Fast-scaling</text>
 
         <!-- Sierra adjacent -->
-        <rect x="40" y="440" width="620" height="52" rx="8" fill="#fbeee7" stroke="#0e0e0d" stroke-width="1.5" stroke-dasharray="5 3"/>
-        <text x="58" y="461" font-size="10" font-weight="600" fill="#0e0e0d" letter-spacing="1">ADJACENT CATEGORY · AGENT OS</text>
-        <text x="58" y="478" font-size="12" fill="#0e0e0d">Build and deploy CX agents across every channel. A platform play, priced like one.</text>
-        <text x="600" y="470" text-anchor="middle" font-size="12" fill="#0e0e0d" font-weight="600">Sierra</text>
+        <rect x="40" y="440" width="620" height="52" rx="8" fill="#eef5f3" stroke="#14171a" stroke-width="1.5" stroke-dasharray="5 3"/>
+        <text x="58" y="461" font-size="10" font-weight="600" fill="#14171a" letter-spacing="1">ADJACENT CATEGORY · AGENT OS</text>
+        <text x="58" y="478" font-size="12" fill="#14171a">Build and deploy CX agents across every channel. A platform play, priced like one.</text>
+        <text x="600" y="470" text-anchor="middle" font-size="12" fill="#14171a" font-weight="600">Sierra</text>
 
         <!-- open loop -->
-        <rect x="40" y="508" width="620" height="80" rx="8" fill="#fff8f5" stroke="#c8440a" stroke-width="2" stroke-dasharray="6 3"/>
-        <text x="350" y="533" text-anchor="middle" font-size="10" font-weight="600" fill="#c8440a" letter-spacing="1">THE OPEN LOOP</text>
-        <text x="350" y="554" text-anchor="middle" font-size="13" fill="#0e0e0d" font-weight="500">What worked → ??? → The whole base acts on it</text>
-        <text x="350" y="573" text-anchor="middle" font-size="11" fill="#7a7670">The propagation layer. Not yet automatic. Still done in QBRs.</text>
+        <rect x="40" y="508" width="620" height="80" rx="8" fill="#edf5f3" stroke="#10726b" stroke-width="2" stroke-dasharray="6 3"/>
+        <text x="350" y="533" text-anchor="middle" font-size="10" font-weight="600" fill="#10726b" letter-spacing="1">THE OPEN LOOP</text>
+        <text x="350" y="554" text-anchor="middle" font-size="13" fill="#14171a" font-weight="500">What worked → ??? → The whole base acts on it</text>
+        <text x="350" y="573" text-anchor="middle" font-size="11" fill="#5f6b70">The propagation layer. Not yet automatic. Still done in QBRs.</text>
 
         <!-- return arrow -->
-        <path d="M 660 540 Q 684 540 684 306 Q 684 99 660 99" stroke="#c8440a" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
-        <polygon points="654,102 660,91 666,102" fill="#c8440a"/>
+        <path d="M 660 540 Q 684 540 684 306 Q 684 99 660 99" stroke="#10726b" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+        <polygon points="654,102 660,91 666,102" fill="#10726b"/>
 
-        <text x="350" y="630" text-anchor="middle" font-size="10" fill="#7a7670">jaggedfrontier.org</text>
+        <text x="350" y="630" text-anchor="middle" font-size="10" fill="#5f6b70">jaggedfrontier.org</text>
       </svg>
       <p class="diagram-caption">The customer success stack as it exists today : six layers, an adjacent Agent OS category, and the loop that's still open.</p>
     </div>
