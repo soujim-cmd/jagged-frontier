@@ -19,7 +19,7 @@
     --muted: #5f6b70; --border: #d7dde0;
     --serif: 'Playfair Display', Georgia, serif;
     --mono: 'DM Mono', monospace; --sans: 'DM Sans', system-ui, sans-serif;
-    --green: #2f6b3f; --red: #a83a1f; --blue: #2c5a7a; --amber: #7a5a12;
+    --green: #4f7a2a; --red: #a83a1f; --amber: #7a5a12;
   }
   html { font-size: 16px; scroll-behavior: smooth; }
   body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-weight: 300; line-height: 1.6; }
@@ -61,12 +61,12 @@
   .pat { font-family: var(--mono); font-size: 12.5px; }
   .flag { color: var(--accent); }
   .pill { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; padding: 2px 8px; border-radius: 2px; display: inline-block; }
-  .pill.blocked { background: #f4e4de; color: var(--red); }
+  .pill.blocked { background: #f5e4e0; color: var(--red); }
   .pill.hyp { background: #efe7d6; color: var(--amber); }
-  .pill.healthy { background: #e4efe6; color: var(--green); }
-  .pill.decayed { background: #f4e4de; color: var(--red); }
+  .pill.healthy { background: #e9f0dd; color: var(--green); }
+  .pill.decayed { background: #f5e4e0; color: var(--red); }
   .pill.review { background: #efe7d6; color: var(--amber); }
-  .pill.idle { background: #eee9e0; color: var(--muted); }
+  .pill.idle { background: #e7ecee; color: var(--muted); }
   .pill.top { background: #efe7d6; color: var(--amber); }
 
   .kv { display: grid; grid-template-columns: 190px 1fr; gap: .4rem 1rem; font-size: 14px; }
@@ -77,9 +77,9 @@
   .practice-card { background: var(--ink); color: var(--paper); padding: 1.5rem; }
   .practice-card .kv dt { color: #b8b3a8; }
   .practice-card .kv dd { color: var(--paper); font-family: var(--mono); font-size: 13px; }
-  .stamp { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #8fd0a0; border: 1px solid #8fd0a0; padding: 3px 10px; display: inline-block; margin-bottom: 1rem; }
-  .reasoning { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid #333330; font-size: 13.5px; color: #d8d3c8; }
-  .reasoning span { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #8fd0a0; display: block; margin-bottom: .3rem; }
+  .stamp { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #a9d488; border: 1px solid #a9d488; padding: 3px 10px; display: inline-block; margin-bottom: 1rem; }
+  .reasoning { margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid #2b3034; font-size: 13.5px; color: #d8d3c8; }
+  .reasoning span { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: #a9d488; display: block; margin-bottom: .3rem; }
 
   .trace { font-family: var(--mono); font-size: 12px; line-height: 1.7; background: #faf7f0; border: 1px solid var(--border); padding: 1rem 1.25rem; margin-top: 1rem; }
   .trace .vd-ok { color: var(--green); }
@@ -148,9 +148,9 @@
       <line class="ln" x1="410" y1="186" x2="410" y2="222" marker-end="url(#ah)"/>
       <text class="el" x="420" y="208" text-anchor="start">only tier a/b becomes an outcome</text>
 
-      <rect x="285" y="224" width="250" height="54" rx="4" fill="#eef2f8" stroke="#a9c2d6" stroke-width="1.2"/>
-      <text class="nl" x="410" y="247" text-anchor="middle" fill="#2c5a7a">pattern</text>
-      <text class="ns" x="410" y="264" text-anchor="middle" fill="#2c5a7a">a hypothesis, not yet trusted</text>
+      <rect x="285" y="224" width="250" height="54" rx="4" fill="#eaeef0" stroke="#bcc6cb" stroke-width="1.2"/>
+      <text class="nl" x="410" y="247" text-anchor="middle" fill="#4a555c">pattern</text>
+      <text class="ns" x="410" y="264" text-anchor="middle" fill="#4a555c">a hypothesis, not yet trusted</text>
 
       <line class="ln" x1="252" y1="251" x2="283" y2="251" marker-end="url(#ah)"/>
       <text class="el" x="60" y="235" text-anchor="start">override = evidence</text>
@@ -159,9 +159,9 @@
       <line class="ln" x1="410" y1="278" x2="410" y2="314" marker-end="url(#ah)"/>
       <text class="el" x="420" y="300" text-anchor="start">clears min-n + confidence</text>
 
-      <rect x="285" y="316" width="250" height="54" rx="4" fill="#eef2f8" stroke="#a9c2d6" stroke-width="1.2"/>
-      <text class="nl" x="410" y="339" text-anchor="middle" fill="#2c5a7a">evidence pack</text>
-      <text class="ns" x="410" y="356" text-anchor="middle" fill="#2c5a7a">baseline, holdout, segments, tiers</text>
+      <rect x="285" y="316" width="250" height="54" rx="4" fill="#eaeef0" stroke="#bcc6cb" stroke-width="1.2"/>
+      <text class="nl" x="410" y="339" text-anchor="middle" fill="#4a555c">evidence pack</text>
+      <text class="ns" x="410" y="356" text-anchor="middle" fill="#4a555c">baseline, holdout, segments, tiers</text>
 
       <line class="ln" x1="410" y1="370" x2="410" y2="406" marker-end="url(#ah)"/>
       <text class="el" x="420" y="392" text-anchor="start">reviewed by a person</text>
@@ -173,18 +173,18 @@
       <line class="ln" x1="410" y1="470" x2="410" y2="514" marker-end="url(#ah)"/>
       <text class="el" x="420" y="496" text-anchor="start">approves promotion</text>
 
-      <rect x="285" y="516" width="250" height="54" rx="4" fill="#e4efe6" stroke="#9dc3a8" stroke-width="1.2"/>
-      <text class="nl" x="410" y="539" text-anchor="middle" fill="#2f6b3f">practice</text>
-      <text class="ns" x="410" y="556" text-anchor="middle" fill="#2f6b3f">the agents run it by default</text>
+      <rect x="285" y="516" width="250" height="54" rx="4" fill="#e9f0dd" stroke="#a9c48c" stroke-width="1.2"/>
+      <text class="nl" x="410" y="539" text-anchor="middle" fill="#4f7a2a">practice</text>
+      <text class="ns" x="410" y="556" text-anchor="middle" fill="#4f7a2a">the agents run it by default</text>
 
       <path class="ln" d="M330,543 C250,575 220,585 208,600" marker-end="url(#ah)"/>
       <text class="el" x="70" y="586" text-anchor="start">propagates</text>
       <path class="ln" d="M490,543 C570,575 600,585 612,600" marker-end="url(#ah)"/>
       <text class="el" x="556" y="586" text-anchor="start">monitored</text>
 
-      <rect x="60" y="602" width="290" height="56" rx="4" fill="#e4efe6" stroke="#9dc3a8" stroke-width="1.2"/>
-      <text class="nl" x="205" y="626" text-anchor="middle" fill="#2f6b3f">second altitude</text>
-      <text class="ns" x="205" y="643" text-anchor="middle" fill="#2f6b3f">gtm · cs · hr</text>
+      <rect x="60" y="602" width="290" height="56" rx="4" fill="#e9f0dd" stroke="#a9c48c" stroke-width="1.2"/>
+      <text class="nl" x="205" y="626" text-anchor="middle" fill="#4f7a2a">second altitude</text>
+      <text class="ns" x="205" y="643" text-anchor="middle" fill="#4f7a2a">gtm · cs · hr</text>
       <rect class="nb" x="470" y="602" width="290" height="56" rx="4"/>
       <text class="nl" x="615" y="626" text-anchor="middle">audit</text>
       <text class="ns" x="615" y="643" text-anchor="middle">drops it if it stops working</text>
