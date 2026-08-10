@@ -1,0 +1,92 @@
+<svg viewBox="0 0 980 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl desc" font-family="DM Sans, system-ui, sans-serif">
+<title id="ttl">Who decides what, and what the learning layer takes from and changes in each</title>
+<desc id="desc">Four columns. A worker agent decides which tool to call, scoped to one action, in milliseconds, and learns only partially: it retries inside a task and forgets at the end. A supervisor agent decides which worker to call, scoped to one workflow or team, in milliseconds, and learns only partially: it adapts inside one conversation and its history is logged but only humans read it. An agent platform decides what is allowed, across all agents, set at configuration time by humans, and learns only partially: it can alert when quality drifts but a human decides what to change. The learning layer decides what becomes the default, across all agents and teams over time, on a weeks to quarters clock, and does learn from outcomes.</desc>
+
+<rect width="980" height="760" fill="#f3f5f6"/>
+
+<text x="132" y="152" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">DECIDES</text>
+<text x="132" y="222" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">SCOPE</text>
+<text x="132" y="292" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">CLOCK</text>
+<text x="132" y="356" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">LEARNS FROM</text>
+<text x="132" y="370" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">OUTCOMES</text>
+<text x="132" y="440" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#10726b">↑ THE LAYER</text>
+<text x="132" y="454" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#10726b">TAKES</text>
+<text x="132" y="527" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#10726b">↓ THE LAYER</text>
+<text x="132" y="541" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#10726b">CHANGES</text>
+
+<rect x="145" y="409" width="180" height="165" fill="#10726b" fill-opacity="0.05"/>
+<rect x="353" y="409" width="180" height="165" fill="#10726b" fill-opacity="0.05"/>
+<rect x="561" y="409" width="180" height="165" fill="#10726b" fill-opacity="0.05"/>
+
+<line x1="145" y1="185" x2="949" y2="185" stroke="#d7dde0" stroke-width="0.8"/>
+<line x1="145" y1="255" x2="949" y2="255" stroke="#d7dde0" stroke-width="0.8"/>
+<line x1="145" y1="325" x2="949" y2="325" stroke="#d7dde0" stroke-width="0.8"/>
+<line x1="145" y1="409" x2="949" y2="409" stroke="#10726b" stroke-width="0.9"/>
+<line x1="145" y1="491" x2="949" y2="491" stroke="#10726b" stroke-width="0.9" stroke-dasharray="3 3"/>
+
+<rect x="145" y="60" width="180" height="514" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="161" y="90" font-size="14" font-weight="600" fill="#3a4045">Worker agent</text>
+<text x="161" y="109" font-size="10.5" fill="#5f6b70">one bounded job</text>
+<text x="161" y="152" font-size="12.5" fill="#3a4045">which tool to call</text>
+<text x="161" y="222" font-size="12.5" fill="#3a4045">one action</text>
+<text x="161" y="292" font-size="12.5" fill="#3a4045">milliseconds</text>
+<text x="161" y="363" font-size="14.5" font-weight="600" fill="#5f6b70">Partial *</text>
+<text x="161" y="381" font-size="10" fill="#5f6b70">inside the task only</text>
+<text x="161" y="440" font-size="11.5" fill="#14171a">the action it took,</text>
+<text x="161" y="457" font-size="11.5" fill="#14171a">and what followed</text>
+<text x="161" y="522" font-size="11.5" fill="#14171a">which tool it reaches</text>
+<text x="161" y="539" font-size="11.5" fill="#14171a">for first, over time</text>
+
+<rect x="353" y="60" width="180" height="514" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="369" y="90" font-size="14" font-weight="600" fill="#3a4045">Supervisor agent</text>
+<text x="369" y="109" font-size="10.5" fill="#5f6b70">runtime orchestration</text>
+<text x="369" y="152" font-size="12.5" fill="#3a4045">which worker to call</text>
+<text x="369" y="222" font-size="12.5" fill="#3a4045">one workflow,</text>
+<text x="369" y="238" font-size="12.5" fill="#3a4045">or one team</text>
+<text x="369" y="292" font-size="12.5" fill="#3a4045">milliseconds</text>
+<text x="369" y="363" font-size="14.5" font-weight="600" fill="#5f6b70">Partial †</text>
+<text x="369" y="381" font-size="10" fill="#5f6b70">inside one conversation</text>
+<text x="369" y="440" font-size="11.5" fill="#14171a">which worker it chose,</text>
+<text x="369" y="457" font-size="11.5" fill="#14171a">and human feedback</text>
+<text x="369" y="522" font-size="11.5" fill="#14171a">which worker it routes to,</text>
+<text x="369" y="539" font-size="11.5" fill="#14171a">and when to ask a human</text>
+
+<rect x="561" y="60" width="180" height="514" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="577" y="90" font-size="14" font-weight="600" fill="#3a4045">Agent platform</text>
+<text x="577" y="109" font-size="10.5" fill="#5f6b70">identity, guardrails, traces</text>
+<text x="577" y="152" font-size="12.5" fill="#3a4045">what is allowed</text>
+<text x="577" y="222" font-size="12.5" fill="#3a4045">all agents</text>
+<text x="577" y="292" font-size="12.5" fill="#3a4045">set at config time,</text>
+<text x="577" y="308" font-size="12.5" fill="#3a4045">humans write the rules</text>
+<text x="577" y="363" font-size="14.5" font-weight="600" fill="#5f6b70">Partial ‡</text>
+<text x="577" y="381" font-size="10" fill="#5f6b70">watches answer quality</text>
+<text x="577" y="440" font-size="11.5" fill="#14171a">traces and identity, so</text>
+<text x="577" y="457" font-size="11.5" fill="#14171a">actions can be attributed</text>
+<text x="577" y="522" font-size="11.5" fill="#14171a">adds earned policy next</text>
+<text x="577" y="539" font-size="11.5" fill="#14171a">to the authored rules</text>
+
+<rect x="769" y="60" width="180" height="514" rx="3" fill="#10726b" fill-opacity="0.07" stroke="#10726b" stroke-width="2.2"/>
+<text x="785" y="90" font-size="14" font-weight="600" fill="#14171a">Learning layer</text>
+<text x="785" y="109" font-size="10.5" fill="#10726b">the gate</text>
+<text x="785" y="152" font-size="12.5" fill="#14171a">what becomes</text>
+<text x="785" y="168" font-size="12.5" fill="#14171a">the default</text>
+<text x="785" y="222" font-size="12.5" fill="#14171a">all agents, across</text>
+<text x="785" y="238" font-size="12.5" fill="#14171a">teams, over time</text>
+<text x="785" y="292" font-size="12.5" fill="#14171a">weeks to quarters,</text>
+<text x="785" y="308" font-size="12.5" fill="#14171a">earned by outcomes</text>
+<text x="785" y="363" font-size="14.5" font-weight="700" fill="#10726b">Yes</text>
+<text x="785" y="381" font-size="10" fill="#10726b">that is the whole job</text>
+<text x="785" y="440" font-size="11.5" font-weight="500" fill="#10726b">agent actions, human</text>
+<text x="785" y="457" font-size="11.5" font-weight="500" fill="#10726b">feedback, real outcomes</text>
+<text x="785" y="522" font-size="11.5" font-weight="500" fill="#10726b">writes one thing back:</text>
+<text x="785" y="539" font-size="11.5" font-weight="500" fill="#10726b">approved policy</text>
+
+<text x="145" y="612" font-size="11" fill="#3a4045">* Best available today: it sees a tool result and retries within the task. The lesson is gone when the task ends.</text>
+<text x="145" y="631" font-size="11" fill="#3a4045">† Best available today: it adapts as results come back inside one conversation. Delegations are logged, but only a human ever reads that log.</text>
+<text x="145" y="650" font-size="11" fill="#3a4045">‡ Best available today: online monitors can alert when answer quality drifts. A human then decides what to change and edits it by hand.</text>
+
+<line x1="145" y1="678" x2="949" y2="678" stroke="#d7dde0" stroke-width="0.8"/>
+<text x="145" y="702" font-size="11.5" fill="#3a4045">All three learn inside a task. None of them learn across tasks, across teams, or across weeks.</text>
+<text x="145" y="721" font-size="11.5" fill="#3a4045">None of them link an action to a business result that lands later, somewhere else.</text>
+<text x="145" y="740" font-size="11.5" fill="#3a4045">Nothing here is replaced. The layer reads what they already emit, and writes back one thing.</text>
+</svg>

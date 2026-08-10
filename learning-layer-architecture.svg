@@ -1,0 +1,117 @@
+<svg viewBox="0 0 980 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl desc" font-family="DM Sans, system-ui, sans-serif">
+<title id="ttl">The learning layer: boundary, three clocks, and the gate logic</title>
+<desc id="desc">Three bands. Top band, milliseconds: a human work surface we build, plus three existing systems we integrate with, the agent, the system of work, and the system of record. Everything drains into the middle band, the private engine, holding the outcome graph, the linkage step that joins an action to its outcome, and pattern derivation which requires a minimum sample, tier A signals, and a confidence floor. That flows to the bottom band, governance on a weekly to quarterly clock: an evidence pack, a named approver, and an owner who audits. Approved policy returns to the agent as its default and is retired when results stop holding.</desc>
+
+<defs>
+<marker id="mN" markerWidth="9" markerHeight="9" refX="7.5" refY="3.2" orient="auto"><path d="M0,0 L7.5,3.2 L0,6.4 z" fill="#5f6b70"/></marker>
+<marker id="mA" markerWidth="9" markerHeight="9" refX="7.5" refY="3.2" orient="auto"><path d="M0,0 L7.5,3.2 L0,6.4 z" fill="#10726b"/></marker>
+</defs>
+
+<rect width="980" height="760" fill="#f3f5f6"/>
+
+<rect x="130" y="70" width="760" height="160" rx="3" fill="none" stroke="#d7dde0" stroke-dasharray="2 5"/>
+<text x="146" y="90" font-size="10" letter-spacing="1.4" fill="#5f6b70">WHERE THE WORK HAPPENS</text>
+<text x="118" y="145" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">MILLISECONDS</text>
+<text x="118" y="160" font-size="10" text-anchor="end" fill="#5f6b70">every task</text>
+
+<rect x="150" y="105" width="165" height="85" rx="3" fill="#7a5a12" fill-opacity="0.08" stroke="#7a5a12" stroke-width="1.8"/>
+<circle cx="162" cy="122" r="3.5" fill="#7a5a12"/>
+<text x="171" y="125" font-size="8" letter-spacing="0.8" fill="#7a5a12">HUMAN · TEAM</text>
+<text x="161" y="147" font-size="13" font-weight="600" fill="#14171a">Work surface</text>
+<text x="161" y="164" font-size="9.5" fill="#3a4045">one recommendation,</text>
+<text x="161" y="177" font-size="9.5" fill="#3a4045">and why</text>
+
+<rect x="335" y="105" width="165" height="85" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="346" y="125" font-size="8" letter-spacing="0.8" fill="#5f6b70">EXISTING SYSTEM</text>
+<text x="346" y="147" font-size="13" font-weight="600" fill="#3a4045">Agent</text>
+<text x="346" y="164" font-size="9.5" fill="#5f6b70">theirs, any framework</text>
+
+<rect x="520" y="105" width="165" height="85" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="531" y="125" font-size="8" letter-spacing="0.8" fill="#5f6b70">EXISTING SYSTEM</text>
+<text x="531" y="147" font-size="13" font-weight="600" fill="#3a4045">System of work</text>
+<text x="531" y="164" font-size="9.5" fill="#5f6b70">where the action</text>
+<text x="531" y="177" font-size="9.5" fill="#5f6b70">is carried out</text>
+
+<rect x="705" y="105" width="165" height="85" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.2" stroke-dasharray="5 4"/>
+<text x="716" y="125" font-size="8" letter-spacing="0.8" fill="#5f6b70">EXISTING SYSTEM</text>
+<text x="716" y="147" font-size="13" font-weight="600" fill="#3a4045">System of record</text>
+<text x="716" y="164" font-size="9.5" fill="#5f6b70">where the result</text>
+<text x="716" y="177" font-size="9.5" fill="#5f6b70">lands, later</text>
+
+<path d="M232,190 L232,252" fill="none" stroke="#5f6b70" stroke-width="1.1"/>
+<path d="M417,190 L417,252 L238,252" fill="none" stroke="#5f6b70" stroke-width="1.1"/>
+<path d="M602,190 L602,252 L238,252" fill="none" stroke="#5f6b70" stroke-width="1.1"/>
+<path d="M787,190 L787,252 L238,252" fill="none" stroke="#5f6b70" stroke-width="1.1"/>
+<path d="M232,252 L232,264" fill="none" stroke="#5f6b70" stroke-width="1.1" marker-end="url(#mN)"/>
+<text x="238" y="209" font-size="9.5" fill="#5f6b70">what the human did</text>
+<text x="423" y="224" font-size="9.5" fill="#5f6b70">decisions + actions</text>
+<text x="608" y="209" font-size="9.5" fill="#5f6b70">actions carried out</text>
+<text x="793" y="224" font-size="9.5" fill="#5f6b70">outcomes, weeks late</text>
+
+<rect x="130" y="268" width="760" height="162" rx="4" fill="#10726b" fill-opacity="0.07" stroke="#10726b" stroke-width="2.4"/>
+<text x="146" y="289" font-size="10" letter-spacing="1.4" font-weight="600" fill="#10726b">THE ENGINE · PRIVATE · NO HUMAN IN THE PATH</text>
+<text x="118" y="345" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">DAYS TO WEEKS</text>
+<text x="118" y="360" font-size="10" text-anchor="end" fill="#5f6b70">runs in the background</text>
+
+<rect x="150" y="305" width="230" height="88" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<text x="163" y="336" font-size="13.5" font-weight="600" fill="#14171a">Outcome graph</text>
+<text x="163" y="355" font-size="10" fill="#3a4045">decisions, actions, outcomes,</text>
+<text x="163" y="369" font-size="10" fill="#3a4045">corrections</text>
+
+<rect x="405" y="305" width="230" height="88" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<text x="418" y="336" font-size="13.5" font-weight="600" fill="#14171a">Linkage</text>
+<text x="418" y="355" font-size="10" fill="#3a4045">joins an action to the</text>
+<text x="418" y="369" font-size="10" fill="#3a4045">outcome it caused</text>
+
+<rect x="660" y="305" width="210" height="88" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<text x="673" y="336" font-size="13.5" font-weight="600" fill="#14171a">Pattern holds</text>
+<text x="673" y="355" font-size="10" fill="#3a4045">enough cases, tier A only,</text>
+<text x="673" y="369" font-size="10" fill="#3a4045">confidence floor cleared</text>
+
+<path d="M380,349 L399,349" fill="none" stroke="#10726b" stroke-width="1.3" marker-end="url(#mA)"/>
+<path d="M635,349 L654,349" fill="none" stroke="#10726b" stroke-width="1.3" marker-end="url(#mA)"/>
+<path d="M765,393 L765,448 L265,448 L265,503" fill="none" stroke="#10726b" stroke-width="1.3" marker-end="url(#mA)"/>
+
+<rect x="130" y="470" width="760" height="162" rx="3" fill="#7a5a12" fill-opacity="0.03" stroke="#7a5a12" stroke-width="1.2" stroke-dasharray="2 5"/>
+<text x="146" y="490" font-size="10" letter-spacing="1.4" fill="#7a5a12">WHERE HUMANS DECIDE</text>
+<text x="118" y="535" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">WEEKLY TO</text>
+<text x="118" y="549" font-size="10" letter-spacing="1.2" text-anchor="end" fill="#5f6b70">QUARTERLY</text>
+<text x="118" y="565" font-size="10" text-anchor="end" fill="#5f6b70">on a review cadence</text>
+
+<rect x="150" y="507" width="230" height="88" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<text x="163" y="538" font-size="13.5" font-weight="600" fill="#14171a">Evidence pack</text>
+<text x="163" y="557" font-size="10" fill="#3a4045">the cases, the rate, the</text>
+<text x="163" y="571" font-size="10" fill="#3a4045">confidence, the scope</text>
+
+<rect x="405" y="507" width="230" height="88" rx="3" fill="#7a5a12" fill-opacity="0.08" stroke="#7a5a12" stroke-width="1.8"/>
+<circle cx="418" cy="524" r="3.5" fill="#7a5a12"/>
+<text x="427" y="527" font-size="8" letter-spacing="0.8" fill="#7a5a12">HUMAN · ORG</text>
+<text x="418" y="549" font-size="13.5" font-weight="600" fill="#14171a">Named approver</text>
+<text x="418" y="568" font-size="10" fill="#3a4045">approves, refuses, or narrows</text>
+<text x="418" y="582" font-size="10" fill="#3a4045">the scope. Reason required.</text>
+
+<rect x="660" y="507" width="210" height="88" rx="3" fill="#7a5a12" fill-opacity="0.08" stroke="#7a5a12" stroke-width="1.8"/>
+<circle cx="673" cy="524" r="3.5" fill="#7a5a12"/>
+<text x="682" y="527" font-size="8" letter-spacing="0.8" fill="#7a5a12">HUMAN · ORG</text>
+<text x="673" y="549" font-size="13.5" font-weight="600" fill="#14171a">Owner audits</text>
+<text x="673" y="568" font-size="10" fill="#3a4045">live, decaying, retired</text>
+
+<path d="M380,551 L399,551" fill="none" stroke="#10726b" stroke-width="1.3" marker-end="url(#mA)"/>
+<path d="M635,551 L654,551" fill="none" stroke="#10726b" stroke-width="1.3" marker-end="url(#mA)"/>
+
+<path d="M520,595 L520,690 L946,690 L946,40 L417,40 L417,101" fill="none" stroke="#10726b" stroke-width="2" marker-end="url(#mA)"/>
+<text x="431" y="34" font-size="11" font-weight="500" fill="#10726b">PROMOTE · approved policy becomes what the agent does by default</text>
+
+<path d="M765,595 L765,690" fill="none" stroke="#10726b" stroke-width="1.6" stroke-dasharray="5 4"/>
+<line x1="758" y1="683" x2="772" y2="697" stroke="#10726b" stroke-width="1.8"/>
+<line x1="772" y1="683" x2="758" y2="697" stroke="#10726b" stroke-width="1.8"/>
+<text x="779" y="646" font-size="11" font-weight="500" fill="#10726b">RETIRE · when</text>
+<text x="779" y="660" font-size="11" font-weight="500" fill="#10726b">results stop holding</text>
+
+<rect x="146" y="722" width="20" height="11" rx="2" fill="#10726b" fill-opacity="0.07" stroke="#10726b" stroke-width="1.6"/>
+<text x="174" y="732" font-size="11" fill="#3a4045">the layer we build</text>
+<rect x="290" y="722" width="20" height="11" rx="2" fill="none" stroke="#5f6b70" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="318" y="732" font-size="11" fill="#3a4045">existing systems we integrate with</text>
+<rect x="558" y="722" width="20" height="11" rx="2" fill="#7a5a12" fill-opacity="0.08" stroke="#7a5a12" stroke-width="1.6"/>
+<text x="586" y="732" font-size="11" fill="#3a4045">a human decides here</text>
+</svg>
