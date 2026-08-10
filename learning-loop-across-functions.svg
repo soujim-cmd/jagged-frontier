@@ -1,0 +1,140 @@
+<svg viewBox="0 0 980 760" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="ttl2 desc2" font-family="DM Sans, system-ui, sans-serif">
+<title id="ttl2">The same loop, applied across every function</title>
+<desc id="desc2">Top band: five enterprise functions, each already running its own agents, Sales/GTM, Customer Success, Support, Finance, and Product/Eng. Every one of them feeds the same middle band, the organizational learning loop: capture, outcome context graph, outcome linkage, governed propagation, and agent feedback. Governed propagation is the amber, human-decided step, a named person approves before a pattern becomes policy. The loop closes on itself and also sends enriched context and policy signals back up to every function. Underneath, a platform-agnostic storage substrate, bring your own graph database, vector store, or workflow platform.</desc>
+
+<defs>
+<marker id="n2" markerWidth="9" markerHeight="9" refX="7.5" refY="3.2" orient="auto"><path d="M0,0 L7.5,3.2 L0,6.4 z" fill="#5f6b70"/></marker>
+<marker id="a2" markerWidth="9" markerHeight="9" refX="7.5" refY="3.2" orient="auto"><path d="M0,0 L7.5,3.2 L0,6.4 z" fill="#10726b"/></marker>
+</defs>
+
+<rect width="980" height="760" fill="#f3f5f6"/>
+
+<!-- Band 1: Enterprise Functions -->
+<rect x="130" y="56" width="760" height="176" rx="3" fill="none" stroke="#d7dde0" stroke-dasharray="2 5"/>
+<text x="146" y="76" font-size="10" letter-spacing="1.4" fill="#5f6b70">ENTERPRISE FUNCTIONS · WHAT ALREADY RUNS TODAY</text>
+
+<g font-size="9.5">
+<!-- col 1 Sales/GTM -->
+<rect x="140" y="92" width="140" height="124" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="152" y="115" font-size="12.5" font-weight="600" fill="#3a4045">Sales / GTM</text>
+<circle cx="156" cy="132" r="2" fill="#5f6b70"/><text x="163" y="135" fill="#5f6b70">Account planning agent</text>
+<circle cx="156" cy="148" r="2" fill="#5f6b70"/><text x="163" y="151" fill="#5f6b70">Deal coaching</text>
+
+<!-- col 2 Customer Success -->
+<rect x="292" y="92" width="140" height="124" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="304" y="115" font-size="12.5" font-weight="600" fill="#3a4045">Customer Success</text>
+<circle cx="308" cy="132" r="2" fill="#5f6b70"/><text x="315" y="135" fill="#5f6b70">Renewal risk agent</text>
+<circle cx="308" cy="148" r="2" fill="#5f6b70"/><text x="315" y="151" fill="#5f6b70">Health scoring</text>
+
+<!-- col 3 Support -->
+<rect x="444" y="92" width="140" height="124" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="456" y="115" font-size="12.5" font-weight="600" fill="#3a4045">Support</text>
+<circle cx="460" cy="132" r="2" fill="#5f6b70"/><text x="467" y="135" fill="#5f6b70">Case routing agent</text>
+<circle cx="460" cy="148" r="2" fill="#5f6b70"/><text x="467" y="151" fill="#5f6b70">Escalation triage</text>
+
+<!-- col 4 Finance -->
+<rect x="596" y="92" width="140" height="124" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="608" y="115" font-size="12.5" font-weight="600" fill="#3a4045">Finance</text>
+<circle cx="612" cy="132" r="2" fill="#5f6b70"/><text x="619" y="135" fill="#5f6b70">Churn signal agent</text>
+<circle cx="612" cy="148" r="2" fill="#5f6b70"/><text x="619" y="151" fill="#5f6b70">Renewal prioritization</text>
+
+<!-- col 5 Product/Eng -->
+<rect x="748" y="92" width="140" height="124" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="760" y="115" font-size="12.5" font-weight="600" fill="#3a4045">Product / Eng</text>
+<circle cx="764" cy="132" r="2" fill="#5f6b70"/><text x="771" y="135" fill="#5f6b70">Feedback synthesis</text>
+<circle cx="764" cy="148" r="2" fill="#5f6b70"/><text x="771" y="151" fill="#5f6b70">Roadmap prioritization</text>
+</g>
+
+<!-- flow arrows between band1 and band2 -->
+<path d="M300,232 L300,268" fill="none" stroke="#10726b" stroke-width="1.4" marker-end="url(#a2)"/>
+<text x="308" y="253" font-size="9.5" fill="#10726b">agent outputs + human overrides</text>
+
+<path d="M700,268 L700,232" fill="none" stroke="#10726b" stroke-width="1.4" marker-end="url(#a2)"/>
+<text x="565" y="248" font-size="9.5" fill="#10726b">enriched context + policy signals</text>
+
+<!-- Band 2: Organizational Learning Loop -->
+<rect x="130" y="268" width="760" height="180" rx="4" fill="#10726b" fill-opacity="0.07" stroke="#10726b" stroke-width="2.4"/>
+<text x="146" y="289" font-size="10" letter-spacing="1.4" font-weight="600" fill="#10726b">THE ORGANIZATIONAL LEARNING LOOP · ONE LOOP FOR ALL FIVE</text>
+
+<g>
+<!-- 1 Capture -->
+<rect x="140" y="304" width="140" height="106" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<circle cx="152" cy="320" r="8" fill="none" stroke="#10726b" stroke-width="1.3"/><text x="152" y="323.5" font-size="9" text-anchor="middle" fill="#10726b">1</text>
+<text x="164" y="324" font-size="12.5" font-weight="600" fill="#14171a">Capture</text>
+<text x="152" y="345" font-size="9" fill="#3a4045">execution boundary</text>
+<text x="152" y="358" font-size="9" fill="#3a4045">instrumentation</text>
+<text x="152" y="374" font-size="9" fill="#3a4045">human overrides &amp; edits</text>
+
+<!-- 2 Outcome Context Graph -->
+<rect x="292" y="304" width="140" height="106" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<circle cx="304" cy="320" r="8" fill="none" stroke="#10726b" stroke-width="1.3"/><text x="304" y="323.5" font-size="9" text-anchor="middle" fill="#10726b">2</text>
+<text x="316" y="324" font-size="11.5" font-weight="600" fill="#14171a">Outcome graph</text>
+<text x="304" y="345" font-size="9" fill="#3a4045">decisions, actions,</text>
+<text x="304" y="358" font-size="9" fill="#3a4045">outcomes, corrections,</text>
+<text x="304" y="371" font-size="9" fill="#3a4045">and how they relate</text>
+
+<!-- 3 Outcome Linkage -->
+<rect x="444" y="304" width="140" height="106" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<circle cx="456" cy="320" r="8" fill="none" stroke="#10726b" stroke-width="1.3"/><text x="456" y="323.5" font-size="9" text-anchor="middle" fill="#10726b">3</text>
+<text x="468" y="324" font-size="11.5" font-weight="600" fill="#14171a">Outcome linkage</text>
+<text x="456" y="345" font-size="9" fill="#3a4045">separates signal from</text>
+<text x="456" y="358" font-size="9" fill="#3a4045">noise across many</text>
+<text x="456" y="371" font-size="9" fill="#3a4045">instances, not one</text>
+
+<!-- 4 Governed Propagation (amber, human) -->
+<rect x="596" y="304" width="140" height="106" rx="3" fill="#7a5a12" fill-opacity="0.08" stroke="#7a5a12" stroke-width="1.8"/>
+<circle cx="608" cy="320" r="8" fill="none" stroke="#7a5a12" stroke-width="1.3"/><text x="608" y="323.5" font-size="9" text-anchor="middle" fill="#7a5a12">4</text>
+<circle cx="611" cy="337" r="3.2" fill="#7a5a12"/><text x="619" y="340" font-size="7.5" letter-spacing="0.6" fill="#7a5a12">HUMAN</text>
+<text x="608" y="356" font-size="11" font-weight="600" fill="#14171a">Governed</text>
+<text x="608" y="370" font-size="11" font-weight="600" fill="#14171a">propagation</text>
+<text x="608" y="389" font-size="9" fill="#3a4045">named approver signs</text>
+<text x="608" y="401" font-size="9" fill="#3a4045">off before it becomes policy</text>
+
+<!-- 5 Agent Feedback -->
+<rect x="748" y="304" width="140" height="106" rx="3" fill="none" stroke="#10726b" stroke-width="1.5"/>
+<circle cx="760" cy="320" r="8" fill="none" stroke="#10726b" stroke-width="1.3"/><text x="760" y="323.5" font-size="9" text-anchor="middle" fill="#10726b">5</text>
+<text x="772" y="324" font-size="11.5" font-weight="600" fill="#14171a">Agent feedback</text>
+<text x="760" y="345" font-size="9" fill="#3a4045">updated context,</text>
+<text x="760" y="358" font-size="9" fill="#3a4045">reprioritized signals,</text>
+<text x="760" y="371" font-size="9" fill="#3a4045">adjusted scoring</text>
+</g>
+
+<!-- inter-box arrows -->
+<path d="M280,357 L289,357" fill="none" stroke="#10726b" stroke-width="1.2" marker-end="url(#a2)"/>
+<path d="M432,357 L441,357" fill="none" stroke="#10726b" stroke-width="1.2" marker-end="url(#a2)"/>
+<path d="M584,357 L593,357" fill="none" stroke="#10726b" stroke-width="1.2" marker-end="url(#a2)"/>
+<path d="M736,357 L745,357" fill="none" stroke="#10726b" stroke-width="1.2" marker-end="url(#a2)"/>
+
+<!-- closed loop arrow along the bottom of band 2 -->
+<path d="M818,410 L818,432 L202,432 L202,410" fill="none" stroke="#10726b" stroke-width="1.4" marker-end="url(#a2)"/>
+<text x="510" y="429" font-size="10" font-weight="500" text-anchor="middle" fill="#10726b">learning compounds over time · closed loop</text>
+
+<!-- dashed connector to storage -->
+<path d="M304,410 L304,478" fill="none" stroke="#5f6b70" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#n2)"/>
+<rect x="312" y="440" width="52" height="14" fill="#f3f5f6"/>
+<text x="316" y="450" font-size="9" fill="#5f6b70">persisted</text>
+
+<!-- Band 3: Storage substrate -->
+<rect x="130" y="486" width="760" height="98" rx="3" fill="#5f6b70" fill-opacity="0.04" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="2 5"/>
+<text x="146" y="505" font-size="10" letter-spacing="1.2" fill="#5f6b70">STORAGE SUBSTRATE · PLATFORM-AGNOSTIC, BRING YOUR OWN</text>
+
+<rect x="140" y="516" width="232" height="56" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="152" y="536" font-size="11.5" font-weight="600" fill="#3a4045">Graph database</text>
+<text x="152" y="552" font-size="9" fill="#5f6b70">Neo4j · Amazon Neptune · Azure Cosmos DB</text>
+
+<rect x="392" y="516" width="196" height="56" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="404" y="536" font-size="11.5" font-weight="600" fill="#3a4045">Vector store</text>
+<text x="404" y="552" font-size="9" fill="#5f6b70">Pinecone · Weaviate · pgvector</text>
+
+<rect x="608" y="516" width="280" height="56" rx="3" fill="none" stroke="#5f6b70" stroke-width="1.1" stroke-dasharray="5 4"/>
+<text x="620" y="536" font-size="11.5" font-weight="600" fill="#3a4045">Workflow platform</text>
+<text x="620" y="552" font-size="9" fill="#5f6b70">ServiceNow · Salesforce · Microsoft · custom</text>
+
+<!-- legend -->
+<rect x="146" y="638" width="20" height="11" rx="2" fill="#10726b" fill-opacity="0.07" stroke="#10726b" stroke-width="1.6"/>
+<text x="174" y="648" font-size="11" fill="#3a4045">the loop we build</text>
+<rect x="332" y="638" width="20" height="11" rx="2" fill="none" stroke="#5f6b70" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="360" y="648" font-size="11" fill="#3a4045">existing functions, agents, and storage</text>
+<rect x="668" y="638" width="20" height="11" rx="2" fill="#7a5a12" fill-opacity="0.08" stroke="#7a5a12" stroke-width="1.6"/>
+<text x="696" y="648" font-size="11" fill="#3a4045">a human decides here</text>
+</svg>
